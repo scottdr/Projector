@@ -69,31 +69,23 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   }
 }
 $queryString_Recordset1 = sprintf("&totalRows_Recordset1=%d%s", $totalRows_Recordset1, $queryString_Recordset1);
-?>
 
-<table width="200" border="0" cellspacing="1">
-  <tr>
-    <td><a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>">Previous</a></td>
-    <td><a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>">Next</a></td>
-  </tr>
-</table>
-<p>Page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>
-<?php
-	$columnNum = 1; 
-	do { 
-		print "<div id=\"GalleryColumn" .  $columnNum . "Div\" >";
-		print "\n\t<div id=\"GalleryMedia\">";
-		print "\n\t\t<img src=\"" . $row_Recordset1['SrcImg'] . "\" width=\"300\" height=\"200\">";
-		print "\n\t</div>";
-		print "\n\t<h1>" . $row_Recordset1['Name']. "</h1>";
-		print "\n\t<p>" . $row_Recordset1['Description'] . "</p>";
-		print "\n\t<p><strong>" . $row_Recordset1['Subject'] . "</p>";
-		print "\n\t<p><strong>" . $row_Recordset1['Grade'] . "</strong></p>";
-		print "\n\t<p><strong>" . $row_Recordset1['Duration'] . "</strong></p>";
-		print "\n</div>\n";
-		if (++$columnNum > 3)
-				$columnNum = 1;
-	} while ($row_Recordset1 = mysql_fetch_assoc($Recordset1));
-	
-	mysql_free_result($Recordset1);
+
+$columnNum = 1; 
+do { 
+	print "<div id=\"GalleryColumn" .  $columnNum . "Div\" >";
+	print "\n\t<div id=\"GalleryMedia\">";
+	print "\n\t\t<img src=\"" . $row_Recordset1['SrcImg'] . "\" width=\"300\" height=\"200\">";
+	print "\n\t</div>";
+	print "\n\t<h1>" . $row_Recordset1['Name']. "</h1>";
+	print "\n\t<p>" . $row_Recordset1['Description'] . "</p>";
+	print "\n\t<p><strong>" . $row_Recordset1['Subject'] . "</p>";
+	print "\n\t<p><strong>" . $row_Recordset1['Grade'] . "</strong></p>";
+	print "\n\t<p><strong>" . $row_Recordset1['Duration'] . "</strong></p>";
+	print "\n</div>\n";
+	if (++$columnNum > 3)
+			$columnNum = 1;
+} while ($row_Recordset1 = mysql_fetch_assoc($Recordset1));
+
+mysql_free_result($Recordset1);
 ?>
