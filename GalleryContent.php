@@ -17,7 +17,7 @@
      	print "\n\t<p><strong>$row->subject</p>";
 			print "\n\t<p><strong>$row->grade</strong></p>";
 			print "\n\t<p><strong>$row->duration</strong></p>";
-			print "<tr>\n</div>\n";
+			print "\n</div>\n";
 			if (++$columnNum > 3)
 					$columnNum = 1;
 		}
