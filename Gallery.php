@@ -9,19 +9,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projector Gallery</title>
-<link href="boilerplate.css" rel="stylesheet" type="text/css">
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="Project.css" rel="stylesheet" type="text/css">
 
 <style type="text/css">
 body {
 	background-image: url(images/proj_gal_bg.gif);
 	background-repeat: repeat-x;
-	background-color: #FFFFFF;
+	background-color:#FBF9FA;
+}
+
+select {
+	margin-top:2px;
+	background-color : #666;
+	color : #FFF;
+	border: 1px solid #b9bdc1; 
 }
 </style>
 
-<script src="respond.min.js"></script>
-
+<script src="js/respond.min.js"></script>
+<script src="js/gallery.js"></script>
+<script src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.GalleryColumn1Div,.GalleryColumn2Div,.GalleryColumn3Div').click(function(e) {
+		/*
+		alert('You clicked the DIV:' + e.currentTarget.getAttribute("data-id")); */
+		window.location = "ProjectDetails.php?Id=" + e.currentTarget.getAttribute("data-id");
+	});  
+});
+</script>
 </head>
 <body>
 
@@ -43,64 +60,87 @@ body {
             
         <div id="NavDiv">
             <div id="NavItemUp">
-              <a class="navUp" href="Index.html">HOME</a>
+              <a class="navUp" href="index.php">HOME</a>
             </div>
             <div id="NavItemDown">
-                <a class="navDown" href="ProjectGallery.html">PROJECT GALLERY</a>
+                <a class="navDown" href="Gallery.php">PROJECT GALLERY</a>
             </div>
             <div id="NavItemUp">
                <a class="navUp" href="StudentGallery.html">STUDENT GALLERY</a>
             </div>
-                <div id="NavSearch">
-                   Search ...
+            <div id="NavSearchContainter">
+            	<div id="NavSearchTextContainer">
+            		<input type="text" id="NavSearchText" placeholder="Search ...">
+              </div>
+   <!--             <div id="NavSearch">
+                   Search ...-->
                     <!--form id="searchbox" action="">
-                    <input id="search" type="text" placeholder="Type here">
+                    <input type="text" id="NavSearch" value="Search ...">
         
                     </form-->
                 <input type="submit" class="searchButton" id="submit" value="">
-                </div>
+        	</div>
         </div>
+        <div class="clearFloat">
+        </div>
+        <?php
+           require_once "GalleryQuery.php";
+         ?>
         <!-- TOP PAGE NAVIGATION --------------------------------------------->
         <div id="ContentDiv">
         
           <div id="GalleryNavFilter">
-                <p>All Grades, ELA, Math, Art & Science, 7-8 days </p>
-            </div>
+                <p>&nbsp;</p>
+          </div>
             
             <div id="GalleryNavItemsPerPg">
-                <p>View 12 per page </p>
+       					<form name="form1" method="post" action="">
+                  <label> View
+                    <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
+                      <option value="3">3 per page</option>
+                      <option value="9">9 per page</option>
+                      <option value="9000">all</option>
+                    </select>
+                  </label>
+                </form>
             </div>
             
-            <div id="GalleryNavPgOfX">
-              <p> page 1 of 9 </p>
-              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_next_up.gif"></a>
-              <a href="#"><img src="images/proj_gal_back_up.gif"></a>
-             </div>
+            <div id="GalleryNavPgOfX"><p>  page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_next_up.gif"></a>
+              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_back_up.gif"></a>
+          </div>
         
         
           <!-- PAGE CONTENT --------------------------------------------->
-
 					 <?php
-           require_once "TestDivNoBody.php";
+           require_once "GallerySQLContent.php";
            ?>
+ 
             <p></p>
             <!-- BOTTOM PAGE NAVIGATION ----------------------------->
             <div id="GalleryNavFilter">
-                <p>All Grades, ELA, Math, Art & Science, 7-8 days </p>
+                <p>&nbsp;</p>
             </div>
             
             <div id="GalleryNavItemsPerPg">
-                <p>View 3 per page </p>
+                <form name="form1" method="post" action="">
+                  <label>View
+                    <select name="recordsPerPage2" id="recordsPerPage2" onChange="updateRecordCount(this.value)">
+                      <option value="3">3 per page</option>
+                      <option value="9">9 per page</option>
+                      <option value="9000">all</option>
+                    </select>
+                  </label>
+                </form>
             </div>
             
-            <div id="GalleryNavPgOfX">
+          <div id="GalleryNavPgOfX">
               <p> page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?> </p>
               <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_next_up.gif"></a>
               <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_back_up.gif"></a>
             </div>
             
             <!-- FOOTER --------------------------------------------->
-            
+          
         </div>
         
       </div>
