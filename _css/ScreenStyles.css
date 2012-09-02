@@ -1,0 +1,301 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+	font-family:"nimbus-sans", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	-webkit-text-size-adjust: none;
+	color:rgba(255,255,255,1);
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-weight:200;
+}
+a:link {
+	text-decoration: none;
+	color:#00AEEF;
+}
+a:visited {
+	color: #00AEEF;
+}
+a:hover {
+	color: #00AEEF;
+}
+a:active {
+	color: #00AEEF;
+}
+.typekit-badge {
+	display:none !important;
+}
+
+#FullWidthWrapper {
+	width:100%;
+	height:2000px;
+}
+
+/* 01 Challenge Screen */
+
+#ChallengeWrapper {
+	margin-left:auto;
+	margin-right:auto;
+	width:680px;
+	height:480px;
+}
+#ChallengeVideoScreen {
+	float: left;
+	margin-top: 20px;
+	width:640px;
+	padding: 0px;
+	border: 0px;
+}
+#ChallengeInfo {
+	float: right;
+	padding: 0px;
+	border: 0px;
+	margin-top: 20px;
+	background-color: #00AEEF;
+	height: 40px;
+	width: 40px;
+	overflow:hidden;
+}
+#ChallengeInfo img{
+	margin: 8px;
+	border: 0px;
+}
+#ChallengeInfoClose {
+	float: right;
+	padding: 0px;
+	border: 0px;
+	margin-top: 20px;
+	background-color: #00AEEF;
+	height: 40px;
+	width: 40px;
+	overflow:hidden;
+	display:none;
+}
+#ChallengeInfoClose img{
+	margin: 8px;
+	border: 0px;
+}
+#ChallengeInfoDetails {
+	visibility:hidden;
+	position:relative;
+	float:right;
+	background-color:rgba(255,255,255,1);
+	top: -480px;
+	left: -40px;
+	width: 200px;
+	height: 480px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 0px;
+	margin: 0px;
+	z-index: 1;
+	overflow:scroll;
+	/* Firefox v3.5+ */
+	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
+}
+#ChallengeInfoDetails .infoHeading{
+	color:rgba(51,51,51,1);
+	font-size: 14px;
+	font-weight:500;
+	line-height: 14px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#ChallengeInfoDetails .infoParagraph{
+	color:rgba(51,51,51,1);
+	font-size: 14px;
+	font-weight:200;
+	line-height: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* 02 InDetail Screen */
+
+#DetailsTwoColumnLeft {
+	float:left;
+	width:58%;
+	padding-right: 2%;
+	margin-top: 5%;
+}
+#DetailsTwoColumnLeft h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+
+#DetailsTwoColumnRight {
+	float:right;
+	width:40%;
+	margin-top: 5%;
+}
+#DetailsTwoColumnRight img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#DetailsTwoColumnRight .caption{
+	color:#333;
+	background-color:#FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+}
+#DetailsTwoColumnRight .objectives{
+	color:#FFF;
+	background-color:rgb(0,153,203);
+	padding: 5%;
+	width: 90%;
+	margin-top: 5%;
+	border: 0px;
+	line-height:100%;
+}
+#DetailsTwoColumnRight li{
+	font-size:15px;
+}
+/* 03 Driving Questions */
+
+#QuestionsTwoColumnLeft {
+	float:left;
+	width:40%;
+	margin-top: 5%;
+}
+#QuestionsTwoColumnLeft img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#QuestionsTwoColumnLeft .caption{
+	color:#333;
+	background-color:#FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+}
+
+#QuestionsTwoColumnRight {
+	float:right;
+	width:58%;
+	padding-left: 2%;
+	margin-top: 5%;
+}
+#QuestionsTwoColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+#QuestionsTwoColumnRight ol{
+	list-style-position:inside;
+	padding-left: 0px;
+}
+#QuestionsTwoColumnRight li{
+	background-image:url(../_images/challenge/blue_square.png);
+	line-height: 28px;
+	background-repeat: no-repeat;
+	line-height: 28px;
+	padding-left: 10px;
+}
+/* 04 Opening Experience 05 Opening Activity */
+
+#OpeningTwoColumnLeft {
+	float:left;
+	width:40%;
+	margin-top: 5%;
+}
+#OpeningTwoColumnLeft img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#OpeningTwoColumnLeft .caption{
+	color:#333;
+	background-color:#FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+}
+
+#OpeningTwoColumnRight {
+	float:right;
+	width:58%;
+	padding-left: 2%;
+	margin-top: 5%;
+}
+#OpeningTwoColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+/* 06 07 08 Plan 09 Create 10 Revise 11 Present */
+#PCRPTwoColumnLeft {
+	float:left;
+	width:40%;
+	margin-top: 5%;
+	border-right-style:dotted;
+	border-right-width: 1px;
+	border-right-color: #666;
+	min-height: 400px;
+}
+#PCRPTwoColumnLeft img {
+	padding: 0px;
+	width: 99%;
+	margin: 0px;
+	border:none;
+}
+#PCRPTwoColumnRight {
+	float:right;
+	width:58%;
+	padding-left: 2%;
+	margin-top: 5%;
+}
+#PCRPTwoColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}

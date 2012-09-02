@@ -1,0 +1,26 @@
+#NavBar {
+	margin-top:10px;
+	background-color:#FBF9FA;
+	color:#000;
+	height: 20px;
+	text-align: left;
+	padding: 10px;
+	width: 88.75%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 1.5em;
+}
+
+a:link {
+	text-decoration: none;
+	color:#3AADEF;
+}
+a:visited {
+	color: #3AADEF;
+}
+a:hover {
+	color: #3AADEF;
+}
+a:active {
+	color: #3AADEF;
+}
