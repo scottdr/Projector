@@ -91,7 +91,7 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Height'], "int"),
                        GetSQLValueString($_POST['Id'], "int"));
 
-	print "sqlCommand: " . $sqlCommand;
+	//print "sqlCommand: " . $sqlCommand;
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 
