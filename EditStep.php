@@ -72,7 +72,7 @@ if (isset($_GET["ProjectId"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, LessonName = %s, Title = %s, Type = %s, TemplateName = %s, IntroText = %s, Text = %s",
+			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, LessonName = %s, Title = %s, Type = %s, TemplateName = %s, Text = %s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['SortOrder'], "int"),
 											 GetSQLValueString($_POST['RoutineId'], "int"),
@@ -80,14 +80,13 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Type'], "text"),
                        GetSQLValueString($_POST['TemplateName'], "text"),
-											 GetSQLValueString($_POST['IntroText'], "text"),
 											 GetSQLValueString($_POST['Text'], "text"));
 //		print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */
 	} else
-  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, LessonName=%s, Title=%s, Type=%s, TemplateName=%s, IntroText=%s, `Text`=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, LessonName=%s, Title=%s, Type=%s, TemplateName=%s, `Text`=%s WHERE Id=%s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['SortOrder'], "int"),
 											 GetSQLValueString($_POST['RoutineId'], "int"),
@@ -95,7 +94,6 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Type'], "text"),
                        GetSQLValueString($_POST['TemplateName'], "text"),
-											 GetSQLValueString($_POST['IntroText'], "text"),
 											 GetSQLValueString($_POST['Text'], "text"),
                        GetSQLValueString($_POST['Id'], "int"));
 
@@ -320,9 +318,6 @@ function updateThumbnailImage(object)
     <label for="RoutineId">Routine:</label>
     <?php require("RoutineMenu.php") ?>
     <div class="clearFloat"></div>
-    <label for="IntroText">Intro Text:</label>
-		<textarea name="IntroText" type="text" id="IntroText"><?php echo $row_steps['IntroText']; ?></textarea>    
-		<div class="clearFloat"></div>
     <label for="Text">Text:</label>
     <textarea name="Text" id="Text"><?php echo $row_steps['Text']; ?></textarea>
     <div class="clearFloat"></div>
