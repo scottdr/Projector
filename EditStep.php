@@ -322,7 +322,7 @@ function updateThumbnailImage(object)
     <textarea name="Text" id="Text"><?php echo $row_steps['Text']; ?></textarea>
     <div class="clearFloat"></div>
     <div class="lineUp">
-     	<label for="TemplateName">Type:</label>
+     	<label for="Type">Type:</label>
       <select name="Type" id="Type" value="<?php echo $row_steps['Type']; ?>">
         <option value="0" selected="selected">Generic</option>
         <option value="1">Individual</option>
@@ -331,13 +331,13 @@ function updateThumbnailImage(object)
     <div class="clearFloat"></div>
      <div class="lineUp">
      	<label for="TemplateName">Template:</label>
-      <select name="TemplateName" id="TemplateName" value="<?php echo $row_steps['Type']; ?>">
-        <option value="MediaLeft.php" selected="selected">Media Left</option>
-        <option value="Plan.php">Plan</option>
-        <option value="Research.php">Research</option>
-        <option value="Create.php">Create</option>
-        <option value="Revise.php">Revise</option>
-        <option value="Present.php">Present</option>
+      <select name="TemplateName" id="TemplateName" value="<?php echo $row_steps['TemplateName']; ?>">
+        <option value="MediaLeft.php" <?php if ($row_steps['TemplateName'] == "MediaLeft.php") echo ' selected="selected" '; ?>>Media Left</option>
+        <option value="Plan.php" <?php if ($row_steps['TemplateName'] == "Plan.php") echo ' selected="selected" '; ?>>Plan</option>
+        <option value="Research.php" <?php if ($row_steps['TemplateName'] == "Research.php") echo ' selected="selected" '; ?>>Research</option>
+        <option value="Create.php" <?php if ($row_steps['TemplateName'] == "Create.php") echo ' selected="selected" '; ?>>Create</option>
+        <option value="Revise.php" <?php if ($row_steps['TemplateName'] == "Revise.php") echo ' selected="selected" '; ?>>Revise</option>
+        <option value="Present.php" <?php if ($row_steps['TemplateName'] == "Present.php") echo ' selected="selected" '; ?>>Present</option>
       </select>
     </div>
     <div class="clearFloat"></div>
