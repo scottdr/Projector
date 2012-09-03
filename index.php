@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Projector Home</title>
-<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="_css/slideshow.css">
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
