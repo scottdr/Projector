@@ -12,7 +12,7 @@
 		$(function(){
 			$('#slides').slides({
 				preload: true,
-				preloadImage: 'img/loading.gif',
+				preloadImage: 'images/loading.gif',
 				play: 4000,
 				pause: 2500,
 				hoverPause: true
@@ -95,8 +95,8 @@
 				<div class="slides_container">
  					<?php require_once("SlideShowDivData.php"); ?>
 				</div>
-				<a href="#" class="prev"><img src="img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
-				<a href="#" class="next"><img src="img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+				<a href="#" class="prev"><img src="images/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+				<a href="#" class="next"><img src="images/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
 			</div>
 </div>
 </body>
