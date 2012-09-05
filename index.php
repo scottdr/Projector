@@ -89,6 +89,7 @@
 </head>
 
 <body>
+<?php $selectedNav = "NavHome"; ?>
 <?php include("HeaderNav.php"); ?>
 <div id="container">
 			<div id="slides">

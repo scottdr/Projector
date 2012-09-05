@@ -192,9 +192,9 @@ td {
 
 <!-- Navigation -->
 <div id="NavDiv">
-  <div id="NavItemUp"> <a class="navUp" href="index.php">HOME</a> </div>
-  <div id="NavItemDown"> <a class="navDown" href="Gallery.php">PROJECT GALLERY</a> </div>
-  <div id="NavItemUp"> <a class="navUp" href="StudentGallery.html">STUDENT GALLERY</a> </div>
+  <div id="NavHome" class="NavItemUp"> <a class="navUp" href="index.php">HOME</a> </div>
+  <div id="NavGallery" class="NavItemDown"> <a class="navDown" href="Gallery.php">PROJECT GALLERY</a> </div>
+  <div id="NavAbout" class="NavItemUp"> <a class="navUp" href="About.php">ABOUT</a> </div>
   <div id="NavSearchContainter">
     <div id="NavSearchTextContainer">
       <input type="text" id="NavSearchText" placeholder="Search ..." />
@@ -218,7 +218,7 @@ td {
       <div id="titleNav"> <a href="Gallery.php"><img src="../images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>#
         <input name="Id" type="text" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />
         <input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
-        <input class="button" style="background-image: url(icons/delete26x26.fw.png);" name="action" type="submit" value="Delete" />
+        <!-- <input class="button" style="background-image: url(icons/delete26x26.fw.png);" name="action" type="submit" value="Delete" /> -->
       </div>
     </form>
   </div>

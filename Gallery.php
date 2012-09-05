@@ -10,7 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projector Gallery</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
+<!--<link href="_css/Project.css" rel="stylesheet" type="text/css">-->
 <link href="Project.css" rel="stylesheet" type="text/css">
+<link href="_css/main.css" rel="stylesheet" type="text/css" />	
 
 <style type="text/css">
 body {
@@ -45,42 +47,12 @@ $(document).ready(function() {
     <div class="gridContainer clearfix"> 
       <div class="ProjGalleryBackgroundDiv">
       
-      <!-- HEADER AND NAVIGATION --------------------------------------------->
-        <div id="HeaderBgDiv">
-        <div id="HeaderDiv">
-          <div id="HeaderImg">
-          	<a href="Index.html"><img src="images/headerlogo.png" width="48" height="24"></a>
-            <h1>The Projector</h1>
-          </div>
-          <div id="HeaderLogin">
-            name@org.edu <img src="images/layers/down_arrow.png" alt="login" width="10" height="20">
-            </div>
-        </div>
-        </div>
-            
-        <div id="NavDiv">
-            <div id="NavItemUp">
-              <a class="navUp" href="index.php">HOME</a>
-            </div>
-            <div id="NavItemDown">
-                <a class="navDown" href="Gallery.php">PROJECT GALLERY</a>
-            </div>
-            <div id="NavItemUp">
-               <a class="navUp" href="StudentGallery.html">STUDENT GALLERY</a>
-            </div>
-            <div id="NavSearchContainter">
-            	<div id="NavSearchTextContainer">
-            		<input type="text" id="NavSearchText" placeholder="Search ...">
-              </div>
-   <!--             <div id="NavSearch">
-                   Search ...-->
-                    <!--form id="searchbox" action="">
-                    <input type="text" id="NavSearch" value="Search ...">
+		<!-- HEADER AND NAVIGATION --------------------------------------------->
+        <?php $selectedNav = "NavGallery"; ?>
+		<?php include("HeaderNav.php"); ?>
+        <div id="NavShadowDiv"></div>
         
-                    </form-->
-                <input type="submit" class="searchButton" id="submit" value="">
-        	</div>
-        </div>
+        
         <div class="clearFloat">
         </div>
         <?php
@@ -139,8 +111,9 @@ $(document).ready(function() {
               <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_back_up.gif"></a>
             </div>
             
-            <!-- FOOTER --------------------------------------------->
-          
+           <!-- FOOTER ---------------------------------------------> 
+            <div id="GeneralFooterDiv">
+            </div>
         </div>
         
       </div>

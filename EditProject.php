@@ -76,7 +76,7 @@ if (isset($_POST["MM_action"])) {
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 
-  $updateGoTo = "DisplayProjectsTable.php";
+  $updateGoTo = "ViewProjects.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
     $updateGoTo .= $_SERVER['QUERY_STRING'];
