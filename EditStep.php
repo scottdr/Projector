@@ -123,7 +123,7 @@ if (isset($_POST["MM_action"])) {
 function attachMedia()
 {
 	$.ajax({
-  	url: "sql/MediaData.php",
+  	url: "MediaData.php",
   	cache: false
 	}).done(function( html ) {
 		$("#Dialog").removeClass("hideMe");
