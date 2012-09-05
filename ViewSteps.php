@@ -140,11 +140,16 @@ h3 {
 	margin-left: auto;
 }
 
+/* For the Title column if the title is too long shorten it to 200px and add ellipsis */
 .ellipsis {
 	white-space: nowrap;
-	width: 250px;
+	width: 200px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.titleColumn {
+	width:200px;
 }
 
 </style>
@@ -195,7 +200,7 @@ function validateFields(evt)
       </form></td>
       <td><?php echo $row_StepList['SortOrder']; ?></td>
       <td nowrap="nowrap"><?php echo $row_StepList['LessonName']; ?></td>
-      <td class="ellipsis" nowrap="nowrap"><?php echo $row_StepList['Title']; ?></td>
+      <td class="titleColumn" nowrap="nowrap"><div class="ellipsis"><?php echo $row_StepList['Title']; ?></div></td>
       <td><?php echo $row_StepList['TemplateName']; ?></td>
       <td><?php GetMediaForStep($row_StepList['Id']); ?></td>
     </tr>
