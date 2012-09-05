@@ -194,17 +194,6 @@ a:active {
 	background-position:center;
 	height: 50px;
 }
-#NavItemUp {
-	float:left;
-	width: 20.75%;
-	margin-right: 2px;
-	text-align:center;
-	overflow: hidden;
-	background-image:url(../_images/nav_up.gif);
-	background-repeat:no-repeat;
-	background-position:center;
-	height: 50px;
-}
 #NavSearch {
 	color:#FFF;
 	line-height:38px;

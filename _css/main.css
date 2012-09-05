@@ -109,7 +109,7 @@ a.navDown {
 	padding-bottom: 20px;
 	min-height: 50px;
 }
-#NavItemDown {
+.NavItemDown {
 	float:left;
 	width: 20.75%;
 	margin-right: 2px;
@@ -120,7 +120,7 @@ a.navDown {
 	background-position:center;
 	height: 50px;
 }
-#NavItemUp {
+.NavItemUp {
 	float:left;
 	width: 20.75%;
 	margin-right: 2px;
