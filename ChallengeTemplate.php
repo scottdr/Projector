@@ -1,10 +1,53 @@
+<?php require_once('Connections/projector.php'); ?>
 <?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+
 $StepNumber = 1;
 
-$ProjectId = 1;
+$ProjectId = -1;
 if (isset($_GET['ProjectId'])) {
 	$ProjectId = $_GET['ProjectId'];
 }
+
+mysql_select_db($database_projector, $projector);
+$query_projectName = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($ProjectId, "int"));
+$projectNameResults = mysql_query($query_projectName, $projector) or die(mysql_error());
+$row_projectName = mysql_fetch_assoc($projectNameResults);
+$projectName = "";
+if (isset($row_projectName['Name']))
+	$projectName = $row_projectName['Name'];
+$totalRows_projectName = mysql_num_rows($projectNameResults);
+
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
@@ -16,7 +59,7 @@ if (isset($_GET['ProjectId'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Challenge Title</title>
+<title>Challenge : <?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeLayout.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
@@ -150,7 +193,7 @@ if (isset($_GET['ProjectId'])) {
       <p>The Projector</p>
     </div>
     <div id="headerChallengeTitle">
-      <h1>Cultural Vibrations</h1>
+      <h1><?php echo $projectName; ?></h1>
     </div>
   </div>
   <div id="RibbonNavigation">
@@ -181,3 +224,6 @@ if (isset($_GET['ProjectId'])) {
 </div>
 </body>
 </html>
+<?php
+mysql_free_result($projectNameResults);
+?>
