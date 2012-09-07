@@ -255,8 +255,9 @@ function updateThumbnailImage(object)
 </head>
 
 <body>
+<?php $selectedNav = "NavGallery"; ?>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">Display Projects</a> | <a href="Gallery.php">Tile Grid</a> | <a href="ProjectDetails.php?Id=<?php echo $row_foundRecord['Id']; ?>">View Project</a> | <a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ProjectDetails.php?Id=<?php echo $row_foundRecord['Id']; ?>">View Project</a> | <a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <div class="subSubNav"><a href="EditDetails.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/Writing.16x16.png" width="16" height="16" alt="Edit Details" /> Edit Details</a> | <a href="ViewSteps.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Steps</a> | <a href="EditStep.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Media</a> | <a href="EditMedia.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a></div>

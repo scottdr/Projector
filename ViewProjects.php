@@ -31,6 +31,15 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+function getGrade($row_foundRecord)
+{
+	if ($row_foundRecord['GradeMin'] == $row_foundRecord['GradeMax']) {
+		return $row_foundRecord['GradeMin'];
+	} else {
+		return $row_foundRecord['GradeMin'] . ' - ' . $row_foundRecord['GradeMax'];
+	}
+}
+
 mysql_select_db($database_projector, $projector);
 $query_projectList = "SELECT * FROM projects";
 $projectList = mysql_query($query_projectList, $projector) or die(mysql_error());
@@ -87,6 +96,18 @@ td{
 	padding:20px;
 }
 
+/* For the Title column if the title is too long shorten it to 200px and add ellipsis */
+.ellipsis {
+	white-space: nowrap;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.nameColumn {
+	max-width:200px;
+}
+
 </style>
 <link href="_css/main.css" rel="stylesheet" type="text/css" />
 </head>
@@ -112,10 +133,10 @@ td{
       </form>
         </td>
       <td nowrap="nowrap"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></td>
-      <td class="textTableData" nowrap="nowrap"><a href="ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></td>
-      <td class="textTableData" nowrap="nowrap"><?php echo $row_projectList['Author']; ?></td>
-      <td class="textTableData" nowrap="nowrap"><?php echo $row_projectList['Subject']; ?></td>
-      <td class="textTableData"><?php echo $row_projectList['GradeMin']; ?>-<?php echo $row_projectList['GradeMax']; ?></td>
+      <td class="textTableData nameColumn" nowrap="nowrap"><div class="ellipsis"><a href="ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></div></td>
+      <td class="textTableData" nowrap="nowrap"><div class="ellipsis"><?php echo $row_projectList['Author']; ?></div></td>
+      <td class="textTableData" nowrap="nowrap"><div class="ellipsis"><?php echo $row_projectList['Subject']; ?></div></td>
+      <td class="textTableData"><?php echo getGrade($row_projectList); ?></td>
     </tr>
     <tr>
       <td colspan="6" class="description textTableData"><?php echo $row_projectList['Description']; ?></td>

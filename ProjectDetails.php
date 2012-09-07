@@ -31,6 +31,34 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+function getGrade($row_foundRecord)
+{
+	if ($row_foundRecord['GradeMin'] == $row_foundRecord['GradeMax']) {
+		return $row_foundRecord['GradeMin'];
+	} else {
+		return $row_foundRecord['GradeMin'] . ' - ' . $row_foundRecord['GradeMax'];
+	}
+}
+
+function getDuration($duration)
+{
+	$numWeeks = round($duration / 5);
+	$numDays = $duration % 5;
+	$durationStr = '';
+	if ($numWeeks > 1) {
+		$durationStr =  $numWeeks . " Weeks ";
+	}  else if ($numWeeks == 1) {
+		$durationStr =  $numWeeks . " Week ";
+	}
+	if ($numDays > 1) {
+		$durationStr .= $numDays . " Days";
+	}
+	else if ($numDays == 1) {
+		$durationStr .= $numDays . " Day";
+	}
+	return $durationStr;
+}
+
 $colname_foundRecord = "1";
 if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
@@ -62,217 +90,161 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Projector Spec</title>
-<style type="text/css">
-body {
-	background-color: #eeeeee;
-}
-body, td, th {
-	font-family: "Helvetica Neue", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
-.centeredText {
-	text-align: center;
-}
-.projectorTitle {
-	font-size: 16px;
-	letter-spacing: 0.01em;
-	line-height: 20px;
-	margin: 10px;
-}
-#ContentDiv {
-	margin: 20px;
-}
-th {
-	padding: 3px;
-}
-td {
-	padding: 3px;
-}
-.projectInfo {
-	float: left;
-	background-color: #FFF;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 20px;
-	padding-right: 20px;
-	width: 600px;
-}
-#projectDiv #imgPlaceHolder {
-	float: left;
-}
-#projectDiv {
-	margin-top: 20px;
-	width : 940px;
-	height: 200px;
-	background-color: #FFF;
-	float: left;
-}
-.projectInfo h2 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	font-weight: 400;
-	font-size: 15px;
-}
-.projectData {
-	font-size: 12px;
-}
-#title {
-	width: 940px;
-	margin-top: 20px;
-	color: #666;
-	font-size: 24px;
-}
-#titleNav {
-	float: right;
-	display: inline;
-	vertical-align: middle;
-}
-#projectName {
-	float: left;
-}
-#ContentDiv {
-	margin-right: auto;
-	margin-left: auto;
-	width: 940px;
-}
-#ContentTab {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 940px;
-}
-#backToGallery {
-}
-.toolIcon {
-	background-color: #00ADEF;
-	width: 26px;
-	height: 26px;/*float : left;
-	display:inline; */
-}
-#editButton {
-	float: right;
-}
-#startChallenge {
-	float: right;
-}
 
-#details {
-	font-size: 12px;
-}
-</style>
-<link href="_css/main.css" rel="stylesheet" type="text/css" />
-<!--<link href="_css/Project.css" rel="stylesheet" type="text/css" /> -->
-<link href="jquery-ui-1.8.21/css/custom-theme/jquery-ui-1.8.22.custom.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Projector</title>
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css"/>
+<link href="Project.css" rel="stylesheet" type="text/css"/>
+<link href="_css/main.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$("#tabs").tabs();
-	});
-	
-	function goToURL(url) {
-		window.location = url;
-	}
-</script>
+        $(function () {
+            var tabContainers = $('div.tabs > div');
+            tabContainers.hide().filter(':first').show();
+ 
+            $('div.tabs ul.tabNavigation a').click(function () {
+                tabContainers.hide();
+                tabContainers.filter(this.hash).show();
+                $('div.tabs ul.tabNavigation a').removeClass('selected');
+                $(this).addClass('selected');
+                return false;
+            }).filter(':first').click();
+        });
+</script>    
+<script src="_scripts/respond.min.js"></script>
+<script type="text/javascript" src="js/utility.js"></script>
 </head>
 
 <body>
-<!-- Header -->
-<div id="HeaderBgDiv">
-  <div id="HeaderDiv">
-    <div id="HeaderImg"> <a href="#"><img src="images/headerlogo.png" width="48" height="24" /></a> 
-      <!--<span class="projectorTitle">The Projector</span> -->
-      <h1>The Projector</h1>
-    </div>
-  </div>
-</div>
 
-<!-- Navigation -->
-<div id="NavDiv">
-  <div id="NavHome" class="NavItemUp"> <a class="navUp" href="index.php">HOME</a> </div>
-  <div id="NavGallery" class="NavItemDown"> <a class="navDown" href="Gallery.php">PROJECT GALLERY</a> </div>
-  <div id="NavAbout" class="NavItemUp"> <a class="navUp" href="About.php">ABOUT</a> </div>
-  <div id="NavSearchContainter">
-    <div id="NavSearchTextContainer">
-      <input type="text" id="NavSearchText" placeholder="Search ..." />
-    </div>
-    <!--             <div id="NavSearch">
-                   Search ...--> 
-    <!--form id="searchbox" action="">
-                    <input type="text" id="NavSearch" value="Search ...">
+    <div class="gridContainer clearfix"> 
+      <div class="ProjGalleryBackgroundDiv">
+
+        <!-- HEADER AND NAVIGATION --------------------------------------------->
+        <?php $selectedNav = ""; ?>
+        <?php include("HeaderNav.php"); ?>
+        <div id="NavShadowDiv"></div> 
         
-                    </form-->
-    <input type="submit" class="searchButton" id="submit" value="" />
-  </div>
+        <!-- PAGE CONTENT --------------------------------------------->
+        <div id="ContentDiv">
+            <div id="GalleryDetailPageTitle">
+               <h1><?php echo $row_foundRecord['Name']; ?></h1>
+            </div>
+            <div id="titleNav" class="floatRight">
+              <form action="EditProject.php" method="get">
+                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="../images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
+                  <input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
+              </form>
+            </div>
+          
+        	<!-- SUMMARY --------------------------------------------->
+            <div id="ProjectSummary">
+                <a href="ChallengeContent.html"><img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" width="350" height="250" id="imgPlaceHolder"/></a>
+                <div class="projectInfo">
+                <h2>Challenge Objective:</h2>
+                <div class="projectData">
+                  <p><?php echo $row_foundRecord['Description']; ?></p>
+                </div>
+                <h2>Challenge Duration:</h2>
+                <div class="projectData">
+                  <p><?php echo getDuration($row_foundRecord['Duration']); ?></p>
+                </div>
+                <h2>Subject Areas:</h2>
+                <div class="projectData">
+                  <p><?php echo $row_foundRecord['Subject']; ?></p>
+                </div>
+                <h2>Grade Level:</h2>
+                <div class="projectData">
+                  <p><?php echo getGrade($row_foundRecord); ?></p>
+                </div>
+                </div>
+          	</div>
+            
+            <!-- TABS --------------------------------------------->
+            <div class="tabs" id="tabDiv">
+            <ul class="tabNavigation">
+                <li><a href="#projectTab1">Challenge Details</a></li>
+                <li><a href="#projectTab2">Credits</a></li>
+            </ul>
+            <!-- TAB ONE ----------------------------------------->
+            <div id="projectTab1">
+                <div id="resources">
+                  <h2>Start the challenge</h2>
+                  <p>You can work through the challenge online or you can download it in a PDF format</p>
+                  <hr/>
+                  <h3>Online Challenge</h3>
+                  <p>Nunc et felis quis purus rhoncus venenatis vitae a mi. In scelerisque malesuada diam, vitae semper eros hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                  <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>" class="bluebutton">Start the Online Challenge</a></p>
+                  <!--<input id="startChallenge" class="button" style="" name="action" type="button" value="Start Challenge" onclick="goToURL('ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />-->
+                  <!--<hr/>
+                  <h3>Download the PDF (1.8MB)</h3>
+                  <p>Nunc et felis quis purus rhoncus venenatis vitae a mi. In scelerisque malesuada diam, vitae semper eros hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                  <p><a href="#">Download the PDF Challenge</a></p>-->
+                        
+                </div>  
+              <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
+              <h2><?php echo $row_foundRecord['Name']; ?></h2>
+              <p><?php echo $row_ProjectDetails['Detail']; ?></p>
+                    
+            </div>
+            
+            <!-- TAB TWO ----------------------------------------->
+           	<div id="projectTab2">
+        
+                <div id="lightGreyRightColumn">
+                    <h2>Project Author</h2>
+                    <img src="_images/user.jpg" alt="Firstname, Lastname">
+                    <h3 class="name">Firstname Lastname</h3>
+                    <p class="title">Title, School/Org</p>
+                    <p>&nbsp;</p>
+                    <p><a class="bluebutton">View Projects (7)</a></p>
+                    <p>&nbsp;</p>
+                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>
+                </div>
+                <div id="ProjectContributors">
+                    <h2>Project Contributors</h2>
+                    <p>&nbsp;</p>
+                    <img src="_images/user.jpg" alt="Firstname, Lastname">
+                    <h3 class="name">Firstname Lastname</h3>
+                    <p class="title">Title, School/Org</p>
+                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
+                    <hr/>
+                    <img src="_images/user.jpg" alt="Firstname, Lastname">
+                    <h3 class="name">Firstname Lastname</h3>
+                  <p class="title">Title, School/Org</p>
+                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
+                    <hr/>
+                    <img src="_images/user.jpg" alt="Firstname, Lastname">
+                    <h3 class="name">Firstname Lastname</h3>
+                  <p class="title">Title, School/Org</p>
+                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
+                    <hr/>
+                    <img src="_images/user.jpg" alt="Firstname, Lastname">
+                    <h3 class="name">Firstname Lastname</h3>
+                  <p class="title">Title, School/Org</p>
+                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
+                    <p>&nbsp;</p>
+                 </div>	
+                            
+                </div>
+            </div>
+            <!-- TAB THREE ----------------------------------------->
+         
+            
+            <!-- FOOTER ---------------------------------------------> 
+            <div id="GeneralFooterDiv">
+                <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+                <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Pearson Teaching Awards"></a-->
+                <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+            </div>
+        </div>
+		</div>
+	</div>
 </div>
-<div class="clearFloat" />
 
-<!-- Content -->
-<div id="ContentDiv">
-  <div id="title">
-    <div id="projectName"> <?php echo $row_foundRecord['Name']; ?></div>
-    <form action="EditProject.php" method="get">
-      <div id="titleNav"> <a href="Gallery.php"><img src="../images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>#
-        <input name="Id" type="text" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />
-        <input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
-        <!-- <input class="button" style="background-image: url(icons/delete26x26.fw.png);" name="action" type="submit" value="Delete" /> -->
-      </div>
-    </form>
-  </div>
-  <div id="projectDiv"> <img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" id="imgPlaceHolder" width="300" height="200"/>
-    <div class="projectInfo">
-      <h2>Challenge Objective:</h2>
-      <div class="projectData"><?php echo $row_foundRecord['Description']; ?></div>
-      <h2>Challenge Duration:</h2>
-      <div class="projectData"><?php echo $row_foundRecord['Duration']; ?></div>
-      <h2>Subject Areas:</h2>
-      <div class="projectData"><?php echo $row_foundRecord['Subject']; ?></div>
-      <h2>Grade Level:</h2>
-      <div class="projectData"><?php echo $row_foundRecord['GradeMin']; ?> - <?php echo $row_foundRecord['GradeMax']; ?></div>
-    </div>
-  </div>
-</div>
-<div class="clearFloat"></div>
-<div id="ContentTab">
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1">CHALLENGE DETAILS</a></li>
-      <li><a href="#tabs-2">COMMUNITY</a></li>
-      <li><a href="#tabs-3">STUDENT GALLERY</a></li>
-    </ul>
-    <div id="tabs-1">
-      <div id="projectDetails">
-     
-        <input id="editButton" class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> <input id="startChallenge" class="button" style="" name="action" type="button" value="Start Challenge" onclick="goToURL('ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
-        <h3><?php echo $row_foundRecord['Name']; ?> </h3>
-        <div id="details"> <?php echo $row_ProjectDetails['Detail']; ?> </div>
-      </div>
-     <!-- <div id="resources">
-        <h2>Start the challenge</h2>
-        <p>You can work through the challenge online or you can download it in a PDF format</p>
-        <hr/>
-        <h3>Online Challenge</h3>
-        <p>Nunc et felis quis purus rhoncus venenatis vitae a mi. In scelerisque malesuada diam, vitae semper eros hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        <p><a href="ChallengeContent.html" class="bluebutton">Start the Challenge</a></p>
-        <hr/>
-        <h3>Download the PDF (1.8MB)</h3>
-        <p>Nunc et felis quis purus rhoncus venenatis vitae a mi. In scelerisque malesuada diam, vitae semper eros hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        <p><a href="_pdfs/CulturalVibrations_author template.pdf">Download the challlenge</a></p>
-      </div> -->
-    </div>
-    <div id="tabs-2">
-      <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-    </div>
-    <div id="tabs-3">
-      <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-      <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-    </div>
-  </div>
-</div>
-<div id="footer"> &copy;2012 Pearson Foundation </div>
 </body>
 </html>
 <?php

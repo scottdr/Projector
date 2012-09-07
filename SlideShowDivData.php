@@ -31,6 +31,15 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+function getGrade($row_Recordset)
+{
+	if ($row_Recordset['GradeMin'] == $row_Recordset['GradeMax']) {
+		return "Grade: " . $row_Recordset['GradeMin'];
+	} else {
+		return "Grades: " . $row_Recordset['GradeMin'] . ' - ' . $row_Recordset['GradeMax'];
+	}
+}
+
 mysql_select_db($database_projector, $projector);
 $query_projectList = "SELECT * FROM projects";
 $projectList = mysql_query($query_projectList, $projector) or die(mysql_error());
@@ -39,13 +48,14 @@ $totalRows_projectList = mysql_num_rows($projectList);
 
  do { ?>
 
-<div id="imgDiv" style="background-image : url(<?php echo $row_projectList['ImgSmall']; ?>)">
-	<div class="captionLayer">
-  	<h2><?php echo $row_projectList['Name']; ?></h2>
-    <h3><?php echo $row_projectList['Subject']; ?></h3>
-  </div>
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=<?php echo $row_projectList['Id']; ?>"><?php echo $row_projectList['Name']; ?></a></h1>
+    <p><?php echo getGrade($row_projectList); ?></p>
+    <p>Subject: <?php echo $row_projectList['Subject']; ?></p>
 </div>
+
 <?php } while ($row_projectList = mysql_fetch_assoc($projectList)); 
 
 mysql_free_result($projectList);
+
 ?>

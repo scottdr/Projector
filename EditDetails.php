@@ -88,7 +88,7 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Start'], "text"),
 											 GetSQLValueString($_POST['Plan'], "text"),
 											 GetSQLValueString($_POST['Script'], "text"));
-		print "sqlCommand: " . $sqlCommand;									 
+//		print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */
@@ -107,7 +107,8 @@ if (isset($_POST["MM_action"])) {
 //	print "sqlCommand: " . $sqlCommand;
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-
+	
+	// go to project details
   $updateGoTo = "ProjectDetails.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
@@ -115,7 +116,7 @@ if (isset($_POST["MM_action"])) {
   }
 	$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
 	$updateGoTo .= "Id=" . $projectId;
-	print "Goint to: " . $updateGoTo;
+//	print "Goint to: " . $updateGoTo;
   header(sprintf("Location: %s", $updateGoTo));
 } 
 
@@ -268,6 +269,8 @@ legend {
 </style>
 <link href="_css/main.css" rel="stylesheet" type="text/css" />
 <!--<link href="css/formStyle.css" rel="stylesheet" type="text/css" />-->
+<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 
 function updateThumbnailImage(object)
@@ -276,6 +279,21 @@ function updateThumbnailImage(object)
 	console.log('thumbnailURL: ' + thumbnailURL);	
 	document.getElementById('thumbnailImage').src = thumbnailURL;
 }
+
+tinyMCE.init({
+        mode : "exact",
+				elements : "Detail",
+				theme : "advanced",
+					// Theme options
+				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,charmap",
+				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor",
+				theme_advanced_toolbar_location : "top",
+				theme_advanced_toolbar_align : "left",
+			/*	theme_advanced_statusbar_location : "bottom",*/
+				theme_advanced_resizing : true,
+});
+
+//tinyMCE.execCommand("mceAddControl", true, "Detail");
 </script>
 </head>
 
@@ -292,13 +310,13 @@ function updateThumbnailImage(object)
     <label for="ProjectId">ProjectId:</label>
     <input name="ProjectId" type="text" id="ProjectId" placeholder="Project Name" value="<?php echo $projectId; ?>" size="5" />
     <div class="clearFloat"></div>
-    <label for="Brief"> Brief:</label>
+    <label for="Brief"> <s>Brief:</s></label>
     <textarea name="Brief" id="Brief"><?php echo $row_details['Brief']; ?></textarea>
     <div class="clearFloat"></div>
-    <label for="Detail">Detail:</label>
+    <label for="Detail">*<strong>Challenge</strong>:</label>
     <textarea name="Detail" id="Detail"><?php echo $row_details['Detail']; ?></textarea>
     <div class="clearFloat"></div>
-    <label for="grade">Questions:</label>
+    <label for="grade"><s>Questions</s>:</label>
     <textarea name="Questions" id="grade"><?php echo $row_details['Questions']; ?></textarea>
     <div class="clearFloat"></div>
     <label for="IntroVideo">Intro Video:</label>

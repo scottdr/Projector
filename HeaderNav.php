@@ -14,10 +14,22 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
 
 <!-- Navigation -->
 <div id="NavDiv">
-  <div id="NavHome" <?php ($selectedNav == 'NavHome') ? print 'class="NavItemDown"' : print 'class="NavItemUp"'; ?>> <a <?php ($selectedNav == 'NavHome') ? print 'class="navDown"' : print 'class="navUp"'; ?> href="index.php">HOME</a> </div>
-  <div id="NavGallery" <?php ($selectedNav == 'NavGallery') ? print 'class="NavItemDown"' : print 'class="NavItemUp"'; ?>> <a <?php ($selectedNav == 'NavGallery') ? print 'class="navDown"' : print 'class="navUp"'; ?> href="Gallery.php">PROJECT GALLERY</a> </div>
-  <div id="NavAbout" <?php ($selectedNav == 'NavAbout') ? print 'class="NavItemDown"' : print 'class="NavItemUp"'; ?>> <a <?php ($selectedNav == 'NavAbout') ? print 'class="navDown"' : print 'class="navUp"'; ?> href="About.php">ABOUT</a> </div>
-  <div id="NavSearchContainter">
+    <a <?php ($selectedNav == 'NavHome') ? print 'class="navDown"' : print 'class="navUp"'; ?> href="index.php">
+        <div id="NavHome" <?php ($selectedNav == 'NavHome') ? print 'class="NavItemDown"' : print 'class="NavItemUp"'; ?>>
+        HOME
+        </div>
+    </a>
+    <a <?php ($selectedNav == 'NavGallery') ? print 'class="navDown"' : print 'class="navUp"'; ?> href="Gallery.php">
+        <div id="NavGallery" <?php ($selectedNav == 'NavGallery') ? print 'class="NavItemDown"' : print 'class="NavItemUp"'; ?>>
+        PROJECT GALLERY
+        </div>
+    </a>
+    <a <?php ($selectedNav == 'NavAbout') ? print 'class="navDown"' : print 'class="navUp"'; ?> href="About.php">
+        <div id="NavAbout" <?php ($selectedNav == 'NavAbout') ? print 'class="NavItemDown"' : print 'class="NavItemUp"'; ?>>
+        ABOUT
+        </div>
+    </a>
+  <div id="NavSearchContainer">
     <div id="NavSearchTextContainer">
       <input type="text" id="NavSearchText" placeholder="Search ...">
     </div>

@@ -26,7 +26,7 @@ function GenerateImageTag($rowNumber) {
 		print '<img name="Id=' . $rowData['Id'] . '" src="' . $rowData['Url'] . '" title="' . $rowData['Caption'] . '" alt="' . $rowData['Caption'] . '" />';
 		print '<p class="caption">' . $rowData['Caption'] . '</p>';
 	} else
-		print '<img src="lessonTemplates/images/mountains.fw.png" />';
+		print '<img src="lessonTemplates/images/mountains.jpg" />';
 }
 
 //$mediaArray = GetMediaForStep($StepId);

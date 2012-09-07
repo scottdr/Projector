@@ -131,36 +131,6 @@ a.navDown {
 	background-position:center;
 	height: 50px;
 }
-#NavSearchContainter { /* contains the search text input and search button */
-	vertical-align:middle;
-}
-#NavSearchTextContainer {
-	color:#FFF;
-	font-size: 13pt;
-	float:left;
-	width: 35%;
-	text-align:left;
-	background-color:#999;
-	height:38px;
-	font-weight:300;
-}
-
-#NavSearchText {
-	margin-top:4px;
-	margin-left:20px;
-	border-color:#ffffff;
-	border-radius:6px;
-	color:#FFF;
-	line-height:22px;
-	font-size: 12pt;
-	float:left;
-	text-align:left;
-	vertical-align:middle;
-	background-color:#999;
-	height: 22px;
-	font-weight:300;
-	width:245px;
-}
 
 /* Use the button class for Blue button with white text */
 .button {
