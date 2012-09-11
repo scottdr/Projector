@@ -347,6 +347,7 @@ tinyMCE.init({
      <div class="lineUp">
      	<label for="TemplateName">Template:</label>
       <select name="TemplateName" id="TemplateName" value="<?php echo $row_steps['TemplateName']; ?>">
+      	<option value="Intro.php" <?php if ($row_steps['TemplateName'] == "Intro.php") echo ' selected="selected" '; ?>>Intro</option>
         <option value="MediaLeft.php" <?php if ($row_steps['TemplateName'] == "MediaLeft.php") echo ' selected="selected" '; ?>>Media Left</option>
         <option value="Plan.php" <?php if ($row_steps['TemplateName'] == "Plan.php") echo ' selected="selected" '; ?>>Plan</option>
         <option value="Research.php" <?php if ($row_steps['TemplateName'] == "Research.php") echo ' selected="selected" '; ?>>Research</option>
