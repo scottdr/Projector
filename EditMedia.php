@@ -76,7 +76,7 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Url'], "text"),
 											 GetSQLValueString($_POST['Width'], "int"),
 											 GetSQLValueString($_POST['Height'], "int"));
-		print "sqlCommand: " . $sqlCommand;									 
+//		print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */

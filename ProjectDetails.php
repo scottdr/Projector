@@ -135,7 +135,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             </div>
             <div id="titleNav" class="floatRight">
               <form action="EditProject.php" method="get">
-                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="../images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
+                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
                   <input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
               </form>
             </div>
@@ -144,29 +144,20 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             <div id="ProjectSummary">
                 <a href="ChallengeContent.html"><img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" width="350" height="250" id="imgPlaceHolder"/></a>
                 <div class="projectInfo">
-                <h2>Challenge Objective:</h2>
-                <div class="projectData">
-                  <p><?php echo $row_foundRecord['Description']; ?></p>
-                </div>
-                <h2>Challenge Duration:</h2>
-                <div class="projectData">
-                  <p><?php echo getDuration($row_foundRecord['Duration']); ?></p>
-                </div>
-                <h2>Subject Areas:</h2>
-                <div class="projectData">
-                  <p><?php echo $row_foundRecord['Subject']; ?></p>
-                </div>
-                <h2>Grade Level:</h2>
-                <div class="projectData">
-                  <p><?php echo getGrade($row_foundRecord); ?></p>
-                </div>
+                    <div class="projectData">
+                      <h2>Challenge Objective:</h2>
+                      <p><?php echo $row_foundRecord['Description']; ?></p>
+                      <h2>Challenge Duration: <?php echo getDuration($row_foundRecord['Duration']); ?></h2>
+                      <h2>Subject Areas: <?php echo $row_foundRecord['Subject']; ?></h2>
+                      <h2>Grade Level: <?php echo getGrade($row_foundRecord); ?></h2>
+                    </div>
                 </div>
           	</div>
             
             <!-- TABS --------------------------------------------->
             <div class="tabs" id="tabDiv">
             <ul class="tabNavigation">
-                <li><a href="#projectTab1">Challenge Details</a></li>
+                <li><a href="#projectTab1">The Challenge</a></li>
                 <li><a href="#projectTab2">Credits</a></li>
             </ul>
             <!-- TAB ONE ----------------------------------------->
@@ -176,7 +167,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                   <p>You can work through the challenge online or you can download it in a PDF format</p>
                   <hr/>
                   <h3>Online Challenge</h3>
-                  <p>Nunc et felis quis purus rhoncus venenatis vitae a mi. In scelerisque malesuada diam, vitae semper eros hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                  <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
                   <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>" class="bluebutton">Start the Online Challenge</a></p>
                   <!--<input id="startChallenge" class="button" style="" name="action" type="button" value="Start Challenge" onclick="goToURL('ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />-->
                   <!--<hr/>
