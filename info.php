@@ -1,5 +1,5 @@
 <?php
-            echo "PHP Info";
+            echo "PHP Info: ";
 ?>
 
 <?php
