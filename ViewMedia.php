@@ -113,6 +113,20 @@ h3 {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+/* For the Title column if the title is too long shorten it to 200px and add ellipsis */
+.ellipsis {
+	white-space: nowrap;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.fixed200Column {
+	max-width:200px;
+}
+
+
 </style>
 <script type="text/javascript">
 window.onload = function() 
@@ -159,7 +173,7 @@ function validateFields(evt)
           <input name="StepId" type="hidden" id="StepId" value="<?php echo $row_MediaQuery['Id']; ?>" />
         </form>--></td>
       <td><a href="#"><img src="<?php echo $row_MediaQuery['Url']; ?>" alt="<?php echo $row_MediaQuery['Description']; ?>" name="" width="120" height="90" /></a></td>
-      <td nowrap="nowrap"><?php echo $row_MediaQuery['Caption']; ?></td>
+      <td class="fixed200Column" nowrap="nowrap"><div class="ellipsis"><?php echo $row_MediaQuery['Caption']; ?></div></td>
       <td nowrap="nowrap"><?php echo $row_MediaQuery['Type']; ?></td>
       <td><?php echo $row_MediaQuery['ProjectId']; ?></td>
   </tr>

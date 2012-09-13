@@ -79,29 +79,19 @@ if (isset($_GET["ProjectId"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-			$sqlCommand = sprintf("INSERT INTO ProjectDetails SET ProjectId = %s, Brief = %s, Detail = %s, Questions = %s, IntroVideo = %s, Start = %s, Plan = %s, Script = %s",
+			$sqlCommand = sprintf("INSERT INTO ProjectDetails SET ProjectId = %s, Detail = %s, Teacher = %s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
-                       GetSQLValueString($_POST['Brief'], "text"),
                        GetSQLValueString($_POST['Detail'], "text"),
-                       GetSQLValueString($_POST['Questions'], "text"),
-                       GetSQLValueString($_POST['IntroVideo'], "text"),
-                       GetSQLValueString($_POST['Start'], "text"),
-											 GetSQLValueString($_POST['Plan'], "text"),
-											 GetSQLValueString($_POST['Script'], "text"));
+											 GetSQLValueString($_POST['Teacher'], "text"));
 //		print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */
 	} else
-  	$sqlCommand = sprintf("UPDATE ProjectDetails SET ProjectId=%s, Brief=%s, Detail=%s, Questions=%s, IntroVideo=%s, Start=%s, Plan=%s, Script=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE ProjectDetails SET ProjectId=%s, Detail=%s, Teacher=%s WHERE Id=%s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
-                       GetSQLValueString($_POST['Brief'], "text"),
                        GetSQLValueString($_POST['Detail'], "text"),
-                       GetSQLValueString($_POST['Questions'], "text"),
-                       GetSQLValueString($_POST['IntroVideo'], "text"),
-                       GetSQLValueString($_POST['Start'], "text"),
-											 GetSQLValueString($_POST['Plan'], "text"),
-											 GetSQLValueString($_POST['Script'], "text"),
+											 GetSQLValueString($_POST['Teacher'], "text"),
                        GetSQLValueString($_POST['Id'], "int"));
 
 //	print "sqlCommand: " . $sqlCommand;
@@ -282,7 +272,7 @@ function updateThumbnailImage(object)
 
 tinyMCE.init({
         mode : "exact",
-				elements : "Detail",
+				elements : "Detail,Teacher",
 				theme : "advanced",
 					// Theme options
 				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,charmap",
@@ -310,29 +300,11 @@ tinyMCE.init({
     <label for="ProjectId">ProjectId:</label>
     <input name="ProjectId" type="text" id="ProjectId" placeholder="Project Name" value="<?php echo $projectId; ?>" size="5" />
     <div class="clearFloat"></div>
-    <label for="Brief"> <s>Brief:</s></label>
-    <textarea name="Brief" id="Brief"><?php echo $row_details['Brief']; ?></textarea>
-    <div class="clearFloat"></div>
-    <label for="Detail">*<strong>Challenge</strong>:</label>
+    <label for="Detail">Challenge:</label>
     <textarea name="Detail" id="Detail"><?php echo $row_details['Detail']; ?></textarea>
     <div class="clearFloat"></div>
-    <label for="grade"><s>Questions</s>:</label>
-    <textarea name="Questions" id="grade"><?php echo $row_details['Questions']; ?></textarea>
-    <div class="clearFloat"></div>
-    <label for="IntroVideo">Intro Video:</label>
-		<textarea name="IntroVideo" id="IntroVideo"><?php echo $row_details['IntroVideo']; ?></textarea>    
-		<div class="clearFloat"></div>
-    <label for="Start">Start:</label>
-    <textarea name="Start" id="Start"><?php echo $row_details['Start']; ?></textarea>
-    <div class="clearFloat"></div>
-		<label for="Plan">Plan:</label>
-    <textarea name="Plan" id="Plan"><?php echo $row_details['Plan']; ?>
-    </textarea>
-    <div class="clearFloat"></div>
-		<label for="Script">Script:</label>
-		<textarea name="Script" id="Script"><?php echo $row_details['Script']; ?></textarea>
-
-    
+   <label for="Teacher">Teacher:</label>
+    <textarea name="Teacher" id="Teacher"><?php echo $row_details['Teacher']; ?></textarea>
     <div class="clearFloat"></div>
   </fieldset>
   <div style="text-align:center">

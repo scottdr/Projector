@@ -196,3 +196,26 @@ a.navDown {
 	padding: 10px;
 	border: thin solid #333;
 }
+
+.hideMe {
+	visibility:hidden;
+}
+
+.noDisplay {
+	display:none;
+}
+
+.blueButton {
+	background-color: #3AADEF;
+	color:#FFF;
+	padding-left:30px;
+	padding-right:30px;
+}
+
+.redButton {
+	color : #FFF;
+	background-color: #C03;
+	color:#FFF;
+	padding-left:30px;
+	padding-right:30px;
+}

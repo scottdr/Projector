@@ -232,7 +232,6 @@ legend {
 
 
 		
-/* EndOAWidget_Instance_2921536 */
 .blueButton {
 	background-color: #3AADEF;
 	color:#FFF;
@@ -240,9 +239,30 @@ legend {
 	padding-right:30px;
 }
 
+.redButton {
+	color : #FFF;
+	background-color: #C03;
+	color:#FFF;
+	padding-left:30px;
+	padding-right:30px;
+}
+
+
+.bigWhiteButton {
+	background-color: #FFF;
+	color:#333;
+	padding-left:30px;
+	padding-right:30px;
+}
+
+
+
 </style>
 <link href="_css/main.css" rel="stylesheet" type="text/css" />
+<link href="jquery-ui-1.8.21/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet" type="text/css" />
 <!--<link href="css/formStyle.css" rel="stylesheet" type="text/css" />-->
+<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript">
 
 function updateThumbnailImage(object)
@@ -251,6 +271,22 @@ function updateThumbnailImage(object)
 	console.log('thumbnailURL: ' + thumbnailURL);	
 	document.getElementById('thumbnailImage').src = thumbnailURL;
 }
+
+function deleteTheProject(urlToGoTo)
+{
+	$("#Dialog").removeClass("noDisplay");
+	$("#Dialog").dialog({
+		height: 200,
+		width: 400,
+		modal: true
+	});
+}
+
+function closeDialog()
+{
+	$("#Dialog").dialog('close');
+}
+
 </script>
 </head>
 
@@ -314,10 +350,21 @@ function updateThumbnailImage(object)
     <div class="clearFloat"></div>
   </fieldset>
   <div style="text-align:center">
-    <input class="blueButton" type="submit" name="button" id="button" value="<?php echo $action; ?>" />
+    <input class="blueButton" type="submit" name="button" id="button" value="<?php echo $action; ?>" />&nbsp;
+    <input class="redButton" type="button" name="deleteProject2" id="deleteProject2" value="Delete" onclick="deleteTheProject()"/>
+<script type="text/javascript" src="js/utility.js"></script>
   </div>
   <input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
 	</form>
+</div>
+<div id="Dialog" class="noDisplay">
+Delete the project: <br />
+<strong><?php echo $row_foundRecord['Name']; ?></strong><br />
+<div id="dialogSpacer" style="height:40px;"></div>
+<div id="buttonContainer" style="text-align:center">
+<input type="button" name="CancelDelete" id="CancelDelete" value="Cancel" onclick="closeDialog()"/>
+<input class="redButton" type="button" name="deleteProject" id="deleteProject" value="Delete" onclick="goToURL('DeleteProject.php?Id=<?php echo $row_foundRecord['Id']; ?>')"/>
+</div>
 </div>
 <div id="footer">
 &copy;2012 Pearson Foundation

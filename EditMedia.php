@@ -236,14 +236,6 @@ legend {
 }
 
 
-		
-/* EndOAWidget_Instance_2921536 */
-.blueButton {
-	background-color: #3AADEF;
-	color:#FFF;
-	padding-left:30px;
-	padding-right:30px;
-}
 
 .floatLeft {
 	float : left;
@@ -252,7 +244,11 @@ legend {
 
 </style>
 <link href="_css/main.css" rel="stylesheet" type="text/css" />
+<link href="jquery-ui-1.8.21/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet" type="text/css" />
 <!--<link href="css/formStyle.css" rel="stylesheet" type="text/css" />-->
+<script type="text/javascript" src="js/utility.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript">
 
 function updateThumbnailImage(object)
@@ -261,11 +257,28 @@ function updateThumbnailImage(object)
 	console.log('thumbnailURL: ' + thumbnailURL);	
 	document.getElementById('thumbnailImage').src = thumbnailURL;
 }
+
+function deleteMedia()
+{
+	$("#Dialog").removeClass("noDisplay");
+	$("#Dialog").dialog({
+		height: 200,
+		width: 300,
+		modal: true
+	});
+}
+
+function closeDialog()
+{
+	$("#Dialog").dialog('close');
+}
+
 </script>
 </head>
 
 <body>
 <?php include("HeaderNav.php") ?>
+
 <div class="subNav"><a href="ViewProjects.php">Display Projects</a> | <a href="Gallery.php">Tile Grid</a> | <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
@@ -316,9 +329,18 @@ function updateThumbnailImage(object)
   </fieldset>
   <div style="text-align:center">
     <input class="blueButton" type="submit" name="button" id="button" value="<?php echo $action; ?>" />
+    &nbsp;<input class="redButton" type="button" name="deleteMediaButton" id="deleteMediaButton" value="Delete" onclick="deleteMedia()"/>
   </div>
   <input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
 	</form>
+</div>
+<div id="Dialog" class="noDisplay">
+Delete this media?
+<div id="spacerDiv" style="height:60px;"></div>
+<div id="buttonContainer" style="text-align:center">
+<input type="button" name="CancelDelete" id="CancelDelete" value="Cancel" onclick="closeDialog()"/>&nbsp;
+<input class="redButton" type="button" name="deleteMediaButton" id="deleteMediaButton" value="Delete" onclick="goToURL('DeleteMedia.php?MediaId=<?php echo $media_steps['Id']; ?>')"/>
+</div>
 </div>
 <div id="footer">
 &copy;2012 Pearson Foundation

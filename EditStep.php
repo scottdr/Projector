@@ -137,6 +137,7 @@ function attachMedia()
 }
 
 </script>
+<link href="_css/main.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 /* BeginOAWidget_Instance_2921536: #OAWidget */
 
@@ -274,11 +275,19 @@ legend {
 	padding-right:30px;
 }
 
+/* small button for detach under images*/
+a.smallRedButton {
+	color : #FFF;
+	background-color: #C03;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+
 .hideMe {
 	visibility:hidden;
 }
 </style>
-<link href="_css/main.css" rel="stylesheet" type="text/css" />
 <link href="jquery-ui-1.8.21/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <!--<link href="css/formStyle.css" rel="stylesheet" type="text/css" />-->
