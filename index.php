@@ -24,7 +24,7 @@
 <style type="text/css"> 
 body {
 	background-color: #343434;
-	background-image:url(http://labs.pearsonfoundation.org/_images/Bourgeois_Louise-Crouching_Spider.jpg);
+	background-image:url(images/Bourgeois_Louise-Crouching_Spider.jpg);
 	background-position:top;
 	background-repeat: no-repeat;
 	background-size: 150% auto;
@@ -102,7 +102,7 @@ body {
             <hr>
             <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
-                    <a href="#" class="prev"><img src="http://labs.pearsonfoundation.org/_images/arrow-left-blue.png" alt="previous item"></a>
+                    <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item"></a>
                 </div>
                 <div id="HomeBannerRotator">
                         <div class="slides_container">
@@ -110,16 +110,16 @@ body {
                         </div>
                 </div>
                 <div id="HomeBannerRotatorNext">
-                    <a href="#" class="next"><img src="http://labs.pearsonfoundation.org/_images/arrow-right-blue.png" alt="next item"></a>
+                    <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item"></a>
                 </div>  
         	</div>
     </div>           
         
         <!-- FOOTER --------------------------------------------->
         <div id="HomeFooterDiv">
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="http://labs.pearsonfoundation.org/_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-            <!--a href="http://www.si.edu" target="_blank"><img src="http://labs.pearsonfoundation.org/_images/logo_smithsonian.gif" alt="Pearson Teaching Awards"></a-->
-            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="http://labs.pearsonfoundation.org/_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Pearson Teaching Awards"></a-->
+            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
         </div>
     
 
