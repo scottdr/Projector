@@ -51,7 +51,7 @@ session_start();
   <?php do { ?>
   <tr class="rowItem">
       <td width="120"><a href="AttachMedia.php?Id=<?php echo $row_MediaQuery['Id']; ?>&amp;ProjectId=<?php echo $_SESSION['ProjectId']; ?>&amp;StepId=<?php echo $_SESSION['StepId']; ?>"><img src="<?php echo $row_MediaQuery['Url']; ?>" alt="<?php echo $row_MediaQuery['Description']; ?>" name="" width="120" height="90" /></a></td>
-      <td width="200" nowrap="nowrap"><a href="AttachMedia.php?Id=<?php echo $row_MediaQuery['Id']; ?>&amp;ProjectId=<?php echo $_SESSION['ProjectId']; ?>&amp;StepId=<?php echo $_SESSION['StepId']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></td>
+      <td width="200" nowrap="nowrap"><div class="ellipsis"><a href="AttachMedia.php?Id=<?php echo $row_MediaQuery['Id']; ?>&amp;ProjectId=<?php echo $_SESSION['ProjectId']; ?>&amp;StepId=<?php echo $_SESSION['StepId']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></div></td>
     </tr>
    <?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
 </table>
