@@ -273,7 +273,7 @@ tinyMCE.init({
 				elements : "Teacher",
 				theme : "advanced",
 					// Theme options
-				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull|formatselect",
+				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect",
 				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,charmap,code",
 				theme_advanced_toolbar_location : "top",
 				theme_advanced_toolbar_align : "left",
@@ -287,7 +287,7 @@ tinyMCE.init({
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">Display Projects</a> | <a href="Gallery.php">Tile Grid</a> | <a href="ProjectDetails.php?Id=<?php echo $projectId; ?>">View Project</a> | <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="Gallery.php">Tile Grid</a> | <a href="ProjectDetails.php?Id=<?php echo $projectId; ?>">View Project</a> | <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <fieldset>

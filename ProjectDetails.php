@@ -178,7 +178,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             
             <!-- TAB TWO ----------------------------------------->
             <div id="projectTab2">
-            		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
+            		
                 <div id="lightGreyRightColumn"> 
 									<h2>Project Author</h2>
 									<?php echo $row_ProjectDetails['Author']; ?> 
@@ -191,6 +191,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <p>&nbsp;</p>
                     <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>--> 
               </div>
+              <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <div id="ProjectContributors">
                 <h2>Project Contributors</h2>
                	<?php echo $row_ProjectDetails['Contributor']; ?>

@@ -120,10 +120,10 @@ if (isset($_POST["MM_action"])) {
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript">
 
-function attachMedia()
+function attachMedia(projectId)
 {
 	$.ajax({
-  	url: "MediaData.php",
+  	url: "MediaData.php?ProjectId=" + projectId,
   	cache: false
 	}).done(function( html ) {
 		$("#Dialog").removeClass("hideMe");
@@ -318,7 +318,7 @@ tinyMCE.init({
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">Display Projects</a> | <a href="Gallery.php">Tile Grid</a> | <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>&StepId=<?php echo $stepId; ?>">View Challenge</a></div></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a>| <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>&StepId=<?php echo $stepId; ?>">View Challenge</a></div></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <fieldset>
@@ -375,7 +375,7 @@ tinyMCE.init({
     </div>
     <div class="clearFloat"></div>
     <div style="text-align:center">    	
-    	<input class="blueButton" type="button" name="button" id="button" value="Attach Media" onclick="attachMedia()" />
+    	<input class="blueButton" type="button" name="button" id="button" value="Attach Media" onclick="attachMedia(<?php echo $projectId; ?>)" />
     </div>
     <?php endif; ?>
   </fieldset>

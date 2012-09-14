@@ -37,7 +37,7 @@ if (isset($_GET['ProjectId'])) {
 }
 mysql_select_db($database_projector, $projector);
 if ($colname_MediaQuery == -1)
-	$query_MediaQuery = "SELECT * FROM Media";
+	$query_MediaQuery = "SELECT * FROM Media ORDER BY ProjectId";
 else
 	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($colname_MediaQuery, "int"));
 $MediaQuery = mysql_query($query_MediaQuery, $projector) or die(mysql_error());
@@ -157,25 +157,20 @@ function validateFields(evt)
     <th>Id</th>
     <th>Image</th>
     <th>Caption</th>
-    <th>Type</th>
-    <th>Project</th>
+    <th align="center">Project</th>
   </tr>
   <?php do { ?>
   <tr class="rowItem">
    
       <td>
+      <?php echo $row_MediaQuery['Id']; ?>
       <form id="stepForm" name="form1" method="get" action="EditMedia.php">
         <input style="background-image: url(icons/Writing.fw.26x26png.png); width:26px;" class="button" type="submit" name="button" id="button" value="Edit" />
         <input name="Id" type="hidden" id="Id" value="<?php echo $row_MediaQuery['Id']; ?>" />
-      </form>
-        <!--<form id="viewForm" name="viewForm" method="get" action="ViewMedia.php">
-          <input style="width:26px;" class="button" type="submit" name="button" id="button" value="View"/>
-          <input name="StepId" type="hidden" id="StepId" value="<?php echo $row_MediaQuery['Id']; ?>" />
-        </form>--></td>
+      </form></td>
       <td><a href="#"><img src="<?php echo $row_MediaQuery['Url']; ?>" alt="<?php echo $row_MediaQuery['Description']; ?>" name="" width="120" height="90" /></a></td>
       <td class="fixed200Column" nowrap="nowrap"><div class="ellipsis"><?php echo $row_MediaQuery['Caption']; ?></div></td>
-      <td nowrap="nowrap"><?php echo $row_MediaQuery['Type']; ?></td>
-      <td><?php echo $row_MediaQuery['ProjectId']; ?></td>
+      <td align="center"><?php echo $row_MediaQuery['ProjectId']; ?></td>
   </tr>
    <?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
 </table>
