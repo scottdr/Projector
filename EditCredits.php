@@ -79,17 +79,19 @@ if (isset($_GET["ProjectId"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-			$sqlCommand = sprintf("INSERT INTO ProjectDetails SET ProjectId = %s, Detail = %s",
+			$sqlCommand = sprintf("INSERT INTO ProjectDetails SET ProjectId = %s, Author = %s, Contributor = %s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
-                       GetSQLValueString($_POST['Detail'], "text"));
+											 GetSQLValueString($_POST['Author'], "text"),
+											 GetSQLValueString($_POST['Contributor'], "text"));
 //		print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */
 	} else
-  	$sqlCommand = sprintf("UPDATE ProjectDetails SET ProjectId=%s, Detail=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE ProjectDetails SET ProjectId=%s, Author=%s, Contributor=%s WHERE Id=%s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
-                       GetSQLValueString($_POST['Detail'], "text"),
+											 GetSQLValueString($_POST['Author'], "text"),
+											 GetSQLValueString($_POST['Contributor'], "text"),
                        GetSQLValueString($_POST['Id'], "int"));
 
 //	print "sqlCommand: " . $sqlCommand;
@@ -116,7 +118,7 @@ if ($totalRows_details == 0)
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Edit Details</title>
+<title>Edit Credits</title>
 <style type="text/css">
 /* BeginOAWidget_Instance_2921536: #OAWidget */
 
@@ -270,11 +272,11 @@ function updateThumbnailImage(object)
 
 tinyMCE.init({
         mode : "exact",
-				elements : "Detail,Teacher",
+				elements : "Author,Contributor",
 				theme : "advanced",
 					// Theme options
-				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,charmap",
-				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor",
+				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect",
+				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,charmap,code",
 				theme_advanced_toolbar_location : "top",
 				theme_advanced_toolbar_align : "left",
 			/*	theme_advanced_statusbar_location : "bottom",*/
@@ -291,15 +293,18 @@ tinyMCE.init({
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <fieldset>
-    <legend><?php echo $actionTitle; ?> Details</legend>
+    <legend><?php echo $actionTitle; ?> Credits</legend>
    <label for="Id">Id:</label>
       <input name="Id" type="text" id="Id" value="<?php echo $row_details['Id']; ?>" size="5" readonly="readonly" />
     <div class="clearFloat"></div>
     <label for="ProjectId">ProjectId:</label>
     <input name="ProjectId" type="text" id="ProjectId" placeholder="Project Name" value="<?php echo $projectId; ?>" size="5" />
     <div class="clearFloat"></div>
-    <label for="Detail">Challenge:</label>
-    <textarea name="Detail" id="Detail"><?php echo $row_details['Detail']; ?></textarea>
+   <label for="Author">Author:</label>
+    <textarea name="Author" id="Author"><?php echo $row_details['Author']; ?></textarea>
+    <div class="clearFloat"></div>
+     <label for="Contributor">Contributor:</label>
+    <textarea name="Contributor" id="Contributor"><?php echo $row_details['Contributor']; ?></textarea>
     <div class="clearFloat"></div>
   </fieldset>
   <div style="text-align:center">

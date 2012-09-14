@@ -156,74 +156,53 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             
             <!-- TABS --------------------------------------------->
             <div class="tabs" id="tabDiv">
-            <ul class="tabNavigation">
+            	<ul class="tabNavigation">
                 <li><a href="#projectTab1">The Challenge</a></li>
                 <li><a href="#projectTab2">Credits</a></li>
-            </ul>
+                <li><a href="#projectTab3">Teacher Notes</a></li>
+              </ul>
             <!-- TAB ONE ----------------------------------------->
             <div id="projectTab1">
-                <div id="resources">
-                  <h2>Start the challenge</h2>
-                  <p>You can work through the challenge online or you can download it in a PDF format</p>
-                  <hr/>
-                  <h3>Online Challenge</h3>
-                  <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
-                  <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>" class="bluebutton">Start the Online Challenge</a></p>
-                  <!--<input id="startChallenge" class="button" style="" name="action" type="button" value="Start Challenge" onclick="goToURL('ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />-->
-                  <!--<hr/>
-                  <h3>Download the PDF (1.8MB)</h3>
-                  <p>Nunc et felis quis purus rhoncus venenatis vitae a mi. In scelerisque malesuada diam, vitae semper eros hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-                  <p><a href="#">Download the PDF Challenge</a></p>-->
-                        
-                </div>  
-              <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
-              <h2><?php echo $row_foundRecord['Name']; ?></h2>
-              <p><?php echo $row_ProjectDetails['Detail']; ?></p>
-                    
+              <div id="resources">
+                <h2>Start the challenge</h2>
+                <p>You can work through the challenge online or you can download it in a PDF format</p>
+                <hr/>
+                <h3>Online Challenge</h3>
+                <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
+                <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>" class="bluebutton">Start the Online Challenge</a></p>
+              </div>
+                <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
+                <h2><?php echo $row_foundRecord['Name']; ?></h2>
+                <p><?php echo $row_ProjectDetails['Detail']; ?></p>
             </div>
             
             <!-- TAB TWO ----------------------------------------->
-           	<div id="projectTab2">
-        
-                <div id="lightGreyRightColumn">
-                    <h2>Project Author</h2>
+            <div id="projectTab2">
+            		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
+                <div id="lightGreyRightColumn"> 
+									<h2>Project Author</h2>
+									<?php echo $row_ProjectDetails['Author']; ?> 
+                <!--   
                     <img src="_images/user.jpg" alt="Firstname, Lastname">
                     <h3 class="name">Firstname Lastname</h3>
                     <p class="title">Title, School/Org</p>
                     <p>&nbsp;</p>
                     <p><a class="bluebutton">View Projects (7)</a></p>
                     <p>&nbsp;</p>
-                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>
-                </div>
+                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>--> 
+              </div>
                 <div id="ProjectContributors">
-                    <h2>Project Contributors</h2>
-                    <p>&nbsp;</p>
-                    <img src="_images/user.jpg" alt="Firstname, Lastname">
-                    <h3 class="name">Firstname Lastname</h3>
-                    <p class="title">Title, School/Org</p>
-                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
-                    <hr/>
-                    <img src="_images/user.jpg" alt="Firstname, Lastname">
-                    <h3 class="name">Firstname Lastname</h3>
-                  <p class="title">Title, School/Org</p>
-                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
-                    <hr/>
-                    <img src="_images/user.jpg" alt="Firstname, Lastname">
-                    <h3 class="name">Firstname Lastname</h3>
-                  <p class="title">Title, School/Org</p>
-                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
-                    <hr/>
-                    <img src="_images/user.jpg" alt="Firstname, Lastname">
-                    <h3 class="name">Firstname Lastname</h3>
-                  <p class="title">Title, School/Org</p>
-                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.                </p>
-                    <p>&nbsp;</p>
-                 </div>	
-                            
-                </div>
-            </div>
+                <h2>Project Contributors</h2>
+               	<?php echo $row_ProjectDetails['Contributor']; ?>
+              </div>
+              </div>
             <!-- TAB THREE ----------------------------------------->
-         
+            <div id="projectTab3">
+            	<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 
+							<?php echo $row_ProjectDetails['Teacher']; ?>
+            </div>
+          </div>
+ 
             
             <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
