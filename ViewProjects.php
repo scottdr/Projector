@@ -114,7 +114,7 @@ td{
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16"/> Add Project</a> | <a href="Gallery.php">Tile Grid</a> | <a href="ViewMedia.php">View Media</a> | <a href="ViewRoutines.php">View Routines</a></div>
+<div class="subNav"><a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16"/> Add Project</a> | <a href="ViewMedia.php">View Media</a> | <a href="ViewRoutines.php">View Routines</a></div>
 <div id="content">
   <table width="300">
     <tr>

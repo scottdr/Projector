@@ -130,7 +130,7 @@ function attachMedia(projectId)
   	$("#Dialog").append(html);
 		$( "#Dialog" ).dialog({
 			height: 600,
-			width: 550,
+			width: 400,
 			modal: true
 		});
 	});
@@ -287,6 +287,14 @@ a.smallRedButton {
 .hideMe {
 	visibility:hidden;
 }
+
+.captionDiv {
+	white-space: nowrap;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 14px;
+}
 </style>
 <link href="jquery-ui-1.8.21/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
@@ -318,7 +326,7 @@ tinyMCE.init({
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a>| <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>&StepId=<?php echo $stepId; ?>">View Challenge</a></div></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects </a>| <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>&StepId=<?php echo $stepId; ?>">View Challenge</a></div></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <fieldset>
