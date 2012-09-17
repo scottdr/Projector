@@ -31,7 +31,7 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
     </a>
   <div id="NavSearchContainer">
     <div id="NavSearchTextContainer">
-      <input type="text" id="NavSearchText" placeholder="search projects">
+      <input type="text" id="NavSearchText" placeholder="search projects ...">
     </div>
     <input type="submit" class="searchButton" id="submit" value="">
   </div>
