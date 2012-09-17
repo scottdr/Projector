@@ -98,7 +98,7 @@ body {
         <!-- BANNER --------------------------------------------->
         <div id="HomeBannerDiv">
         
-            <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdiscipliary, authentic experiences that blend informal and formal learning environments.  <a href="About.php">Read more.</a></p>
+            <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <a href="About.php">Read more.</a></p>
             <hr>
             <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
