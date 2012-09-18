@@ -187,7 +187,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <div class="gridContainer clearfix">
   <div id="Header">
     <div id="headerBackButton">
-      <p><a href="ProjectDetails.php?Id=<?php echo $ProjectId?>">Back to Project Details</a></p>
+      <p><a href="ProjectDetails.php?Id=<?php echo $ProjectId?>">Back to Project</a></p>
     </div>
     <div id="headerLogo"> <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24">
       <p>The Projector</p>
