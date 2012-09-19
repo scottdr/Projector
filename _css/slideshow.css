@@ -125,8 +125,10 @@ body {
 */
 
 .pagination {
-	margin:26px auto 0;
-	width:100px;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:26px;
 }
 
 .pagination li {

@@ -22,16 +22,7 @@
 	});
 </script>
 <style type="text/css"> 
-/*body {
-	background-color: #343434;
-	background-image:url(images/Bourgeois_Louise-Crouching_Spider.jpg);
-	background-position:top;
-	background-repeat: no-repeat;
-	background-size: 150% auto;
-	-webkit-background-size: 150% auto;
-	-moz-background-size: 150% auto;
-	-o-background-size: 150% auto;
-}*/
+/*pagination is used in the banner*/
 .pagination {
 	clear:both;
 	margin-left: auto;
@@ -61,7 +52,7 @@
 	width:12px;
 	height:0px;
 	padding-top:24px;
-	background-image:url(_images/home_banner_dot_down.png);
+	background-image:url(_images/home_banner_dot_up.png);
 	background-position:0 0;
 	float:left;
 	overflow:hidden;
@@ -71,7 +62,7 @@
 	width:12px;
 	height:0px;
 	padding-top:24px;
-	background-image:url(_images/home_banner_dot_up.png);
+	background-image:url(_images/home_banner_dot_down.png);
 	background-position:0 0;
 	float:left;
 	overflow:hidden;

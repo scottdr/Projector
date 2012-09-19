@@ -11,7 +11,7 @@ img, object, embed, video {
 body {
 	background-color: #343434;
 	font-family:"Helvetica Neue","Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color:#343434;
+	color:#333333;
 	line-height: 90%;
 }
 h1 {
@@ -48,16 +48,16 @@ li {
 }
 a:link {
 	text-decoration: none;
-	color:#00AEEF;
+	color:#0099CC;
 }
 a:visited {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:hover {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:active {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a.navUp {
 	font-size: 13px;
@@ -160,7 +160,7 @@ a.navDown {
 	font-weight: 200;
 	font-size: 22px;
 	line-height: 22px;
-	color: #00AEEF;
+	color: #0099CC;
 	text-align: left;
 	padding: 0px;
 }
@@ -194,6 +194,7 @@ a.navDown {
 	display: block;
 	cursor: default;
 	overflow: hidden;
+	vertical-align: middle;
 }
 #HomeBannerRotatorPrevious {
 	display: inline;
@@ -349,26 +350,28 @@ a.navDown {
 	font-size: 14px;
 }
 #NavItemDown {
-	float:left;
+	float: left;
 	width: 20.75%;
 	margin-right: 2px;
-	text-align:center;
+	text-align: left;
 	overflow: hidden;
-	background-image:url(images/nav_down.gif);
-	background-repeat:no-repeat;
-	background-position:center;
+	background-image: url(images/nav_down.gif);
+	background-repeat: no-repeat;
+	background-position: center;
 	height: 50px;
+	padding-left: 10px;
 }
 #NavItemUp {
 	float:left;
 	width: 20.75%;
 	margin-right: 2px;
-	text-align:center;
+	text-align:left;
 	overflow: hidden;
 	background-image:url(images/nav_up.gif);
 	background-repeat:no-repeat;
 	background-position:center;
 	height: 50px;
+	padding-left: 10px;
 }
 #NavSearchContainer { /* contains the search text input and search button */
 	vertical-align: middle;
@@ -675,7 +678,7 @@ ul.tabNavigation li {
 
 ul.tabNavigation li a {
 	padding: 10px;
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	color: #FFF;
 	text-decoration: none;
 	font-size:13px;
@@ -684,16 +687,16 @@ ul.tabNavigation li a {
 	text-align:center;
 	font-weight:250;
 	text-transform: uppercase;
-	border-left-color:#00AEEF;
+	border-left-color:#0099CC;
 	border-left-style:solid;
 	border-left-width:thin;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
-	border-right-color:#00AEEF;
+	border-right-color:#0099CC;
 	border-right-style:solid;
 	border-right-width:thin;
-	border-bottom-color:#00AEEF;
+	border-bottom-color:#0099CC;
 	border-bottom-style:solid;
 	border-bottom-width:thin;
 }
@@ -701,16 +704,16 @@ ul.tabNavigation li a {
 ul.tabNavigation li a.selected,
 ul.tabNavigation li a:hover {
 	background-color: #fff;
-	color: #00AEEF;
+	color: #0099CC;
 	padding: 10px;
 /*	line-height: 30px;*/
-	border-left-color:#00AEEF;
+	border-left-color:#0099CC;
 	border-left-style:solid;
 	border-left-width:thin;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
-	border-right-color:#00AEEF;
+	border-right-color:#0099CC;
 	border-right-style:solid;
 	border-right-width:thin;
 	border-bottom-color:#FFF;
@@ -737,7 +740,7 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	background-color: #fff;
-	border-top-color: #00AEEF;
+	border-top-color: #0099CC;
 	border-top-style: solid;
 	border-top-width: thin;
 	padding-top: 15px;
@@ -748,7 +751,7 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	background-color: #fff;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
 	padding-top: 15px;
@@ -759,7 +762,7 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	background-color: #fff;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
 	padding-top: 15px;
@@ -803,7 +806,7 @@ div.tabs > div h2 {
 	border-top-style: dotted;
 	}
 .accordion dt:hover {
-	color:#00AEEF;
+	color:#0099CC;
 	}
 .accordion dd {
 	overflow:hidden; 
@@ -840,7 +843,7 @@ div.tabs > div h2 {
 #resources a {
 	font-weight:200;
 	color:#FFF;
-	background:#00AEEF;
+	background:#0099CC;
 	padding: 10px;
 	line-height: 120%;
 }
@@ -1008,7 +1011,7 @@ div.tabs > div h2 {
 .bluebutton {
 	font-weight:200;
 	color:#FFF;
-	background:#00AEEF;
+	background:#0099CC;
 	padding: 10px;
 	line-height: 120%;
 }

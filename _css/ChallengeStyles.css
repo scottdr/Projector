@@ -15,16 +15,16 @@ body {
 }
 a:link {
 	text-decoration: none;
-	color:#00AEEF;
+	color:#0099CC;
 }
 a:visited {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:hover {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:active {
-	color: #00AEEF;
+	color: #0099CC;
 }
 
 #headerLogo {

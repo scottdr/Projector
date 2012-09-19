@@ -4,7 +4,7 @@
 
 Dark grey - #343434 - rgb(52,52,52)
 Light grey - #999999 - rgb(153,153,153)
-Blue - #00AEEF - rgb(0,174,239)
+Blue - #0099CC - rgb(0,174,239)
 Transparent Black - rgba(0,0,0,0.7)
 
 */
@@ -57,16 +57,16 @@ li {
 }
 a:link {
 	text-decoration: none;
-	color:#00AEEF;
+	color:#0099CC;
 }
 a:visited {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:hover {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:active {
-	color: #00AEEF;
+	color: #0099CC;
 }
 #HeaderDiv {
 	position: relative;
@@ -154,7 +154,7 @@ a:active {
 	text-transform: uppercase;
 }
 #NavDiv a.currentPage{
-	color: #00AEEF;
+	color: #0099CC;
 	text-transform: uppercase;
 }
 #NavDiv ul{
@@ -219,7 +219,7 @@ a.navDown {
 	font-size:13px;
 	letter-spacing:1px;
 	line-height:38px;
-	color: #00AEEF;
+	color: #0099CC;
 	text-align:center;
 	font-weight:250;
 }
@@ -314,7 +314,7 @@ a.navDown {
 	font-weight: 200;
 	font-size: 22px;
 	line-height: 36px;
-	color: #00AEEF;
+	color: #0099CC;
 	text-align: left;
 }
 #HomeBannerDiv p {
@@ -458,7 +458,7 @@ a.navDown {
 
 #StudentGalleryUpload {
 	float: left;
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	width: 20%;
 	height: 26px;
 	color: #FFF;
@@ -538,7 +538,7 @@ a.navDown {
 	overflow:hidden;
 }
 #GalleryColumn1Div:hover {
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	color:#FFF;
 	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position:bottom right;
@@ -559,7 +559,7 @@ a.navDown {
 	overflow:hidden;
 }
 #GalleryColumn2Div:hover {
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	color:#FFF;
 	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position:bottom right;
@@ -579,7 +579,7 @@ a.navDown {
 	overflow:hidden;
 }
 #GalleryColumn3Div:hover {
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	color:#FFF;
 	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position:bottom right;
@@ -667,7 +667,7 @@ ul.tabNavigation li {
 
 ul.tabNavigation li a {
 	padding: 10px;
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	color: #FFF;
 	text-decoration: none;
 	font-size:13px;
@@ -676,16 +676,16 @@ ul.tabNavigation li a {
 	text-align:center;
 	font-weight:250;
 	text-transform: uppercase;
-	border-left-color:#00AEEF;
+	border-left-color:#0099CC;
 	border-left-style:solid;
 	border-left-width:thin;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
-	border-right-color:#00AEEF;
+	border-right-color:#0099CC;
 	border-right-style:solid;
 	border-right-width:thin;
-	border-bottom-color:#00AEEF;
+	border-bottom-color:#0099CC;
 	border-bottom-style:solid;
 	border-bottom-width:thin;
 }
@@ -693,16 +693,16 @@ ul.tabNavigation li a {
 ul.tabNavigation li a.selected,
 ul.tabNavigation li a:hover {
 	background-color: #fff;
-	color: #00AEEF;
+	color: #0099CC;
 	padding: 10px;
 	line-height: 30px;
-	border-left-color:#00AEEF;
+	border-left-color:#0099CC;
 	border-left-style:solid;
 	border-left-width:thin;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
-	border-right-color:#00AEEF;
+	border-right-color:#0099CC;
 	border-right-style:solid;
 	border-right-width:thin;
 	border-bottom-color:#FFF;
@@ -729,7 +729,7 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	background-color: #fff;
-	border-top-color: #00AEEF;
+	border-top-color: #0099CC;
 	border-top-style: solid;
 	border-top-width: thin;
 	padding-top: 15px;
@@ -740,7 +740,7 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	background-color: #fff;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
 	padding-top: 15px;
@@ -751,7 +751,7 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	background-color: #fff;
-	border-top-color:#00AEEF;
+	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
 	padding-top: 15px;
@@ -796,7 +796,7 @@ div.tabs > div h2 {
 	border-top-style: dotted;
 	}
 .accordion dt:hover {
-	color:#00AEEF;
+	color:#0099CC;
 	}
 .accordion dd {
 	overflow:hidden; 
@@ -833,7 +833,7 @@ div.tabs > div h2 {
 #resources a {
 	font-weight:200;
 	color:#FFF;
-	background:#00AEEF;
+	background:#0099CC;
 	padding: 10px;
 	line-height: 120%;
 }
@@ -909,7 +909,7 @@ div.tabs > div h2 {
 	border-top-width: 2px;
 	border-top-style: dotted;
 	padding-top: 10px;
-	color:#00AEEF
+	color:#0099CC
 }
 #ProjectComments .CommentsHeader {
 	background-color:#666;
@@ -996,7 +996,7 @@ div.tabs > div h2 {
 .bluebutton {
 	font-weight:200;
 	color:#FFF;
-	background:#00AEEF;
+	background:#0099CC;
 	padding: 10px;
 	line-height: 120%;
 }
@@ -1012,7 +1012,8 @@ div.tabs > div h2 {
 	position: absolute;
 	margin-right: auto;
 	margin-left: auto;
-	padding: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	width: 100%;
 	height: 60px;
 	background-color: #FFF;
