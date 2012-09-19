@@ -14,16 +14,16 @@ body {
 
 a:link {
 	text-decoration: none;
-	color:#00AEEF;
+	color:#0099CC;
 }
 a:visited {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:hover {
-	color: #00AEEF;
+	color: #0099CC;
 }
 a:active {
-	color: #00AEEF;
+	color: #0099CC;
 }
 .typekit-badge {
 	display:none !important;
@@ -145,7 +145,7 @@ a:active {
 	padding: 0px;
 	border: 0px;
 	margin-top: 20px;
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	height: 40px;
 	width: 40px;
 	overflow:hidden;
@@ -159,7 +159,7 @@ a:active {
 	padding: 0px;
 	border: 0px;
 	margin-top: 20px;
-	background-color: #00AEEF;
+	background-color: #0099CC;
 	height: 40px;
 	width: 40px;
 	overflow:hidden;
