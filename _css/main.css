@@ -113,7 +113,7 @@ a.navDown {
 	float:left;
 	width: 20.75%;
 	margin-right: 2px;
-	text-align:center;
+	text-align:left;
 	overflow: hidden;
 	background-image:url(../images/nav_down.gif);
 	background-repeat:no-repeat;
@@ -124,7 +124,7 @@ a.navDown {
 	float:left;
 	width: 20.75%;
 	margin-right: 2px;
-	text-align:center;
+	text-align:left;
 	overflow: hidden;
 	background-image:url(../images/nav_up.gif);
 	background-repeat:no-repeat;

@@ -30,16 +30,11 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
         </div>
     </a>
   <div id="NavSearchContainer">
-    <div id="NavSearchTextContainer">
-      <input type="text" id="NavSearchText" placeholder="Search ...">
+  	<!-- SEARCH -->
+    <!--div id="NavSearchTextContainer">
+    <input type="text" id="NavSearchText" placeholder="Search ...">
     </div>
-    <!--             <div id="NavSearch">
-                   Search ...--> 
-    <!--form id="searchbox" action="">
-                    <input type="text" id="NavSearch" value="Search ...">
-        
-                    </form-->
-    <input type="submit" class="searchButton" id="submit" value="">
+    <input type="submit" class="searchButton" id="submit" value=""-->
   </div>
 </div>
 <div class="clearFloat" />

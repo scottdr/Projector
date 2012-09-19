@@ -129,12 +129,13 @@ a.navDown {
 	clear: both;
 	position: relative;
 	background-color: rgba(0,0,0,0.7);
-	margin-top: 10%;
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 100px;
 	padding: 10px 15px 10px 15px;
-	width: 577px;
-	height: 285px;
+	width: 576px;
+	height: 396px;
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 	/* Safari v3.0+ and by Chrome v0.2+ */
@@ -158,34 +159,41 @@ a.navDown {
 	margin: 5px;
 	font-weight: 200;
 	font-size: 22px;
-	line-height: 36px;
+	line-height: 22px;
 	color: #00AEEF;
 	text-align: left;
+	padding: 0px;
 }
 #HomeBannerDiv p {
 	margin: 5px;
 	font-weight: 200;
-	font-size: 16px;
-	line-height: 20px;
+	font-size: 19px;
+	line-height: 22px;
 	color: rgb(255,255,255);
 	text-align: left;
 }
 #HomeBannerDiv  hr {
 	background: url(../_images/hr.png) repeat-x;
-	border: 0;
+	border: 0px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
+	margin-top: 20px;
+}
+#HomeBannerDiv  img {
+	border: 0px;
+	padding-right: 10px;
+	float:left;
 }
 #HomeBannerRotator {
 	display: inline;
-	width: 450px;
+	width: 448px;
 	height: 150px;
 	float: left;
 	display: block;
 	cursor: default;
-	overflow:hidden;
+	overflow: hidden;
 }
 #HomeBannerRotatorPrevious {
 	display: inline;
@@ -213,10 +221,11 @@ a.navDown {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	height: 1000px;
 	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-image: url(images/Bourgeois_Louise-Crouching_Spider2.jpg);
+	height: 688px;
 }
 #ProjGalleryBackgroundDiv {
 	position: relative;
@@ -225,7 +234,6 @@ a.navDown {
 	height: 1000px;
 	width: 100%;
 	background-image: url(images/proj_gal_bg.png);
-	background-color: #0F6;
 }
 #HeaderBgDiv {
 	position: relative;
@@ -363,7 +371,10 @@ a.navDown {
 	height: 50px;
 }
 #NavSearchContainer { /* contains the search text input and search button */
-	vertical-align:middle;
+	vertical-align: middle;
+	background-color: #999;
+	width: 35%;
+	height: 38px;
 }
 #NavSearchTextContainer { /* contains the search text input */
 	border: 0px;
@@ -373,7 +384,7 @@ a.navDown {
 	width: 35%;
 	text-align: left;
 	height: 38px;
-	background-color: #666;
+	background-color: #999;
 }
 
 #NavSearchText { /* search text input */
