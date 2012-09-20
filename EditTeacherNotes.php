@@ -60,7 +60,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 // If there are no matching Details we will be adding a new record instead of editing.
 if ($totalRows_details == 0) {
-	print "No Details Exist, going to Add Details";
+//	print "No Details Exist, going to Add Details";
 	$action = "Add";
 	$actionTitle = "Add";
 } else {
