@@ -418,7 +418,8 @@ a.navDown {
 	margin-left: auto;
 	margin-right: auto;
 	width: 940px;
-	z-index: -1;
+	z-index: 0;
+/*	z-index: -1;*/
 	height: 38px;
 	top: -70px;	
 	/* Firefox v3.5+ */
