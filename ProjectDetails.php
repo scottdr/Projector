@@ -161,8 +161,8 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             <div class="tabs" id="tabDiv">
             	<ul class="tabNavigation">
                 <li><a href="#projectTab1">The Challenge</a></li>
-                <li><a href="#projectTab2">Credits</a></li>
-                <li><a href="#projectTab3">Teacher Notes</a></li>
+                <li><a href="#projectTab2">Teacher Notes</a></li>
+                <li><a href="#projectTab3">Credits</a></li>
               </ul>
             <!-- TAB ONE ----------------------------------------->
             <div id="projectTab1">
@@ -181,8 +181,17 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <p><?php echo $row_ProjectDetails['Detail']; ?></p>
             </div>
             
-            <!-- TAB TWO ----------------------------------------->
+            
+            <!-- TAB THREE ----------------------------------------->
             <div id="projectTab2">
+            	<?php if (isset($PROJECTOR['editMode'])): ?>
+            		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
+							<?php echo $row_ProjectDetails['Teacher']; ?>
+            </div>
+          </div>
+ 
+ 					<!-- TAB THREE ----------------------------------------->
+            <div id="projectTab3">
             		
                 <div id="lightGreyRightColumn"> 
 									<h2>Project Author</h2>
@@ -204,15 +213,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                	<?php echo $row_ProjectDetails['Contributor']; ?>
               </div>
               </div>
-            <!-- TAB THREE ----------------------------------------->
-            <div id="projectTab3">
-            	<?php if (isset($PROJECTOR['editMode'])): ?>
-            		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
-							<?php echo $row_ProjectDetails['Teacher']; ?>
-            </div>
-          </div>
- 
-            
+                         
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
