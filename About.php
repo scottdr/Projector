@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Projector</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css"/>
-<link href="Project.css" rel="stylesheet" type="text/css"/>
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css"/>
 <link href="_css/main.css" rel="stylesheet" type="text/css"/>	
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

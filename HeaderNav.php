@@ -5,7 +5,7 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
 <div id="HeaderBgDiv">
   <div id="HeaderDiv">
     <div id="HeaderImg">
-      <a href="#"><img src="images/headerlogo.png" width="48" height="24"></a>
+      <a href="#"><img src="_images/headerlogo.png" width="48" height="24"></a>
     <!--<span class="projectorTitle">The Projector</span> -->
     	<h1>The Projector</h1>
     </div>

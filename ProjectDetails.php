@@ -96,7 +96,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Projector</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css"/>
-<link href="Project.css" rel="stylesheet" type="text/css"/>
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css"/>
 <link href="_css/main.css" rel="stylesheet" type="text/css"/>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -135,7 +135,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             </div>
             <div id="titleNav" class="floatRight">
               <form action="EditProject.php" method="get">
-                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
+                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
                   <input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
               </form>
             </div>

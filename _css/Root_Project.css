@@ -78,7 +78,7 @@ a.navDown {
 
 .searchButton {
 	position: absolute;
-	background-image: url(images/search_up.png);
+	background-image: url(../_images/search_up.png);
 	width: 60px;
 	height: 38px;
 	margin: 0px;
@@ -129,7 +129,7 @@ a.navDown {
 	clear: both;
 	position: relative;
 	background-color: rgba(0,0,0,0.7);
-	margin-top: 100px;
+	margin-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 100px;
@@ -225,7 +225,7 @@ a.navDown {
 	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(images/Bourgeois_Louise-Crouching_Spider2.jpg);
+	background-image: url(../_images/Bourgeois_Louise-Crouching_Spider2.jpg);
 	height: 688px;
 }
 #ProjGalleryBackgroundDiv {
@@ -234,7 +234,7 @@ a.navDown {
 	margin-right: auto;
 	height: 1000px;
 	width: 100%;
-	background-image: url(images/proj_gal_bg.png);
+	background-image: url(../images/proj_gal_bg.png);
 }
 #HeaderBgDiv {
 	position: relative;
@@ -355,23 +355,25 @@ a.navDown {
 	margin-right: 2px;
 	text-align: left;
 	overflow: hidden;
-	background-image: url(images/nav_down.gif);
+	background-image: url(../_images/nav_down.gif);
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 50px;
 	padding-left: 10px;
+	text-indent: 10px;
 }
 #NavItemUp {
-	float:left;
+	float: left;
 	width: 20.75%;
 	margin-right: 2px;
-	text-align:left;
+	text-align: left;
 	overflow: hidden;
-	background-image:url(images/nav_up.gif);
-	background-repeat:no-repeat;
-	background-position:center;
+	background-image: url(../_images/nav_up.gif);
+	background-repeat: no-repeat;
+	background-position: center;
 	height: 50px;
 	padding-left: 10px;
+	text-indent: 10px;
 }
 #NavSearchContainer { /* contains the search text input and search button */
 	vertical-align: middle;
@@ -542,7 +544,7 @@ a.navDown {
 	margin-bottom: 2%;
 	background-color: #E0DADA;
 	padding:0px;
-	background-image: url(images/proj_gal_item_up.gif);
+	background-image: url(../_images/proj_gal_item_up.gif);
 	background-position:bottom right;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -551,7 +553,7 @@ a.navDown {
 .GalleryColumn1Div:hover {
 	background-color: #3AADEF;
 	color:#FFF;
-	background-image: url(images/proj_gal_item_down.gif); 
+	background-image: url(../_images/proj_gal_item_down.gif); 
 	background-position:bottom right;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -564,7 +566,7 @@ a.navDown {
 	margin-bottom: 2%;
 	background-color: #E0DADA;
 	padding:0px;
-	background-image: url(images/proj_gal_item_up.gif);
+	background-image: url(../_images/proj_gal_item_up.gif);
 	background-position:bottom right;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -573,7 +575,7 @@ a.navDown {
 .GalleryColumn2Div:hover {
 	background-color: #3AADEF;
 	color:#FFF;
-	background-image: url(images/proj_gal_item_down.gif);
+	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position:bottom right;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -585,7 +587,7 @@ a.navDown {
 	margin-bottom: 2%;
 	background-color: #E0DADA;
 	padding:0px;
-	background-image: url(images/proj_gal_item_up.gif);
+	background-image: url(../_images/proj_gal_item_up.gif);
 	background-position:bottom right;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -594,7 +596,7 @@ a.navDown {
 .GalleryColumn3Div:hover {
 	background-color: #3AADEF;
 	color:#FFF;
-	background-image: url(images/proj_gal_item_down.gif);
+	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position:bottom right;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -856,7 +858,7 @@ div.tabs > div h2 {
 	clear: left;
 }
 #resources  hr {
-	background: url(_images/hr.png) repeat-x;
+	background: url(../_images/hr.png) repeat-x;
 	border: 0;
 	width: 280px;
 	margin-left: auto;
@@ -951,7 +953,7 @@ div.tabs > div h2 {
 }
 #lightGreyRightColumn hr {
 	clear:both;
-	background: url(_images/hr.png) repeat-x;
+	background: url(../_images/hr.png) repeat-x;
 	border: 0;
 	width: 280px;
 	margin-left: auto;
@@ -985,7 +987,7 @@ div.tabs > div h2 {
 }
 #ProjectContributors hr {
 	clear:left;
-	background: url(_images/hr.png) repeat-x;
+	background: url(../_images/hr.png) repeat-x;
 	border: 0;
 	width: 100%px;
 	margin-left: auto;

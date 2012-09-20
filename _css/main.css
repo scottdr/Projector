@@ -3,7 +3,7 @@
 body {
 	font-family:"Helvetica Neue","Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	background-color:#FBF9FA;
-	background-image:url(../images/proj_gal_bg.gif);
+	background-image:url(../_images/proj_gal_bg.gif);
 	background-repeat: repeat-x;
 	margin:0px;
 }
@@ -40,7 +40,7 @@ a.navDown {
 
 .searchButton {
 	position: absolute;
-	background-image: url(../images/search_up.png);
+	background-image: url(../_images/search_up.png);
 	width: 60px;
 	height: 38px;
 	margin: 0px;
@@ -115,7 +115,7 @@ a.navDown {
 	margin-right: 2px;
 	text-align:left;
 	overflow: hidden;
-	background-image:url(../images/nav_down.gif);
+	background-image:url(../_images/nav_down.gif);
 	background-repeat:no-repeat;
 	background-position:center;
 	height: 50px;
@@ -126,7 +126,7 @@ a.navDown {
 	margin-right: 2px;
 	text-align:left;
 	overflow: hidden;
-	background-image:url(../images/nav_up.gif);
+	background-image:url(../_images/nav_up.gif);
 	background-repeat:no-repeat;
 	background-position:center;
 	height: 50px;
