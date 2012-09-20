@@ -1,0 +1,184 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]><html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]><html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projector Gallery</title>
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css">
+<link href="_css/main.css" rel="stylesheet" type="text/css" />	
+
+<script src="js/respond.min.js"></script>
+<script src="js/gallery.js"></script>
+<script src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.GalleryColumn1Div,.GalleryColumn2Div,.GalleryColumn3Div').click(function(e) {
+		/*
+		alert('You clicked the DIV:' + e.currentTarget.getAttribute("data-id")); */
+		window.location = "ProjectDetails.php?Id=" + e.currentTarget.getAttribute("data-id");
+	});  
+});
+</script>
+</head>
+<body>
+
+    <div class="gridContainer clearfix"> 
+      <div class="ProjGalleryBackgroundDiv">
+      
+		<!-- HEADER AND NAVIGATION --------------------------------------------->
+        	<!-- Header -->
+            <div id="HeaderBgDiv">
+              <div id="HeaderDiv">
+                <div id="HeaderImg">
+                  <a href="#"><img src="_images/headerlogo.png" width="48" height="24"></a>
+                <!--<span class="projectorTitle">The Projector</span> -->
+                    <h1>The Projector</h1>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div id="NavDiv">
+                <a class="navUp" href="index.php">
+                    <div id="NavHome" class="NavItemUp">
+                    HOME</div>
+                </a>
+                <a class="navDown" href="Gallery.php">
+                    <div id="NavGallery" class="NavItemDown">
+                    PROJECT GALLERY</div>
+                </a>
+                <a class="navUp" href="About.php">
+                    <div id="NavAbout" class="NavItemUp">
+                    ABOUT</div>
+                </a>
+              <div id="NavSearchContainer">
+                <!-- SEARCH -->
+              </div>
+            </div>
+        <div class="clearFloat" />
+            <div id="NavShadowDiv"></div>
+                    
+                    
+                    <div class="clearFloat">
+                    </div>
+                    <!-- TOP PAGE NAVIGATION --------------------------------------------->
+        <div id="ContentDiv">
+                    
+          <div id="GalleryNavFilter">
+                            <p>&nbsp;</p>
+                      </div>
+                        
+          <div id="GalleryNavItemsPerPg">
+                            <form name="form1" method="post" action="">
+                              <label>
+                                <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
+                                  <option value="3">Viewing  3 per page</option>
+                                  <option value="9">Viewing 9 per page</option>
+                                  <option value="9000">all</option>
+                                </select>
+                              </label>
+                            </form>
+                        </div>
+                        
+          <div id="GalleryNavPgOfX"><p>page 1 of 4</p>
+                        <a href="/Projector/Gallery.php?pageNum_Recordset1=1&totalRows_Recordset1=11"><img src="_images/proj_gal_next_up.gif"></a>
+                          <a href="Gallery.php?pageNum_Recordset1=0&totalRows_Recordset1=11"><img src="_images/proj_gal_back_up.gif"></a>
+                      </div>
+					  <!-- FEATURE BANNER --------------------------------------------->
+                      <div id="GalleryBanner">
+                                    <h1>Mock Election 2012</h1>
+                                    <p>Lorem ipsum dolor sit amet, conset ...</p>
+                                    <p><a href="#">View Projects</a></p>
+                                  </div>
+                      <div class="horzontalSpacer">
+                      </div>
+                      
+          <!-- PAGE CONTENT --------------------------------------------->
+                      <div class="GalleryColumn1Div" data-id="1" >
+                        <div class="GalleryBlueBar">Pilot Project</div>
+                        <div class="GalleryThumbnailIcon"></div>
+                        <div class="GalleryMedia">
+                            <a href="ProjectDetails.php?Id=3"><img src="_images/placeholder_img.gif" width="300" height="200"></a>
+                        </div>
+                        <div class="GalleryDetails">
+                            <h1>Title Lorem ipsum</h1>
+                            <p>Musical instruments can tell us a lot about the people who made them. Make an instrument that tells the world something about you!</p>
+                            <p>Status: Pilot</p>
+                            <p>ELA with cross-curricular in Art</p>
+                            <p>Duration: 10 days</p> 
+                        </div>
+       	  			</div>
+                    <div class="GalleryColumn2Div" data-id="16">
+                        <div class="GalleryBlueBar">Pilot Project</div>
+                        <div class="GalleryThumbnailIcon"></div>
+                        <div class="GalleryMedia">
+                            <a href="ProjectDetails.php?Id=3"><img src="_images/placeholder_img.gif" width="300" height="200"></a>
+                        </div>
+                        <div class="GalleryDetails">
+                            <h1>Title Lorem ipsum</h1>
+                            <p>Musical instruments can tell us a lot about the people who made them. Make an instrument that tells the world something about you!</p>
+                            <p>Status: Pilot</p>
+                            <p>ELA with cross-curricular in Art</p>
+                            <p>Duration: 10 days</p> 
+                        </div>
+                    </div>
+                    <div class="GalleryColumn3Div" data-id="3" >
+                    	<div class="GalleryBlueBar">Pilot Project</div>
+                        <div class="GalleryThumbnailIcon"></div>
+                        <div class="GalleryMedia">
+                            <a href="ProjectDetails.php?Id=3"><img src="_images/placeholder_img.gif" width="300" height="200"></a>
+                        </div>
+                        <div class="GalleryDetails">
+                            <h1>Title Lorem ipsum</h1>
+                            <p>Musical instruments can tell us a lot about the people who made them. Make an instrument that tells the world something about you!</p>
+                            <p>Status: Pilot</p>
+                            <p>ELA with cross-curricular in Art</p>
+                            <p>Duration: 10 days</p> 
+                        </div>
+                    </div>
+ 
+   		  <p></p>
+            <!-- BOTTOM PAGE NAVIGATION ----------------------------->
+            <div id="GalleryNavFilter">
+                <p>&nbsp;</p>
+            </div>
+            
+            <div id="GalleryNavItemsPerPg">
+                <form name="form1" method="post" action="">
+                  <label>
+                    <select name="recordsPerPage2" id="recordsPerPage2" onChange="updateRecordCount(this.value)">
+                      <option value="3">Viewing 3 per page</option>
+                      <option value="9">Viewing 9 per page</option>
+                      <option value="9000">all</option>
+                    </select>
+                  </label>
+                </form>
+            </div>
+            
+          <div id="GalleryNavPgOfX">
+              <p> page 1 of 4 </p>
+              <a href="/Projector/Gallery.php?pageNum_Recordset1=1&totalRows_Recordset1=11"><img src="_images/proj_gal_next_up.gif"></a>
+              <a href="/Projector/Gallery.php?pageNum_Recordset1=0&totalRows_Recordset1=11"><img src="_images/proj_gal_back_up.gif"></a>
+            </div>
+            
+           <!-- FOOTER ---------------------------------------------> 
+            <div id="GeneralFooterDiv">
+            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
+            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+        	</div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+</body>
+</html>

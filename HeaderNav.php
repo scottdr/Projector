@@ -5,7 +5,7 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
 <div id="HeaderBgDiv">
   <div id="HeaderDiv">
     <div id="HeaderImg">
-      <a href="#"><img src="images/headerlogo.png" width="48" height="24"></a>
+      <a href="#"><img src="_images/headerlogo.png" width="48" height="24"></a>
     <!--<span class="projectorTitle">The Projector</span> -->
     	<h1>The Projector</h1>
     </div>
@@ -30,10 +30,11 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
         </div>
     </a>
   <div id="NavSearchContainer">
+  	<!-- SEARCH -->
     <div id="NavSearchTextContainer">
-      <input type="text" id="NavSearchText" placeholder="search projects ...">
+    <!--input type="text" id="NavSearchText" placeholder="Search ..."-->
     </div>
-    <input type="submit" class="searchButton" id="submit" value="">
+    <!--input type="submit" class="searchButton" id="submit" value=""-->
   </div>
 </div>
 <div class="clearFloat" />

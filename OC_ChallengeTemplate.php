@@ -66,6 +66,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <link href="_css/RibbonStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
+
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -182,18 +183,11 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 		
 </script-->
 </head>
-<body>
-<?php include("NavBar.php") ?>
+<body style="background-image: url(_images/challenge/OC_challenge_bg.png);">
 <div class="gridContainer clearfix">
-  <div id="Header">
-    <div id="headerBackButton">
-      <p><a href="ProjectDetails.php?Id=<?php echo $ProjectId?>">Back to Project</a></p>
-    </div>
+  <div id="Header" style="height: 50px">
     <div id="headerLogo"> <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24">
       <p>The Projector</p>
-    </div>
-    <div id="headerChallengeTitle">
-      <h1><?php echo $projectName; ?></h1>
     </div>
   </div>
   <div id="RibbonNavigation">

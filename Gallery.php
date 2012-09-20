@@ -10,24 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projector Gallery</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<!--<link href="_css/Project.css" rel="stylesheet" type="text/css">-->
-<link href="Project.css" rel="stylesheet" type="text/css">
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css">
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
-
-<style type="text/css">
-body {
-	background-image: url(images/proj_gal_bg.gif);
-	background-repeat: repeat-x;
-	background-color:#FBF9FA;
-}
-
-select {
-	margin-top:2px;
-	background-color : #666;
-	color : #FFF;
-	border: 1px solid #b9bdc1; 
-}
-</style>
 
 <script src="js/respond.min.js"></script>
 <script src="js/gallery.js"></script>
@@ -77,8 +61,8 @@ $(document).ready(function() {
                 </form>
             </div>
             
-            <div id="GalleryNavPgOfX"><p>  page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_next_up.gif"></a>
-              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_back_up.gif"></a>
+            <div id="GalleryNavPgOfX"><p>  page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif"></a>
+              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif"></a>
           </div>
         
         
@@ -107,13 +91,17 @@ $(document).ready(function() {
             
           <div id="GalleryNavPgOfX">
               <p> page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?> </p>
-              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_next_up.gif"></a>
-              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="images/proj_gal_back_up.gif"></a>
+              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif"></a>
+              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif"></a>
             </div>
             
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
-            </div>
+            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
+            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+        	</div>
         </div>
         
       </div>

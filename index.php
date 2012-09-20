@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Projector Home</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<link href="Project.css" rel="stylesheet" type="text/css">
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css">
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -22,16 +22,7 @@
 	});
 </script>
 <style type="text/css"> 
-body {
-	background-color: #343434;
-	background-image:url(images/Bourgeois_Louise-Crouching_Spider.jpg);
-	background-position:top;
-	background-repeat: no-repeat;
-	background-size: 150% auto;
-	-webkit-background-size: 150% auto;
-	-moz-background-size: 150% auto;
-	-o-background-size: 150% auto;
-}
+/*pagination is used in the banner*/
 .pagination {
 	clear:both;
 	margin-left: auto;
@@ -61,7 +52,7 @@ body {
 	width:12px;
 	height:0px;
 	padding-top:24px;
-	background-image:url(_images/home_banner_dot_down.png);
+	background-image:url(_images/home_banner_dot_up.png);
 	background-position:0 0;
 	float:left;
 	overflow:hidden;
@@ -71,7 +62,7 @@ body {
 	width:12px;
 	height:0px;
 	padding-top:24px;
-	background-image:url(_images/home_banner_dot_up.png);
+	background-image:url(_images/home_banner_dot_down.png);
 	background-position:0 0;
 	float:left;
 	overflow:hidden;
@@ -84,23 +75,27 @@ body {
 
 <body>
 
-<body>
-
     <div class="gridContainer clearfix">
     </div> 
-    <div class="ProjGalleryBackgroundDiv">
-  
+    <div id="HomeBackgroundDiv">
+    
         <!-- HEADER AND NAVIGATION --------------------------------------------->
         <?php $selectedNav = "NavHome"; ?>
         <?php include("HeaderNav.php"); ?>
-        <div id="NavShadowDiv"></div> 
+        <div id="NavShadowDiv"></div>
+       
         
         <!-- BANNER --------------------------------------------->
         <div id="HomeBannerDiv">
         
             <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <a href="About.php">Read more.</a></p>
-            <hr>
-            <div id="slides">
+            <hr />
+            <img src="_images/logo_myvoice_red.gif" alt="My Voice My Election" />
+            <p style="font-size:16px; padding-top:5px;">This month ...</p>
+            <h2>2012 Mock Election</h2>
+            <p>Get involved, it's your democracy. <a href="#">View projects.</a></p>
+          <hr />
+          <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
                     <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item"></a>
                 </div>
@@ -113,13 +108,14 @@ body {
                     <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item"></a>
                 </div>  
         	</div>
-    </div>           
-        
+    	</div>           
+        </div>
         <!-- FOOTER --------------------------------------------->
         <div id="HomeFooterDiv">
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Pearson Teaching Awards"></a-->
+            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
         </div>
     
 
