@@ -106,30 +106,32 @@ a.navDown {
 	margin-right: auto;
 	margin-left: auto;
 	width: 940px;
-	padding-bottom: 20px;
+	padding-bottom: 0px;
 	min-height: 50px;
 }
 .NavItemDown {
-	float:left;
-	width: 20.75%;
+	float: left;
+	width: 206px;
 	margin-right: 2px;
-	text-align:left;
+	text-align: left;
 	overflow: hidden;
-	background-image:url(../_images/nav_down.gif);
-	background-repeat:no-repeat;
-	background-position:center;
+	background-image: url(../_images/nav_down.gif);
+	background-repeat: no-repeat;
+	background-position: center;
 	height: 50px;
+	padding-left: 10px;
 }
 .NavItemUp {
-	float:left;
-	width: 20.75%;
+	float: left;
+	width: 206px;
 	margin-right: 2px;
-	text-align:left;
+	text-align: left;
 	overflow: hidden;
-	background-image:url(../_images/nav_up.gif);
-	background-repeat:no-repeat;
-	background-position:center;
+	background-image: url(../_images/nav_up.gif);
+	background-repeat: no-repeat;
+	background-position: center;
 	height: 50px;
+	padding-left: 10px;
 }
 
 /* Use the button class for Blue button with white text */

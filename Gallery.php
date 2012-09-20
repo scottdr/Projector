@@ -10,24 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projector Gallery</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<!--<link href="_css/Project.css" rel="stylesheet" type="text/css">-->
 <link href="_css/Root_Project.css" rel="stylesheet" type="text/css">
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
-
-<style type="text/css">
-body {
-	background-image: url(_images/proj_gal_bg.gif);
-	background-repeat: repeat-x;
-	background-color:#FBF9FA;
-}
-
-select {
-	margin-top:2px;
-	background-color : #666;
-	color : #FFF;
-	border: 1px solid #b9bdc1; 
-}
-</style>
 
 <script src="js/respond.min.js"></script>
 <script src="js/gallery.js"></script>
@@ -117,7 +101,7 @@ $(document).ready(function() {
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
             <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
-        </div>
+        	</div>
         </div>
         
       </div>
