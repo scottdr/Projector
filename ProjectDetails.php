@@ -174,7 +174,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
                 <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>" class="bluebutton">Start the Online Challenge</a></p>
               </div>
-              	<?php if (isset($editMode)): ?>
+              	<?php if (isset($PROJECTOR['editMode'])): ?>
 	                <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <?php endif; ?>
                 <h2><?php echo $row_foundRecord['Name']; ?></h2>
@@ -196,7 +196,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <p>&nbsp;</p>
                     <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>--> 
               </div>
-              	<?php if (isset($editMode)): ?>
+              	<?php if (isset($PROJECTOR['editMode'])): ?>
               	<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <?php endif; ?>
                 <div id="ProjectContributors">
@@ -206,7 +206,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
               </div>
             <!-- TAB THREE ----------------------------------------->
             <div id="projectTab3">
-            	<?php if (isset($editMode)): ?>
+            	<?php if (isset($PROJECTOR['editMode'])): ?>
             		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
 							<?php echo $row_ProjectDetails['Teacher']; ?>
             </div>
