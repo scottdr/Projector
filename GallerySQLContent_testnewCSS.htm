@@ -34,13 +34,14 @@ $(document).ready(function() {
 		<!-- HEADER AND NAVIGATION --------------------------------------------->
         	<!-- Header -->
             <div id="HeaderBgDiv">
+              <a href="index.php">
               <div id="HeaderDiv">
                 <div id="HeaderImg">
-                  <a href="#"><img src="_images/headerlogo.png" width="48" height="24"></a>
-                <!--<span class="projectorTitle">The Projector</span> -->
-                    <h1>The Projector</h1>
+                  <img src="_images/headerlogo.png" width="48" height="24">
+                  <h1>The Projector</h1>
                 </div>
               </div>
+              </a>
             </div>
             
             <!-- Navigation -->
@@ -77,7 +78,7 @@ $(document).ready(function() {
           <div id="GalleryNavItemsPerPg">
                             <form name="form1" method="post" action="">
                               <label>
-                                <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
+                                <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)" >
                                   <option value="3">Viewing  3 per page</option>
                                   <option value="9">Viewing 9 per page</option>
                                   <option value="9000">all</option>
@@ -99,7 +100,7 @@ $(document).ready(function() {
                       <div class="horzontalSpacer">
                       </div>
                       
-          <!-- PAGE CONTENT --------------------------------------------->
+          			  <!-- PAGE CONTENT --------------------------------------------->
                       <div class="GalleryColumn1Div" data-id="1" >
                         <div class="GalleryBlueBar">Pilot Project</div>
                         <div class="GalleryThumbnailIcon"></div>
@@ -109,6 +110,7 @@ $(document).ready(function() {
                         <div class="GalleryDetails">
                             <h1>Title Lorem ipsum</h1>
                             <p>Musical instruments can tell us a lot about the people who made them. Make an instrument that tells the world something about you!</p>
+                            <p>&nbsp;</p>
                             <p>Status: Pilot</p>
                             <p>ELA with cross-curricular in Art</p>
                             <p>Duration: 10 days</p> 
@@ -123,6 +125,7 @@ $(document).ready(function() {
                         <div class="GalleryDetails">
                             <h1>Title Lorem ipsum</h1>
                             <p>Musical instruments can tell us a lot about the people who made them. Make an instrument that tells the world something about you!</p>
+                            <p>&nbsp;</p>
                             <p>Status: Pilot</p>
                             <p>ELA with cross-curricular in Art</p>
                             <p>Duration: 10 days</p> 
@@ -137,6 +140,7 @@ $(document).ready(function() {
                         <div class="GalleryDetails">
                             <h1>Title Lorem ipsum</h1>
                             <p>Musical instruments can tell us a lot about the people who made them. Make an instrument that tells the world something about you!</p>
+                            <p>&nbsp;</p>
                             <p>Status: Pilot</p>
                             <p>ELA with cross-curricular in Art</p>
                             <p>Duration: 10 days</p> 
@@ -169,6 +173,7 @@ $(document).ready(function() {
             
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
