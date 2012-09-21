@@ -27,7 +27,7 @@ h2 {
 	margin: 10px;
 }
 h3 {
-	font-size:13px;
+	font-size: 14px;
 	font-weight: 200;
 	letter-spacing: 0.01em;
 	margin: 10px;
@@ -37,7 +37,7 @@ p {
 	font-weight: 150;
 	letter-spacing: 1%;
 	margin: 10px;
-	line-height: 120%;
+	line-height: 130%;
 	padding: 0px;
 }
 li {
@@ -908,29 +908,48 @@ div.tabs > div h2 {
 	margin-left: 20px;
 	margin-bottom: 20px;
 	border: 0px;
+	padding: 5px;
 }
 #resources h2 {
-	font-weight:400;
-	color:#FFF;
-	font-size:18px;
+	font-weight: 400;
+	color: #FFF;
+	font-size: 18px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0px;
 }
 #resources h3 {
 	color: #FFF;
-	padding-top: 10px;
-	line-height: 110%;
 	font-weight: 500;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0px;
 }
 #resources p {
-	font-weight:200;
-	color:#FFF;
-	padding-bottom: 10px;
+	font-weight: 200;
+	color: #FFF;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0px;
 }
 #resources a {
-	font-weight:200;
-	color:#FFF;
-	background:#0099CC;
+	font-weight: 200;
+	color: #FFF;
+	background: #0099CC;
 	padding: 10px;
-	line-height: 120%;
+	line-height: 20px;
+	margin-left: 45px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: block;
+	margin-right: 45px;
+	text-align: center;
 }
 #resources img {
 	float: left;
@@ -942,12 +961,12 @@ div.tabs > div h2 {
 }
 #resources  hr {
 	background: url(../_images/hr.png) repeat-x;
-	border: 0;
-	width: 280px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 0px;
-	padding-top: 5px;
+	border: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	padding: 0px;
 }
 
 
