@@ -145,22 +145,25 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
           
         	<!-- SUMMARY --------------------------------------------->
             <div id="ProjectSummary">
-                <a href="ChallengeContent.html"><img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" width="350" height="250" id="imgPlaceHolder"/></a>
+                <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
                 <div class="projectInfo">
                     <div class="projectData">
-                      <h2>Challenge Objective:</h2>
+                      <h2><strong>Challenge Objective:</strong></h2>
                       <p><?php echo $row_foundRecord['Description']; ?></p>
-                      <h2>Challenge Duration: <?php echo getDuration($row_foundRecord['Duration']); ?></h2>
-                      <h2>Subject Areas: <?php echo $row_foundRecord['Subject']; ?></h2>
-                      <h2>Grade Level: <?php echo getGrade($row_foundRecord); ?></h2>
+                      <h2><strong>Challenge Duration:</strong></h2>
+					  <p><?php echo getDuration($row_foundRecord['Duration']); ?></p>
+                      <h2><strong>Subject Areas:</strong></h2>
+					  <p><?php echo $row_foundRecord['Subject']; ?></p>
+                      <h2><strong>Grade Level:</strong></h2>
+					  <p><?php echo getGrade($row_foundRecord); ?></p>
                     </div>
-                </div>
-          	</div>
+              </div>
+       	  </div>
             
             <!-- TABS --------------------------------------------->
             <div class="tabs" id="tabDiv">
             	<ul class="tabNavigation">
-                <li><a href="#projectTab1">The Challenge</a></li>
+                <li><a href="#projectTab1">Challenge Details</a></li>
                 <li><a href="#projectTab2">Teacher Notes</a></li>
                 <li><a href="#projectTab3">Credits</a></li>
               </ul>
@@ -177,7 +180,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
               	<?php if (isset($PROJECTOR['editMode'])): ?>
 	                <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <?php endif; ?>
-                <h2><?php echo $row_foundRecord['Name']; ?></h2>
+                <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
                 <p><?php echo $row_ProjectDetails['Detail']; ?></p>
             </div>
             
@@ -216,6 +219,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                          
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>

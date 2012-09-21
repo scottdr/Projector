@@ -3,13 +3,14 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
 ?>
 <!-- Header -->
 <div id="HeaderBgDiv">
+  <a href="index.php">
   <div id="HeaderDiv">
     <div id="HeaderImg">
-      <a href="#"><img src="_images/headerlogo.png" width="48" height="24"></a>
-    <!--<span class="projectorTitle">The Projector</span> -->
-    	<h1>The Projector</h1>
+      <img src="_images/headerlogo.png" width="48" height="24">
+      <h1>The Projector</h1>
     </div>
   </div>
+  </a>
 </div>
 
 <!-- Navigation -->
