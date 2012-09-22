@@ -33,18 +33,16 @@ h3 {
 	margin: 10px;
 }
 p {
-	font-size: 14px;
-	font-weight: 150;
-	letter-spacing: 1%;
+	font-size: 15px;
+	font-weight: 300;
 	margin: 10px;
 	line-height: 130%;
 	padding: 0px;
 }
 li {
-	font-size: 12px;
-	font-weight: 150;
-	letter-spacing: 1%;
-	line-height: 120%;
+	font-weight: 300;
+	line-height: 130%;
+	font-size: 15px;
 }
 select {
 	/*Dark Grey - used in Gallery.php */ 
@@ -442,6 +440,10 @@ a.navDown {
 	width: 940px;
 	top: -20px;
 }
+#ContentDiv p, h1, h2 {
+	margin: 0px;
+	padding: 0px;
+}
 
 #GalleryNavFilter {
 	float: left;
@@ -509,11 +511,12 @@ a.navDown {
 #GalleryBanner {
 	float: left;
 	background-image: url(../_images/myvoice_banner.png);
-	height: 57px;
+	height: 61px;
 	padding-left: 85px;
 	width: 555px;
 	padding-right: 300px;
-	padding-top: 8px;
+	padding-top: 6px;
+	background-repeat: no-repeat;
 }
 .horzontalSpacer {
 	float: left;
@@ -523,9 +526,13 @@ a.navDown {
 }
 #GalleryBanner h1{
 	margin: 0px;
+	font-size: 14px;
+	font-weight: 500;
 }
 #GalleryBanner p{
 	margin: 0px;
+	font-size: 13px;
+	font-weight: 300;
 }
 #GalleryBanner a{
 	margin: 0px;
@@ -577,7 +584,7 @@ a.navDown {
 	text-align: center;
 	color: #FFF;
 	overflow: hidden;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: bold;
 	padding-top: 6px;
 }
@@ -598,12 +605,16 @@ a.navDown {
 	top: -30px;
 }
 .GalleryDetails {
-	width: 100%;
+	width: 90%;
 	margin: 0px;
-	padding: 0px;
+	padding: 5%;
 	top: -70px;
 	display: block;
 	position: relative;
+}
+.GalleryDetails  h1{
+	margin-bottom: 10px;
+	font-weight: 500;
 }
 .GalleryColumn1Div {
 	clear: both;
@@ -617,7 +628,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 450px;
+	height: 480px;
 }
 .GalleryColumn1Div p{
 	font-size:15px;
@@ -645,7 +656,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 450px;
+	height: 480px;
 }
 .GalleryColumn2Div p{
 	font-size:15px;
@@ -672,7 +683,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 450px;
+	height: 480px;
 }
 .GalleryColumn3Div p{
 	font-size: 15px;
@@ -697,10 +708,11 @@ a.navDown {
 	margin-bottom: 2%;
 }
 #GalleryDetailPageTitle h1 {
-	font-size:24px;
+	font-size: 24px;
 	margin: 0px;
-	line-height:22px;
-	font-weight:300;
+	line-height: 22px;
+	font-weight: 300;
+	letter-spacing: 1px;
 }
 
 #GalleryDetailBackNext img {
@@ -747,7 +759,8 @@ a.navDown {
 	position: relative;
 	float:left
 	width: 100%;
-	margin-top: 2%;
+	margin-top: 10px;
+	padding: 0px;
 }
 
 ul.tabNavigation {
@@ -765,24 +778,24 @@ ul.tabNavigation li a {
 	background-color: #0099CC;
 	color: #FFF;
 	text-decoration: none;
-	font-size:13px;
-	letter-spacing:1px;
-	line-height:36px;
-	text-align:center;
-	font-weight:250;
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 36px;
+	text-align: center;
+	font-weight: 250;
 	text-transform: uppercase;
-	border-left-color:#0099CC;
-	border-left-style:solid;
-	border-left-width:thin;
-	border-top-color:#0099CC;
-	border-top-style:solid;
-	border-top-width:thin;
-	border-right-color:#0099CC;
-	border-right-style:solid;
-	border-right-width:thin;
-	border-bottom-color:#0099CC;
-	border-bottom-style:solid;
-	border-bottom-width:thin;
+	border-left-color: #0099CC;
+	border-left-style: solid;
+	border-left-width: thin;
+	border-top-color: #0099CC;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-right-color: #0099CC;
+	border-right-style: solid;
+	border-right-width: thin;
+	border-bottom-color: #0099CC;
+	border-bottom-style: solid;
+	border-bottom-width: thin;
 }
 
 ul.tabNavigation li a.selected,
@@ -790,19 +803,19 @@ ul.tabNavigation li a:hover {
 	background-color: #fff;
 	color: #0099CC;
 	padding: 10px;
-/*	line-height: 30px;*/
-	border-left-color:#0099CC;
-	border-left-style:solid;
-	border-left-width:thin;
-	border-top-color:#0099CC;
-	border-top-style:solid;
-	border-top-width:thin;
-	border-right-color:#0099CC;
-	border-right-style:solid;
-	border-right-width:thin;
-	border-bottom-color:#FFF;
-	border-bottom-style:solid;
-	border-bottom-width:2px;
+	/*	line-height: 30px;*/
+	border-left-color: #0099CC;
+	border-left-style: solid;
+	border-left-width: thin;
+	border-top-color: #0099CC;
+	border-top-style: solid;
+	border-top-width: thin;
+	border-right-color: #0099CC;
+	border-right-style: solid;
+	border-right-width: thin;
+	border-bottom-color: #FFF;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
 }
 
 ul.tabNavigation li a:focus {
@@ -1146,13 +1159,15 @@ div.tabs > div h2 {
 	padding-right: 20px;
 }
 #GeneralFooterDiv  hr {
-	background: url(../_images/hr.png) repeat-x;
 	border: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 20px;
 	margin-bottom: 15px;
 	padding: 0px;
+	background-image: url(../_images/hr.png);
+	background-repeat: repeat-x;
+	height: 1px;
 }
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 @media only screen and (min-width: 481px) {

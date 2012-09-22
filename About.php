@@ -147,6 +147,7 @@
             	<p>The Smithsonian Institution</p>
             	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park and nine research facilities.</p>
             	<p><a href="#">Click here to visit</a></p>
+                <p></p>
                 
             </div>
             
@@ -154,6 +155,7 @@
            
         	<!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
