@@ -347,7 +347,7 @@ function closeDialog()
       <select name="status" id="status">
         <option value="Edit" <?php if ($row_foundRecord['Status'] == "Edit") echo 'selected="selected" '?> >Edit</option>
         <option value="Review" <?php if ($row_foundRecord['Status'] == "Review") echo 'selected="selected"'?> >Review</option>
-        <option value="Pilot" <?php if ($row_foundRecord['Status'] == "Pilot") echo 'selected="selected"'?> >Live</option> 
+        <option value="Pilot" <?php if ($row_foundRecord['Status'] == "Pilot") echo 'selected="selected"'?> >Pilot</option> 
         <option value="Published" <?php if ($row_foundRecord['Status'] == "Published") echo 'selected="selected"'?> >Published</option>
       </select>
     </div>
