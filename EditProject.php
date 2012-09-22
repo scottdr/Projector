@@ -47,7 +47,7 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['name'], "text"),
                        GetSQLValueString($_POST['subject'], "text"),
                        GetSQLValueString($_POST['gradeMin'], "int"),
@@ -55,22 +55,28 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['duration'], "int"),
                        GetSQLValueString($_POST['description'], "text"),
 											 GetSQLValueString($_POST['author'], "text"),
-											 GetSQLValueString($_POST['Thumbnail'], "text"));
+											 GetSQLValueString($_POST['Thumbnail'], "text"),
+											 GetSQLValueString($_POST['mediumImageInput'], "text"),
+											 GetSQLValueString($_POST['largeImageInput'], "text"),
+											 GetSQLValueString($_POST['Status'], "text"));
 	/*	
 	  TO DO get row of last inserted record
 		$insertId = last_insert_id( );
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s WHERE Id=%s",
                        GetSQLValueString($_POST['name'], "text"),
                        GetSQLValueString($_POST['subject'], "text"),
                        GetSQLValueString($_POST['Thumbnail'], "text"),
+											 GetSQLValueString($_POST['mediumImageInput'], "text"),
+											 GetSQLValueString($_POST['largeImageInput'], "text"),
                        GetSQLValueString($_POST['gradeMin'], "int"),
                        GetSQLValueString($_POST['gradeMax'], "int"),
                        GetSQLValueString($_POST['duration'], "int"),
                        GetSQLValueString($_POST['author'], "text"),
                        GetSQLValueString($_POST['description'], "text"),
+											 GetSQLValueString($_POST['status'], "text"),
                        GetSQLValueString($_POST['Id'], "int"));
 
   mysql_select_db($database_projector, $projector);
@@ -265,11 +271,11 @@ legend {
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript">
 
-function updateThumbnailImage(object)
+function updateThumbnailImage(object,previewId)
 {
 	var thumbnailURL = object.value;
 	console.log('thumbnailURL: ' + thumbnailURL);	
-	document.getElementById('thumbnailImage').src = thumbnailURL;
+	document.getElementById(previewId).src = thumbnailURL;
 }
 
 function deleteTheProject(urlToGoTo)
@@ -330,23 +336,44 @@ function closeDialog()
     <div class="lineUp">
      	<label for="status">Status:</label>
       <select name="status" id="status">
-        <option value="0">Edit</option>
-        <option value="1">Review</option>
-        <option value="2" selected="selected">Live</option>
+        <option value="Edit" <?php if ($row_foundRecord['Status'] == "Edit") echo 'selected="selected" '?> >Edit</option>
+        <option value="Review" <?php if ($row_foundRecord['Status'] == "Review") echo 'selected="selected"'?> >Review</option>
+        <option value="Pilot" <?php if ($row_foundRecord['Status'] == "Pilot") echo 'selected="selected"'?> >Live</option> 
+        <option value="Published" <?php if ($row_foundRecord['Status'] == "Published") echo 'selected="selected"'?> >Published</option>
       </select>
     </div>
     <div class="clearFloat"></div>
      
     <div>
     	<div class="verticalAlign">
-      <label for="thumbnail">Image:</label>
-      <input name="Thumbnail" type="text" id="Thumbnail" value="<?php echo $row_foundRecord['ImgSmall']; ?>" onblur="updateThumbnailImage(this)"/>
+      <label for="thumbnail">Small Image:</label>
+      <input name="Thumbnail" type="text" id="Thumbnail" value="<?php echo $row_foundRecord['ImgSmall']; ?>" onblur="updateThumbnailImage(this,'thumbnailImage')"/>
     	</div>
       <div class="imageDiv">
     		<img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="thumbnailImage" width="120" height="80" id="thumbnailImage" />
     	</div>
     </div>
     
+    <div class="clearFloat"></div>
+    <div>
+    	<div class="verticalAlign">
+      <label for="mediumImageInput">Medium Img:</label>
+      <input name="mediumImageInput" type="text" id="mediumImageInput" value="<?php echo $row_foundRecord['ImgMedium']; ?>" onblur="updateThumbnailImage(this,'mediumImage')"/>
+    	</div>
+      <div class="imageDiv">
+    		<img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="mediumImage" width="120" height="80" id="mediumImage" />
+    	</div>
+    </div>
+    <div class="clearFloat"></div>
+      <div>
+    	<div class="verticalAlign">
+      <label for="largeImageInput">Large Image:</label>
+      <input name="largeImageInput" type="text" id="largeImageInput" value="<?php echo $row_foundRecord['ImgLarge']; ?>" onblur="updateThumbnailImage(this,'largeImage')"/>
+    	</div>
+      <div class="imageDiv">
+    		<img src="<?php echo $row_foundRecord['ImgLarge']; ?>" alt="" name="largeImage" width="120" height="80" id="largeImage" />
+    	</div>
+    </div>
     <div class="clearFloat"></div>
   </fieldset>
   <div style="text-align:center">
