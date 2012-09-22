@@ -78,18 +78,6 @@ blockquote { margin: 1em 40px; }
 
 dfn { font-style: italic; }
 
-hr {
-	display: block;
-	height: 1px;
-	margin: 1em 0;
-	padding: 10px;
-	border-style: dotted;
-	border-color: #ccc;
-	border-top: 1px;
-	border-left: none;
-	border-right: none;
-}
-
 ins { background: #ff9; color: #000; text-decoration: none; }
 
 mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
