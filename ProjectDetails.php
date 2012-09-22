@@ -65,7 +65,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT projects.Id, Name, Description, Duration, Subject, GradeMin, GradeMax, ImgSmall, Brief, Detail, Questions, Start, ProjectDetails.ProjectId FROM projects, ProjectDetails WHERE projects.Id = ProjectDetails.ProjectId and projects.Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT projects.Id, Name, Description, Duration, Subject, GradeMin, GradeMax, ImgSmall, Brief, Detail, Status, ProjectDetails.ProjectId FROM projects, ProjectDetails WHERE projects.Id = ProjectDetails.ProjectId and projects.Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = "0";
@@ -145,7 +145,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
           
         	<!-- SUMMARY --------------------------------------------->
             <div id="ProjectSummary">
-                <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
+                <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
                 <div class="projectInfo">
                     <div class="projectData">
                       <h2><strong>Challenge Objective:</strong></h2>
@@ -156,6 +156,10 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
 					  <p><?php echo $row_foundRecord['Subject']; ?></p>
                       <h2><strong>Grade Level:</strong></h2>
 					  <p><?php echo getGrade($row_foundRecord); ?></p>
+					  					<h2><strong>Status:</strong></h2>
+                      <p><?php echo $row_foundRecord['Status']; ?></p>
+                      <h2><strong>Author:</strong></h2>
+                      <p><?php echo $row_foundRecord['Author']; ?></p>
                     </div>
               </div>
        	  </div>

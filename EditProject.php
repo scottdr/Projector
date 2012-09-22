@@ -47,7 +47,7 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['name'], "text"),
                        GetSQLValueString($_POST['subject'], "text"),
                        GetSQLValueString($_POST['gradeMin'], "int"),
@@ -58,14 +58,15 @@ if (isset($_POST["MM_action"])) {
 											 GetSQLValueString($_POST['Thumbnail'], "text"),
 											 GetSQLValueString($_POST['mediumImageInput'], "text"),
 											 GetSQLValueString($_POST['largeImageInput'], "text"),
-											 GetSQLValueString($_POST['Status'], "text"));
+											 GetSQLValueString($_POST['status'], "text"),
+											 GetSQLValueString($_POST['topic'], "int"));
 	/*	
 	  TO DO get row of last inserted record
 		$insertId = last_insert_id( );
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
                        GetSQLValueString($_POST['name'], "text"),
                        GetSQLValueString($_POST['subject'], "text"),
                        GetSQLValueString($_POST['Thumbnail'], "text"),
@@ -77,6 +78,7 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['author'], "text"),
                        GetSQLValueString($_POST['description'], "text"),
 											 GetSQLValueString($_POST['status'], "text"),
+											 GetSQLValueString($_POST['topic'], "int"),
                        GetSQLValueString($_POST['Id'], "int"));
 
   mysql_select_db($database_projector, $projector);
@@ -103,6 +105,13 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 session_start();
 $_SESSION['ProjectName'] = $row_foundRecord['Name'];
 $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
+
+// Query for the Topics Menu
+mysql_select_db($database_projector, $projector);
+$query_TopicsMenu = "SELECT Id, Name FROM Topics";
+$TopicsMenu = mysql_query($query_TopicsMenu, $projector) or die(mysql_error());
+$row_TopicsMenu = mysql_fetch_assoc($TopicsMenu);
+$totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -299,7 +308,7 @@ function closeDialog()
 <body>
 <?php $selectedNav = "NavGallery"; ?>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ProjectDetails.php?Id=<?php echo $row_foundRecord['Id']; ?>">View Project</a> | <a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ProjectDetails.php?Id=<?php echo $row_foundRecord['Id']; ?>">View Project</a> | <a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="ViewTopics.php">Topics</a></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <div class="subSubNav"><a href="EditDetails.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/Writing.16x16.png" width="16" height="16" alt="Edit Details" /> Edit Details</a> | <a href="ViewSteps.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Steps</a> | <a href="EditStep.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Media</a> | <a href="EditMedia.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a></div>
@@ -341,6 +350,25 @@ function closeDialog()
         <option value="Pilot" <?php if ($row_foundRecord['Status'] == "Pilot") echo 'selected="selected"'?> >Live</option> 
         <option value="Published" <?php if ($row_foundRecord['Status'] == "Published") echo 'selected="selected"'?> >Published</option>
       </select>
+    </div>
+    <div class="clearFloat"></div>
+    
+    <div class="lineUp">
+     	<label for="topic">Topic:</label>
+        <select name="topic" id="topic">
+          <?php
+					do {  
+					?>
+					<option value="<?php echo $row_TopicsMenu['Id']?>"<?php if (!(strcmp($row_TopicsMenu['Id'], $row_foundRecord['Topic']))) {echo "selected=\"selected\"";} ?>><?php echo $row_TopicsMenu['Name']?></option>
+					<?php
+					} while ($row_TopicsMenu = mysql_fetch_assoc($TopicsMenu));
+						$rows = mysql_num_rows($TopicsMenu);
+						if($rows > 0) {
+								mysql_data_seek($TopicsMenu, 0);
+							$row_TopicsMenu = mysql_fetch_assoc($TopicsMenu);
+						}
+					?>
+        </select>
     </div>
     <div class="clearFloat"></div>
      
@@ -400,4 +428,6 @@ Delete the project: <br />
 </html>
 <?php
 mysql_free_result($foundRecord);
+mysql_free_result($TopicsMenu);
 ?>
+
