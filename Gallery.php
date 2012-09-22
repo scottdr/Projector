@@ -97,6 +97,7 @@ $(document).ready(function() {
             
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>

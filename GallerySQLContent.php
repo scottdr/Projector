@@ -40,9 +40,10 @@ do {
 	print "\n\t</div>";
 	print "\n\t<h1>" . $row_Recordset1['Name']. "</h1>";
 	print "\n\t<p>" . $row_Recordset1['Description'] . "</p>";
-	print "\n\t<p><strong>" . $row_Recordset1['Subject'] . "</strong></p>";
-	print "\n\t<p><strong>" . getGrade() . "</strong></p>";
-	print "\n\t<p><strong>" . getDuration() . "</strong></p>";
+	print "\n\t<p></p>";
+	print "\n\t<p>Subject: " . $row_Recordset1['Subject'] . "</p>";
+	print "\n\t<p>Grade: " . getGrade() . "</p>";
+	print "\n\t<p>Duration: " . getDuration() . "</p>";
 	print "\n</div>\n";
 	if (++$columnNum > 3)
 			$columnNum = 1;
