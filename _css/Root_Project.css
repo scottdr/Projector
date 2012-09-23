@@ -228,6 +228,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	background-image: url(../_images/Bourgeois_Louise-Crouching_Spider2.jpg);
 	height: 688px;
+	z-index: -2;
 }
 #ProjGalleryBackgroundDiv {
 	position: relative;
