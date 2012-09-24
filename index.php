@@ -97,7 +97,7 @@
           <hr />
           <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
-                    <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item"></a>
+                    <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item" width="64" height="64"></a>
                 </div>
                 <div id="HomeBannerRotator">
                         <div class="slides_container">
@@ -105,7 +105,7 @@
                         </div>
                 </div>
                 <div id="HomeBannerRotatorNext">
-                    <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item"></a>
+                    <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item" width="64" height="64"></a>
                 </div>  
         	</div>
     	</div>           

@@ -65,7 +65,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT projects.Id, Name, Description, Duration, Subject, GradeMin, GradeMax, ImgSmall, Brief, Detail, Questions, Start, ProjectDetails.ProjectId FROM projects, ProjectDetails WHERE projects.Id = ProjectDetails.ProjectId and projects.Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT projects.Id, Name, Description, Duration, Subject, GradeMin, GradeMax, ImgSmall, Brief, Detail, Status, ProjectDetails.ProjectId FROM projects, ProjectDetails WHERE projects.Id = ProjectDetails.ProjectId and projects.Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = "0";
@@ -136,7 +136,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             </div>
             <div id="titleNav" class="floatRight">
               <form action="EditProject.php" method="get">
-                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
+                  <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
 									<?php if (isset($PROJECTOR['editMode'])): ?>
                   	<input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
                   <?php endif; ?>
@@ -145,22 +145,29 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
           
         	<!-- SUMMARY --------------------------------------------->
             <div id="ProjectSummary">
-                <a href="ChallengeContent.html"><img src="<?php echo $row_foundRecord['ImgSmall']; ?>" alt="" name="imgPlaceHolder" width="350" height="250" id="imgPlaceHolder"/></a>
+                <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
                 <div class="projectInfo">
                     <div class="projectData">
-                      <h2>Challenge Objective:</h2>
+                      <h2><strong>Challenge Objective:</strong></h2>
                       <p><?php echo $row_foundRecord['Description']; ?></p>
-                      <h2>Challenge Duration: <?php echo getDuration($row_foundRecord['Duration']); ?></h2>
-                      <h2>Subject Areas: <?php echo $row_foundRecord['Subject']; ?></h2>
-                      <h2>Grade Level: <?php echo getGrade($row_foundRecord); ?></h2>
+                      <h2><strong>Challenge Duration:</strong></h2>
+					  <p><?php echo getDuration($row_foundRecord['Duration']); ?></p>
+                      <h2><strong>Subject Areas:</strong></h2>
+					  <p><?php echo $row_foundRecord['Subject']; ?></p>
+                      <h2><strong>Grade Level:</strong></h2>
+					  <p><?php echo getGrade($row_foundRecord); ?></p>
+					  					<h2><strong>Status:</strong></h2>
+                      <p><?php echo $row_foundRecord['Status']; ?></p>
+                      <h2><strong>Author:</strong></h2>
+                      <p><?php echo $row_foundRecord['Author']; ?></p>
                     </div>
-                </div>
-          	</div>
+              </div>
+       	  </div>
             
             <!-- TABS --------------------------------------------->
             <div class="tabs" id="tabDiv">
             	<ul class="tabNavigation">
-                <li><a href="#projectTab1">The Challenge</a></li>
+                <li><a href="#projectTab1">Challenge Details</a></li>
                 <li><a href="#projectTab2">Teacher Notes</a></li>
                 <li><a href="#projectTab3">Credits</a></li>
               </ul>
@@ -172,12 +179,12 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <hr/>
                 <h3>Online Challenge</h3>
                 <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
-                <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>" class="bluebutton">Start the Online Challenge</a></p>
+                <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
               </div>
               	<?php if (isset($PROJECTOR['editMode'])): ?>
 	                <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <?php endif; ?>
-                <h2><?php echo $row_foundRecord['Name']; ?></h2>
+                <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
                 <p><?php echo $row_ProjectDetails['Detail']; ?></p>
             </div>
             
@@ -216,6 +223,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                          
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>

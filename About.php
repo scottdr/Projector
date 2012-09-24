@@ -74,16 +74,16 @@
             </ul>
             <!-- TAB ONE --------------------------------------------->
             <div id="projectTab1">
-               <div id="lightGreyRightColumn">
+               <div id="recentProjectsRightColumn">
                   <h2>Recently Published Projects</h2>
-                  
                   <h3><a href="ProjectDetails.php?Id=1">Cultural Vibrations</a></h3>
-                  <img src="_images/project7-cvibrations.png">
                   <p>Build a musical instrument that tells the world something about who you are. Write a piece of music that you’ll play on your handmade instrument at an end-of-project performance.</p>
                   
                   <h3><a href="ProjectDetails.php?Id=3">Make an Impact</a></h3>
-                  <img src="_images/project6-earth.png">
                   <p>Be an engineer: Design a device— from concept to prototype—that will help conserve water  in drought-stricken South Carolina.</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
                   
               </div>
               <p>Project-based learning invites students to explore real-world topics in depth. Whether they are exploring contemporary or historical problems, taking a position on an important issue, or expressing their point of view, students meeting the challenge of a well-constructed project have the opportunity to research a topic thoroughly, devise a project plan for delivering their findings, and present the results of their exploration to an audience beyond their classroom. </p>
@@ -126,6 +126,7 @@
               
               <h3>Teacher</h3><img src="_images/ProjectCommunity_teacher.png">
               <p>Teachers who use Projector challenges aren&rsquo;t passive consumers.  The Projector depends on continued teacher engagement through online discussion, suggestions, and asking and answering of questions. </p>
+              <p>&nbsp;</p>
               
 			</div>
             
@@ -143,10 +144,15 @@
             
             	<h2>Pearson Foundation Learning Labs</h2>
             	<p>The Pearson Foundation Learning Labs is a  product innovation lab that develops software and learning experiences for students, teachers and parents. We bring a unique mix of strategy, user experience, engineering, content, and community techniques from other industries to bear on the challenges of education.</p>
-            	<p><a href="#">Click here to visit</a></p>
-            	<p>The Smithsonian Institution</p>
+            	<p>&nbsp;</p>
+                <p><a href="http://www.pearsonfoundation.org">Click here to visit</a></p>
+            	<h2>The Smithsonian Institution</h2>
             	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park and nine research facilities.</p>
-            	<p><a href="#">Click here to visit</a></p>
+            	<p>&nbsp;</p>
+                <p><a href="http://www.si.edu">Click here to visit</a></p>
+           	  <p>&nbsp;</p>
+           	  <p>&nbsp;</p>
+                <p></p>
                 
             </div>
             
@@ -154,6 +160,7 @@
            
         	<!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>

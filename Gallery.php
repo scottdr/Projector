@@ -50,14 +50,12 @@ $(document).ready(function() {
           </div>
             
             <div id="GalleryNavItemsPerPg">
-       					<form name="form1" method="post" action="">
-                  <label> View
+       			  <form name="form1" method="post" action="">
                     <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
-                      <option value="3">3 per page</option>
-                      <option value="9">9 per page</option>
+                      <option value="3">View 3 per page</option>
+                      <option value="9">View 9 per page</option>
                       <option value="9000">all</option>
                     </select>
-                  </label>
                 </form>
             </div>
             
@@ -79,13 +77,11 @@ $(document).ready(function() {
             
             <div id="GalleryNavItemsPerPg">
                 <form name="form1" method="post" action="">
-                  <label>View
                     <select name="recordsPerPage2" id="recordsPerPage2" onChange="updateRecordCount(this.value)">
-                      <option value="3">3 per page</option>
-                      <option value="9">9 per page</option>
+                      <option value="3">View 3 per page</option>
+                      <option value="9">View 9 per page</option>
                       <option value="9000">all</option>
                     </select>
-                  </label>
                 </form>
             </div>
             
@@ -97,6 +93,7 @@ $(document).ready(function() {
             
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
+            <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
             <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>

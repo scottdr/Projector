@@ -249,6 +249,7 @@ legend {
 <script type="text/javascript" src="js/utility.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 
 function updateThumbnailImage(object)
@@ -273,6 +274,18 @@ function closeDialog()
 	$("#Dialog").dialog('close');
 }
 
+tinyMCE.init({
+        mode : "exact",
+				elements : "Caption",
+				theme : "advanced",
+					// Theme options
+				theme_advanced_buttons1 : "bold,italic,underline",
+				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,charmap",
+				theme_advanced_toolbar_location : "top",
+				theme_advanced_toolbar_align : "left",
+			/*	theme_advanced_statusbar_location : "bottom",*/
+				theme_advanced_resizing : true,
+});
 </script>
 </head>
 
