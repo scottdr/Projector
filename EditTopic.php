@@ -47,26 +47,32 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-		$sqlCommand = sprintf("INSERT INTO Topics (Name, Tagline, SmallIcon, LargeIcon, DetailBadge, Banner) VALUES (%s, %s, %s, %s, %s, %s)",
-                       GetSQLValueString($_POST['name'], "text"),
-                       GetSQLValueString($_POST['tagline'], "text"),
-                       GetSQLValueString($_POST['smallIcon'], "text"),
-                       GetSQLValueString($_POST['largeIcon'], "text"),
-                       GetSQLValueString($_POST['detailBadge'], "text"),
-                       GetSQLValueString($_POST['banner'], "text"));
-	/*	
-	  TO DO get row of last inserted record
-		$insertId = last_insert_id( );
-		print "Insert Id: $insertId\n";
-		*/
-	} else
-  	$sqlCommand = sprintf("UPDATE Topics SET Name=%s, TagLine=%s, SmallIcon=%s, LargeIcon=%s, DetailBadge=%s, Banner=%s WHERE Id=%s",
+		$sqlCommand = sprintf("INSERT INTO Topics (Name, Tagline, SmallIcon, LargeIcon, DetailBadge, Banner, Featured, DisplayGalleryBadge, DisplayDetailBadge) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['name'], "text"),
                        GetSQLValueString($_POST['tagline'], "text"),
                        GetSQLValueString($_POST['smallIcon'], "text"),
                        GetSQLValueString($_POST['largeIcon'], "text"),
                        GetSQLValueString($_POST['detailBadge'], "text"),
                        GetSQLValueString($_POST['banner'], "text"),
+											 GetSQLValueString($_POST['featured'], "int"),
+											 GetSQLValueString($_POST['displayGalleryBadge'], "int"),
+											 GetSQLValueString($_POST['displayDetailBadge'], "int"));
+	/*	
+	  TO DO get row of last inserted record
+		$insertId = last_insert_id( );
+		print "Insert Id: $insertId\n";
+		*/
+	} else
+  	$sqlCommand = sprintf("UPDATE Topics SET Name=%s, TagLine=%s, SmallIcon=%s, LargeIcon=%s, DetailBadge=%s, Banner=%s, Featured=%s, DisplayGalleryBadge=%s, DisplayDetailBadge=%s WHERE Id=%s",
+                       GetSQLValueString($_POST['name'], "text"),
+                       GetSQLValueString($_POST['tagline'], "text"),
+                       GetSQLValueString($_POST['smallIcon'], "text"),
+                       GetSQLValueString($_POST['largeIcon'], "text"),
+                       GetSQLValueString($_POST['detailBadge'], "text"),
+                       GetSQLValueString($_POST['banner'], "text"),
+											 GetSQLValueString($_POST['featured'], "int"),
+											 GetSQLValueString($_POST['displayGalleryBadge'], "int"),
+											 GetSQLValueString($_POST['displayDetailBadge'], "int"),
                        GetSQLValueString($_POST['Id'], "int"));
 
   mysql_select_db($database_projector, $projector);
@@ -91,8 +97,6 @@ $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error())
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
 session_start();
-$_SESSION['ProjectName'] = $row_foundRecord['Name'];
-$_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -298,20 +302,26 @@ function closeDialog()
    <label for="smallIcon">Id:</label>
       <input name="Id" type="text" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />
     <div class="clearFloat"></div>
+      <label for="name">Featured:</label>
+      <input <?php if (!(strcmp($row_foundRecord['Featured'],1))) {echo "checked=\"checked\"";} ?> name="featured" type="checkbox" id="featured" value="1" />
+      <div class="clearFloat"></div>
     <label for="name">Name:</label>
     <input name="name" type="text" class="wideLabel" id="name" placeholder="Project Name" value="<?php echo $row_foundRecord['Name']; ?>" />
     <div class="clearFloat"></div>
     <label for="tagline">Tag Line:</label>
-    <textarea name="tagline" id="tagline"><?php echo $row_foundRecord['TagLine']; ?></textarea>
+    <textarea name="tagline" id="tagline"><?php echo $row_foundRecord['TagLine']; ?></textarea>    
     <div class="clearFloat"></div>   
     <div>
     	<div class="verticalAlign">
       <label for="thumbnail">Small Icon:</label>
       <input name="smallIcon" type="text" id="smallIcon" value="<?php echo $row_foundRecord['SmallIcon']; ?>" onblur="updateThumbnailImage(this,'smallIconImage')"/>
+      
     	</div>
       <div class="imageDiv">
     		<img src="<?php echo $row_foundRecord['SmallIcon']; ?>" alt="" name="smallIconImage" width="45" height="45" id="smallIconImage" />
     	</div>
+      &nbsp;Display&nbsp;
+      <input <?php if (!(strcmp($row_foundRecord['DisplayGalleryBadge'],1))) {echo "checked=\"checked\"";} ?> type="checkbox" name="displayGalleryBadge" id="displayGalleryBadge" value="1"/>
     </div>
     
     <div class="clearFloat"></div>
@@ -322,7 +332,8 @@ function closeDialog()
     	</div>
       <div class="imageDiv">
     		<img src="<?php echo $row_foundRecord['LargeIcon']; ?>" alt="" name="largeImage" width="80" height="80" id="largeImage" />
-    	</div>
+    	</div>&nbsp;Display&nbsp;
+      <input <?php if (!(strcmp($row_foundRecord['DisplayDetailBadge'],1))) {echo "checked=\"checked\"";} ?> type="checkbox" name="displayDetailBadge" id="displayDetailBadge" value="1"/>
     </div>
     <div class="clearFloat"></div>
     <div>
