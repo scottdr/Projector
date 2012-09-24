@@ -50,14 +50,12 @@ $(document).ready(function() {
           </div>
             
             <div id="GalleryNavItemsPerPg">
-       					<form name="form1" method="post" action="">
-                  <label> View
+       			  <form name="form1" method="post" action="">
                     <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
-                      <option value="3">3 per page</option>
-                      <option value="9">9 per page</option>
+                      <option value="3">View 3 per page</option>
+                      <option value="9">View 9 per page</option>
                       <option value="9000">all</option>
                     </select>
-                  </label>
                 </form>
             </div>
             
@@ -79,13 +77,11 @@ $(document).ready(function() {
             
             <div id="GalleryNavItemsPerPg">
                 <form name="form1" method="post" action="">
-                  <label>View
                     <select name="recordsPerPage2" id="recordsPerPage2" onChange="updateRecordCount(this.value)">
-                      <option value="3">3 per page</option>
-                      <option value="9">9 per page</option>
+                      <option value="3">View 3 per page</option>
+                      <option value="9">View 9 per page</option>
                       <option value="9000">all</option>
                     </select>
-                  </label>
                 </form>
             </div>
             

@@ -46,22 +46,23 @@ li {
 }
 select {
 	/*Dark Grey - used in Gallery.php */ 
-	width: 100%;
-	height: 20px;
-	line-height: 20px;
+	width: 180px;
+	height: 26px;
 	text-indent: 10px;
 	color: #FFF;
 	border: none;
 	background-color: none;
 	background-image: url(../_images/select_bg.png);
-	background-position: right;
+	background-position: left;
 	overflow: hidden;
 	outline: none;
 	border-radius: 0px;
-	-moz-border-radius:0;
-    -webkit-border-radius:0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 a:link {
 	text-decoration: none;
@@ -130,7 +131,7 @@ a.navDown {
 	clear: both;
 	position: relative;
 	background-color: rgba(0,0,0,0.7);
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 100px;
@@ -227,6 +228,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	background-image: url(../_images/Bourgeois_Louise-Crouching_Spider2.jpg);
 	height: 688px;
+	z-index: -2;
 }
 #ProjGalleryBackgroundDiv {
 	position: relative;
@@ -479,13 +481,14 @@ a.navDown {
 	float: left;
 	background-color: #666;
 	width: 170px;
-	height: 20px;
+	height: 26px;
 	color: #FFF;
 	margin-bottom: 30px;
-	padding-left : 5px;
-	padding-right: 5px;
-	padding-top: 3px;
-	padding-bottom: 3px;
+	padding-left : 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	overflow: hidden;
 }
 #GalleryNavItemsPerPg label {
 	font-size:12px;
@@ -757,7 +760,7 @@ a.navDown {
 
 #tabDiv {
 	position: relative;
-	float:left
+	float:left;
 	width: 100%;
 	margin-top: 10px;
 	padding: 0px;
@@ -803,7 +806,6 @@ ul.tabNavigation li a:hover {
 	background-color: #fff;
 	color: #0099CC;
 	padding: 10px;
-	/*	line-height: 30px;*/
 	border-left-color: #0099CC;
 	border-left-style: solid;
 	border-left-width: thin;
@@ -816,6 +818,7 @@ ul.tabNavigation li a:hover {
 	border-bottom-color: #FFF;
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
+	font-weight: 400;
 }
 
 ul.tabNavigation li a:focus {
@@ -829,14 +832,15 @@ div.tabs > div {
 }
 
 div.tabs > div h2 {
-	margin-top: 10;
-	font-weight:200;
+	margin-top: 20px;
+	font-weight: 400;
+	margin-bottom: 20px;
 }
 
 #projectTab1 {
 	float: left;
 	clear: both;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-top-color: #0099CC;
 	border-top-style: solid;
 	border-top-width: thin;
@@ -847,7 +851,7 @@ div.tabs > div h2 {
 #projectTab2 {
 	float: left;
 	clear: both;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
@@ -858,7 +862,7 @@ div.tabs > div h2 {
 #projectTab3 {
 	float: left;
 	clear: both;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
@@ -1029,6 +1033,34 @@ div.tabs > div h2 {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+#recentProjectsRightColumn {
+	width: 300px;
+	position: relative;
+	float: right;
+	height: 100%;
+	background-color: #EFEFEF;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+#recentProjectsRightColumn  h2 {
+	font-weight: 400;
+	color: #000;
+	font-size: 18px;
+	margin-top: 5px;
+}
+#recentProjectsRightColumn  p {
+	width: 100%;
+	margin-top: 0px;
+}
+#recentProjectsRightColumn  h3, a {
+	font-weight: 400;
+	margin-left: 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #lightGreyRightColumn {
 	width: 300px;
 	position: relative;
@@ -1043,6 +1075,7 @@ div.tabs > div h2 {
 	font-weight: 400;
 	color: #000;
 	font-size: 18px;
+	margin-top: 5px;
 }
 #lightGreyRightColumn p {
 	width: 210px;
@@ -1051,10 +1084,14 @@ div.tabs > div h2 {
 	margin-top: 0px;
 }
 #lightGreyRightColumn h3 {
-	font-weight: 400;
-	width: 210px;
+	font-weight: 500;
+	width: 200px;
 	float: right;
 	clear: right;
+	font-size: 14px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	line-height: 16px;
 }
 #lightGreyRightColumn img {
 	float: left;
@@ -1162,7 +1199,7 @@ div.tabs > div h2 {
 	border: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-bottom: 15px;
 	padding: 0px;
 	background-image: url(../_images/hr.png);
