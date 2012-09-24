@@ -1048,7 +1048,7 @@ div.tabs > div h2 {
 	font-weight: 400;
 	color: #000;
 	font-size: 18px;
-	margin-top: 0px;
+	margin-top: 5px;
 }
 #recentProjectsRightColumn  p {
 	width: 100%;
@@ -1075,6 +1075,7 @@ div.tabs > div h2 {
 	font-weight: 400;
 	color: #000;
 	font-size: 18px;
+	margin-top: 5px;
 }
 #lightGreyRightColumn p {
 	width: 210px;
@@ -1083,13 +1084,14 @@ div.tabs > div h2 {
 	margin-top: 0px;
 }
 #lightGreyRightColumn h3 {
-	font-weight: 400;
+	font-weight: 500;
 	width: 200px;
 	float: right;
 	clear: right;
-	font-size: 18px;
-	margin-top: 30px;
-	margin-bottom: 20px;
+	font-size: 14px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	line-height: 16px;
 }
 #lightGreyRightColumn img {
 	float: left;
