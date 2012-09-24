@@ -50,7 +50,7 @@
          
        	  <!-- SUMMARY --------------------------------------------->
 		  <div>
-          <img style="float:right;" src="_images/about_pic.png">
+          <img style="float:right; margin" src="_images/about_pic.png">
           <p>The Pearson Foundation Learning Labs Projector is a  free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments. </p>
           <p>The goals for the Projector are:</p>
           <ul>
@@ -126,6 +126,7 @@
               
               <h3>Teacher</h3><img src="_images/ProjectCommunity_teacher.png">
               <p>Teachers who use Projector challenges aren&rsquo;t passive consumers.  The Projector depends on continued teacher engagement through online discussion, suggestions, and asking and answering of questions. </p>
+              <p>&nbsp;</p>
               
 			</div>
             
