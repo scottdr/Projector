@@ -131,7 +131,7 @@ a.navDown {
 	clear: both;
 	position: relative;
 	background-color: rgba(0,0,0,0.7);
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 100px;
@@ -760,7 +760,7 @@ a.navDown {
 
 #tabDiv {
 	position: relative;
-	float:left
+	float:left;
 	width: 100%;
 	margin-top: 10px;
 	padding: 0px;
@@ -806,7 +806,6 @@ ul.tabNavigation li a:hover {
 	background-color: #fff;
 	color: #0099CC;
 	padding: 10px;
-	/*	line-height: 30px;*/
 	border-left-color: #0099CC;
 	border-left-style: solid;
 	border-left-width: thin;
@@ -819,6 +818,7 @@ ul.tabNavigation li a:hover {
 	border-bottom-color: #FFF;
 	border-bottom-style: solid;
 	border-bottom-width: 2px;
+	font-weight: 400;
 }
 
 ul.tabNavigation li a:focus {
@@ -832,14 +832,15 @@ div.tabs > div {
 }
 
 div.tabs > div h2 {
-	margin-top: 10;
-	font-weight:200;
+	margin-top: 20px;
+	font-weight: 400;
+	margin-bottom: 20px;
 }
 
 #projectTab1 {
 	float: left;
 	clear: both;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-top-color: #0099CC;
 	border-top-style: solid;
 	border-top-width: thin;
@@ -850,7 +851,7 @@ div.tabs > div h2 {
 #projectTab2 {
 	float: left;
 	clear: both;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
@@ -861,7 +862,7 @@ div.tabs > div h2 {
 #projectTab3 {
 	float: left;
 	clear: both;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	border-top-color:#0099CC;
 	border-top-style:solid;
 	border-top-width:thin;
@@ -1032,6 +1033,34 @@ div.tabs > div h2 {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+#recentProjectsRightColumn {
+	width: 300px;
+	position: relative;
+	float: right;
+	height: 100%;
+	background-color: #EFEFEF;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+#recentProjectsRightColumn  h2 {
+	font-weight: 400;
+	color: #000;
+	font-size: 18px;
+	margin-top: 0px;
+}
+#recentProjectsRightColumn  p {
+	width: 100%;
+	margin-top: 0px;
+}
+#recentProjectsRightColumn  h3, a {
+	font-weight: 400;
+	margin-left: 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #lightGreyRightColumn {
 	width: 300px;
 	position: relative;
@@ -1055,9 +1084,12 @@ div.tabs > div h2 {
 }
 #lightGreyRightColumn h3 {
 	font-weight: 400;
-	width: 210px;
+	width: 200px;
 	float: right;
 	clear: right;
+	font-size: 18px;
+	margin-top: 30px;
+	margin-bottom: 20px;
 }
 #lightGreyRightColumn img {
 	float: left;
@@ -1165,7 +1197,7 @@ div.tabs > div h2 {
 	border: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-bottom: 15px;
 	padding: 0px;
 	background-image: url(../_images/hr.png);
