@@ -681,7 +681,7 @@ a.navDown {
 .GalleryColumn2Div:hover {
 	background-color: #3AADEF;
 	color: #FFF;
-	background-image: url(auto);
+	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
