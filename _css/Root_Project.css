@@ -577,7 +577,7 @@ a.navDown {
 	border:none;
 }
 .GalleryThumbnailIcon {
-	position: relative;
+	position: absolute;
 	display: block;
 	z-index: 6;
 	background-image: url(../_images/myvoice_badge_50x50.png);
@@ -585,13 +585,14 @@ a.navDown {
 	height: 50px;
 	border: 0;
 	padding: 0px;
-	margin: 10px;
 	background-repeat: no-repeat;
+	margin-left: 10px;
+	margin-top: 32px;
 }
 .GalleryBlueBar {
 	background-color: #00AEEF;
 	width: 100%;
-	position: relative;
+	position: absolute;
 	display: block;
 	z-index: 5;
 	height: 20px;
@@ -601,6 +602,7 @@ a.navDown {
 	font-size: 13px;
 	font-weight: bold;
 	padding-top: 6px;
+	top: 0px;
 }
 .GalleryMedia {
 	width: 100%;
@@ -610,21 +612,20 @@ a.navDown {
 	overflow: hidden;
 	margin: 0px;
 	padding: 0px;
-	top: -95px;
-	display: block;
-	position: relative;
+	top: 0px;
+	position: absolute;
 } 
 .GalleryMedia img {
-	left: -10px;
-	top: -30px;
+	/*left: -10px;
+	top: -30px;*/
 }
 .GalleryDetails {
 	width: 90%;
 	margin: 0px;
 	padding: 5%;
-	top: -90px;
+	top: 200px;
 	display: block;
-	position: relative;
+	position: absolute;
 }
 .GalleryDetails  h1{
 	margin-bottom: 10px;
@@ -634,8 +635,8 @@ a.navDown {
 	clear: both;
 	float: left;
 	width: 300px;
-	margin-right: 20px;
-	margin-bottom: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 	background-color: #E3D9DA;
 	padding: 0px;
 	background-image: url(../_images/proj_gal_item_up.gif);
@@ -643,6 +644,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	height: 480px;
+	position: relative;
 }
 .GalleryColumn1Div p{
 	font-size:15px;
@@ -662,8 +664,8 @@ a.navDown {
 .GalleryColumn2Div {
 	float: left;
 	width: 300px;
-	margin-right: 20px;
-	margin-bottom: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 	background-color: #E3D9DA;
 	padding: 0px;
 	background-image: url(../_images/proj_gal_item_up.gif);
@@ -671,6 +673,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	height: 480px;
+	position: relative;
 }
 .GalleryColumn2Div p{
 	font-size:15px;
@@ -690,7 +693,7 @@ a.navDown {
 .GalleryColumn3Div {
 	float: left;
 	width: 300px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	background-color: #E3D9DA;
 	padding: 0px;
 	background-image: url(../_images/proj_gal_item_up.gif);
@@ -698,6 +701,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	height: 480px;
+	position: relative;
 }
 .GalleryColumn3Div p{
 	font-size: 15px;
