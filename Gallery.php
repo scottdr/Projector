@@ -1,3 +1,22 @@
+<?php include("Connections/projector.php"); ?>
+<?php
+// Choose the topic to filter by
+$topic = "All";
+if (isset($_GET['topic'])) {
+	$topic = $_GET['topic'];
+	$topicSQL = "Topic = " . $topic; 
+}
+ 
+mysql_select_db($database_projector, $projector);
+if ($topic != "All")
+	$query_FeaturedProject = "SELECT * FROM Topics WHERE Id = " . $topic;
+else
+	$query_FeaturedProject = "SELECT * FROM Topics WHERE Featured = 1";
+$FeaturedProject = mysql_query($query_FeaturedProject, $projector) or die(mysql_error());
+$row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
+$totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
+	
+?>
 <!doctype html>
 <!--[if lt IE 7]><html class="ie6 oldie"> <![endif]-->
 <!--[if IE 7]><html class="ie7 oldie"> <![endif]-->
@@ -32,7 +51,8 @@ $(document).ready(function() {
       <div class="ProjGalleryBackgroundDiv">
       
 		<!-- HEADER AND NAVIGATION --------------------------------------------->
-        <?php $selectedNav = "NavGallery"; ?>
+    <?php include("Globals.php"); ?>
+    <?php $selectedNav = "NavGallery"; ?>
 		<?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div>
         
@@ -43,10 +63,22 @@ $(document).ready(function() {
            require_once "GalleryQuery.php";
          ?>
         <!-- TOP PAGE NAVIGATION --------------------------------------------->
+        
         <div id="ContentDiv">
         
           <div id="GalleryNavFilter">
-                <p>&nbsp;</p>
+          <form name="statusFilterForm" method="post" action="Gallery.php">
+          &nbsp;Show Status:
+          <?php if ($PROJECTOR['editMode']) : ?>
+                <select name="filterStatus" id="filterStatus">
+                	<option value="All" selected="selected">All</option>
+                  <option value="Edit">Edit</option>
+                  <option value="Review">Review</option>
+                  <option value="Pilot">Pilot</option> 
+                  <option value="Published">Published</option>
+      					</select>
+					<?php endif; ?>
+          </form>
           </div>
             
             <div id="GalleryNavItemsPerPg">
@@ -63,6 +95,22 @@ $(document).ready(function() {
               <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif"></a>
           </div>
         
+         	<!-- Banner for Featured Topic -->
+					<?php if ($topic == "All") : ?>
+            <div id="GalleryBanner">
+              <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
+              <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+              <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
+            </div>
+            <div class="horzontalSpacer"></div>
+          <?php else: ?>
+              <div id="TopicIcon" style="float:left; margin-right:10px;"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></div>
+              <div>
+                <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
+                <h2 style="margin-top:10px"><?php echo $row_FeaturedProject['TagLine']; ?></h2>
+              </div>
+              <div class="horzontalSpacer"></div>
+          <?php endif; ?>
         
           <!-- PAGE CONTENT --------------------------------------------->
 					 <?php

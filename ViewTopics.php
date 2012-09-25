@@ -32,7 +32,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 mysql_select_db($database_projector, $projector);
-$query_TopicsRecordset = "SELECT Id, Name, TagLine, DisplayGalleryBadge, SmallIcon FROM Topics";
+$query_TopicsRecordset = "SELECT Id, Featured, Name, TagLine, DisplayGalleryBadge, SmallIcon FROM Topics";
 $TopicsRecordset = mysql_query($query_TopicsRecordset, $projector) or die(mysql_error());
 $row_TopicsRecordset = mysql_fetch_assoc($TopicsRecordset);
 $totalRows_TopicsRecordset = mysql_num_rows($TopicsRecordset);
@@ -147,7 +147,7 @@ function validateFields(evt)
     <th>Icon</th>
     <th>Name</th>
     <th>Tag Line</th>
-    <th>Show </th>
+    <th>Featured </th>
     </tr>
   <?php do { ?>
     <tr class="rowItem">
@@ -158,7 +158,7 @@ function validateFields(evt)
       <td><img src="<?php echo $row_TopicsRecordset['SmallIcon']; ?>" alt="" name="icon" id="icon" /></td>
       <td nowrap="nowrap"><a href="EditTopic.php?Id=<?php echo $row_TopicsRecordset['Id']; ?>"><?php echo $row_TopicsRecordset['Name']; ?></a></td>
       <td class="titleColumn" nowrap="nowrap"><div class="ellipsis"><?php echo $row_TopicsRecordset['TagLine']; ?></div></td>
-      <td><?php echo $row_TopicsRecordset['DisplayGalleryBadge']; ?></td>
+      <td><?php echo $row_TopicsRecordset['Featured']; ?></td>
       </tr>
     <?php } while ($row_TopicsRecordset = mysql_fetch_assoc($TopicsRecordset)); ?>
 </table>

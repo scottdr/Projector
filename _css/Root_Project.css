@@ -134,10 +134,10 @@ a.navDown {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 100px;
+	margin-bottom: 200px;
 	padding: 10px 15px 10px 15px;
 	width: 576px;
-	height: 396px;
+	height: 390px;
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 	/* Safari v3.0+ and by Chrome v0.2+ */
@@ -169,28 +169,30 @@ a.navDown {
 #HomeBannerDiv p {
 	margin: 5px;
 	font-weight: 200;
-	font-size: 19px;
+	font-size: 18px;
 	line-height: 22px;
 	color: rgb(255,255,255);
 	text-align: left;
 }
 #HomeBannerDiv  hr {
-	background: url(../_images/hr.png) repeat-x;
 	border: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 	margin-top: 20px;
+	background-image: url(../_images/hr.png);
+	height: 1px;
 }
 #HomeBannerDiv  img {
 	border: 0px;
 	padding-right: 10px;
-	float:left;
+	float: left;
+	padding-top: 30px;
 }
 #HomeBannerRotator {
 	display: inline;
 	width: 448px;
-	height: 150px;
+	height: 120px;
 	float: left;
 	display: block;
 	cursor: default;
@@ -220,15 +222,24 @@ a.navDown {
 	height: 200px;
 }
 #HomeBackgroundDiv {
-	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	width: 100%;
+	width: 940px;
+	height: 680px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url(../_images/Bourgeois_Louise-Crouching_Spider2.jpg);
-	height: 688px;
+	overflow: hidden;
+}
+#HomeBackgroundWrapper{
+	margin: 0px;
+	width: 100%;
+	height: 680px;
 	z-index: -2;
+	top: 26px;
+	left: 0px;
+	position: absolute;
+	clear: none;
 }
 #ProjGalleryBackgroundDiv {
 	position: relative;
@@ -670,7 +681,7 @@ a.navDown {
 .GalleryColumn2Div:hover {
 	background-color: #3AADEF;
 	color: #FFF;
-	background-image: url(auto);
+	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
@@ -745,17 +756,17 @@ a.navDown {
 	margin-top: 10px;
 	padding-top: 5px;
 	padding-bottom: 0px;
-	font-weight: 200;
+	font-weight: 500;
 	padding-top: 0px;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
 #ProjectSummary p {
-	font-size:12px;
-	margin-top: 0px;
+	font-size: 14px;
+	margin-top: 5px;
 	padding-top: 0px;
 	margin-bottom: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 5px;
 }
 
 #tabDiv {
