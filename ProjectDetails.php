@@ -137,7 +137,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             <div id="titleNav" class="floatRight">
               <form action="EditProject.php" method="get">
                   <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
-									<?php if (isset($PROJECTOR['editMode'])): ?>
+									<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
                   	<input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
                   <?php endif; ?>
               </form>
@@ -181,7 +181,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
                 <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
               </div>
-              	<?php if (isset($PROJECTOR['editMode'])): ?>
+              	<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
 	                <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <?php endif; ?>
                 <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
@@ -191,7 +191,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             
             <!-- TAB THREE ----------------------------------------->
             <div id="projectTab2">
-            	<?php if (isset($PROJECTOR['editMode'])): ?>
+            	<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
             		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
 							<?php echo $row_ProjectDetails['Teacher']; ?>
             </div>
@@ -212,7 +212,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <p>&nbsp;</p>
                     <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>--> 
               </div>
-              	<?php if (isset($PROJECTOR['editMode'])): ?>
+              	<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
               	<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
                 <?php endif; ?>
                 <div id="ProjectContributors">

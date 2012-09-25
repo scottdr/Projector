@@ -42,7 +42,20 @@ if (isset($_GET['pageNum_Recordset1'])) {
 $startRow_Recordset1 = $pageNum_Recordset1 * $maxRows_Recordset1;
 
 mysql_select_db($database_projector, $projector);
-$query_Recordset1 = "SELECT * FROM projects";
+
+// Chose the Status to filter by
+$filterBy = "All";
+if (isset($_POST['filterStatus']))
+	$filterBy = $_POST['filterStatus'];
+
+if ($PROJECTOR['editMode']) {
+	if ($filterBy == "All")
+		$query_Recordset1 = "SELECT * FROM projects";
+	else
+		$query_Recordset1 = "SELECT * FROM projects WHERE Status = " . $filterBy;	
+} else 	
+	$query_Recordset1 = 'SELECT * FROM projects WHERE Status = "Pilot" OR Status = "Published"';
+
 $query_limit_Recordset1 = sprintf("%s LIMIT %d, %d", $query_Recordset1, $startRow_Recordset1, $maxRows_Recordset1);
 $Recordset1 = mysql_query($query_limit_Recordset1, $projector) or die(mysql_error());
 $row_Recordset1 = mysql_fetch_assoc($Recordset1);

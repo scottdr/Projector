@@ -32,6 +32,7 @@ $(document).ready(function() {
       <div class="ProjGalleryBackgroundDiv">
       
 		<!-- HEADER AND NAVIGATION --------------------------------------------->
+    <?php include("Globals.php"); ?>
         <?php $selectedNav = "NavGallery"; ?>
 		<?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div>
@@ -46,7 +47,18 @@ $(document).ready(function() {
         <div id="ContentDiv">
         
           <div id="GalleryNavFilter">
-                <p>&nbsp;</p>
+          <form name="statusFilterForm" method="post" action="Gallery.php">
+          &nbsp;Show Status:
+          <?php if ($PROJECTOR['editMode']) : ?>
+                <select name="filterStatus" id="filterStatus">
+                	<option value="All" selected="selected">All</option>
+                  <option value="Edit">Edit</option>
+                  <option value="Review">Review</option>
+                  <option value="Pilot">Pilot</option> 
+                  <option value="Published">Published</option>
+      					</select>
+					<?php endif; ?>
+          </form>
           </div>
             
             <div id="GalleryNavItemsPerPg">
