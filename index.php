@@ -131,7 +131,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
             <img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
             <p style="font-size:16px; padding-top:5px;">This month ...</p>
             <h2><?php echo $row_FeaturedProject['Name']; ?></h2>
-            <p><?php echo $row_FeaturedProject['TagLine']; ?> <a href="#">View projects.</a></p>
+            <p><?php echo $row_FeaturedProject['TagLine']; ?> <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View projects.</a></p>
           <hr />
           <div id="slides">
                 <div id="HomeBannerRotatorPrevious">

@@ -174,7 +174,7 @@ function validateFields(evt)
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="_images/icons/Plus16x16.gif" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> |  <a href="ChallengeTemplate.php?ProjectId=<?php echo $ProjectId; ?>">View Challenge</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="_images/icons/Plus16x16.gif" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="ViewTopics.php">Topics</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $ProjectId; ?>">View Challenge</a></div>
 <?php if ($totalRows_StepList > 0): ?>
 <div id="content">
 <h3><?php echo $projectName; ?>&nbsp;<img id="projectImage" name="projectImage" src="<?php echo $projectImage; ?>" width="100" height="75" alt="" /></h3>
