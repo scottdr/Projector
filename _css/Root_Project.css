@@ -635,8 +635,8 @@ a.navDown {
 	clear: both;
 	float: left;
 	width: 300px;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	margin-right: 15px;
+	margin-bottom: 20px;
 	background-color: #E3D9DA;
 	padding: 0px;
 	background-image: url(../_images/proj_gal_item_up.gif);
@@ -664,8 +664,8 @@ a.navDown {
 .GalleryColumn2Div {
 	float: left;
 	width: 300px;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	margin-right: 15px;
+	margin-bottom: 20px;
 	background-color: #E3D9DA;
 	padding: 0px;
 	background-image: url(../_images/proj_gal_item_up.gif);
@@ -693,7 +693,7 @@ a.navDown {
 .GalleryColumn3Div {
 	float: left;
 	width: 300px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	background-color: #E3D9DA;
 	padding: 0px;
 	background-image: url(../_images/proj_gal_item_up.gif);
