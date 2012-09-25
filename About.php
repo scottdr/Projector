@@ -145,7 +145,7 @@
             	<h2>Pearson Foundation Learning Labs</h2>
             	<p>The Pearson Foundation Learning Labs is a  product innovation lab that develops software and learning experiences for students, teachers and parents. We bring a unique mix of strategy, user experience, engineering, content, and community techniques from other industries to bear on the challenges of education.</p>
             	<p>&nbsp;</p>
-                <p><a href="http://www.pearsonfoundation.org">Click here to visit</a></p>
+                <p><a href="http://www.pearsonfoundation.org">Click here to visit</a> | Contact us</p>
             	<h2>The Smithsonian Institution</h2>
             	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park and nine research facilities.</p>
             	<p>&nbsp;</p>
