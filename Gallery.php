@@ -51,38 +51,57 @@ $(document).ready(function() {
       <div class="ProjGalleryBackgroundDiv">
       
 		<!-- HEADER AND NAVIGATION --------------------------------------------->
-    <?php include("Globals.php"); ?>
-    <?php $selectedNav = "NavGallery"; ?>
-		<?php include("HeaderNav.php"); ?>
+		<?php include("Globals.php"); ?>
+        <?php $selectedNav = "NavGallery"; ?>
+        <?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div>
         
         
         <div class="clearFloat">
         </div>
         <?php
-           require_once "GalleryQuery.php";
-         ?>
-        <!-- TOP PAGE NAVIGATION --------------------------------------------->
+        require_once "GalleryQuery.php";
+        ?>
+        
+        
+        <!-- CONTENT --------------------------------------------->
         
         <div id="ContentDiv">
-        
-          <div id="GalleryNavFilter">
-          <form name="statusFilterForm" method="post" action="Gallery.php">
-          &nbsp;Show Status:
-          <?php if ($PROJECTOR['editMode']) : ?>
+            <!-- Banner for Featured Topic -->
+            <?php if ($topic == "All") : ?>
+                <div id="GalleryBanner">
+                  <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
+                  <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+                  <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
+                </div>
+                <div class="horzontalSpacer"></div>
+            <?php else: ?>
+                  <div id="TopicIcon" style="float:left; margin-right:10px;"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></div>
+                  <div>
+                    <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
+                    <h2 style="margin-top:10px"><?php echo $row_FeaturedProject['TagLine']; ?></h2>
+                  </div>
+                  <div class="horzontalSpacer"></div>
+            <?php endif; ?>
+          
+            <!-- Gallery Nav Filters --------------------------------------------->
+            <div id="GalleryNavFilter">
+            <form name="statusFilterForm" method="post" action="Gallery.php">
+            &nbsp;Show Status:
+            <?php if ($PROJECTOR['editMode']) : ?>
                 <select name="filterStatus" id="filterStatus">
-                	<option value="All" selected="selected">All</option>
+                    <option value="All" selected="selected">All</option>
                   <option value="Edit">Edit</option>
                   <option value="Review">Review</option>
                   <option value="Pilot">Pilot</option> 
                   <option value="Published">Published</option>
-      					</select>
-					<?php endif; ?>
-          </form>
-          </div>
+                        </select>
+                    <?php endif; ?>
+            </form>
+            </div>
             
             <div id="GalleryNavItemsPerPg">
-       			  <form name="form1" method="post" action="">
+                  <form name="form1" method="post" action="">
                     <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
                       <option value="3">View 3 per page</option>
                       <option value="9">View 9 per page</option>
@@ -93,30 +112,15 @@ $(document).ready(function() {
             
             <div id="GalleryNavPgOfX"><p>  page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif"></a>
               <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif"></a>
-          </div>
-        
-         	<!-- Banner for Featured Topic -->
-					<?php if ($topic == "All") : ?>
-            <div id="GalleryBanner">
-              <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
-              <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
-              <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
             </div>
-            <div class="horzontalSpacer"></div>
-          <?php else: ?>
-              <div id="TopicIcon" style="float:left; margin-right:10px;"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></div>
-              <div>
-                <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
-                <h2 style="margin-top:10px"><?php echo $row_FeaturedProject['TagLine']; ?></h2>
-              </div>
-              <div class="horzontalSpacer"></div>
-          <?php endif; ?>
-        
-          <!-- PAGE CONTENT --------------------------------------------->
-					 <?php
-           require_once "GallerySQLContent.php";
-           ?>
- 
+            
+                
+            
+            <!-- GALLERY ITEMS CONTENT --------------------------------------------->
+            <?php
+            require_once "GallerySQLContent.php";
+            ?>
+            
             <p></p>
             <!-- BOTTOM PAGE NAVIGATION ----------------------------->
             <div id="GalleryNavFilter">
