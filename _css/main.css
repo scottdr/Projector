@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	font-family: "Helvetica Neue","Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	background-color: #FFFFFF;
 	background-image: url(../_images/proj_gal_bg.gif);
 	background-repeat: repeat-x;
@@ -188,7 +188,7 @@ a.navDown {
 #errorMessage {
 	margin-left: auto;
 	margin-right: auto;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	background-color: #CCC;
 	text-align: center;
 	width: 600px;

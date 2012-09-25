@@ -53,7 +53,7 @@ $totalRows_projectList = mysql_num_rows($projectList);
 <title>Display Projects</title>
 <style type="text/css">
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 }
 .description {
 	font-size: .8em;

@@ -117,7 +117,7 @@ if (isset($_POST["MM_action"])) {
 }
 
 .layer {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	background-color: #eee;
 	margin-right: auto;
 	margin-left: auto;
@@ -136,7 +136,7 @@ if (isset($_POST["MM_action"])) {
 }
 
 body {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 }
 
 label {
