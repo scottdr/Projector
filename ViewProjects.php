@@ -114,7 +114,7 @@ td{
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16"/> Add Project</a> | <a href="ViewMedia.php">View Media</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="ViewTopics.php">Topics</a></div>
+<div class="subNav"><a href="EditProject.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16"/> Add Project</a> | <a href="ViewMedia.php">View Media</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="ViewTopics.php">Topics</a></div>
 <div id="content">
   <table width="300">
     <tr>
@@ -128,7 +128,7 @@ td{
     <?php do { ?>
     <tr bgcolor="#EEEEEE" class="projectItem">
       <td><?php echo $row_projectList['Id']; ?><form id="form1" name="form1" method="get" action="EditProject.php">
-        <input style="background-image: url(icons/Writing.fw.26x26png.png); width:26px;" class="button" type="submit" name="button" id="button" value="" />
+        <input style="background-image: url(_images/icons/Pencil26x26.gif); width:26px;" class="button" type="submit" name="button" id="button" value="" />
         <input name="Id" type="hidden" id="Id" value="<?php echo $row_projectList['Id']; ?>" />
       </form>
         </td>
