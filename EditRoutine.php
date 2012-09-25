@@ -252,7 +252,7 @@ function updateThumbnailImage(object)
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="EditRoutine.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16"/> Add Routine</a></div></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="EditRoutine.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16"/> Add Routine</a></div></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <fieldset>

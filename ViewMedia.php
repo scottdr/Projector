@@ -149,7 +149,7 @@ function validateFields(evt)
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="icons/32x32_plus.png" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16"/> Add Media</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="_images/icons/Plus16x16.gif" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16"/> Add Media</a></div>
 <div id="content">
 <h3>View Media <?php if ($colname_MediaQuery > -1) print "for Project Id # $colname_MediaQuery <a href=\"ViewMedia.php\">Show All</a>"; else print "for All Projects" ?></h3>
 <table id="MediaTable" width="600" class="clearFloat">
