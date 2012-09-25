@@ -756,17 +756,17 @@ a.navDown {
 	margin-top: 10px;
 	padding-top: 5px;
 	padding-bottom: 0px;
-	font-weight: 200;
+	font-weight: 500;
 	padding-top: 0px;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 }
 #ProjectSummary p {
-	font-size:12px;
-	margin-top: 0px;
+	font-size: 14px;
+	margin-top: 5px;
 	padding-top: 0px;
 	margin-bottom: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 5px;
 }
 
 #tabDiv {

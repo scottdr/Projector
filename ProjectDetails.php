@@ -148,17 +148,17 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
                 <div class="projectInfo">
                     <div class="projectData">
-                      <h2><strong>Challenge Objective:</strong></h2>
+                      <h2>Challenge Objective:</h2>
                       <p><?php echo $row_foundRecord['Description']; ?></p>
-                      <h2><strong>Challenge Duration:</strong></h2>
+                      <h2>Challenge Duration:</h2>
 					  <p><?php echo getDuration($row_foundRecord['Duration']); ?></p>
-                      <h2><strong>Subject Areas:</strong></h2>
+                      <h2>Subject Areas:</h2>
 					  <p><?php echo $row_foundRecord['Subject']; ?></p>
-                      <h2><strong>Grade Level:</strong></h2>
+                      <h2>Grade Level:</h2>
 					  <p><?php echo getGrade($row_foundRecord); ?></p>
-					  					<h2><strong>Status:</strong></h2>
+					  					<h2>Status:</h2>
                       <p><?php echo $row_foundRecord['Status']; ?></p>
-                      <h2><strong>Author:</strong></h2>
+                      <h2>Author:</h2>
                       <p><?php echo $row_foundRecord['Author']; ?></p>
                     </div>
               </div>
