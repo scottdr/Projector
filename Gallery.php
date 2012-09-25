@@ -8,7 +8,10 @@ if (isset($_GET['topic'])) {
 }
  
 mysql_select_db($database_projector, $projector);
-$query_FeaturedProject = "SELECT * FROM Topics WHERE Featured = 1";
+if ($topic != "All")
+	$query_FeaturedProject = "SELECT * FROM Topics WHERE Id = " . $topic;
+else
+	$query_FeaturedProject = "SELECT * FROM Topics WHERE Featured = 1";
 $FeaturedProject = mysql_query($query_FeaturedProject, $projector) or die(mysql_error());
 $row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
 $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
@@ -101,9 +104,12 @@ $(document).ready(function() {
             </div>
             <div class="horzontalSpacer"></div>
           <?php else: ?>
-              <img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
-              <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
-              <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+              <div id="TopicIcon" style="float:left; margin-right:10px;"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></div>
+              <div>
+                <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
+                <h2 style="margin-top:10px"><?php echo $row_FeaturedProject['TagLine']; ?></h2>
+              </div>
+              <div class="horzontalSpacer"></div>
           <?php endif; ?>
         
           <!-- PAGE CONTENT --------------------------------------------->
