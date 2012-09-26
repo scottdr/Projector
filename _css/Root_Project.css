@@ -10,7 +10,7 @@ img, object, embed, video {
 
 body {
 	background-color: #343434;
-	font-family:"Helvetica Neue","Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	color:#333333;
 	line-height: 90%;
 }
@@ -178,8 +178,8 @@ a.navDown {
 	border: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-top: 10px;
 	background-image: url(../_images/hr.png);
 	height: 1px;
 }
@@ -187,7 +187,9 @@ a.navDown {
 	border: 0px;
 	padding-right: 10px;
 	float: left;
-	padding-top: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
 }
 #HomeBannerRotator {
 	display: inline;
@@ -541,7 +543,7 @@ a.navDown {
 #GalleryBanner h1{
 	margin: 0px;
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 600;
 }
 #GalleryBanner p{
 	margin: 0px;
@@ -577,7 +579,7 @@ a.navDown {
 	border:none;
 }
 .GalleryThumbnailIcon {
-	position: relative;
+	position: absolute;
 	display: block;
 	z-index: 6;
 	background-image: url(../_images/myvoice_badge_50x50.png);
@@ -585,13 +587,14 @@ a.navDown {
 	height: 50px;
 	border: 0;
 	padding: 0px;
-	margin: 10px;
 	background-repeat: no-repeat;
+	margin-left: 10px;
+	margin-top: 32px;
 }
 .GalleryBlueBar {
 	background-color: #00AEEF;
 	width: 100%;
-	position: relative;
+	position: absolute;
 	display: block;
 	z-index: 5;
 	height: 20px;
@@ -601,6 +604,7 @@ a.navDown {
 	font-size: 13px;
 	font-weight: bold;
 	padding-top: 6px;
+	top: 0px;
 }
 .GalleryMedia {
 	width: 100%;
@@ -610,21 +614,20 @@ a.navDown {
 	overflow: hidden;
 	margin: 0px;
 	padding: 0px;
-	top: -70px;
-	display: block;
-	position: relative;
+	top: 0px;
+	position: absolute;
 } 
 .GalleryMedia img {
-	left: -10px;
-	top: -30px;
+	/*left: -10px;
+	top: -30px;*/
 }
 .GalleryDetails {
 	width: 90%;
 	margin: 0px;
 	padding: 5%;
-	top: -70px;
+	top: 200px;
 	display: block;
-	position: relative;
+	position: absolute;
 }
 .GalleryDetails  h1{
 	margin-bottom: 10px;
@@ -634,7 +637,7 @@ a.navDown {
 	clear: both;
 	float: left;
 	width: 300px;
-	margin-right: 20px;
+	margin-right: 15px;
 	margin-bottom: 20px;
 	background-color: #E3D9DA;
 	padding: 0px;
@@ -643,6 +646,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	height: 480px;
+	position: relative;
 }
 .GalleryColumn1Div p{
 	font-size:15px;
@@ -662,7 +666,7 @@ a.navDown {
 .GalleryColumn2Div {
 	float: left;
 	width: 300px;
-	margin-right: 20px;
+	margin-right: 15px;
 	margin-bottom: 20px;
 	background-color: #E3D9DA;
 	padding: 0px;
@@ -671,6 +675,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	height: 480px;
+	position: relative;
 }
 .GalleryColumn2Div p{
 	font-size:15px;
@@ -698,6 +703,7 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 	height: 480px;
+	position: relative;
 }
 .GalleryColumn3Div p{
 	font-size: 15px;
@@ -863,22 +869,24 @@ div.tabs > div h2 {
 	float: left;
 	clear: both;
 	/*background-color: #fff;*/
-	border-top-color:#0099CC;
-	border-top-style:solid;
-	border-top-width:thin;
+	border-top-color: #0099CC;
+	border-top-style: solid;
+	border-top-width: thin;
 	padding-top: 15px;
 	width: 100%;
+	font-size: 15px;
 }
 
 #projectTab3 {
 	float: left;
 	clear: both;
 	/*background-color: #fff;*/
-	border-top-color:#0099CC;
-	border-top-style:solid;
-	border-top-width:thin;
+	border-top-color: #0099CC;
+	border-top-style: solid;
+	border-top-width: thin;
 	padding-top: 15px;
 	width: 100%;
+	font-size: 15px;
 }
 #accordion {
 	width: 600px;
@@ -1081,12 +1089,14 @@ div.tabs > div h2 {
 	margin-left: 20px;
 	margin-bottom: 20px;
 	padding: 10px;
+	font-size: 15px;
 }
 #lightGreyRightColumn h2 {
 	font-weight: 400;
 	color: #000;
 	font-size: 18px;
 	margin-top: 5px;
+	margin-bottom: 10px;
 }
 #lightGreyRightColumn p {
 	width: 210px;
@@ -1139,6 +1149,8 @@ div.tabs > div h2 {
 	font-weight: 400;
 	color: #000;
 	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 #ProjectContributors img{
 	float:left;

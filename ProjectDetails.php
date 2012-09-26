@@ -125,7 +125,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
       <div class="ProjGalleryBackgroundDiv">
 
         <!-- HEADER AND NAVIGATION --------------------------------------------->
-        <?php $selectedNav = ""; ?>
+        <?php $selectedNav = "NavGallery"; ?>
         <?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div> 
         
@@ -138,7 +138,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
               <form action="EditProject.php" method="get">
                   <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
 									<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
-                  	<input class="button" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="submit" value="Edit" />
+                  	<input class="button" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="submit" value="Edit" />
                   <?php endif; ?>
               </form>
             </div>
@@ -171,63 +171,64 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <li><a href="#projectTab2">Teacher Notes</a></li>
                 <li><a href="#projectTab3">Credits</a></li>
               </ul>
-            <!-- TAB ONE ----------------------------------------->
-            <div id="projectTab1">
-              <div id="resources">
-                <h2>Start the challenge</h2>
-                <p>You can work through the challenge online or you can download it in a PDF format</p>
-                <hr/>
-                <h3>Online Challenge</h3>
-                <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
-                <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
-              </div>
-              	<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
-	                <input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
-                <?php endif; ?>
-                <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
-                <p><?php echo $row_ProjectDetails['Detail']; ?></p>
+                <!-- TAB ONE ----------------------------------------->
+                <div id="projectTab1">
+                  <div id="resources">
+                    <h2>Start the challenge</h2>
+                    <p>You can work through the challenge online or you can download it in a PDF format</p>
+                    <hr/>
+                    <h3>Online Challenge</h3>
+                    <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
+                    <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
+                  </div>
+                    <?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
+                        <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
+                    <?php endif; ?>
+                    <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
+                    <p><?php echo $row_ProjectDetails['Detail']; ?></p>
+                </div>
+                
+                
+                <!-- TAB TWO ----------------------------------------->
+                <div id="projectTab2">
+                    <?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
+                        <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
+                                <?php echo $row_ProjectDetails['Teacher']; ?>
+                </div>
+     
+                <!-- TAB THREE ----------------------------------------->
+                <div id="projectTab3">
+                        
+                    <div id="lightGreyRightColumn"> 
+                        <h2>Project Author</h2>
+                            <?php echo $row_ProjectDetails['Author']; ?> 
+                        <!--   
+                            <img src="_images/user.jpg" alt="Firstname, Lastname">
+                            <h3 class="name">Firstname Lastname</h3>
+                            <p class="title">Title, School/Org</p>
+                            <p>&nbsp;</p>
+                            <p><a class="bluebutton">View Projects (7)</a></p>
+                            <p>&nbsp;</p>
+                            <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>--> 
+                     </div>
+                    <?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
+                    <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
+                    <?php endif; ?>
+                    <div id="ProjectContributors">
+                        <h2>Project Contributors</h2>
+                        <?php echo $row_ProjectDetails['Contributor']; ?>
+                    </div>
+                 </div>
+                 
             </div>
-            
-            
-            <!-- TAB THREE ----------------------------------------->
-            <div id="projectTab2">
-            	<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
-            		<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
-							<?php echo $row_ProjectDetails['Teacher']; ?>
-            </div>
-          </div>
- 
- 					<!-- TAB THREE ----------------------------------------->
-            <div id="projectTab3">
-            		
-                <div id="lightGreyRightColumn"> 
-									<h2>Project Author</h2>
-									<?php echo $row_ProjectDetails['Author']; ?> 
-                <!--   
-                    <img src="_images/user.jpg" alt="Firstname, Lastname">
-                    <h3 class="name">Firstname Lastname</h3>
-                    <p class="title">Title, School/Org</p>
-                    <p>&nbsp;</p>
-                    <p><a class="bluebutton">View Projects (7)</a></p>
-                    <p>&nbsp;</p>
-                    <p>About - Morbi sed massa eu diam egestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales. Tgestas posuere sit amet a ante. Vivamus eleifend elementum convallis. Cras interdum ligula ut dolor tincidunt tincidunt. Ma;ecenas ornare tellus et justo scelerisque sodales.</p>--> 
-              </div>
-              	<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
-              	<input class="button floatRight" style="background-image: url(icons/Writing.fw.26x26png.png);" name="action" type="button" value="Edit" onclick="goToURL('EditCredits.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
-                <?php endif; ?>
-                <div id="ProjectContributors">
-                <h2>Project Contributors</h2>
-               	<?php echo $row_ProjectDetails['Contributor']; ?>
-              </div>
-              </div>
                          
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
-            <hr/>
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+                <hr/>
+                <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+                <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
+                <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+                <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
         	</div>
         </div>
 		</div>

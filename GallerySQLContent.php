@@ -37,6 +37,8 @@ do {
 	print "<div class=\"GalleryColumn" .  $columnNum . "Div\"" . "data-id=\"" . $row_Recordset1['Id'] . "\" >";
 	if ($row_Recordset1['Status'] == "Pilot")
 		print "<div class=\"GalleryBlueBar\">Pilot Project</div>";
+	if ($row_Recordset1['Status'] != "Pilot")
+		print "<div class=\"GalleryBlueBar\" style=\"visibility: hidden;\"></div>";
 	if ($row_Recordset1['Topic'] == "1")
   	print "<div class=\"GalleryThumbnailIcon\"></div>";
 	print "\n\t<div class=\"GalleryMedia\">";

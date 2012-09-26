@@ -137,7 +137,7 @@ function validateFields(evt)
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | View Steps<a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>"></a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> | <a href="EditTopic.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" />  Add Topic</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="EditTopic.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" />  Add Topic</a></div>
 <?php if ($totalRows_TopicsRecordset > 0): ?>
 <div id="content">
 <h3>View Topics</h3>

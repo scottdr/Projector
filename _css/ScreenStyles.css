@@ -3,7 +3,7 @@
 
 
 body {
-	font-family:"nimbus-sans", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	-webkit-text-size-adjust: none;
 	color:rgba(255,255,255,1);
 	border: 0px;
@@ -32,6 +32,36 @@ a:active {
 #FullWidthWrapper {
 	width:100%;
 	height:2000px;
+}
+/* 00 Opening Experience 05 Opening Activity */
+.center {
+	text-align:center;
+}
+.ProjectorLogo {
+	margin-top: 50px;
+	margin-bottom: 0px;
+	border: 0px;
+}
+.ProjectorTitle {
+	font-size: 25px;
+	font-weight: 200;
+	margin: 0px;
+	border: 0px;
+}
+.ProjectTitle {
+	font-size: 40px;
+	font-weight: 300;
+	color: #03ACEF;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	border: 0px;
+}
+.ProjectAuthor {
+	font-size: 25px;
+	font-weight: 300;
+	color: #02ACF0;
+	margin: 0px;
+	border: 0px;
 }
 
 /* 04 Opening Experience 05 Opening Activity */

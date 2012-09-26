@@ -127,7 +127,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 }
 
 .layer {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	background-color: #eee;
 	margin-right: auto;
 	margin-left: auto;
@@ -146,7 +146,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 }
 
 body {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 }
 
 label {
@@ -308,10 +308,10 @@ function closeDialog()
 <body>
 <?php $selectedNav = "NavGallery"; ?>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ProjectDetails.php?Id=<?php echo $row_foundRecord['Id']; ?>">View Project</a> | <a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="ViewTopics.php">Topics</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ProjectDetails.php?Id=<?php echo $row_foundRecord['Id']; ?>">View Project</a> | <a href="EditProject.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a> | <a href="ViewTopics.php">Topics</a></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
-  <div class="subSubNav"><a href="EditDetails.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/Writing.16x16.png" width="16" height="16" alt="Edit Details" /> Edit Details</a> | <a href="ViewSteps.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Steps</a> | <a href="EditStep.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Media</a> | <a href="EditMedia.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a></div>
+  <div class="subSubNav"><a href="EditDetails.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="_images/icons/Pencil26x26.gif" width="20" height="20" alt="Edit Details" /> Edit Details</a> | <a href="ViewSteps.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Steps</a> | <a href="EditStep.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">View Media</a> | <a href="EditMedia.php?action=Add&ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a></div>
   <fieldset>
     <legend><?php echo $actionTitle; ?> Project</legend>
    <label for="Thumbnail">Id:</label>
@@ -356,6 +356,7 @@ function closeDialog()
     <div class="lineUp">
      	<label for="topic">Topic:</label>
         <select name="topic" id="topic">
+        	<option value="-1" <?php if (!(strcmp($row_TopicsMenu['Id'], $row_foundRecord['Topic']))) {echo "selected=\"selected\"";} ?>>None</option>
           <?php
 					do {  
 					?>

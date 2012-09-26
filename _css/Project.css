@@ -19,7 +19,7 @@ img, object, embed, video {
 
 body {
 	background-color: #343434;
-	font-family:"Helvetica Neue","Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	color:#343434;
 	line-height: 90%;
 }

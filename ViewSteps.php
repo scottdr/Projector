@@ -174,7 +174,7 @@ function validateFields(evt)
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="icons/32x32_plus.png" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Media</a> |  <a href="ChallengeTemplate.php?ProjectId=<?php echo $ProjectId; ?>">View Challenge</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="_images/icons/Plus16x16.gif" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="ViewTopics.php">Topics</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $ProjectId; ?>">View Challenge</a></div>
 <?php if ($totalRows_StepList > 0): ?>
 <div id="content">
 <h3><?php echo $projectName; ?>&nbsp;<img id="projectImage" name="projectImage" src="<?php echo $projectImage; ?>" width="100" height="75" alt="" /></h3>
@@ -190,7 +190,7 @@ function validateFields(evt)
   <?php do { ?>
     <tr class="rowItem">
       <td><form id="stepForm" name="form1" method="get" action="EditStep.php"><?php echo $row_StepList['Id']; ?>
-        <input style="background-image: url(icons/Writing.fw.26x26png.png); width:26px;" class="button" type="submit" name="button" id="button" value="Edit" />
+        <input style="background-image: url(_images/icons/Pencil26x26.gif); width:26px;" class="button" type="submit" name="button" id="button" value="Edit" />
         <input name="Id" type="hidden" id="Id" value="<?php echo $row_StepList['Id']; ?>" />
       </form>
       <form id="viewForm" name="viewForm" method="get" action="ChallengeTemplate.php"><input style="width:26px;" class="button" type="submit" name="button" id="button" value="View"/>
@@ -210,7 +210,7 @@ function validateFields(evt)
 <?php else: ?>
 <div id="errorMessage">
 <p>There are no steps defined for this project.<br />Click the Add Steps button to create a step.</p>
-<p><input id="editButton" class="button" style="background-image: url(icons/26x26_plus.fw.png); background-size: 26px 26px;" name="action" type="button" value="Add Step" onclick="goToURL('EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>')" />
+<p><input id="editButton" class="button" style="background-image: url(_images/icons/Pencil26x26.gif); background-size: 26px 26px;" name="action" type="button" value="Add Step" onclick="goToURL('EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>')" />
 </p>
 </div>
 <?php endif; ?>

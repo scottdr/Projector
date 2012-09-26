@@ -50,17 +50,18 @@ $filterBy = "All";
 if (isset($_GET['filterStatus']))
 	$filterBy = $_GET['filterStatus'];
 
-if ($PROJECTOR['editMode']) {
-	if ($filterBy == "All") {
-		$query_Recordset1 = "SELECT * FROM projects";
-		if ($topic != "All") 
-			$query_Recordset1 .= " WHERE " . $topicSQL;
-	} else
-		$query_Recordset1 = "SELECT * FROM projects WHERE Status = " . $filterBy;	
-} else 	
-	$query_Recordset1 = 'SELECT * FROM projects WHERE Status = "Pilot" OR Status = "Published"';
-
-
+$addedWhere = false;
+$query_Recordset1 = "SELECT * FROM projects";
+if ($topic != "All") {
+	$addedWhere = true;
+	$query_Recordset1 .= " WHERE " . $topicSQL;
+} 
+if (!$PROJECTOR['editMode']) {
+	if (!$addedWhere)
+		$query_Recordset1 .= ' WHERE Status = "Pilot" OR Status = "Published"';
+	else
+ 		$query_Recordset1 .= ' AND Status = "Pilot" OR Status = "Published"';
+}
 
 $query_limit_Recordset1 = sprintf("%s LIMIT %d, %d", $query_Recordset1, $startRow_Recordset1, $maxRows_Recordset1);
 $Recordset1 = mysql_query($query_limit_Recordset1, $projector) or die(mysql_error());

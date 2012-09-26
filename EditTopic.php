@@ -112,7 +112,7 @@ session_start();
 }
 
 .layer {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	background-color: #eee;
 	margin-right: auto;
 	margin-left: auto;
@@ -131,7 +131,7 @@ session_start();
 }
 
 body {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 }
 
 label {
@@ -293,7 +293,7 @@ function closeDialog()
 <body>
 <?php $selectedNav = "NavGallery"; ?>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?action=Add"><img src="icons/32x32_plus.png" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a> |<span class="subSubNav"><a href="ViewMedia.php">View Media</a></span></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Project</a> | <a href="ViewRoutines.php">View Routines</a> |<span class="subSubNav"><a href="ViewMedia.php">View Media</a></span></div>
 <div class="layer">
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <div class="subSubNav"><a href="ViewTopics.php">View Topics</a></div>
