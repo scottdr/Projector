@@ -50,6 +50,7 @@ $filterBy = "All";
 if (isset($_GET['filterStatus']))
 	$filterBy = $_GET['filterStatus'];
 
+/*
 if ($PROJECTOR['editMode']) {
 	if ($filterBy == "All") {
 		$query_Recordset1 = "SELECT * FROM projects";
@@ -57,8 +58,9 @@ if ($PROJECTOR['editMode']) {
 			$query_Recordset1 .= " WHERE " . $topicSQL;
 	} else
 		$query_Recordset1 = "SELECT * FROM projects WHERE Status = " . $filterBy;	
-} else 	
-	$query_Recordset1 = 'SELECT * FROM projects WHERE Status = "Pilot" OR Status = "Published"';
+} else
+*/ 	
+$query_Recordset1 = 'SELECT * FROM projects WHERE Status = "Pilot" OR Status = "Published"';
 
 
 

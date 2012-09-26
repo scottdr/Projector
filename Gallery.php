@@ -86,7 +86,7 @@ $(document).ready(function() {
           
             <!-- Gallery Nav Filters --------------------------------------------->
             <div id="GalleryNavFilter">
-            <form name="statusFilterForm" method="post" action="Gallery.php">
+        <!--    <form name="statusFilterForm" method="post" action="Gallery.php">
             &nbsp;Show Status:
             <?php if ($PROJECTOR['editMode']) : ?>
                 <select name="filterStatus" id="filterStatus">
@@ -97,7 +97,7 @@ $(document).ready(function() {
                   <option value="Published">Published</option>
                         </select>
                     <?php endif; ?>
-            </form>
+            </form>-->
             </div>
             
             <div id="GalleryNavItemsPerPg">
