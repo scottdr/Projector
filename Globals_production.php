@@ -1,0 +1,3 @@
+<?php
+$PROJECTOR['editMode'] = false;
+?>
