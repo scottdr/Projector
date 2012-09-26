@@ -356,6 +356,7 @@ function closeDialog()
     <div class="lineUp">
      	<label for="topic">Topic:</label>
         <select name="topic" id="topic">
+        	<option value="-1" <?php if (!(strcmp($row_TopicsMenu['Id'], $row_foundRecord['Topic']))) {echo "selected=\"selected\"";} ?>>None</option>
           <?php
 					do {  
 					?>
