@@ -178,8 +178,8 @@ a.navDown {
 	border: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-top: 20px;
+	margin-bottom: 5px;
+	margin-top: 10px;
 	background-image: url(../_images/hr.png);
 	height: 1px;
 }
@@ -187,7 +187,9 @@ a.navDown {
 	border: 0px;
 	padding-right: 10px;
 	float: left;
-	padding-top: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 0px;
 }
 #HomeBannerRotator {
 	display: inline;
