@@ -134,7 +134,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             <div id="GalleryDetailPageTitle">
                <h1><?php echo $row_foundRecord['Name']; ?></h1>
             </div>
-            <div id="titleNav" class="floatRight">
+            <div id="titleNav" class="floatRight" style="padding-bottom:20px;">
               <form action="EditProject.php" method="get">
                   <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
 									<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
@@ -190,6 +190,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <?php endif; ?>
                     <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
                     <p><?php echo $row_ProjectDetails['Detail']; ?></p>
+                    
                 </div>
                 
                 
@@ -228,11 +229,12 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                          
            <!-- FOOTER ---------------------------------------------> 
             <div id="GeneralFooterDiv">
-                <hr/>
-                <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-                <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-                <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-                <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+            <hr/>
+            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+              <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
+              <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+              <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+              <p>© Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a></p>
         	</div>
         </div>
 		</div>
