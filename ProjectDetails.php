@@ -146,6 +146,10 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
         	<!-- SUMMARY --------------------------------------------->
             <div id="ProjectSummary">
                 <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
+                <?php if ($row_foundRecord['Topic'] == 1) : ?>
+                  <div class="GalleryDetailsBar"></div>
+                  <div class="GalleryDetailsThumbnailIcon"></div>
+                <?php endif; ?>
                 <div class="projectInfo">
                     <div class="projectData">
                       <h2>Challenge Objective:</h2>
