@@ -139,10 +139,10 @@ a.navDown {
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 150px;
+	margin-bottom: 180px;
 	padding: 10px 15px 10px 15px;
 	width: 576px;
-	height: 390px;
+	height: 360px;
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 	/* Safari v3.0+ and by Chrome v0.2+ */
@@ -187,19 +187,20 @@ a.navDown {
 	margin-top: 10px;
 	background-image: url(../_images/hr.png);
 	height: 1px;
+	clear: both;
 }
 #HomeBannerDiv  img {
 	border: 0px;
 	padding-right: 10px;
 	float: left;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 	padding-left: 0px;
 }
 #HomeBannerRotator {
 	display: inline;
 	width: 448px;
-	height: 120px;
+	height: 100px;
 	float: left;
 	display: block;
 	cursor: default;
@@ -212,17 +213,18 @@ a.navDown {
 	height: 64px;
 	float: left;
 	cursor: pointer;
+	padding-top: 20px;
 }
 #HomeBannerRotatorNext {
 	display: inline;
-	height: 64px;
+	height: 6px;
 	float: left;
 	cursor: pointer;
 	width: 64px;
+	padding-top: 20px;
 }
 .slides_container {
 	width: 450px;
-	height: 200px;
 }
 .slides_container div {
 	width: 450px;
@@ -1254,6 +1256,11 @@ div.tabs > div h2 {
 	margin-right: auto;
 	margin-left: auto;
 	width: 100%;
+}
+#HomeFooterDiv p{
+	padding-top: 20px;
+	font-size: 12px;
+	color:#999;
 }
 #GeneralFooterDiv img {
 	height: 60px;

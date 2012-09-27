@@ -1,42 +1,3 @@
-<?php require_once('Connections/projector.php'); ?>
-<?php
-if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
-
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-  }
-  return $theValue;
-}
-}
-
-mysql_select_db($database_projector, $projector);
-$query_FeaturedProject = "SELECT * FROM Topics WHERE Featured = 1";
-$FeaturedProject = mysql_query($query_FeaturedProject, $projector) or die(mysql_error());
-$row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
-$totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -116,9 +77,45 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
     </div> 
     
         <!-- HEADER AND NAVIGATION --------------------------------------------->
-        <?php $selectedNav = "NavHome"; ?>
-        <?php include("HeaderNav.php"); ?>
-        <div id="NavShadowDiv"></div>
+                <!-- Header -->
+<div id="HeaderBgDiv">
+  <a href="index.php">
+  <div id="HeaderDiv">
+    <div id="HeaderImg">
+      <img src="_images/headerlogo.png" width="48" height="24">
+      <h1>The Projector</h1>
+    </div>
+  </div>
+  </a>
+</div>
+
+<!-- Navigation -->
+<div id="NavDiv">
+    <a class="navDown" href="index.php">
+        <div id="NavHome" class="NavItemDown">
+        HOME
+        </div>
+    </a>
+    <a class="navUp" href="Gallery.php">
+        <div id="NavGallery" class="NavItemUp">
+        PROJECT GALLERY
+        </div>
+    </a>
+    <a class="navUp" href="About.php">
+        <div id="NavAbout" class="NavItemUp">
+        ABOUT
+        </div>
+    </a>
+  <div id="NavSearchContainer">
+  	<!-- SEARCH -->
+    <div id="NavSearchTextContainer">
+    <!--input type="text" id="NavSearchText" placeholder="Search ..."-->
+    </div>
+    <!--input type="submit" class="searchButton" id="submit" value=""-->
+  </div>
+</div>
+<div class="clearFloat" />
+<div id="NavShadowDiv"></div>
        
         
         <!-- BANNER --------------------------------------------->
@@ -126,24 +123,65 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
         
             <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
             <hr />
-            <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></a>
+            <a href="Gallery.php?topic=1"><img src="http://labs.pearsonfoundation.org/projector/_images/topics/1/largeIcon80x71.jpg" alt="2012 Mock Election" /></a>
             <p style="font-size:16px; padding-top:5px;">This month ...</p>
-            <h2><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><?php echo $row_FeaturedProject['Name']; ?></a></h2>
-            <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
-            <hr />
-            <div id="slides">
+            <h2><a href="Gallery.php?topic=1">2012 Mock Election</a></h2>
+            <p>Get involved, it's your democracy!</p>
+          <hr />
+          <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
                     <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item" width="64" height="64"></a>
                 </div>
                 <div id="HomeBannerRotator">
                         <div class="slides_container">
-                            <?php require_once("SlideShowDivData.php"); ?>
+                            
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=18">National Mock Election: Education</a></h1>
+    <p>Grades: 3 - 12</p>
+    <p>Subject: Social Studies, English Language Arts</p>
+</div>
+
+
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=19">National Mock Election: Health Care</a></h1>
+    <p>Grades: 3 - 12</p>
+    <p>Subject: Social Studies, English Language Arts</p>
+</div>
+
+
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=20">National Mock Election: Environment</a></h1>
+    <p>Grades: 3 - 12</p>
+    <p>Subject: Social Studies, English Language Arts</p>
+</div>
+
+
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=21">National Mock Election: Jobs</a></h1>
+    <p>Grades: 3 - 12</p>
+    <p>Subject: Social Studies, English Language Arts</p>
+</div>
+
+
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=22">National Mock Election: Taxes</a></h1>
+    <p>Grades: 3 - 12</p>
+    <p>Subject: Social Studies, English Language Arts</p>
+</div>
+
+
+<div class="captionLayer">
+    <h1><a href="ProjectDetails.php?Id=23">National Mock Election: Defense</a></h1>
+    <p>Grades: 3 - 12</p>
+    <p>Subject: Social Studies, English Language Arts</p>
+</div>
+
                         </div>
                 </div>
                 <div id="HomeBannerRotatorNext">
                     <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item" width="64" height="64"></a>
                 </div>  
-            </div>
+        	</div>
     	</div>
                   
         
@@ -166,6 +204,3 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 
 </body>
 </html>
-<?php
-mysql_free_result($FeaturedProject);
-?>
