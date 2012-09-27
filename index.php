@@ -64,10 +64,9 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 /*pagination is used in the banner*/
 .pagination {
 	clear:both;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 0px;
 	padding: 0px;
-	width: 170px;
+	width: 400px;
 	overflow:hidden;
 }
 .pagination ul ol {

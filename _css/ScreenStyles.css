@@ -60,7 +60,8 @@ a:active {
 	font-size: 25px;
 	font-weight: 300;
 	color: #02ACF0;
-	margin: 0px;
+	margin-top: 0px;
+	margin-bottom: 50px;
 	border: 0px;
 }
 

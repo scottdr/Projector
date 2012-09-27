@@ -50,7 +50,7 @@
          
        	  <!-- SUMMARY --------------------------------------------->
 		  <div>
-          <img style="float:right;" src="_images/about_pic.png">
+          <img src="_images/about_pic.png" width="375" height="250" style="float:right; padding-left:10px;">
           <p>The Pearson Foundation Learning Labs Projector is a  free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments. </p>
           <p>The goals for the Projector are:</p>
           <ul>
@@ -68,7 +68,7 @@
            
           <div class="tabs" id="tabDiv">
             <ul class="tabNavigation">
-                <li><a href="#projectTab1">What is a Project</a></li>
+                <li><a href="#projectTab1">What is a Project?</a></li>
                 <li><a href="#projectTab2">Project Authoring</a></li>
                 <li><a href="#projectTab3">Resources</a></li>
             </ul>
@@ -94,9 +94,13 @@
                     <li>Encourage collaboration and curiosity, and have an element of fun</li>
                     <li>Have clearly defined goals that align with Common Core Standards</li>
                     <li>Build 21st century skills</li>
-                    <li>Be completed using a variety of processes and new media tools </li>
+                    <li>Be completed using a variety of processes and new media tools</li>
                 </ul>
-                 
+              <p>If you are interested in participating in the Projector Pilot program please <a href="mailto:labs@pearsonfoundation.org">contact us</a>.</p>
+              <p>&nbsp;</p>
+           	  <p>&nbsp;</p>
+              <p>&nbsp;</p>
+
             </div>
             
             <!-- TAB TWO --------------------------------------------->
@@ -137,6 +141,9 @@
               <p>After pilot testing, each project is published for teachers around the world to use in their classrooms. As each teacher implements the project, they have an opportunity to comment, ask questions, and make suggestions. Each teacher is invited to submit a link to student work for inclusion in the Projector Student Gallery, which provides a platform for national discussion in response to the individual challenges.              </p>
               <p>To help students and teachers understand how to successfully engage in project-based learning, each Projector project uses a consistent set of predefined phases. Based on the work of groups like the Buck Institute for Education and the Project Management Institute Education Foundation, each project progresses through a series of steps that help to guide the work and student engagement.</p>
               <p><img src="_images/about_process.png" alt="Projector production process"> </p>
+              <p>&nbsp;</p>
+           	  <p>&nbsp;</p>
+              <p>&nbsp;</p>
             </div>
                 
           <!-- TAB THREE --------------------------------------------->
@@ -145,15 +152,14 @@
             	<h2>Pearson Foundation Learning Labs</h2>
             	<p>The Pearson Foundation Learning Labs is a  product innovation lab that develops software and learning experiences for students, teachers and parents. We bring a unique mix of strategy, user experience, engineering, content, and community techniques from other industries to bear on the challenges of education.</p>
             	<p>&nbsp;</p>
-                <p><a href="http://www.pearsonfoundation.org">Click here to visit</a> | Contact us</p>
+                <p><a href="http://www.pearsonfoundation.org">Click here to visit</a> | <a href="mailto:labs@pearsonfoundation.org">Contact us</a></p>
             	<h2>The Smithsonian Institution</h2>
             	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park and nine research facilities.</p>
             	<p>&nbsp;</p>
                 <p><a href="http://www.si.edu">Click here to visit</a></p>
            	  <p>&nbsp;</p>
            	  <p>&nbsp;</p>
-                <p></p>
-                
+              <p>&nbsp;</p>
             </div>
             
            </div> 
@@ -162,9 +168,10 @@
             <div id="GeneralFooterDiv">
             <hr/>
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+              <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
+              <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
+              <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+              <p>© Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a></p>
         	</div>
         </div>
         
