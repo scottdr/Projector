@@ -183,7 +183,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 </script-->
 </head>
 <body>
-<?php include("NavBar.php") ?>
+<?php include("Globals.php") ?>
+<?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
   <div id="Header">
     <div id="headerBackButton">
