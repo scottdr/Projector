@@ -128,10 +128,10 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
         
             <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
             <hr />
-            <img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
+            <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></a>
             <p style="font-size:16px; padding-top:5px;">This month ...</p>
-            <h2><?php echo $row_FeaturedProject['Name']; ?></h2>
-            <p><?php echo $row_FeaturedProject['TagLine']; ?> <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View projects.</a></p>
+            <h2><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><?php echo $row_FeaturedProject['Name']; ?></a></h2>
+            <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
           <hr />
           <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
