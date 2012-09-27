@@ -823,6 +823,9 @@ a.navDown {
 	margin-top: 10px;
 	padding: 0px;
 }
+#tabDiv p{
+	margin-bottom: 10px;
+}
 
 ul.tabNavigation {
 	list-style: none;

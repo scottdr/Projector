@@ -190,6 +190,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <?php endif; ?>
                     <h2><strong><?php echo $row_foundRecord['Name']; ?></strong></h2>
                     <p><?php echo $row_ProjectDetails['Detail']; ?></p>
+                    
                 </div>
                 
                 
