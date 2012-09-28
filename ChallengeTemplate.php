@@ -192,7 +192,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     </div>
     <a href="index.php">
     <div id="headerLogo">
-    <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24">
+    <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24" />
       <p style="color:#FFF;">The Projector</p>
     </div>
     </a>

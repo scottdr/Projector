@@ -93,8 +93,8 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Projector</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css"/>
 <link href="_css/Root_Project.css" rel="stylesheet" type="text/css"/>
@@ -115,7 +115,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
             }).filter(':first').click();
         });
 </script>    
-<script src="_scripts/respond.min.js"></script>
+<script type="text/javascript" src="_scripts/respond.min.js"></script>
 <script type="text/javascript" src="js/utility.js"></script>
 </head>
 

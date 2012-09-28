@@ -42,13 +42,13 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Projector Home</title>
-<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<link href="_css/Root_Project.css" rel="stylesheet" type="text/css">
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css" />
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css" />
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
-<script src="js/slides.min.jquery.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/slides.min.jquery.js"></script>
 <script>
 	$(function(){
 		$('#slides').slides({
@@ -119,9 +119,9 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
         <?php $selectedNav = "NavHome"; ?>
         <?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div>
-       
-        
-        <!-- BANNER --------------------------------------------->
+               
+        <!-- BANNER ------------------------------------------- -->
+
         <div id="HomeBannerDiv">
         
             <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
@@ -149,11 +149,11 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
         
         <!-- FOOTER --------------------------------------------->
         <div id="HomeFooterDiv">
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards" /></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
-            <p>© Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a></p>
+            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards" /></a>
+            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election" /></a>
+            <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a></p>
         </div>
         
         
