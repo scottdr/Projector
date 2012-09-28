@@ -57,7 +57,7 @@
             <li>Reach one million students within ﬁve years</li>
             <li>Create and share great project experiences for students and teachers</li>
             <li>Devise a community-driven authoring process that improves content and builds professional learning communities around each project</li>
-            <li> Bring the resources of informal learning environments like the Smithsonian to 
+            <li> Bring the resources of informal learning environments to 
               bear on formal classroom settings</li>
             <li>Set a high bar for the user experience standard in open education resources (OER)</li>
             </ul>
@@ -113,7 +113,7 @@
               
               
               <h3>Project Contributor</h3><img src="_images/ProjectCommunity_contributor.png">
-              <p>An author&rsquo;s network of fellow teachers and other peers are essential to writing a great project. Contributors provide their expertise to develop the project.</p>
+              <p>An author&rsquo;s network of teachers and other peers are essential to writing a great project. Contributors provide their expertise to develop the project.</p>
 			  
               
               <h3>Editorial and Production Team</h3><img src="_images/ProjectCommunity_productionteam.png">
@@ -128,16 +128,14 @@
               <p>Each project is taught by five pilot teachers before it is published. Pilot teachers ensure project quality by tracking what works, what doesn&rsquo;t, and providing examples of student work.</p>
 			             
               
-              <h3>Teacher</h3><img src="_images/ProjectCommunity_teacher.png">
-              <p>Teachers who use Projector challenges aren&rsquo;t passive consumers.  The Projector depends on continued teacher engagement through online discussion, suggestions, and asking and answering of questions. </p>
               <p>&nbsp;</p>
               
 			</div>
             
            	  <p>The central premise behind the Projector is simple: The best ideas come from the best teachers.</p>
-              <p>Each Projector challenge (project) is authored by an outstanding teacher. Based on their own classroom experience, each author creates a project that presents an authentic challenge for students. Aligned with Common Core State Standards, each project builds 21st century skills of collaboration, communication, critical thinking, and creativity. These projects engage youth in exploring the world around them as well as the larger community. Significantly, each project is designed to engage students by stimulating their curiosity and incorporating an element of fun. </p>
+              <p>Each Projector challenge (project) is based on an idea from an outstanding teacher. Based on their own classroom experience, each author creates a project that presents an authentic challenge for students. Aligned with Common Core State Standards, each project builds 21st century skills of collaboration, communication, critical thinking, and creativity. These projects engage youth in exploring the world around them as well as the larger community. Significantly, each project is designed to engage students by stimulating their curiosity and incorporating an element of fun. </p>
               <p><img src="_images/about_projector.png" alt="Projector community"></p>
-              <p>Each project is reviewed, edited, and produced by the staff of the Pearson Foundation Learning Labs and key partners like the Smithsonian Institution. Each project is tested in a minimum of five classrooms in a series of pilot tests conducted by real teachers in real classrooms. Each pilot teacher evaluates the project for quality, identifies best practices, suggests improvements, and captures exemplars of student work along the way.              </p>
+              <p>Each project is reviewed, edited, and produced by the staff of the Pearson Foundation Learning Labs and key partners. Each project is tested in a minimum of five classrooms in a series of pilot tests conducted by real teachers in real classrooms. Each pilot teacher evaluates the project for quality, identifies best practices, suggests improvements, and captures exemplars of student work along the way.              </p>
               <p>After pilot testing, each project is published for teachers around the world to use in their classrooms. As each teacher implements the project, they have an opportunity to comment, ask questions, and make suggestions. Each teacher is invited to submit a link to student work for inclusion in the Projector Student Gallery, which provides a platform for national discussion in response to the individual challenges.              </p>
               <p>To help students and teachers understand how to successfully engage in project-based learning, each Projector project uses a consistent set of predefined phases. Based on the work of groups like the Buck Institute for Education and the Project Management Institute Education Foundation, each project progresses through a series of steps that help to guide the work and student engagement.</p>
               <p><img src="_images/about_process.png" alt="Projector production process"> </p>
@@ -149,16 +147,18 @@
           <!-- TAB THREE --------------------------------------------->
             <div id="projectTab3">
             
-            	<h2>Pearson Foundation Learning Labs</h2>
-            	<p>The Pearson Foundation Learning Labs is a  product innovation lab that develops software and learning experiences for students, teachers and parents. We bring a unique mix of strategy, user experience, engineering, content, and community techniques from other industries to bear on the challenges of education.</p>
-            	<p>&nbsp;</p>
-                <p><a href="http://www.pearsonfoundation.org">Click here to visit</a> | <a href="mailto:labs@pearsonfoundation.org">Contact us</a></p>
+            	<h2>Pearson Foundation</h2>
+            	<p>The Pearson Foundation is an independent nonprofit organization that aims to make a difference by promoting literacy, learning, and great teaching.                <br>
+           	    <a href="http://www.pearsonfoundation.org">Click here to visit</a> | <a href="mailto:labs@pearsonfoundation.org">Contact us</a></p>
             	<h2>The Smithsonian Institution</h2>
-            	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park and nine research facilities.</p>
-            	<p>&nbsp;</p>
-                <p><a href="http://www.si.edu">Click here to visit</a></p>
-           	  <p>&nbsp;</p>
-           	  <p>&nbsp;</p>
+            	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park, and nine research facilities.                <br>
+           	    <a href="http://www.si.edu">Click here to visit</a></p>
+       	      <h2>Buck Institute for Education</h2>
+           	  <p>The Buck Institute for Education (BIE) is dedicated to improving 21st Century teaching and learning throughout the world by creating and disseminating products, practices and knowledge for effective Project Based Learning (PBL).<br>
+       	      <a href="http://www.bie.org">Click here to visit</a></p>
+           	  <h2>Exploratorium</h2>
+           	  <p>The Exploratorium is a museum of science, art, and human perception founded in 1969. The Exploratorium’s mission is to create a culture of learning through innovative environments, programs, and tools that help people nurture their curiosity about the world around them. <br>
+   	          <a href="http://www.exploratorium.edu">Click here to visit</a></p>
               <p>&nbsp;</p>
             </div>
             
@@ -171,7 +171,7 @@
               <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
               <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
               <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
-              <p>© Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a></p>
+              <p>© Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
         	</div>
         </div>
         

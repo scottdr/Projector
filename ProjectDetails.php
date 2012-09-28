@@ -179,7 +179,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <div id="projectTab1">
                   <div id="resources">
                     <h2>Start the challenge</h2>
-                    <p>You can work through the challenge online or you can download it in a PDF format</p>
+                    <p>You can work through the challenge online. <!--or you can download it in a PDF format--></p>
                     <hr/>
                     <h3>Online Challenge</h3>
                     <p>Ready to start the challenge online? You'll begin with a short video that will give you an idea of what’s ahead. Click the Start button below and begin the adventure.</p>
@@ -197,8 +197,8 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                 <!-- TAB TWO ----------------------------------------->
                 <div id="projectTab2">
                     <?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
-                        <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /> 							<?php endif; ?>
-                                <?php echo $row_ProjectDetails['Teacher']; ?>
+                        <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditTeacherNotes.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" /><?php endif; ?>
+                        <?php echo $row_ProjectDetails['Teacher']; ?>
                 </div>
      
                 <!-- TAB THREE ----------------------------------------->
@@ -222,6 +222,11 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <div id="ProjectContributors">
                         <h2>Project Contributors</h2>
                         <?php echo $row_ProjectDetails['Contributor']; ?>
+                      <p>&nbsp;</p>
+                      <h2>Media Credits</h2>
+                        <ul>
+                          <li><a href="#">Need a  editable database list here.... </a></li>
+                      </ul>
                     </div>
                  </div>
                  
