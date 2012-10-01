@@ -1,5 +1,5 @@
-<?php require_once('Connections/projector.php'); 
-
+<?php require_once('Connections/projector.php'); ?>
+<?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -31,21 +31,19 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
-?>
-<?php
-//print "We are going to attach the media " . $_GET['Id'] . " to the step: " . $_GET['StepId'] . " with the Project ID: " . $_GET['ProjectId'];
+if ((isset($_GET['SlideAttachId'])) && ($_GET['SlideAttachId'] != "")) {
+  $deleteSQL = sprintf("DELETE FROM SlideAttach WHERE Id=%s",
+                       GetSQLValueString($_GET['SlideAttachId'], "int"));
 
-mysql_select_db($database_projector, $projector);
+	//print "sql: $deleteSQL\n<br />";
+  mysql_select_db($database_projector, $projector);
+  $Result1 = mysql_query($deleteSQL, $projector) or die(mysql_error());
 
-$sqlCommand = sprintf("INSERT INTO MediaAttach SET MediaId = %s, ProjectId = %s, StepId = %s",
-										 GetSQLValueString($_GET['MediaId'], "int"),
-										 GetSQLValueString($_GET['ProjectId'], "int"),
-										 GetSQLValueString($_GET['StepId'], "int"));
-										 
-$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-
-$updateGoTo = "EditStep.php";
-$updateGoTo .= "?Id=" . $_GET['StepId'];
-
-header(sprintf("Location: %s", $updateGoTo));
+  if (isset($_GET['SlideId'])) {
+		$deleteGoTo = "EditSlide.php";
+    $deleteGoTo .= "?Id=" . $_GET['SlideId'];
+		header(sprintf("Location: %s", $deleteGoTo));
+  } else
+  	header(sprintf("Location: %s", "ViewSlides.php"));
+}
 ?>

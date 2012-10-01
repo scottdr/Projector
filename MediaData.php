@@ -35,23 +35,49 @@ $colname_MediaQuery = "-1";
 if (isset($_GET['ProjectId'])) {
   $colname_MediaQuery = $_GET['ProjectId'];
 }
+$width = 0;
+$height = 0;
+if (isset($_GET['Size'])) {
+  $size = $_GET['Size'];
+	$sizeParts = explode('x',$size);
+	if ($sizeParts > 1) {
+		$width = $sizeParts[0];
+		$height = $sizeParts[1];
+	}
+}
+
+// TO DO handle case where you do not specify a project Id but you specify a size
 mysql_select_db($database_projector, $projector);
 if ($colname_MediaQuery == -1)
 	$query_MediaQuery = "SELECT * FROM Media";
-else
+else {
 	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($colname_MediaQuery, "int"));
+	if ($width > 0 && $height > 0)
+		$query_MediaQuery .= sprintf(" AND Width = %s AND Height = %s", $width, $height);
+}
+
 $MediaQuery = mysql_query($query_MediaQuery, $projector) or die(mysql_error());
 $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
 $row_MediaQuery = mysql_fetch_assoc($MediaQuery);
 
 session_start();
+
+
+// PHP Code to call to Attach media either to a Slide or to A Step defaults to AttachMedia.php = Attach to Step
+// but if $_SESSION['attachTo'] = "slide" then use AttachSlideMedia to attach it to a Slide
+if (isset($_SESSION['attachTo']) && $_SESSION['attachTo'] == "slide")
+	$attachURL = "AttachSlideMedia.php?SlideId=" . $_SESSION['SlideId'] /*. "&SortOrder=" . $_SESSION['SortOrder']*/;
+else
+	$attachURL = "AttachMedia.php?ProjectId=" . $_SESSION['ProjectId'] . "&StepId=" . $_SESSION['StepId'];
+
 ?>
 <div style="text-align:center">
 <table id="MediaTable" width="320	" class="clearFloat">
   <?php do { ?>
   <tr class="rowItem">
-      <td width="120"><a href="AttachMedia.php?Id=<?php echo $row_MediaQuery['Id']; ?>&amp;ProjectId=<?php echo $_SESSION['ProjectId']; ?>&amp;StepId=<?php echo $_SESSION['StepId']; ?>"><img src="<?php echo $row_MediaQuery['Url']; ?>" alt="<?php echo $row_MediaQuery['Description']; ?>" name="" width="120" height="90" /></a></td>
-      <td width="200" nowrap="nowrap"><div class="captionDiv"><a href="AttachMedia.php?Id=<?php echo $row_MediaQuery['Id']; ?>&amp;ProjectId=<?php echo $_SESSION['ProjectId']; ?>&amp;StepId=<?php echo $_SESSION['StepId']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></div></td>
+      <td width="120"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><img src="<?php echo $row_MediaQuery['Url']; ?>" alt="<?php echo $row_MediaQuery['Description']; ?>" name="" width="120" height="90" /></a></td>
+      <td width="200" nowrap="nowrap"><div class="captionDiv"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></div></td>
+      <td width="100" nowrap="nowrap"><?php echo $row_MediaQuery['Width']; ?>x<?php echo $row_MediaQuery['Height']; ?></td>
     </tr>
    <?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
 </table>

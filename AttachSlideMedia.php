@@ -37,15 +37,15 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 
 mysql_select_db($database_projector, $projector);
 
-$sqlCommand = sprintf("INSERT INTO MediaAttach SET MediaId = %s, ProjectId = %s, StepId = %s",
-										 GetSQLValueString($_GET['MediaId'], "int"),
-										 GetSQLValueString($_GET['ProjectId'], "int"),
-										 GetSQLValueString($_GET['StepId'], "int"));
+$sqlCommand = sprintf("INSERT INTO SlideAttach SET SlideId = %s, MediaId = %s",
+										 GetSQLValueString($_GET['SlideId'], "int"),
+										 GetSQLValueString($_GET['MediaId'], "int"));
 										 
+//print "sql: $sqlCommand\n";
 $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 
-$updateGoTo = "EditStep.php";
-$updateGoTo .= "?Id=" . $_GET['StepId'];
+$updateGoTo = "EditSlide.php";
+$updateGoTo .= "?Id=" . $_GET['SlideId'];
 
 header(sprintf("Location: %s", $updateGoTo));
 ?>
