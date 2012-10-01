@@ -65,6 +65,7 @@ if ($totalRows_AudioQuery > 0 && $totalRows_ProjectRecordset > 0)
 	print "\t" . '"author"' . "\t : \"By " . $row_ProjectRecordset['Author']. '",' . "\n";
 	print "\t" . '"audioURLM4A"' . "\t : \"" . $row_AudioQuery['mp3Url']. '",' . "\n";
 	print "\t" . '"audioURLOGG"' . "\t : \"" . $row_AudioQuery['oggUrl']. '",' . "\n";
+	print "\t" . '"audioLength"' . "\t : \"" . $row_AudioQuery['AudioLength']. '",' . "\n";
 
 if ($totalRows_SlideRecordset > 0) {
 	print "\t\t" . '"slides":' . "\n";

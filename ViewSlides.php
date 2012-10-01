@@ -179,7 +179,7 @@ function validateFields(evt)
 <div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="ViewTopics.php">Topics</a> | <a>View Challenge</a></div>
 <?php if ($totalRows_SlideRecordset > 0): ?>
 <div id="content">
-<div class="subSubNav"><a href="EditAudio.php?ProjectId=<?php echo $projectId; ?>">Edit Audio</a> | <a href="EditSlide.php?action=Add&ProjectId=<?php echo $projectId; ?>"><img src="_images/icons/Plus16x16.gif" height="16" width="16" />Add Slide</a></div>
+<div class="subSubNav"><a href="EditAudio.php?ProjectId=<?php echo $projectId; ?>">Edit Audio</a> | <a href="EditSlide.php?action=Add&ProjectId=<?php echo $projectId; ?>"><img src="_images/icons/Plus16x16.gif" height="16" width="16" />Add Slide</a> | <a href="SlideShowJSON.php?ProjectId=<?php echo $projectId; ?>">JSON Data</a></div>
 <h3>View Slides Project # <?php echo $projectId; ?></h3>
 <table id="StepList" width="600" class="clearFloat">
   <tr>
