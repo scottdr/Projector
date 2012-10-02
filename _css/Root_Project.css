@@ -649,7 +649,7 @@ a.navDown {
 	top: 10px;
 }
 .GalleryDetailsBar {
-	background-color: #EC3113;
+	background-color: #DB1B18;
 	width: 100%;
 	position: absolute;
 	display: block;
@@ -896,6 +896,12 @@ div.tabs > div {
 div.tabs > div h2 {
 	margin-top: 20px;
 	font-weight: 400;
+	margin-bottom: 20px;
+}
+div.tabs > div h3 {
+	margin-top: 20px;
+	font-weight: 400;
+	margin-left: 0px;
 	margin-bottom: 20px;
 }
 

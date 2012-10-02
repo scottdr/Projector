@@ -87,7 +87,7 @@
                   
               </div>
               <p>Project-based learning invites students to explore real-world topics in depth. Whether they are exploring contemporary or historical problems, taking a position on an important issue, or expressing their point of view, students meeting the challenge of a well-constructed project have the opportunity to research a topic thoroughly, devise a project plan for delivering their findings, and present the results of their exploration to an audience beyond their classroom. </p>
-              <p>Our schools are responding to the demand for more rigorous standards and higher expectations. Project-based learning provides students with the opportunity to work across disciplines to unravel complex ideas and issues, and to do so using 21st century tools and while building  21st century competencies. In addition to demonstrating academic rigor, every challenge included in the Project must:</p>
+              <p>Our schools are responding to the demand for more rigorous standards and higher expectations. Project-based learning provides students with the opportunity to work across disciplines to unravel complex ideas and issues, and to do so using 21st century tools and while building  21st century competencies. In addition to demonstrating academic rigor, every challenge included in the Projector must:</p>
                   <ul>
                     <li>Engage youth in exploring their own identities, their communities, and the world</li>
                     <li>Encourage youth to do something</li>
@@ -147,10 +147,13 @@
           <!-- TAB THREE --------------------------------------------->
             <div id="projectTab3">
             
+            	<h2>Pearson Foundation Learning Labs</h2>
+            	<p>The Pearson Foundation Learning Labs is a product innovation lab that develops software and learning experiences for students, teachers and parents. We bring a unique mix of strategy, user experience, engineering, content, and community techniques from other industries to bear on the challenges of education.</p>
+            	<p><a href="mailto:labs@pearsonfoundation.org">Contact us</a></p>
             	<h2>Pearson Foundation</h2>
-            	<p>The Pearson Foundation is an independent nonprofit organization that aims to make a difference by promoting literacy, learning, and great teaching.                <br>
-           	    <a href="http://www.pearsonfoundation.org">Click here to visit</a> | <a href="mailto:labs@pearsonfoundation.org">Contact us</a></p>
-            	<h2>The Smithsonian Institution</h2>
+              <p>The Pearson Foundation is an independent nonprofit organization that aims to make a difference by promoting literacy, learning, and great teaching. <br>
+                <a href="http://www.pearsonfoundation.org">Click here to visit</a>            	</p>
+              <h2>The Smithsonian Institution</h2>
             	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park, and nine research facilities.                <br>
            	    <a href="http://www.si.edu">Click here to visit</a></p>
        	      <h2>Buck Institute for Education</h2>
