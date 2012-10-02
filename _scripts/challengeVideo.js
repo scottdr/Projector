@@ -24,20 +24,6 @@ var slideDuration = 20000;
 //	textTrack:	Array data of discrete text data associated with time of appearance in milliseconds.
 var cvd;
 
-/*cvd = {
-	title:"Title of Presentation",
-	author:"Presentation Author",
-	audioURLM4A:"./assets/placeholder/1_cultural_vibrations/CulturalVibrations.m4a",
-	audioURLOGG:"./assets/placeholder/1_cultural_vibrations/CulturalVibrations.ogg",
-	images:[
-		{layout:"landscapex3", image1:"./assets/placeholder/1_cultural_vibrations/african_dancers_450x250.jpg", image2:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_Drum_450x250.jpg", image3:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_fish xylophone_450x250.jpg"},
-		{layout:"landscapex3", image1:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_Girl playing flute_450x250.jpg", image2:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_guitar_450x250.jpg", image3:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_guitar02_450x250.jpg"},
-		{layout:"landscapex3", image1:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_harps_450x250.jpg", image2:"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_xylophone_450x250.jpg", image3:"./assets/placeholder/1_cultural_vibrations/Edinburg_bagpiper_450x250.jpg"}
-	],
-	textTrack:{0:"<ol><li><strong>SLIDE 1</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", 10000:"<ol><li><strong>TEXT 2</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", 20000:"<ol><li><strong>TEXT 3</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", 30000:"<ol><li><strong>TEXT 4</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", 40000:"<ol><li><strong>TEXT 5</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>"}
-}; */
-
-
 var presentationGroup;
 var presentationGroupNext;
 var presentationIndex;
@@ -130,19 +116,22 @@ $(document).ready(function(){
 			urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
 		else
 			urlLoadStep =  "LoadStep.php?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
-		console.log("Ajax Load: " + 	urlLoadStep);
-		console.log("Step Order #: " + StepOrderNumber);
+//		console.log("Ajax Load: " + 	urlLoadStep);
+//		console.log("Step Order #: " + StepOrderNumber);
 		$.ajax({
 			url: urlLoadStep,
 			cache: false
 		}).done(function( html ) {
-				console.log("Adding Content: ");
+//				console.log("Adding Content: ");
 				var contentElement = document.getElementById("ContentScreens");
 				contentElement.innerHTML = html;
-				console.log("Loaded Content for Step Order #: " + StepOrderNumber);
+				var challengeTitle = document.getElementById("ChallengeTitle");
+//				console.log("challengeTitle html: " + challengeTitle.innerHTML);
+//				console.log("Loaded Content for Step Order #: " + StepOrderNumber);
+				// if we are on the very first step
 				if (StepOrderNumber == 1) {
-					console.log("requestPresentationData: ");
-					requestPresentationData();
+//					console.log("requestPresentationData: ");
+					requestPresentationData(ProjectId);
 				}
 		});
 	};
@@ -154,33 +143,23 @@ $(document).ready(function(){
 	// Presentation functionality.
 	
 	
-	// Request presentation data.
-  requestPresentationData();
   
   // Send a request to the server for the presentation data.
-  function requestPresentationData() {
+  function requestPresentationData(projectId) {
 	  // ::todo::
 	  //   Success >> callback setPresentationData( JSONResultStr )
 	  
-	  // ::kludge::
-	  // ::todo:: Remove once true server request mechanism is in place.
-	  // For now, simulate server response.
-	  
-	  
-	  
-	  // TEMPORARY test stuff
-	  // ::todo:: Remove when real functionality is plugged in.
-	  
-	  // Data as originally developed. Slide image data is scanty.
-	  var JSON_matches_inital_data_format = '{"id":"999", "title":"Make an Impact", "author":"Brian Coburn", "audioURLM4A":"./assets/placeholder/1_cultural_vibrations/CulturalVibrations.m4a", "audioURLOGG":"./assets/placeholder/1_cultural_vibrations/CulturalVibrations.ogg", "images":[{"layout":"landscapex3", "image1":"./assets/placeholder/1_cultural_vibrations/african_dancers_450x250.jpg", "image2":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_Drum_450x250.jpg", "image3":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_fish xylophone_450x250.jpg"}, {"layout":"landscapex3", "image1":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_Girl playing flute_450x250.jpg", "image2":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_guitar_450x250.jpg", "image3":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_guitar02_450x250.jpg"}, {"layout":"landscapex3", "image1":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_harps_450x250.jpg", "image2":"./assets/placeholder/1_cultural_vibrations/cultural_vibrations_xylophone_450x250.jpg", "image3":"./assets/placeholder/1_cultural_vibrations/Edinburg_bagpiper_450x250.jpg"} ], "textTrack":{"0":"<ol><li><strong>SLIDE 1</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "10000":"<ol><li><strong>TEXT 2</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "20000":"<ol><li><strong>TEXT 3</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "30000":"<ol><li><strong>TEXT 4</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "40000":"<ol><li><strong>TEXT 5</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>"} }';
-	  
-	  // Data as intended from server perspective. Notice text is associated with slide sets.
-	  // ::kludge:: texttrack data from previous format is pasted in to make code work.
-	  var cvdJSON_provided = '{"id":"999", "title":"Make an Impact", "author":"Brian Coburn", "audioURLM4A":"./assets/placeholder/1_cultural_vibrations/CulturalVibrations.m4a", "audioURLOGG":"./assets/placeholder/1_cultural_vibrations/CulturalVibrations.ogg", "slides":[{"layout": "landscapex3", "images": [ { "url":"/_images/projects/999/challenge/water_is_life_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", 	"title":"Water is Life"}, 										  { "url" : "/_images/projects/999/challenge/water_is_life_450x250.jpg", "caption" : "Cracked Mud and Vineyard near Arvin, photo by Robert Dawson, 1985. Smithsonian Art Museum.", 					"title" 	: "Cracked Mud and Vineyard near Arvin" 						}, 										  { "url" 		: "/_images/projects/999/challenge/swimming_hole_450x250.jpg", 									  "caption" : "Drought Swimming Hole, photo by Peripitus. Some rights reserved.", 						  "title" 	: "Drought Swimming Hole" 						} 					   ], 				  "text" 	: "<ul><li>Why was this specific group—Japanese Americans—targeted?</li></ul><ul><li>What happened to this group after the war?</li></ul>" 		  }, 			  { 			"layout": "landscapex3", 			"images": [ { "url" 		: "/_images/projects/999/challenge/water_supply_450x250.jpg", "caption" : "Water Supply, photo by Manojkiyan. Some rights reserved.", 						  "title" 	: "Water Supply"}, { "url" 		: "/_images/projects/999/challenge/newspaper_headlines_450x250.jpg", 									  "caption" : "Newspaper headlines of Japanese Relocation, photographer unknown. National Archives", "title":"Newspaper headlines of Japanese Relocation" 						}, { "url":"/_images/projects/999/challenge/Concentration_camp_450x250.jpg", 									  "caption" : "Concentration camp in Poland, photo by Mark Eslick. Some rights reserved.", "title":"Concentration camp in Poland"}], "textTrack":{"0":"<ol><li><strong>SLIDE 1</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "10000":"<ol><li><strong>TEXT 2</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "20000":"<ol><li><strong>TEXT 3</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "30000":"<ol><li><strong>TEXT 4</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>", "40000":"<ol><li><strong>TEXT 5</strong></li><li>How are musical instruments made?</li><li>What role do they play in culture?</li></ol>"} }';
-	  
-	  var cvdJSON = '{"id":"999", "title":"Make an Impact", "author":"Brian Coburn", "audioURLM4A":"assets/placeholder/1_cultural_vibrations/CulturalVibrations.m4a", "audioURLOGG":"assets/placeholder/1_cultural_vibrations/CulturalVibrations.ogg", "slides":[{"layout":"landscapex3", "images":[{"url":"assets/placeholder/1_cultural_vibrations/african_dancers_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}, {"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_Drum_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}, {"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_fish xylophone_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}], "text":"<ul><li>Slide 1 Why was this specific group—Japanese Americans—targeted?</li></ul><ul><li>What happened to this group after the war?</li></ul>"}, {"layout":"landscapex3", "images":[{"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_Girl playing flute_450x250.jpg", "title":"Water is Life"}, {"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_guitar_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}, {"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_guitar02_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}], "text":"<ul><li>Slide 2 Why was this specific group—Japanese Americans—targeted?</li></ul><ul><li>What happened to this group after the war?</li></ul>"}, {"layout":"landscapex3", "images":[{"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_harps_450x250.jpg", "title":"Water is Life"}, {"url":"assets/placeholder/1_cultural_vibrations/cultural_vibrations_xylophone_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}, {"url":"assets/placeholder/1_cultural_vibrations/Edinburg_bagpiper_450x250.jpg", "caption":"Water is Life, photo by Breonna Slade.", "title":"Water is Life"}], "text":"<ul><li>Slide 3 Why was this specific group—Japanese Americans—targeted?</li></ul><ul><li>What happened to this group after the war?</li></ul>"}] }';
-	  
-	  setPresentationData( cvdJSON );
+		// the following url returns a json data feed of the info for the slide show
+		var jsonUrl = "SlideShowJSON.php?ProjectId=" + projectId;
+		
+		$.ajax({
+			url: jsonUrl,
+			cache: false
+		}).done(function( json ) {
+//				console.log("Received JSON Data");
+//				console.log("JSON Data: " + json);
+	 			setPresentationData( json );
+		});
   }
   
   
