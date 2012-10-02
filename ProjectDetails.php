@@ -223,10 +223,10 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                         <h2>Project Contributors</h2>
                         <?php echo $row_ProjectDetails['Contributor']; ?>
                       <p>&nbsp;</p>
-                      <h2>Media Credits</h2>
+                      <!--<h2>Media Credits</h2>
                         <ul>
                           <li><a href="#">Need a  editable database list here.... </a></li>
-                      </ul>
+                      </ul>-->
                     </div>
                  </div>
                  
