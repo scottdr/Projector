@@ -97,73 +97,216 @@ a:active {
 
 /* 01 Challenge Screen */
 
-#ChallengeImageLeftTop {
-	position:relative;
-	float:left;
-	width:340px;
-	height:240px;
-	margin: 0px;
-	padding: 0px;
-}
-#ChallengeImageLeftTop img {
-	padding: 0px;
-	width: 100%;
-	margin: 0px;
-	border: none;
-	overflow: hidden;
-	height: 240px;
-}
-#ChallengeImageRightTop {
-	position:relative;
-	float: right;
-	width: 340px;
-	height: 240px;
-	margin: 0px;
-	padding: 0px;
-}
-#ChallengeImageRightTop img {
-	padding: 0px;
-	width: 100%;
-	margin: 0px;
-	border: none;
-	overflow: hidden;
-	height: 240px;
-}
-#ChallengeImageLeftBottom {
+#ChallengeWrapper {
 	position: relative;
-	float: left;
-	width: 340px;
-	height: 240px;
-	margin: 0px;
-	padding: 0px;
-	overflow: hidden;
+	margin-left:auto;
+	margin-right:auto;
+	/* width:680px;
+	height:480px; */
+	width:900px;
+	height:500px;
 }
-#ChallengeImageLeftBottom img {
-	padding: 0px;
+
+#ChallengeGroupA {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
 	width: 100%;
-	margin: 0px;
-	border:none;
-	overflow:hidden;
+	z-index:2;
 }
-#ChallengeTextRightBottom {
-	position: relative;
-	float: right;
-	width: 320px;
+
+#ChallengeGroupB {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index:3;
+}
+
+#ChallengeTitle {
+	display: none;
+	text-align: center;
+  /* Make text non-selectable. */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor:default;
+	z-index: 10;
+}
+
+#ChallengePaused {
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:auto;
+	margin-right:auto;
+	z-index:50;
+	display:none;
+}
+
+#ChallengePausedImg {
+	position:absolute;
+  top:-30px;
+  left:-30px;
+}
+
+.challengeImage1 {
+	position:absolute;
+	top: 0;
+	left: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.challengeImage1 img {
+	height: 100%;
+	width: 100%;
+}
+
+.challengeImage2 {
+	position:absolute;
+	top: 0;
+	right: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.challengeImage2 img {
+	height: 100%;
+	width: 100%;
+}
+
+.challengeImage3 {
+	position:absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.challengeImage3 img {
+	height: 100%;
+	width: 100%;
+}
+
+#ChallengeText {
+	display: none;
+	position: absolute;
+	right: 0;
+	bottom: 0;
 	height: 220px;
-	margin: 0px;
+	width: 320px;
+	margin: 0;
 	padding: 10px;
+  color: #ffffff;
+  font-family: nimbus-sans, Helvetica, Arial, &#39;Lucida Grande&#39, sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  -webkit-text-size-adjust: none;
+  background-color: #313131;
 }
-#ChallengeTextRightBottom ul li {
+
+#ChallengeText ol {
+	margin: 1em 0px;
+	padding: 0px 0px 0x 40px;
+}
+
+#Challenge Text ul li {
 	font-weight: 200;
 	margin-bottom: 5px;
 }
 
-#ChallengeWrapper {
-	margin-left:auto;
-	margin-right:auto;
-	width:680px;
-	height:480px;
+/* landscapex3 = 3x landscape DEFAULT*/
+.landscapex3 #ChallengeImageA1 {
+	height: 50%;
+	width: 50%;
 }
+.landscapex3 #ChallengeImageA2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageA3 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageB1 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageB2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageB3 {
+	height: 50%;
+	width: 50%;
+}
+
+/* landscapex2 = 1x extended landscape, 1x landscape*/
+.landscapex2.ChallengeImageA1 {
+	height: 50%;
+	width: 100%;
+}
+.landscapex2.ChallengeImageA2 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+.landscapex2.ChallengeImageA3 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex2.ChallengeImageB1 {
+	height: 50%;
+	width: 100%;
+}
+.landscapex2.ChallengeImageB2 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+.landscapex2.ChallengeImageB3 {
+	height: 50%;
+	width: 50%;
+}
+
+/* portrait = 1 portrait, 1 landscape */
+.landscapex2 #ChallengeImageA1 {
+	height: 100%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageA2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageA3 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageB1 {
+	height: 100%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageB2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageB3 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+
+
+/* Challenge Video Screen */
+
 #ChallengeVideoScreen {
 	float: left;
 	margin-top: 20px;

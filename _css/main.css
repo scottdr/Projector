@@ -214,7 +214,15 @@ a.navDown {
 .redButton {
 	color : #FFF;
 	background-color: #C03;
-	color:#FFF;
 	padding-left:30px;
 	padding-right:30px;
+}
+
+.whiteButton {
+	color : #3AADEF;
+	background-color: #FFF;
+	padding-left:30px;
+	padding-right:30px;
+	margin-left:10px;
+	margin-right:10px;
 }
