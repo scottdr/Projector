@@ -183,11 +183,16 @@ $(document).ready(function(){
 	// Initialize presentation
 	function initPresentation() {
 		// Init vars.
-	  presentationState = "stopped";
-	  animationDuration = 1000;
-	  animationStartDelay = 1000;
-	  slideDuration = 20000;
-	  // Content interaction.
+		presentationState = "stopped";
+		animationDuration = 1000;
+		animationStartDelay = 1000;
+		slideDuration = 20000;
+		if (cvd.audioLength) {
+			// ::kludge:: Add a 1.5 second buffer to this value. Shields for rounding errors in audio (1 sec), plus another 0.5 for good measure.
+			var presentationLength = (cvd.audioLength *1000) + 1500;
+			slideDuration = Math.floor( presentationLength / cvd.slides.length );
+		}
+		// Content interaction.
 	  var hotspot = jQuery("#ChallengeWrapper")
 	  hotspot.click( function(event) {
 		switch (presentationState) {
