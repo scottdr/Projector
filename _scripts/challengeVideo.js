@@ -109,6 +109,7 @@ $(document).ready(function(){
 		loadStep(StepId,StepNumber);
 	});
 
+	/* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
 	function loadStep(StepId,StepOrderNumber) {
 		//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
 		var urlLoadStep = "LoadStep.php";
@@ -116,21 +117,14 @@ $(document).ready(function(){
 			urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
 		else
 			urlLoadStep =  "LoadStep.php?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
-//		console.log("Ajax Load: " + 	urlLoadStep);
-//		console.log("Step Order #: " + StepOrderNumber);
 		$.ajax({
 			url: urlLoadStep,
 			cache: false
 		}).done(function( html ) {
-//				console.log("Adding Content: ");
 				var contentElement = document.getElementById("ContentScreens");
 				contentElement.innerHTML = html;
-				var challengeTitle = document.getElementById("ChallengeTitle");
-//				console.log("challengeTitle html: " + challengeTitle.innerHTML);
-//				console.log("Loaded Content for Step Order #: " + StepOrderNumber);
 				// if we are on the very first step
 				if (StepOrderNumber == 1) {
-//					console.log("requestPresentationData: ");
 					requestPresentationData(ProjectId);
 				}
 		});
@@ -156,24 +150,45 @@ $(document).ready(function(){
 			url: jsonUrl,
 			cache: false
 		}).done(function( json ) {
-//				console.log("Received JSON Data");
-//				console.log("JSON Data: " + json);
 	 			setPresentationData( json );
 		});
   }
   
   
-  // Parse the returned JSON string into useable data object, and initialize the presentation.
+ // Parse the returned JSON string into useable data object, and initialize the presentation.
   function setPresentationData( dataJSONStr ) {
 	  cvd = jQuery.parseJSON( dataJSONStr );
+	  // ::kludge:: Clean up data values. Some database values don't match actual expected values.
+	  cleanData();
 	  initPresentation();
   }
-	
+  
+  
+  function cleanData() {
+	  for (var i=0; i<cvd.slides.length; i++) {
+		  switch (cvd.slides[i].layout) {
+			  case "3xLandscape":
+				cvd.slides[i].layout = "landscapex3";
+			  	break;
+			  case "2xLandscape":
+				cvd.slides[i].layout = "landscapex2";
+				break;
+			  case "1Portrait1Landscape":
+			  	cvd.slides[i].layout = "portrait";
+				break;
+		  }
+	  }
+  }	
 	
 	// Initialize presentation
 	function initPresentation() {
+		// Init vars.
+	  presentationState = "stopped";
+	  animationDuration = 1000;
+	  animationStartDelay = 1000;
+	  slideDuration = 20000;
 	  // Content interaction.
-	  var hotspot = jQuery("#ChallengeWrapper");
+	  var hotspot = jQuery("#ChallengeWrapper")
 	  hotspot.click( function(event) {
 		switch (presentationState) {
 			case "complete":
@@ -212,8 +227,8 @@ $(document).ready(function(){
 		resetPresentation();
 		
 		// Initialize and display title.
-		jQuery("#ChallengeTitleProject").text(cvd.name);
 		jQuery("#ChallengeTitleAuthor").text(cvd.author);
+		jQuery("#ChallengeTitleProject").text(cvd.title);
 		jQuery("#ChallengeTitle").fadeIn(animationDuration);
 		
 		// Initialize audio player.

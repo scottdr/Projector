@@ -342,7 +342,7 @@ tinyMCE.init({
 <?php include("HeaderNav.php") ?>
 <div class="subNav"><a href="ViewProjects.php">View Projects </a>| <a href="ViewSteps.php?ProjectId=<?php echo $projectId; ?>">View Steps</a> | <a href="EditStep.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a></div></div>
 <div class="layer">
-	<div class="subSubNav"><a href="ViewSlides.php?ProjectId=<?php echo $projectId; ?>">View Slides</a></div>
+	<div class="subSubNav"><a href="ViewSlides.php?ProjectId=<?php echo $projectId; ?>">View Slides</a> | <a href="EditSlide.php?action=Add&ProjectId=<?php echo $projectId; ?>"><img src="_images/icons/Plus16x16.gif" height="16" width="16" />Add Slide</a></div>
 	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
   <fieldset>	
     <legend><?php echo $actionTitle; ?> Slide</legend>
