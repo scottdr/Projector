@@ -74,8 +74,13 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 
 <script src="js/utility.js"></script>
 <script src="_scripts/respond.min.js"></script>
-<script src="_scripts/jquery.js" type="text/javascript"></script>
-
+<script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+<!-- <script src="jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script> -->
+<script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
+<script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
+<script src="_scripts/challengeVideo.js" type="text/javascript"></script>
+<script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
+<!--
 <script type="text/javascript">
 	// From the URL get the ProjectId if it is defined otherwise default to ProjectId of -1
 	var ProjectId = getQueryVariable("ProjectId", -1);
@@ -151,7 +156,10 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 				urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
 			else
 				urlLoadStep =  "LoadStep.php?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
-				
+			
+			if (true)
+				urlLoadStep = "ChallengeIntroContent.html";
+					
 			$.ajax({
 				url: urlLoadStep,
 				cache: false
@@ -174,6 +182,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 		return false;
 	}
 </script>
+-->
 <!--script type="text/javascript">
 
 	function ribbonNavigationClick(url){
@@ -218,9 +227,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <div id="ContentScreens">
-   	<!--iframe src="ChallengeRibbon.html" frameborder="0" height="120" width="100%" allowtransparency="yes" scrolling="no"></iframe--> 
-    <!-- Note: iFrame width not respected on tablets - bursts and shows all overflow content --> 
-    <!--<iframe id="ContentScreensIframe" src="" frameborder="0" width="100%" height="1000px" allowtransparency="yes" scrolling="no"></iframe>-->
+
+  	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
   </div>
   <div id="Footer">
     <p></p>
