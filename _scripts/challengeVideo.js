@@ -245,7 +245,7 @@ $(document).ready(function(){
 	  presentationGroup = jQuery("#ChallengeGroupA");
 	  presentationGroupNext = jQuery("#ChallengeGroupB");
 	  presentationGroup.css("z-index",2);
-	  presentationGroup.css("z-index",3);
+	  presentationGroupNext.css("z-index",3);
 	  presentationIndex = 0;
 	  textTrackIndex = 0;
 	  // Establish data for current presentation group, and upcoming presentation group.
@@ -397,6 +397,7 @@ $(document).ready(function(){
 		images.image2.css({ opacity: 0 });
 		images.image3.show();
 		images.image3.css({ opacity: 0 });
+		// Slide 1 fade in animations.
 		// ::kludge:: tweak: Add delay to the first slide animations so it doesn't interfere too much with the title fade.
 		// Delay corresponds to desired animation duration.
 		var startOffset = animationDuration;
@@ -410,7 +411,7 @@ $(document).ready(function(){
 			fadeMeIn(images.image3, animationDuration);
 		});
 		
-		// Prepare next set of images:
+		// Slide 2 delay animations. Remain invisible for length of slide 1.
 		var images2 = getPresentationImages( presentationGroupNext );
 		presentationGroupNext.show();
 		images2.image1.show();
@@ -420,6 +421,8 @@ $(document).ready(function(){
 		images2.image3.show();
 		images2.image3.css({ opacity: 0 });
 		images2.image1.animate({opacity:0}, slideDuration, function() {
+			// Slide 2 is now ready to display.
+			advancePresentationIndex();
 			fadeMeIn(images2.image1, animationDuration);
 			if (useTextTrack == false) {
 			  displayNextText();
@@ -478,10 +481,9 @@ $(document).ready(function(){
 	}
 	
 	function displayNextText() {
-		var nextTextIndex = presentationIndex+1;
-		if (nextTextIndex < cvd.slides.length) {
+		if (presentationIndex < cvd.slides.length) {
 		  jQuery("#ChallengeText").animate({opacity:0}, animationDuration, function() {
-			jQuery("#ChallengeText").html(cvd.slides[nextTextIndex].text);
+			jQuery("#ChallengeText").html(cvd.slides[presentationIndex].text);
 			jQuery("#ChallengeText").animate({opacity:1}, animationDuration);
 		  });
 		}
@@ -587,15 +589,21 @@ $(document).ready(function(){
 		jQuery("#ChallengeText").fadeIn(1000);
 	}
 	
+	function advancePresentationIndex() {
+		presentationIndex++;
+		if (presentationIndex == cvd.slides.length) {
+			presentationIndex = 0;
+		}
+	}
+	
 	function finishSlide() {
 		if (presentationState = "playing") {
 		  // presentationGroup is the old group in back, presentationGroupNext is the new group in front.
 		  presentationGroup.hide();
-		  //$("#X").css("z-index",5);
 		  // Swap ordering.
-		  jQuery(presentationGroupNext).css("z-index",1);
-		  jQuery(presentationGroup).css("z-index",3);
-		  jQuery(presentationGroupNext).css("z-index",2);
+		  presentationGroupNext.css("z-index",1);
+		  presentationGroup.css("z-index",3);
+		  presentationGroupNext.css("z-index",2);
 		  // Swap groups (old presentationGroupNext is now the new presentationGroup, and old presentationGroup is now the new presentationGroupNext).
 		  if ( presentationGroup[0] === jQuery("#ChallengeGroupA")[0] ) {
 			  presentationGroup = jQuery("#ChallengeGroupB");
@@ -605,21 +613,20 @@ $(document).ready(function(){
 			  presentationGroupNext = jQuery("#ChallengeGroupB");
 		  }
 		  // Load in next set of images.
-		  presentationIndex++;
-		  //if (cvd.images.length == (presentationIndex)) {
-		  if (cvd.slides.length == presentationIndex) {
+		  var presentationIndexNext = presentationIndex+1;
+		  if (cvd.slides.length == presentationIndexNext) {
 			  // Slides have run out. Show first slide again.
-			  presentationIndex = 0;
+			  presentationIndexNext = 0;
 		  }
 		  //var groupImagesNext = cvd.images[presentationIndex];
-		  var groupImagesNext = cvd.slides[presentationIndex].images;
+		  var groupImagesNext = cvd.slides[presentationIndexNext].images;
 		  
 		   // ::kludge:: Should determine what classes exist, then remove them. Instead, removal of all known (hard-coded) classes.
 		  presentationGroupNext.removeClass("landscapex3");
 		  presentationGroupNext.removeClass("landscapex2");
 		  presentationGroupNext.removeClass("portrait");
 		  //presentationGroupNext.addClass( groupImagesNext.layout );
-		  presentationGroupNext.addClass( cvd.slides[presentationIndex].layout );
+		  presentationGroupNext.addClass( cvd.slides[presentationIndexNext].layout );
 		  
 		  // Set image source for members of each group.
 		  var images = getPresentationImages( presentationGroupNext );
@@ -645,10 +652,11 @@ $(document).ready(function(){
 		  images.image3.show();
 		  images.image3.css({ opacity: 0 });
 		  images.image1.animate({opacity:0}, slideDuration, function() {
-			  fadeMeIn(images.image1, animationDuration);
-			  if (useTextTrack == false) {
+		  	advancePresentationIndex();
+			fadeMeIn(images.image1, animationDuration);
+			if (useTextTrack == false) {
 				displayNextText();
-			  }
+			}
 		  });
 		  images.image2.animate({opacity:0}, slideDuration+animationDuration, function() {
 			  fadeMeIn(images.image2, animationDuration);
