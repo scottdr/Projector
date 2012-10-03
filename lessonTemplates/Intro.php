@@ -5,7 +5,7 @@
     <h1 class="ProjectorTitle">Pearson Foundation Learning Labs</h1>
     <h2 id="ChallengeTitleProject" class="ProjectTitle"></h2>
     <h3 id="ChallengeTitleAuthor" class="ProjectAuthor"></h3>
-    <img id="ChallengeTitleBtn" src="assets/images/challengeintro_arrow.png" width="60" height="60" />
+    <img id="ChallengeTitleBtn" src="assets/images/challengeintro_arrow.png" width="60" height="60" style="padding-top:40px" />
   </div>
 
   <div id="ChallengeGroupA" class="landscapex3">
@@ -32,7 +32,9 @@
     </div>
   </div>
   
-  <div id="ChallengeText">
+  <div id="ChallengeTextWrapper">
+    <div id="ChallengeText">
+    </div>
   </div>
   
   <div id="ChallengePaused">

@@ -196,20 +196,39 @@ a:active {
 }
 
 #ChallengeText {
-	display: none;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	height: 220px;
-	width: 320px;
-	margin: 0;
-	padding: 10px;
+  display: table-cell;
   color: #ffffff;
+  vertical-align: middle;
+  padding: 10px;
   font-family: nimbus-sans, Helvetica, Arial, &#39;Lucida Grande&#39, sans-serif;
   font-size: 13px;
   line-height: 16px;
   -webkit-text-size-adjust: none;
   background-color: #313131;
+}
+
+/* Wrapper for text element sizes and places bounding box, provides table to perfectly center content. */ 
+#ChallengeTextWrapper {
+  display: table;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  width: 50%;
+  margin: 0;
+}
+/* Provision for text positioning for slide layout variants. Currently all layouts same. */
+.landscapex3 #ChallengeTextWrapper {
+  right: 0;
+  bottom: 0;
+}
+.landscapex2 #ChallengeTextWrapper {
+  right: 0;
+  bottom: 0;
+}
+.portrait #ChallengeTextWrapper {
+  right: 0;
+  bottom: 0;
 }
 
 #ChallengeText ol {

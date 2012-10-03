@@ -312,6 +312,11 @@ $(document).ready(function(){
 	  // Text integrated with slide data method:
 	  //var groupImages = cvd.slides[presentationIndex].images;
 	  jQuery("#ChallengeText").html(cvd.slides[presentationIndex].text);
+	  jQuery("#ChallengeText").hide();
+	  jQuery("#ChallengeTextWrapper").removeClass("landscapex3");
+	  jQuery("#ChallengeTextWrapper").removeClass("landscapex2");
+	  jQuery("#ChallengeTextWrapper").removeClass("portrait");
+	  jQuery("#ChallengeTextWrapper").addClass( cvd.slides[presentationIndex].layout );
 	}
 	
 	
@@ -485,6 +490,10 @@ $(document).ready(function(){
 		  jQuery("#ChallengeText").animate({opacity:0}, animationDuration, function() {
 			jQuery("#ChallengeText").html(cvd.slides[presentationIndex].text);
 			jQuery("#ChallengeText").animate({opacity:1}, animationDuration);
+			jQuery("#ChallengeTextWrapper").removeClass("landscapex3");
+			jQuery("#ChallengeTextWrapper").removeClass("landscapex2");
+			jQuery("#ChallengeTextWrapper").removeClass("portrait");
+			jQuery("#ChallengeTextWrapper").addClass( cvd.slides[presentationIndex].layout 
 		  });
 		}
 	}
@@ -578,16 +587,6 @@ $(document).ready(function(){
 		//jQuery("#ChallengePaused").css( {opacity:0.8} );
 	}
 	
-	
-	function changeText() {
-		textTrackIndex++;
-		if (textTrackIndex == cvd.textTrack.length) {
-			textTrackIndex = 0;
-		}
-		var nextText = cvd.textTrack[textTrackIndex];
-		jQuery("#ChallengeText").html(nextText);
-		jQuery("#ChallengeText").fadeIn(1000);
-	}
 	
 	function advancePresentationIndex() {
 		presentationIndex++;
