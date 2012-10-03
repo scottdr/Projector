@@ -493,7 +493,7 @@ $(document).ready(function(){
 			jQuery("#ChallengeTextWrapper").removeClass("landscapex3");
 			jQuery("#ChallengeTextWrapper").removeClass("landscapex2");
 			jQuery("#ChallengeTextWrapper").removeClass("portrait");
-			jQuery("#ChallengeTextWrapper").addClass( cvd.slides[presentationIndex].layout 
+			jQuery("#ChallengeTextWrapper").addClass( cvd.slides[presentationIndex].layout );
 		  });
 		}
 	}
