@@ -183,10 +183,13 @@ a:active {
 
 .challengeImage2 img {
 	height: 248px;
-	width: 448px;
+	width: 449px;
 	border:solid;
-	border-width: 1px;
 	border-color:#666;
+	border-left-width: 0px;
+	border-right-width: 1px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
 }
 
 .challengeImage3 {
@@ -198,11 +201,14 @@ a:active {
 }
 
 .challengeImage3 img {
-	height: 248px;
+	height: 249px;
 	width: 448px;
 	border:solid;
-	border-width: 1px;
 	border-color:#666;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
 }
 
 #ChallengeText {
