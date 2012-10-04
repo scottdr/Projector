@@ -402,7 +402,7 @@ a.navDown {
 #NavSearchContainer { /* contains the search text input and search button */
 	vertical-align: middle;
 	background-color: #999;
-	width: 285px;
+	width: 286px;
 	height: 38px;
 	float: left;
 }
