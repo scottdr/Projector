@@ -151,7 +151,7 @@ a:active {
 }
 
 #ChallengePausedImg {
-	position:absolute;
+  position:absolute;
   top:-30px;
   left:-30px;
 }
@@ -166,8 +166,8 @@ a:active {
 }
 
 .challengeImage1 img {
-	height: 100%;
-	width: 100%;
+	height: 248px;
+	width: 448px;
 	border:solid;
 	border-width: 1px;
 	border-color:#666;
@@ -182,8 +182,8 @@ a:active {
 }
 
 .challengeImage2 img {
-	height: 100%;
-	width: 100%;
+	height: 248px;
+	width: 448px;
 	border:solid;
 	border-width: 1px;
 	border-color:#666;
@@ -198,8 +198,8 @@ a:active {
 }
 
 .challengeImage3 img {
-	height: 100%;
-	width: 100%;
+	height: 248px;
+	width: 448px;
 	border:solid;
 	border-width: 1px;
 	border-color:#666;
