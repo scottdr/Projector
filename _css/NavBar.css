@@ -16,11 +16,14 @@ a:link {
 	color:#3AADEF;
 }
 a:visited {
+	text-decoration: none;
 	color: #3AADEF;
 }
 a:hover {
+	text-decoration: none;
 	color: #3AADEF;
 }
 a:active {
+	text-decoration: none;
 	color: #3AADEF;
 }

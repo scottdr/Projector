@@ -156,6 +156,7 @@
             	<h2>The Projector, My Voice, and the National Mock Student Election 2012 </h2>
             	<p>This project is a collaboration of Pearson Foundation Learning Labs and My Voice National Mock Election, dedicated to raising awareness of political issues with future voters. Informed by research from the Quaglia Institute for Student Aspirations, My Voice empowers teachers and students with research and communications tools necessary to become confident, knowledgeable citizens in our democracy. Just because you’re under 18 does not mean your voice can’t be heard! </p>
             	<p>My Voice National Student Mock Election is the nation’s largest civic education project. In this rapidly advancing age of communication, young people have many ways to express their views in real time and via multiple media. Pearson Foundation invites all U.S. students, parents, and teachers to join the Mock Election. Encouraging young people to voice their views and aspirations is key to a vital and vibrant society, and it starts right here.</p>
+            	<p><a href="http://www.nationalmockelection.org">Click here to visit</a></p>
               <h2>The Smithsonian Institution</h2>
             	<p>Founded in 1846, the Smithsonian Institution is the world's largest museum and research complex, consisting of 19 museums and galleries, the National Zoological Park, and nine research facilities.                <br>
            	    <a href="http://www.si.edu">Click here to visit</a></p>
