@@ -135,6 +135,7 @@ a.navDown {
 #HomeBannerDiv {
 	clear: both;
 	position: relative;
+	background-color:#353535;
 	background-color: rgba(0,0,0,0.7);
 	margin-top: 20px;
 	margin-left: auto;
@@ -289,6 +290,7 @@ a.navDown {
 	padding-bottom: 0px;
 	float: left;
 	color: #FFF;
+	width: 500px;
 }
 #HeaderImg h1{
 	display:inline;
