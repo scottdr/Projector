@@ -46,10 +46,9 @@ li {
 }
 select {
 	/*Dark Grey - used in Gallery.php */ 
-	width: 180px;
+	width: 200px;
 	height: 26px;
-	text-indent: 10px;
-	color:#FFF;
+	color: #FFF;
 	border: none;
 	background-color: none;
 	background-image: url(../_images/select_bg.png);
@@ -63,6 +62,7 @@ select {
 	-moz-appearance: none;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	padding-left: 15px;
 }
 select:hover {
 	background-color: #666;
