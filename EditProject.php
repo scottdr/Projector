@@ -139,7 +139,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 	-moz-border-radius : 10px;
 	-webkit-border-radius : 10px;
 	border-radius : 10px;
-	width: 550px;
+	width: 700px;
 	-moz-box-shadow: 3px 3px 5px 6px #ccc;
 	-webkit-box-shadow: 5px 5px 5px 6px #ccc;
 	box-shadow: 3px 3px 5px 6px #ccc;
@@ -189,14 +189,14 @@ input:focus{
 }
 	
 textarea {
-	font-size: 1.2em; 
-	padding: 5px; 
-	height:110px;	 
-	color: #444;	
-	border: 1px solid #b9bdc1; 
-	margin-top:5px;
-	margin-bottom:5px;
-	width:305px; 
+	font-size: 1.2em;
+	padding: 5px;
+	height: 110px;
+	color: #444;
+	border: 1px solid #b9bdc1;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 500px;
 }
 
 select {

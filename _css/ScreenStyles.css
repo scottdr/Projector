@@ -93,7 +93,103 @@ a:active {
 	font-size: 12px;
 }
 
+/* Tablet Layout: 481px to 768px. */
 
+@media only screen and (min-width: 481px) and (max-width:768px) {
+
+	/* 01 Challenge Screen */
+	
+	#ChallengeWrapper {
+		position: relative;
+		margin-left:auto;
+		margin-right:auto;
+		width:720px;
+		height:400px;
+	}
+	
+	.challengeImage1 {
+		position:absolute;
+		top: 0;
+		left: 0;
+		margin: 0px;
+		padding: 0px;
+		
+	}
+	
+	.challengeImage1 img {
+		height: 198px;
+		width: 358px;
+		border:solid;
+		border-width: 1px;
+		border-color:#666;
+	}
+	
+	.challengeImage2 {
+		position:absolute;
+		top: 0;
+		right: 0;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.challengeImage2 img {
+		height: 198px;
+		width: 359px;
+		border:solid;
+		border-color:#666;
+		border-left-width: 0px;
+		border-right-width: 1px;
+		border-top-width: 1px;
+		border-bottom-width: 1px;
+	}
+	
+	.challengeImage3 {
+		position:absolute;
+		bottom: 0;
+		left: 0;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.challengeImage3 img {
+		height: 199px;
+		width: 358px;
+		border:solid;
+		border-color:#666;
+		border-left-width: 1px;
+		border-right-width: 1px;
+		border-top-width: 0px;
+		border-bottom-width: 1px;
+	}
+	
+	#ChallengeText {
+		display: table-cell;
+		color: #ffffff;
+		vertical-align: middle;
+		padding: 10px;
+		font-family: nimbus-sans, Helvetica, Arial, &#39;Lucida Grande&#39, sans-serif;
+		font-size: 16px;
+		line-height: 20px;
+		-webkit-text-size-adjust: none;
+		background-color: #313131;
+	}
+	
+	/* Wrapper for text element sizes and places bounding box, provides table to perfectly center content. */ 
+	#ChallengeTextWrapper {
+		display: table;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		height: 50%;
+		width: 50%;
+		margin: 0;
+	}
+
+}
+
+/* Descktop Layout : Min-Width = 769px */
+
+@media only screen and (min-width: 769px) {
 
 /* 01 Challenge Screen */
 
@@ -101,59 +197,8 @@ a:active {
 	position: relative;
 	margin-left:auto;
 	margin-right:auto;
-	/* width:680px;
-	height:480px; */
 	width:900px;
 	height:500px;
-}
-
-#ChallengeGroupA {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index:2;
-}
-
-#ChallengeGroupB {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index:3;
-}
-
-#ChallengeTitle {
-	display: none;
-	text-align: center;
-  /* Make text non-selectable. */
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-o-user-select: none;
-	-khtml-user-select: none;
-	user-select: none;
-	cursor:default;
-	z-index: 10;
-}
-
-#ChallengePaused {
-	position:absolute;
-	top:50%;
-	left:50%;
-	margin-left:auto;
-	margin-right:auto;
-	z-index:50;
-	display:none;
-}
-
-#ChallengePausedImg {
-  position:absolute;
-  top:-30px;
-  left:-30px;
 }
 
 .challengeImage1 {
@@ -233,6 +278,60 @@ a:active {
   width: 50%;
   margin: 0;
 }
+	
+}
+
+
+#ChallengeGroupA {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index:2;
+}
+
+#ChallengeGroupB {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index:3;
+}
+
+#ChallengeTitle {
+	display: none;
+	text-align: center;
+  /* Make text non-selectable. */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor:default;
+	z-index: 10;
+}
+
+#ChallengePaused {
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:auto;
+	margin-right:auto;
+	z-index:50;
+	display:none;
+}
+
+#ChallengePausedImg {
+  position:absolute;
+  top:-30px;
+  left:-30px;
+}
+
+
 /* Provision for text positioning for slide layout variants. Currently all layouts same. */
 .landscapex3 #ChallengeTextWrapper {
   right: 0;

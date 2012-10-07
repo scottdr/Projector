@@ -73,6 +73,7 @@ img, object, embed, video {
 	width: 92.4464%;
 	padding-left: 0.2767%;
 	padding-right: 0.2767%;
+/*background-color : lightyellow; */     	/* for debugging display light yellow when using tablet rules */
 }
 #LayoutDivHeader {
 	clear: both;
@@ -104,9 +105,12 @@ img, object, embed, video {
 }
 }
 
-/* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+/* Desktop Layout: 1025px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
 
-@media only screen and (min-width: 769px) {
+/* @media only screen and (min-width: 769px) { 
+	Bumping desktop min width to be greater than the 1024 landscape orientation of iPad because the desktop rules did not give enough space on iPad in landscape mode 
+*/
+@media only screen and (min-width: 1025px) {
 .gridContainer {
 	/*width: 89.6428%;
 	max-width: 1232px;
@@ -115,6 +119,7 @@ img, object, embed, video {
 	width: 80%;
 	max-width: 1232px;
 	margin: auto;
+/*	background-color : lightblue; *//* for debugging light blue for desktop */
 }
 #LayoutDivHeader {
 	clear: both;
