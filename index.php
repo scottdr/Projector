@@ -54,11 +54,60 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 		$('#slides').slides({
 			preload: true,
 			preloadImage: 'images/loading.gif',
-			play: 4000,
+			play: 0,
 			pause: 8000,
 			hoverPause: true
-		});
+			});
+		
+		// load the background image for the first carousel item / project
+		var carouselItem = document.getElementById("carouselItemNumber1");
+		var elem = document.getElementById("HomeBackgroundDiv");
+		elem.setAttribute("style","background-image: " + "url(" + carouselItem.getAttribute("data-imageURL") + ");");
 	});
+	
+	
+	
+	
+	currentProject = 1;
+	jQuery(document).ready(function(e) {
+		var numProjects = 0;
+		var backgroundDiv = document.getElementById("HomeBackgroundDiv");
+		var elem = document.getElementById("carouselCounter");
+		if (elem)
+			numProjects = elem.getAttribute("value");
+
+			// do a fadout (fast) then a fade back in (slow) 
+		function slideTransition(url) {
+			$('#HomeBackgroundDiv').fadeOut('fast', function() {
+					// Animation complete				
+					$('#HomeBackgroundDiv').fadeToggle('slow');
+					backgroundDiv.setAttribute("style","background-image: " + "url(" + url + ");");
+			});
+		}
+
+			
+		jQuery(".next").bind("click",function(e){			
+				if (currentProject < numProjects)
+					currentProject++;
+				else 
+					currentProject = 1;
+				var carouselItem = document.getElementById("carouselItemNumber" + currentProject);
+				var imageUrl = carouselItem.getAttribute("data-imageURL");
+				slideTransition(imageUrl);
+		});
+		
+		jQuery(".prev").click(function(e){
+					var elem = document.getElementById("HomeBackgroundDiv");
+				if (currentProject > 1)
+					currentProject--;
+				else 
+					currentProject = numProjects;
+				var carouselItem = document.getElementById("carouselItemNumber" + currentProject);
+				var imageUrl = carouselItem.getAttribute("data-imageURL");
+				slideTransition(imageUrl);
+		});
+		
+  });
 </script>
 <style type="text/css"> 
 /*pagination is used in the banner*/
@@ -144,6 +193,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
                     <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item" width="64" height="64"></a>
                 </div>  
             </div>
+            <input type="hidden" id="carouselCounter" value="<?php echo $numProjects; ?>" />
     	</div>
                   
         
@@ -151,7 +201,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
         <div id="HomeFooterDiv">
             <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards" /></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-            <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards" /></a>
+            <a href="http://www.pearsonfoundation.org" id="pearsonLogo" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards" /></a>
             <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election" /></a>
             <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
         	

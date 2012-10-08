@@ -44,17 +44,26 @@ mysql_select_db($database_projector, $projector);
 $query_projectList = "SELECT * FROM projects WHERE Topic = 1";
 $projectList = mysql_query($query_projectList, $projector) or die(mysql_error());
 $row_projectList = mysql_fetch_assoc($projectList);
-$totalRows_projectList = mysql_num_rows($projectList);
+$numProjects = mysql_num_rows($projectList);
 
+// we use this counter input field to provide the count of number of projects in the carousel
+//echo '<input type="hidden" id="carouselCounter" value="' . $numProjects  . '" />';
+
+
+$counter = 1;
  do { ?>
 
-<div class="captionLayer">
+<div id="carouselItemNumber<?php echo $counter;?>" class="captionLayer" data-imageURL="<?php echo $row_projectList['ImgLarge']; ?>">
     <h1><a href="ProjectDetails.php?Id=<?php echo $row_projectList['Id']; ?>"><?php echo $row_projectList['Name']; ?></a></h1>
     <p><?php echo getGrade($row_projectList); ?></p>
     <p>Subject: <?php echo $row_projectList['Subject']; ?></p>
 </div>
 
-<?php } while ($row_projectList = mysql_fetch_assoc($projectList)); 
+<?php
+			$counter++; 
+		} while ($row_projectList = mysql_fetch_assoc($projectList)); 
+
+
 
 mysql_free_result($projectList);
 
