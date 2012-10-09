@@ -137,7 +137,7 @@ if (isset($_POST["MM_action"])) {
 function attachMedia(projectId)
 {
 	$.ajax({
-  	url: "MediaData.php?ProjectId=" + projectId + "&Size=450x250",
+  	url: "MediaData.php?ProjectId=" + projectId + "&Size=450x250&attachTo=slide",
   	cache: false
 	}).done(function( html ) {
 		$("#Dialog").removeClass("hideMe");

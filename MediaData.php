@@ -65,7 +65,7 @@ session_start();
 
 // PHP Code to call to Attach media either to a Slide or to A Step defaults to AttachMedia.php = Attach to Step
 // but if $_SESSION['attachTo'] = "slide" then use AttachSlideMedia to attach it to a Slide
-if (isset($_SESSION['attachTo']) && $_SESSION['attachTo'] == "slide")
+if (isset($_GET['attachTo']) && $_GET['attachTo'] == "slide")
 	$attachURL = "AttachSlideMedia.php?SlideId=" . $_SESSION['SlideId'] /*. "&SortOrder=" . $_SESSION['SortOrder']*/;
 else
 	$attachURL = "AttachMedia.php?ProjectId=" . $_SESSION['ProjectId'] . "&StepId=" . $_SESSION['StepId'];
