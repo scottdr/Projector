@@ -41,7 +41,7 @@ function getGrade($row_Recordset)
 }
 
 mysql_select_db($database_projector, $projector);
-$query_projectList = "SELECT * FROM projects WHERE Topic = 1";
+$query_projectList = "SELECT * FROM projects WHERE Topic = 1 AND STATUS = 'PILOT' OR STATUS = 'PUBLISHED'";
 $projectList = mysql_query($query_projectList, $projector) or die(mysql_error());
 $row_projectList = mysql_fetch_assoc($projectList);
 $numProjects = mysql_num_rows($projectList);
