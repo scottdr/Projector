@@ -111,6 +111,7 @@ body {
     </div>
     <div id="NavShadowDiv"></div>
   </div>
+  <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
   <div id="ContentScreens">
   	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
   </div>
