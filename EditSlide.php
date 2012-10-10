@@ -50,7 +50,6 @@ $totalRows_steps = mysql_num_rows($steps);
 session_start();
 $_SESSION['ProjectId'] = $projectId;
 $_SESSION['SlideId'] = $row_steps['Id'];
-$_SESSION['attachTo'] = "slide";			// set this so we know we are attaching to a slide in MediaData.php
 
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {

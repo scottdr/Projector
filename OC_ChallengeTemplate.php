@@ -84,6 +84,7 @@ body {
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
+<script src="_scripts/challengeTablet.js"></script>
 </head>
 <body>
 <?php include("Globals.php") ?>
@@ -112,7 +113,7 @@ body {
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  <div id="ContentScreens">
+  <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
   	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
   </div>
   <div id="Footer">
