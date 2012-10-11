@@ -777,6 +777,50 @@ a.navDown {
 	border:none;
 }
 
+#ProjectSummary {
+	border: none;
+	background-color: #FFF;
+	height: 389px;
+	font-weight: 200;
+	overflow: hidden;
+	line-height: 105%;
+	position: relative;
+	width: 940px;
+	clear: both;
+}
+#ProjectSummary img {
+	margin-right: 10px;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+#ProjectSummary h2 {
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	font-weight: 500;
+	padding-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+#ProjectSummary p {
+	font-size: 14px;
+	margin-top: 5px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+	padding-bottom: 5px;
+}
+.projectData {
+	display: block;
+	position: absolute;
+	left: 610px;
+	top: 20px;
+	overflow: hidden;
+	height: 380px;
+	width: 320px;
+}
 
 #tabDiv {
 	position: relative;
