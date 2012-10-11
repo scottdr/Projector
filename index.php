@@ -65,8 +65,23 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 		elem.setAttribute("style","background-image: " + "url(" + carouselItem.getAttribute("data-imageURL") + ");");
 	});
 	
+		// do a fadout (fast) then a fade back in (slow) 
+	function slideTransition(url) {
+		$('#HomeBackgroundDiv').fadeOut(100, function() {				// fade out old background image over 100 milliseconds
+				// Animation complete				
+				$(this).css("background-image",'url("' + url + '")');		// set the background image to the url for next / prev slide
+				$(this).fadeToggle('fast');			// toggle visibility fading the image back in to view
+		});
+	}
 	
-	
+	// when the user clicks on little boxes to skip to a specific project	
+	function navHandler(e) {
+		if (e.currentTarget.text > 0) {
+			var carouselItem = document.getElementById("carouselItemNumber" + e.currentTarget.text);
+			var imageUrl = carouselItem.getAttribute("data-imageURL");
+			slideTransition(imageUrl);
+		}
+	}
 	
 	currentProject = 1;
 	jQuery(document).ready(function(e) {
@@ -76,14 +91,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 		if (elem)
 			numProjects = elem.getAttribute("value");
 
-			// do a fadout (fast) then a fade back in (slow) 
-		function slideTransition(url) {
-			$('#HomeBackgroundDiv').fadeOut(100, function() {				// fade out old background image over 100 milliseconds
-					// Animation complete				
-					$(this).css("background-image",'url("' + url + '")');		// set the background image to the url for next / prev slide
-					$(this).fadeToggle('fast');			// toggle visibility fading the image back in to view
-			});
-		}
+	
 
 			
 		jQuery(".next").bind("click",function(e){			
@@ -107,6 +115,8 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 				slideTransition(imageUrl);
 		});
 		
+		// add handler to be called when user clicks in the little boxes to go to a specific project
+		jQuery(".pagination a").click(navHandler);
   });
 </script>
 <style type="text/css"> 
