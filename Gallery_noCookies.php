@@ -30,7 +30,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 <!--
 <script src="js/gallery.js" type="text/javascript"></script>
 -->
-<script src="js/respond.min.js" type="text/javascript"></script>
+<!--<script src="js/respond.min.js" type="text/javascript"></script>-->
 <script src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
