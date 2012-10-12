@@ -17,24 +17,19 @@ $row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
 $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 	
 ?>
-<!doctype html>
-<!--[if lt IE 7]><html class="ie6 oldie"> <![endif]-->
-<!--[if IE 7]><html class="ie7 oldie"> <![endif]-->
-<!--[if IE 8]><html class="ie8 oldie"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="">
-<!--<![endif]-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Projector Gallery</title>
-<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<link href="_css/Root_Project.css" rel="stylesheet" type="text/css">
-<link href="_css/main.css" rel="stylesheet" type="text/css">	
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css" />
+<link href="_css/Root_Project.css" rel="stylesheet" type="text/css" />
+<link href="_css/main.css" rel="stylesheet" type="text/css" />	
 
-<script src="js/respond.min.js"></script>
-<script src="js/gallery.js"></script>
-<script src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
+<script src="js/respond.min.js" type="text/javascript"></script>
+<script src="js/gallery.js" type="text/javascript"></script>
+<script src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.GalleryColumn1Div,.GalleryColumn2Div,.GalleryColumn3Div').click(function(e) {
@@ -85,8 +80,8 @@ $(document).ready(function() {
         <?php endif; ?>
                   
         <div id="GalleryNavItemsPerPg">
-            <form name="form1" method="post" action="">
-              <select name="recordsPerPage" id="recordsPerPage" onChange="updateRecordCount(this.value)">
+            <form action="" method="post" name="form1" id="form1">
+              <select name="recordsPerPage" id="recordsPerPage" onchange="updateRecordCount(this.value)">
                 <option value="3">View 3 per page</option>
                 <option value="9">View 9 per page</option>
                 <option value="9000">all</option>
@@ -94,8 +89,8 @@ $(document).ready(function() {
             </form>
         </div>
         
-        <div id="GalleryNavPgOfX"><p>  page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif"></a>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif"></a>
+        <div id="GalleryNavPgOfX"><p>  page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?></p>              <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif" /></a>
+          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif" /></a>
         </div>
         
             
@@ -112,8 +107,8 @@ $(document).ready(function() {
         </div>
         
         <div id="GalleryNavItemsPerPg">
-            <form name="form1" method="post" action="">
-                <select name="recordsPerPage2" id="recordsPerPage2" onChange="updateRecordCount(this.value)">
+            <form action="" method="post" name="form1" id="form1">
+                <select name="recordsPerPage2" id="recordsPerPage2" onchange="updateRecordCount(this.value)">
                   <option value="3">View 3 per page</option>
                   <option value="9">View 9 per page</option>
                   <option value="9000">all</option>
@@ -123,17 +118,17 @@ $(document).ready(function() {
         
         <div id="GalleryNavPgOfX">
           <p> page <?php echo ($pageNum_Recordset1 + 1) ?> of <?php echo ($totalPages_Recordset1 + 1) ?> </p>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif"></a>
-          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif"></a>
+          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, min($totalPages_Recordset1, $pageNum_Recordset1 + 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_next_up.gif" /></a>
+          <a href="<?php printf("%s?pageNum_Recordset1=%d%s", $currentPage, max(0, $pageNum_Recordset1 - 1), $queryString_Recordset1); ?>"><img src="_images/proj_gal_back_up.gif" /></a>
         </div>
 
         <!-- FOOTER --> 
         <div id="GeneralFooterDiv">
           <hr/>
-          <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
+          <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards" /></a>
             <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-          <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-          <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
+          <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards" /></a>
+          <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election" /></a>
           <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
         </div>
     </div>  
