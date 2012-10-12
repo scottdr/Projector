@@ -29,15 +29,15 @@ if (document.addEventListener) {
 
 function domContentLoaded() 
 {
-	console.log("domContentLoaded");
+//	console.log("domContentLoaded");
 	var element = document.getElementById("recordsPerPage");
 	var recordCount = "3";
 	var cookieCount = getCookie("recordsPerPage");
-	console.log('cookie record count: ' + cookieCount);
+//	console.log('cookie record count: ' + cookieCount);
 	if (cookieCount != '' && cookieCount != undefined)
 		recordCount = cookieCount;
 	if (element) {
-		console.log('selectValue: ' + element.value);
+//		console.log('selectValue: ' + element.value);
 		element.value = recordCount;
 	}
 	element = document.getElementById("recordsPerPage2");
@@ -47,10 +47,10 @@ function domContentLoaded()
 
 /* Update the cookie containing the num of records to be displayed per page, then reload the page */
 function updateRecordCount(newValue) {
-	console.log('newCount: ' + newValue);
+//	console.log('newCount: ' + newValue);
 	setCookie("recordsPerPage",newValue,7);
 	cookieCount = getCookie("recordsPerPage");
-	console.log('cookie record count: ' + cookieCount);
+//	console.log('cookie record count: ' + cookieCount);
 	window.location.reload(true); 
 }
 
