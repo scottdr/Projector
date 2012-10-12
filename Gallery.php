@@ -80,6 +80,10 @@ $(document).ready(function() {
               </div>
               <div class="horzontalSpacer"></div>
         <?php endif; ?>
+        
+        <div id="GalleryNavFilter">
+            <p>&nbsp;</p>
+        </div>
                   
         <div id="GalleryNavItemsPerPg">
             <form action="" method="post" name="form1" id="form1">
