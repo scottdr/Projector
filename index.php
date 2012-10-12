@@ -47,7 +47,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
 
 <script type="text/javascript" src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+<!--<script type="text/javascript" src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>-->
 <script type="text/javascript" src="js/slides.min.jquery.js"></script>
 <script>
 	$(function(){
