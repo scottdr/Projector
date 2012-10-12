@@ -25,11 +25,12 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 <title>Projector Gallery</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css" />
 <link href="_css/Root_Project.css" rel="stylesheet" type="text/css" />
-<link href="_css/main.css" rel="stylesheet" type="text/css" />	
-
-<script src="js/respond.min.js" type="text/javascript"></script>
+<link href="_css/main.css" rel="stylesheet" type="text/css" />
+<!--	
 <script src="js/gallery.js" type="text/javascript"></script>
+<script src="js/respond.min.js" type="text/javascript"></script>
 <script src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.GalleryColumn1Div,.GalleryColumn2Div,.GalleryColumn3Div').click(function(e) {
@@ -39,6 +40,8 @@ $(document).ready(function() {
 	});  
 });
 </script>
+-->
+
 </head>
 <body>
 
