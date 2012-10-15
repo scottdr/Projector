@@ -1,10 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7]><html class="ie6 oldie"> <![endif]-->
-<!--[if IE 7]><html class="ie7 oldie"> <![endif]-->
-<!--[if IE 8]><html class="ie8 oldie"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="">
-<!--<![endif]-->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,11 +16,11 @@
     <div class="gridContainer clearfix"> 
       <div class="ProjGalleryBackgroundDiv">
       
-      <!-- HEADER AND NAVIGATION --------------------------------------------->
+      <!-- HEADER AND NAVIGATION -->
         <?php $selectedNav = ""; ?>
 		<?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div> 
-        <!-- PAGE CONTENT --------------------------------------------->
+        <!-- PAGE CONTENT -->
         <div id="ContentDiv">
         
          <div id="GalleryDetailPageTitle">
@@ -34,11 +28,11 @@
            
          </div>
          
-       	  <!-- SUMMARY --------------------------------------------->
+       	  <!-- SUMMARY -->
 		  <div>
-		    <p><strong>Terms of Use Agreement and Copyright License</strong><br>
+		    <p><strong><img class="imgRight" src="_images/about_pic.png" alt="Pearson Projector">Terms of Use Agreement and Copyright License</strong><br>
 		      Effective Date:&nbsp; This Terms of Use Agreement was last updated on October 8, 2012.<br>
-	        This Terms of Use Agreement sets forth the standards of use of the Pearson Foundation Learning Labs Projector website owned by Pearson Foundation, located at <strong>http://pfprojector.org</strong> (the "Website") and the educational projects offered by Pearson Foundation on the Website in the Project Gallery (the "Projects").  By using the Website and/or the Projects, You agree to these terms and conditions. If you do not agree to the terms and conditions of this agreement, you should immediately cease all usage of the Website and Projects. Pearson Foundation reserves the right, at any time, to modify, alter, or update the terms and conditions of this agreement without prior notice.&nbsp; Modifications shall become effective immediately upon being posted on the Website.&nbsp; Your continued use of the Website or Projects after amendments are posted constitutes an acknowledgement and acceptance of the Agreement and its modifications. Except as provided in this paragraph, this Agreement may not be amended.</p>
+	        This Terms of Use Agreement sets forth the standards of use of the Pearson Foundation Learning Labs Projector website owned by Pearson Foundation, located at <strong><a href="http://pfprojector.org">http://pfprojector.org</a></strong> (the "Website") and the educational projects offered by Pearson Foundation on the Website in the Project Gallery (the "Projects").  By using the Website and/or the Projects, You agree to these terms and conditions. If you do not agree to the terms and conditions of this agreement, you should immediately cease all usage of the Website and Projects. Pearson Foundation reserves the right, at any time, to modify, alter, or update the terms and conditions of this agreement without prior notice.&nbsp; Modifications shall become effective immediately upon being posted on the Website.&nbsp; Your continued use of the Website or Projects after amendments are posted constitutes an acknowledgement and acceptance of the Agreement and its modifications. Except as provided in this paragraph, this Agreement may not be amended.</p>
 		    <p><br>
 		      <strong>1. Disclaimer of Warranties.</strong></p>
 		    <p>THE WEBSITE IS PROVIDED BY PEARSON FOUNDATION ON AN "AS IS" AND ON AN  "AS AVAILABLE" BASIS.&nbsp; TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, PEARSON FOUNDATION MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, REGARDING THE PROJECTS, THE WEBSITE OR THE INFORMATION CONTAINED ON THE WEBSITE.  PEARSON FOUNDATION SHALL HAVE NO LIABILITY FOR ANY INTERRUPTIONS IN ACCESS TO THE PROJECTS OR IN THE USE OF THE WEBSITE. PEARSON FOUNDATION DISCLAIMS ALL WARRANTIES WITH REGARD TO THE PROJECTS, THE WEBSITE AND INFORMATION CONTAINED ON THE WEBSITE, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.&nbsp; SOME JURISDICTIONS DO NO ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, THEREFORE THE ABOVE-REFERENCED EXCLUSION IS INAPPLICABLE IN SUCH JURISDICTIONS.</p>
@@ -138,15 +132,8 @@
 		  </div>
           
            
-       	  <!-- FOOTER ---------------------------------------------> 
-            <div id="GeneralFooterDiv">
-            <hr/>
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-              <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-              <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-              <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
-              <p>© Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
-        	</div>
+       	  <!-- FOOTER --> 
+            <?php include("GeneralFooter.php"); ?>
         </div>
         
           

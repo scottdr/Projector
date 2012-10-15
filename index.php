@@ -174,12 +174,12 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
     <div class="gridContainer clearfix">
     </div> 
     
-        <!-- HEADER AND NAVIGATION --------------------------------------------->
+        <!-- HEADER AND NAVIGATION -->
         <?php $selectedNav = "NavHome"; ?>
         <?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div>
                
-        <!-- BANNER ------------------------------------------- -->
+        <!-- BANNER -->
 
         <div id="HomeBannerDiv">
         
@@ -207,18 +207,12 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
     	</div>
                   
         
-        <!-- FOOTER --------------------------------------------->
-        <div id="HomeFooterDiv">
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards" /></a>
-            <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-            <a href="http://www.pearsonfoundation.org" id="pearsonLogo" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards" /></a>
-            <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election" /></a>
-            <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
-        	
+        <!-- FOOTER -->
+        <div id="FooterHomeDiv">
+            <?php include("GeneralFooter.php"); ?>
         </div>
         
-        
-        <!-- BACKGROUND IMAGES --------------------------------------------->
+        <!-- BACKGROUND IMAGES -->
         <div id="HomeBackgroundWrapper">
         	<div id="HomeBackgroundDiv">
         	</div>

@@ -36,11 +36,11 @@
     <div class="gridContainer clearfix"> 
       <div class="ProjGalleryBackgroundDiv">
       
-      <!-- HEADER AND NAVIGATION --------------------------------------------->
+      <!-- HEADER AND NAVIGATION -->
         <?php $selectedNav = "NavAbout"; ?>
 		<?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div> 
-        <!-- PAGE CONTENT --------------------------------------------->
+        <!-- PAGE CONTENT -->
         <div id="ContentDiv">
         
          <div id="GalleryDetailPageTitle">
@@ -48,7 +48,7 @@
            
          </div>
          
-       	  <!-- SUMMARY --------------------------------------------->
+       	  <!-- SUMMARY -->
 		  <div>
           <img src="_images/about_pic.png" width="375" height="250" style="float:right; padding-left:10px;">
           <p>The Pearson Foundation Learning Labs Projector is a  free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments. </p>
@@ -64,7 +64,7 @@
           <p>&nbsp;</p>
 		  </div>
           
-          <!-- TABS --------------------------------------------->
+          <!-- TABS -->
            
           <div class="tabs" id="tabDiv">
             <ul class="tabNavigation">
@@ -72,7 +72,7 @@
                 <li><a href="#projectTab2">Project Authoring</a></li>
                 <li><a href="#projectTab3">Resources</a></li>
             </ul>
-            <!-- TAB ONE --------------------------------------------->
+            <!-- TAB ONE -->
             <div id="projectTab1">
                <div id="recentProjectsRightColumn">
                   <h2>Recently Published Projects</h2>
@@ -103,7 +103,7 @@
 
             </div>
             
-            <!-- TAB TWO --------------------------------------------->
+            <!-- TAB TWO -->
             <div id="projectTab2">
             <div id="lightGreyRightColumn">
               <h2>Project Community</h2>
@@ -144,7 +144,7 @@
               <p>&nbsp;</p>
             </div>
                 
-          <!-- TAB THREE --------------------------------------------->
+          <!-- TAB THREE -->
             <div id="projectTab3">
             
             	<h2>Pearson Foundation</h2>
@@ -153,8 +153,8 @@
                 <h2>Pearson Foundation Learning Labs</h2>
             	<p>The Pearson Foundation Learning Labs is a product innovation lab that develops software and learning experiences for students, teachers and parents. We bring a unique mix of strategy, user experience, engineering, content, and community techniques from other industries to bear on the challenges of education.</p>
             	<p><a href="mailto:labs@pearsonfoundation.org">Contact us</a></p>
-            	<h2>The Projector, My Voice, and the National Mock Student Election 2012 </h2>
-            	<p>This project is a collaboration of Pearson Foundation Learning Labs and My Voice National Mock Election, dedicated to raising awareness of political issues with future voters. Informed by research from the Quaglia Institute for Student Aspirations, My Voice empowers teachers and students with research and communications tools necessary to become confident, knowledgeable citizens in our democracy. Just because you’re under 18 does not mean your voice can’t be heard! </p>
+            	<h2>The Projector, My Voice, and the National  Student Mock Election 2012 </h2>
+            	<p>This project is a collaboration of Pearson Foundation Learning Labs and My Voice National Student Mock Election, dedicated to raising awareness of political issues with future voters. Informed by research from the Quaglia Institute for Student Aspirations, My Voice empowers teachers and students with research and communications tools necessary to become confident, knowledgeable citizens in our democracy. Just because you’re under 18 does not mean your voice can’t be heard! </p>
             	<p>My Voice National Student Mock Election is the nation’s largest civic education project. In this rapidly advancing age of communication, young people have many ways to express their views in real time and via multiple media. Pearson Foundation invites all U.S. students, parents, and teachers to join the Mock Election. Encouraging young people to voice their views and aspirations is key to a vital and vibrant society, and it starts right here.</p>
             	<p><a href="http://www.nationalmockelection.org">Click here to visit</a></p>
               <h2>The Smithsonian Institution</h2>
@@ -168,15 +168,8 @@
             
            </div> 
            
-        	<!-- FOOTER ---------------------------------------------> 
-            <div id="GeneralFooterDiv">
-            <hr/>
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-              <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-              <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-              <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
-              <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
-        	</div>
+        	<!-- FOOTER --> 
+            <?php include("GeneralFooter.php"); ?>
         </div>
         
           
