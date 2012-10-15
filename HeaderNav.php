@@ -38,4 +38,4 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
     <!--input type="submit" class="searchButton" id="submit" value=""-->
   </div>
 </div>
-<div class="clearFloat" />
+<div class="clearFloat"></div>
