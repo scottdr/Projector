@@ -41,7 +41,7 @@ function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartC
 			
 			$("#challengeAudioPlayer").on($.jPlayer.event.error,
 				function(event) { // Using ".challengeAudioPlayer" namespace
-				alert("Error Event: type = " + event.jPlayer.error.type); // The actual error code string. Eg., "e_url" for $.jPlayer.error.URL error.
+				//alert("Error Event: type = " + event.jPlayer.error.type); // The actual error code string. Eg., "e_url" for $.jPlayer.error.URL error.
 				switch (event.jPlayer.error.type) {
 					case $.jPlayer.error.URL:
 						// reportBrokenMedia(event.jPlayer.error); // A function you might create to report the broken link to a server log.
@@ -77,15 +77,15 @@ function pfPauseAudio() {
 
 // callbacks for audio events
 function pfAudioStarted() {
-	alert("audio started callback");
+	//alert("audio started callback");
 }
 
 function pfAudioProgress() {
-	alert("audio progress");
+	//alert("audio progress");
 }
 
 function pfAudioCompleted() {
-	alert("audio completed callback");
+	//alert("audio completed callback");
 }
 
 function qualifyURL(url) {
