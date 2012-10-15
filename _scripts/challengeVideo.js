@@ -362,6 +362,11 @@ function resetPresentation() {
 }
 
 
+function isAudioSupported() {
+	return !!document.createElement('audio').canPlayType;
+}
+
+
 // Called anytime audio begins playing.
 function audioStarted() {
 	//alert("audio started");
@@ -583,8 +588,9 @@ function pausePresentation() {
 		jQuery("#ChallengeText").pause();
 		// Display the Play button.
 		jQuery("#ChallengePausedImg").attr("src", playBtnImg);
-		jQuery("#ChallengePaused").stop(true).show();
-		jQuery("#ChallengePaused").css( {opacity:0.8} );
+		jQuery("#ChallengePaused").stop(true,true).show();
+		// Clowntown browser alert: Opacity not supported on IE8.
+		//jQuery("#ChallengePaused").css( {opacity:0.8} );
 		// Pause audio playback.
 		pfPauseAudio();
 	}
@@ -624,8 +630,8 @@ function resumePresentation() {
 
 
 function resetPauseBtn() {
-	jQuery("#ChallengePausedImg").attr("src", "./assets/images/challengeintro_pause.png");
-	jQuery("#ChallengePaused").stop(true).show().delay(2000).fadeOut(800);
+	jQuery("#ChallengePausedImg").attr("src", pauseBtnImg);
+	jQuery("#ChallengePaused").stop(true,true).show().delay(2000).fadeOut(800);
 	//jQuery("#ChallengePaused").css( {opacity:0.8} );
 }
 
