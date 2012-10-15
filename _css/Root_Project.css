@@ -1241,6 +1241,11 @@ div.tabs > div h3 {
 	display:inline; 
 	margin:15px 15px 15px 15px;
 }
+.imgRight {
+	display:inline; 
+	margin:15px 15px 15px 15px;
+	float:right;
+}
 .bluebutton {
 	font-weight:200;
 	color:#FFF;
@@ -1279,7 +1284,7 @@ div.tabs > div h3 {
 }
 #GeneralFooterDiv img {
 	height: 60px;
-	padding-right: 20px;
+	padding-right: 15px;
 }
 #GeneralFooterDiv  hr {
 	border: 0px;
@@ -1294,8 +1299,13 @@ div.tabs > div h3 {
 }
 #GeneralFooterDiv p{
 	padding-top: 20px;
+	text-align: right;
 	font-size: 12px;
 	color:#999;
+	float: right;
+	clear:none;
+	display:block;
+	width: 500px;
 }
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 @media only screen and (min-width: 481px) {

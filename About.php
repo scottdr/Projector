@@ -36,11 +36,11 @@
     <div class="gridContainer clearfix"> 
       <div class="ProjGalleryBackgroundDiv">
       
-      <!-- HEADER AND NAVIGATION --------------------------------------------->
+      <!-- HEADER AND NAVIGATION -->
         <?php $selectedNav = "NavAbout"; ?>
 		<?php include("HeaderNav.php"); ?>
         <div id="NavShadowDiv"></div> 
-        <!-- PAGE CONTENT --------------------------------------------->
+        <!-- PAGE CONTENT -->
         <div id="ContentDiv">
         
          <div id="GalleryDetailPageTitle">
@@ -48,7 +48,7 @@
            
          </div>
          
-       	  <!-- SUMMARY --------------------------------------------->
+       	  <!-- SUMMARY -->
 		  <div>
           <img src="_images/about_pic.png" width="375" height="250" style="float:right; padding-left:10px;">
           <p>The Pearson Foundation Learning Labs Projector is a  free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments. </p>
@@ -64,7 +64,7 @@
           <p>&nbsp;</p>
 		  </div>
           
-          <!-- TABS --------------------------------------------->
+          <!-- TABS -->
            
           <div class="tabs" id="tabDiv">
             <ul class="tabNavigation">
@@ -72,7 +72,7 @@
                 <li><a href="#projectTab2">Project Authoring</a></li>
                 <li><a href="#projectTab3">Resources</a></li>
             </ul>
-            <!-- TAB ONE --------------------------------------------->
+            <!-- TAB ONE -->
             <div id="projectTab1">
                <div id="recentProjectsRightColumn">
                   <h2>Recently Published Projects</h2>
@@ -103,7 +103,7 @@
 
             </div>
             
-            <!-- TAB TWO --------------------------------------------->
+            <!-- TAB TWO -->
             <div id="projectTab2">
             <div id="lightGreyRightColumn">
               <h2>Project Community</h2>
@@ -144,7 +144,7 @@
               <p>&nbsp;</p>
             </div>
                 
-          <!-- TAB THREE --------------------------------------------->
+          <!-- TAB THREE -->
             <div id="projectTab3">
             
             	<h2>Pearson Foundation</h2>
@@ -168,15 +168,8 @@
             
            </div> 
            
-        	<!-- FOOTER ---------------------------------------------> 
-            <div id="GeneralFooterDiv">
-            <hr/>
-            <a href="http://www.teachingawards.com/home" target="_blank"><img src="_images/logo_teachingawards.gif" alt="Pearson Teaching Awards"></a>
-              <!--a href="http://www.si.edu" target="_blank"><img src="_images/logo_smithsonian.gif" alt="Smithsonian"></a-->
-              <a href="http://www.pearsonfoundation.org" target="_blank"><img src="_images/logo_pearsonfound.gif" alt="Pearson Teaching Awards"></a>
-              <a href="http://www.nationalmockelection.org" target="_blank"><img src="_images/logo_myvoice.gif" alt="My Voice My Election"></a>
-              <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a></p>
-        	</div>
+        	<!-- FOOTER --> 
+            <?php include("GeneralFooter.php"); ?>
         </div>
         
           
