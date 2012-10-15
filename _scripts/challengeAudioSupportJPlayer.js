@@ -1,42 +1,46 @@
 // JavaScript Document
 
-// TRS 0.9.2
-
 // AUDIO SUPPORT
 
-function pfInitAudio(audioSourceM4A, audioSourceOGG, audioStartCF, audioProgressCF, audioEndCF) {
+function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartCF, audioProgressCF, audioEndCF) {
 	
 	// alert("pfInitAudio"); // debug
 	
 	// no auto-repeat
 	// $("#challengeAudioPlayer").unbind($.jPlayer.event.repeat + ".jPlayer");
+	
+	var swfFullPath = qualifyURL( "_scripts/jQuery.jPlayer.2.2.0/" );
 		
 	$("#challengeAudioPlayer").jPlayer({
 		ready: function () {
-			$(this).jPlayer("setMedia", { m4a: audioSourceM4A, oga: audioSourceOGG } ).jPlayer("load"); // auto-load the media
+			// fire it up!
+			$("#challengeAudioPlayer").jPlayer("setMedia", { m4a: audioSourceM4A, mp3: audioSourceMP3, oga: audioSourceOGG } ).jPlayer("load"); // auto-load the media
 			//$("#challengeAudioPlayer").bind($.jPlayer.event.loadeddata + ".challengeAudioPlayer",
-			$(this).bind($.jPlayer.event.playing + ".challengeAudioPlayer",
+			$("#challengeAudioPlayer").on($.jPlayer.event.playing,
+					function() { // Using ".challengeAudioPlayer" namespace so we can easily remove this event
+					if (audioStartCF) audioStartCF();
+					pfAudioStarted(); // Execute the desired callback
+			});
+			$("#challengeAudioPlayer").on($.jPlayer.event.play,
 				function() { // Using ".challengeAudioPlayer" namespace so we can easily remove this event
 				if (audioStartCF) audioStartCF();
-				// pfAudioStarted(); // Execute the desired callback
+				pfAudioStarted(); // Execute the desired callback
 			});
-			
-			//$("#challengeAudioPlayer").bind($.jPlayer.event.timeupdate + ".challengeAudioPlayer",
-			$(this).bind($.jPlayer.event.timeupdate + ".challengeAudioPlayer",
+
+			$("#challengeAudioPlayer").on($.jPlayer.event.timeupdate,
 				function() { // Using ".challengeAudioPlayer" namespace so we can easily remove this event
 				if (audioProgressCF) audioProgressCF();
 				// pfAudioProgress(); // Execute the desired callback
 			});
 			
-			//$("#challengeAudioPlayer").bind($.jPlayer.event.ended + ".challengeAudioPlayer",
-			$(this).bind($.jPlayer.event.ended + ".challengeAudioPlayer",
+			$("#challengeAudioPlayer").on($.jPlayer.event.ended,
 				function() { // Using ".challengeAudioPlayer" namespace so we can easily remove this event
 				if (audioEndCF) audioEndCF();
 				// pfAudioCompleted(); // Execute the desired callback
 			});
 			
-			//$("#challengeAudioPlayer").bind($.jPlayer.event.error + ".challengeAudioPlayer", function(event) { // Using ".challengeAudioPlayer" namespace
-			$(this).bind($.jPlayer.event.error + ".challengeAudioPlayer", function(event) { // Using ".challengeAudioPlayer" namespace
+			$("#challengeAudioPlayer").on($.jPlayer.event.error,
+				function(event) { // Using ".challengeAudioPlayer" namespace
 				alert("Error Event: type = " + event.jPlayer.error.type); // The actual error code string. Eg., "e_url" for $.jPlayer.error.URL error.
 				switch (event.jPlayer.error.type) {
 					case $.jPlayer.error.URL:
@@ -50,8 +54,9 @@ function pfInitAudio(audioSourceM4A, audioSourceOGG, audioStartCF, audioProgress
 			});
 		},
 		// set the Flash fallback path
-    	swfPath: "jQuery.jPlayer.2.2.0",
-		supplied: "m4a, oga",
+    	swfPath: swfFullPath,
+		solution: "html, flash",
+		supplied: "m4a, mp3, oga",
 		wmode: "window",
 		preload: "auto"
 	});
@@ -59,6 +64,7 @@ function pfInitAudio(audioSourceM4A, audioSourceOGG, audioStartCF, audioProgress
 
 function pfPlayAudio() {
 	// alert("playing");
+	//$("#challengeAudioPlayer").jPlayer("play", 0);
 	$("#challengeAudioPlayer").jPlayer("play");
 	return false;
 }
@@ -80,5 +86,11 @@ function pfAudioProgress() {
 
 function pfAudioCompleted() {
 	alert("audio completed callback");
+}
+
+function qualifyURL(url) {
+	var a = document.createElement('a');
+	a.href = url;
+	return a.href;
 }
 

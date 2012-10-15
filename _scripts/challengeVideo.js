@@ -279,7 +279,16 @@ function initPresentation() {
 	jQuery("#ChallengeTitle").fadeIn(animationDuration);
 	
 	// Initialize audio player.
-	  pfInitAudio(cvd.audioURLM4A, cvd.audioURLOGG, audioStarted, audioProgress, audioCompleted );
+	
+	 // pfInitAudio(cvd.audioURLM4A, cvd.audioURLOGG, audioStarted, audioProgress, audioCompleted );
+	 //qualifyURL
+	 // ::kludge:: Cruft an mp3 path, using the m4a path.
+	 var mp3Path = cvd.audioURLM4A;
+	 // Remove the extension.
+	 mp3Path = mp3Path.substr(0, input.lastIndexOf('.')) || mp3Path;
+	 // Add mp3 extension.
+	 mp3Path = mp3Path + ".mp3";
+	 pfInitAudio( qualifyURL(cvd.audioURLM4A), qualifyURL(mp3Path), qualifyURL(cvd.audioURLOGG), audioStarted, audioProgress, audioCompleted );
 }
 
 
@@ -739,6 +748,12 @@ function finishSlide() {
 		});
 		
 	}
+}
+
+function qualifyURL(url) {
+	var a = document.createElement('a');
+	a.href = url;
+	return a.href;
 }
 
 function log(msg) {
