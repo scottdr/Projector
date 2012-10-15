@@ -148,7 +148,7 @@ $(document).ready(function(){
 
 function setSelectedRibbonItem(StepNumber) {
 	var e = jQuery.Event("click");
-	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
+//	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
 	$('div[data-number="' + StepNumber + '"]').trigger(e);
 }
 
