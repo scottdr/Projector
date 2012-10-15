@@ -285,7 +285,7 @@ function initPresentation() {
 	 // ::kludge:: Cruft an mp3 path, using the m4a path.
 	 var mp3Path = cvd.audioURLM4A;
 	 // Remove the extension.
-	 mp3Path = mp3Path.substr(0, input.lastIndexOf('.')) || mp3Path;
+	 mp3Path = mp3Path.substr(0, mp3Path.lastIndexOf('.')) || mp3Path;
 	 // Add mp3 extension.
 	 mp3Path = mp3Path + ".mp3";
 	 pfInitAudio( qualifyURL(cvd.audioURLM4A), qualifyURL(mp3Path), qualifyURL(cvd.audioURLOGG), audioStarted, audioProgress, audioCompleted );
