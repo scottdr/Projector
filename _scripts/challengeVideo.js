@@ -362,6 +362,19 @@ function resetPresentation() {
 }
 
 
+function isAudioAvailable() {
+	var audioAvailable = false;
+	if (cvd) {
+		if (cvd.audioURLM4A) {
+			if (cvd.audioURLM4A != "") {
+				audioAvailable = true;
+			}
+		}
+	}
+	return audioAvailable;
+}
+
+
 function isAudioSupported() {
 	return !!document.createElement('audio').canPlayType;
 }
@@ -372,7 +385,6 @@ function audioStarted() {
 	//alert("audio started");
 	if (presentationState == "stopped" || presentationState == "complete") {
 		// Condition at start. Audio has begin playing, so start the show.
-		presentationState = "playing";
 		startSlides();
 	}
 }
@@ -402,7 +414,20 @@ function getPresentationImages( presentationGroup ) {
 function startPresentation() {
 	//presentationState = "playing";
 	// Start audio, and let the audio start callback begin the visual aspect of the presentation (startSlides).
-	pfPlayAudio();
+	if ( isAudioAvailable() ) {
+		// Presentation with audio.
+		if ( isAudioSupported() ) {
+			// Audio capable browser. Play audio, wait for audio start callback to start slides.
+			pfPlayAudio();
+		} else {
+			// Audio incapable browser. Start slides, and attempt to start audio.
+			pfPlayAudio();
+			startSlides();
+		}
+	} else {
+		// Presentation without audio.
+		startSlides();
+	}
 }
 
 
@@ -430,6 +455,7 @@ function endPresentation() {
 
 // Start the visual aspect of the presentation.
 function startSlides() {
+	presentationState = "playing";
 	// Fade out the title.
 	jQuery("#ChallengeTitle").show().fadeOut(animationDuration);
 	// Fade in the first image, and trigger fade in of rest of images.

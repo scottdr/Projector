@@ -50,7 +50,7 @@ function pfInitAudio(audioSourceM4A, audioSourceOGG, audioStartCF, audioProgress
 			});
 		},
 		// set the Flash fallback path
-    	swfPath: "./jQuery.jPlayer.2.2.0",
+    	swfPath: "jQuery.jPlayer.2.2.0",
 		supplied: "m4a, oga",
 		wmode: "window",
 		preload: "auto"
