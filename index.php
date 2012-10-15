@@ -207,9 +207,10 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
     	</div>
                   
         
-        <!-- FOOTER --> 
+        <!-- FOOTER -->
+        <div id="FooterHomeDiv">
             <?php include("GeneralFooter.php"); ?>
-        
+        </div>
         
         <!-- BACKGROUND IMAGES -->
         <div id="HomeBackgroundWrapper">

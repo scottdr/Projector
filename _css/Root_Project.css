@@ -274,6 +274,13 @@ a.navDown {
 	/* IE 9 shadow fix */
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
 }
+#FooterHomeDiv {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	width: 940px;
+	height: 70px;
+}
 #HeaderDiv {
 	position: relative;
 	margin-right: auto;
@@ -424,7 +431,7 @@ a.navDown {
 	color: #FFF;
 	background-color: #666;
 	line-height: 36px;
-	font-size: 12pt;
+	font-size: 11pt;
 	height: 38px;
 	float: left;
 	text-align: left;
@@ -480,6 +487,7 @@ a.navDown {
 	color: #FFFFFF;
 	margin-right: 20px;
 	margin-bottom: 20px;
+	clear: both;
 }
 
 #GalleryNavFilter p {
