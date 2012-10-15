@@ -56,7 +56,8 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 			preloadImage: 'images/loading.gif',
 			play: 0,
 			pause: 8000,
-			hoverPause: true
+			hoverPause: true,
+			slideSpeed: 1000
 			});
 		
 		// load the background image for the first carousel item / project
@@ -65,12 +66,14 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 		elem.setAttribute("style","background-image: " + "url(" + carouselItem.getAttribute("data-imageURL") + ");");
 	});
 	
-		// do a fadout (fast) then a fade back in (slow) 
+		// do a fadeout (fast) then a fade back in (slow) 
 	function slideTransition(url) {
-		$('#HomeBackgroundDiv').fadeOut(100, function() {				// fade out old background image over 100 milliseconds
+		img = new Image();	// this is doing a preload of the image using javascript so that when we set the background via css using jQuery below after the 1 second fadeOut it has hopefully already loaded!
+		img.src = url;
+		$('#HomeBackgroundDiv').fadeOut(1000, "linear", function() {				// fade out old background image over 100 milliseconds
 				// Animation complete				
 				$(this).css("background-image",'url("' + url + '")');		// set the background image to the url for next / prev slide
-				$(this).fadeToggle('fast');			// toggle visibility fading the image back in to view
+				$(this).fadeToggle(2000);			// toggle visibility fading the image back in to view
 		});
 	}
 	
