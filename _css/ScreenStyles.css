@@ -179,6 +179,8 @@ a:active {
 		-khtml-user-select: none;
 		user-select: none;
 		cursor:default;
+		-webkit-touch-callout: none;
+		-ms-user-select: none;	
 	}
 	
 	/* Wrapper for text element sizes and places bounding box, provides table to perfectly center content. */ 
@@ -279,6 +281,8 @@ a:active {
 	-khtml-user-select: none;
 	user-select: none;
 	cursor:default;
+	-webkit-touch-callout: none;
+	-ms-user-select: none;	
 }
 
 /* Wrapper for text element sizes and places bounding box, provides table to perfectly center content. */ 
