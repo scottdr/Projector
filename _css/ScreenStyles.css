@@ -296,14 +296,24 @@ a:active {
 }
 
 /* Wrapper for text element sizes and places bounding box, provides table to perfectly center content. */ 
-#ChallengeTextWrapper {
-  display: table;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 50%;
-  width: 50%;
-  margin: 0;
+	/*#ChallengeTextWrapper {
+		display: table;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		height: 50%;
+		width: 50%;
+		margin: 0;
+	}*/
+	#ChallengeTextWrapper {
+	display: table;
+	position: absolute;
+	bottom: 0;
+	height: 50%;
+	width: 50%;
+	margin: 0;
+	left: 448px;
+	top: 248px;
 }
 
 #ChallengeGroupA {
