@@ -134,7 +134,10 @@ a.navDown {
 #HomeBannerDiv {
 	clear: both;
 	position: relative;
+	/* IE 7 */
 	background-color:#353535;
+	/* IE 8 */
+	background-color: #353535 | transparent;
 	background-color: rgba(0,0,0,0.7);
 	margin-top: 20px;
 	margin-left: auto;
