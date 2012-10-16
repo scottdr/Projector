@@ -279,7 +279,16 @@ function initPresentation() {
 	jQuery("#ChallengeTitle").fadeIn(animationDuration);
 	
 	// Initialize audio player.
-	  pfInitAudio(cvd.audioURLM4A, cvd.audioURLOGG, audioStarted, audioProgress, audioCompleted );
+	
+	 // pfInitAudio(cvd.audioURLM4A, cvd.audioURLOGG, audioStarted, audioProgress, audioCompleted );
+	 //qualifyURL
+	 // ::kludge:: Cruft an mp3 path, using the m4a path.
+	 var mp3Path = cvd.audioURLM4A;
+	 // Remove the extension.
+	 mp3Path = mp3Path.substr(0, mp3Path.lastIndexOf('.')) || mp3Path;
+	 // Add mp3 extension.
+	 mp3Path = mp3Path + ".mp3";
+	 pfInitAudio( qualifyURL(cvd.audioURLM4A), qualifyURL(mp3Path), qualifyURL(cvd.audioURLOGG), audioStarted, audioProgress, audioCompleted );
 }
 
 
@@ -362,6 +371,19 @@ function resetPresentation() {
 }
 
 
+function isAudioAvailable() {
+	var audioAvailable = false;
+	if (cvd) {
+		if (cvd.audioURLM4A) {
+			if (cvd.audioURLM4A != "") {
+				audioAvailable = true;
+			}
+		}
+	}
+	return audioAvailable;
+}
+
+
 function isAudioSupported() {
 	return !!document.createElement('audio').canPlayType;
 }
@@ -372,7 +394,6 @@ function audioStarted() {
 	//alert("audio started");
 	if (presentationState == "stopped" || presentationState == "complete") {
 		// Condition at start. Audio has begin playing, so start the show.
-		presentationState = "playing";
 		startSlides();
 	}
 }
@@ -402,7 +423,20 @@ function getPresentationImages( presentationGroup ) {
 function startPresentation() {
 	//presentationState = "playing";
 	// Start audio, and let the audio start callback begin the visual aspect of the presentation (startSlides).
-	pfPlayAudio();
+	if ( isAudioAvailable() ) {
+		// Presentation with audio.
+		if ( isAudioSupported() ) {
+			// Audio capable browser. Play audio, wait for audio start callback to start slides.
+			pfPlayAudio();
+		} else {
+			// Audio incapable browser. Start slides, and attempt to start audio.
+			pfPlayAudio();
+			startSlides();
+		}
+	} else {
+		// Presentation without audio.
+		startSlides();
+	}
 }
 
 
@@ -430,6 +464,7 @@ function endPresentation() {
 
 // Start the visual aspect of the presentation.
 function startSlides() {
+	presentationState = "playing";
 	// Fade out the title.
 	jQuery("#ChallengeTitle").show().fadeOut(animationDuration);
 	// Fade in the first image, and trigger fade in of rest of images.
@@ -713,6 +748,16 @@ function finishSlide() {
 		});
 		
 	}
+}
+
+function escapeHTML(s) {
+    return s.split('&').join('&amp;').split('<').join('&lt;').split('"').join('&quot;');
+}
+
+function qualifyURL(url) {
+	var el= document.createElement('div');
+    el.innerHTML= '<a href="'+escapeHTML(url)+'">x</a>';
+    return el.firstChild.href;
 }
 
 function log(msg) {
