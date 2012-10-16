@@ -750,10 +750,14 @@ function finishSlide() {
 	}
 }
 
+function escapeHTML(s) {
+    return s.split('&').join('&amp;').split('<').join('&lt;').split('"').join('&quot;');
+}
+
 function qualifyURL(url) {
-	var a = document.createElement('a');
-	a.href = url;
-	return a.href;
+	var el= document.createElement('div');
+    el.innerHTML= '<a href="'+escapeHTML(url)+'">x</a>';
+    return el.firstChild.href;
 }
 
 function log(msg) {
