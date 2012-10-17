@@ -34,7 +34,7 @@ function getDuration()
 
 $columnNum = 1; 
 do { 
-	print "<div class=\"GalleryColumn" .  $columnNum . "Div\"" . "data-id=\"" . $row_Recordset1['Id'] . "\" >";
+	print "<div class=\"GalleryColumn" .  $columnNum . "Div\"" . " data-id=\"" . $row_Recordset1['Id'] . "\" >";
 	if ($row_Recordset1['Status'] == "Pilot")
 		print "<div class=\"GalleryBlueBar\">Pilot Project</div>";
 	if ($row_Recordset1['Status'] != "Pilot")
@@ -42,14 +42,14 @@ do {
 	if ($row_Recordset1['Topic'] == "1")
   	print "<div class=\"GalleryThumbnailIcon\"></div>";
 	print "\n\t<div class=\"GalleryMedia\">";
-	print "\n\t\t<a href=\"ProjectDetails.php?Id=" . $row_Recordset1['Id']. "\"><img src=\"" . $row_Recordset1['ImgSmall'] . "\" width=\"300\" height=\"200\"></a>";
+	print "\n\t\t<a href=\"ProjectDetails.php?Id=" . $row_Recordset1['Id']. "\"><img src=\"" . $row_Recordset1['ImgSmall'] . "\" width=\"300\" height=\"200\" /></a>";
 	print "\n\t</div>";
 	print "\n\t<div class=\"GalleryDetails\">";
 	print "\n\t\n\t<h1>" . $row_Recordset1['Name']. "</h1>";
 	print "\n\t\n\t<p>" . $row_Recordset1['Description'] . "</p>";
 	print "\n\t\n\t<p>&nbsp;</p>";
 	print "\n\t\n\t<p>Subject: " . $row_Recordset1['Subject'] . "</p>";
-	print "\n\t\n\t<p>Grade: " . getGrade() . "</p>";
+	print "\n\t\n\t<p>" . getGrade() . "</p>";
 	print "\n\t\n\t<p>Duration: " . getDuration() . "</p>";
 	print "\n\t</div>";
 	print "\n</div>\n";
