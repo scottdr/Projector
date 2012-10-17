@@ -7,6 +7,11 @@ img, object, embed, video {
 .ie6 img {
 	width:100%;
 }
+.transparent {
+	zoom: 1;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
 
 body {
 	background-color: #343434;
@@ -134,18 +139,16 @@ a.navDown {
 #HomeBannerDiv {
 	clear: both;
 	position: relative;
-	/* IE 7 */
-	background-color:#353535;
-	/* IE 8 */
-	background-color: #353535 | transparent;
-	background-color: rgba(0,0,0,0.7);
-	margin-top: 20px;
+	margin-top: 60px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 180px;
+	margin-bottom: 126px;
 	padding: 10px 15px 10px 15px;
 	width: 576px;
 	height: 360px;
+	background-image: url(../_images/homebannerbg_1by1.png);
+	background-repeat: repeat;
+	/*SHADOW*/
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 	/* Safari v3.0+ and by Chrome v0.2+ */
@@ -386,7 +389,7 @@ a.navDown {
 #NavItemDown {
 	float: left;
 	width: 20.75%;
-	margin-right: 2px;
+	margin-right: 1px;
 	text-align: left;
 	overflow: hidden;
 	background-image: url(../_images/nav_down.gif);
@@ -399,7 +402,7 @@ a.navDown {
 #NavItemUp {
 	float: left;
 	width: 20.75%;
-	margin-right: 2px;
+	margin-right: 1px;
 	text-align: left;
 	overflow: hidden;
 	background-image: url(../_images/nav_up.gif);
@@ -1263,23 +1266,7 @@ div.tabs > div h3 {
 	padding: 10px;
 	line-height: 120%;
 }
-#HomeFooterDiv {
-	clear: both;
-	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 5px;
-	width: 100%;
-	height: 60px;
-	background-color: #FFF;
-	margin-top: 20px;
-	margin-bottom: 50px;
-}
-#HomeFooterDiv img {
-	height: 60px;
-	padding-left: 10px;
-	padding-right: 10px;	
-}
+
 #GeneralFooterDiv {
 	clear: both;
 	text-align: left;
@@ -1287,14 +1274,9 @@ div.tabs > div h3 {
 	margin-left: auto;
 	width: 100%;
 }
-#HomeFooterDiv p{
-	padding-top: 20px;
-	font-size: 12px;
-	color:#999;
-}
 #GeneralFooterDiv img {
-	height: 60px;
-	padding-right: 15px;
+	height: 50px;
+	padding-right: 10px;
 }
 #GeneralFooterDiv  hr {
 	border: 0px;
@@ -1308,7 +1290,7 @@ div.tabs > div h3 {
 	height: 1px;
 }
 #GeneralFooterDiv p{
-	padding-top: 20px;
+	padding-top: 5px;
 	text-align: right;
 	font-size: 12px;
 	color:#999;

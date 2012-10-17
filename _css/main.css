@@ -108,8 +108,8 @@ a.navDown {
 }
 .NavItemDown {
 	float: left;
-	width: 206px;
-	margin-right: 2px;
+	width: 207px;
+	margin-right: 1px;
 	text-align: left;
 	overflow: hidden;
 	background-image: url(../_images/nav_down.gif);
@@ -120,8 +120,8 @@ a.navDown {
 }
 .NavItemUp {
 	float: left;
-	width: 206px;
-	margin-right: 2px;
+	width: 207px;
+	margin-right: 1px;
 	text-align: left;
 	overflow: hidden;
 	background-image: url(../_images/nav_up.gif);
