@@ -279,11 +279,13 @@ function initPresentation() {
 	jQuery("#ChallengeTitle").fadeIn(animationDuration);
 	
 	// Initialize audio player.
-	
-	 // pfInitAudio(cvd.audioURLM4A, cvd.audioURLOGG, audioStarted, audioProgress, audioCompleted );
-	 //qualifyURL
 	 // ::kludge:: Cruft an mp3 path, using the m4a path.
-	 var mp3Path = cvd.audioURLM4A;
+	 var mp3Path;
+	 if (cvd.audioURLMP3) {
+		 mp3Path = cvd.audioURLMP3;
+	 } else {
+	 	mp3Path = cvd.audioURLM4A;
+	 }
 	 // Remove the extension.
 	 mp3Path = mp3Path.substr(0, mp3Path.lastIndexOf('.')) || mp3Path;
 	 // Add mp3 extension.
@@ -424,6 +426,11 @@ function startPresentation() {
 	//presentationState = "playing";
 	// Start audio, and let the audio start callback begin the visual aspect of the presentation (startSlides).
 	if ( isAudioAvailable() ) {
+		// new method: Start slides and request audio start at the same time.
+		//  jPlayer callbacks are not reliable across the board, so we can't request audio start and reliably wait for audio started callback.
+		pfPlayAudio();
+		startSlides();
+		/*  // old method:
 		// Presentation with audio.
 		if ( isAudioSupported() ) {
 			// Audio capable browser. Play audio, wait for audio start callback to start slides.
@@ -433,6 +440,7 @@ function startPresentation() {
 			pfPlayAudio();
 			startSlides();
 		}
+		*/
 	} else {
 		// Presentation without audio.
 		startSlides();
