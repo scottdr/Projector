@@ -24,7 +24,8 @@ function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartC
 	
 	// Determine the playback environment.
 	var audioCapability = "all";
-	if ( isInternetExplorer() ) {
+	var isIE = isInternetExplorer();
+	if ( isIE ) {
 		// Internet Explorer. Run away. Very fast.
 		// jPlayer IE9 fails using anything other than mp3 unless compatibility mode is messed with, and we don't want to do that.
 		// Best approach: Don't. Use only mp3 with all flavors of IE. Retreat.
