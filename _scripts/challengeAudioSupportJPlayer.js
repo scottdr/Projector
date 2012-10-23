@@ -15,12 +15,33 @@ function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartC
 	- anything else, provide all */
 	
 	// Determine base audio capabilities.
-	var a = document.createElement('audio');
-	var canAudio = !!document.createElement('audio').canPlayType;
-	var canAudioMP3 = !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
-	var canAudioVorbis = !!(a.canPlayType && a.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''));
-	var canAudioWAV = !!(a.canPlayType && a.canPlayType('audio/wav; codecs="1"').replace(/no/, ''));
-	var canAudioAAC = !!(a.canPlayType && a.canPlayType('audio/mp4; codecs="mp4a.40.2"').replace(/no/, ''));
+	var canAudio = false;
+	var canAudioAAC = false;
+	var canAudioMP3 = false;
+	var canAudioVorbis = false;
+	try {
+		canAudio = !!document.createElement('audio').canPlayType;
+	} catch(err) {
+		// nothing
+	}
+	try {
+		var a = document.createElement('audio');
+		canAudioMP3 = !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
+	} catch(err) {
+		// nothing
+	}
+	try {
+		var a2 = document.createElement('audio');
+		canAudioVorbis = !!(a2.canPlayType && a2.canPlayType('audio/ogg; codecs="vorbis"').replace(/no/, ''));
+	} catch(err) {
+		// nothing
+	}
+	try {
+		var a3 = document.createElement('audio');
+		canAudioAAC = !!(a3.canPlayType && a3.canPlayType('audio/mp4; codecs="mp4a.40.2"').replace(/no/, ''));
+	} catch(err) {
+		// nothing
+	}
 	
 	// Determine the playback environment.
 	var audioCapability = "all";
