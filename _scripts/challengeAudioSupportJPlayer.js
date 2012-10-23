@@ -97,7 +97,7 @@ function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartC
 			// mp3Only environments could use a Flash fallback. This is probably not modern browser.
 			$("#challengeAudioPlayer").jPlayer({
 				ready: function () {
-					$("#challengeAudioPlayer").jPlayer("setMedia", { m4a: audioSourceM4A } ).jPlayer("load");
+					$("#challengeAudioPlayer").jPlayer("setMedia", { mp3: audioSourceMP3 } ).jPlayer("load");
 					$("#challengeAudioPlayer").on($.jPlayer.event.loadeddata, function() {
 						//pfAudioLoadedData();
 					});
@@ -146,7 +146,7 @@ function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartC
 			// Vorbis only environments do not need a Flash Player fallback since Flash Player can't handle vorbis.
 			$("#challengeAudioPlayer").jPlayer({
 				ready: function () {
-					$("#challengeAudioPlayer").jPlayer("setMedia", { m4a: audioSourceM4A } ).jPlayer("load");
+					$("#challengeAudioPlayer").jPlayer("setMedia", { oga: audioSourceOGG } ).jPlayer("load");
 					$("#challengeAudioPlayer").on($.jPlayer.event.loadeddata, function() {
 						//pfAudioLoadedData();
 					});
@@ -195,7 +195,7 @@ function pfInitAudio(audioSourceM4A, audioSourceMP3, audioSourceOGG, audioStartC
 			// Environment unclear, but not favorable to aac. Pack it up with all options under the sun, the way jPlayer is supposed to work (but does not).
 			$("#challengeAudioPlayer").jPlayer({
 			ready: function () {
-					$("#challengeAudioPlayer").jPlayer("setMedia", { m4a: audioSourceM4A } ).jPlayer("load");
+					$("#challengeAudioPlayer").jPlayer("setMedia", { mp3: audioSourceMP3, oga: audioSourceOGG, m4a: audioSourceM4A } ).jPlayer("load");
 					$("#challengeAudioPlayer").on($.jPlayer.event.loadeddata, function() {
 						//pfAudioLoadedData();
 					});
