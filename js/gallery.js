@@ -51,7 +51,7 @@ function updateRecordCount(newValue) {
 	setCookie("recordsPerPage",newValue,7);
 	cookieCount = getCookie("recordsPerPage");
 //	console.log('cookie record count: ' + cookieCount);
-	window.location.reload(true); 
+	window.location = window.location.pathname; 	// reload the page but drop all info about recordset paging
 }
 
 function goToDetails(url) {
