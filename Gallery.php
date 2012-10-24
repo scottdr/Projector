@@ -67,18 +67,25 @@ $(document).ready(function() {
         <!-- Banner for Featured Topic -->
         <?php if ($topic == "All") : ?>
             <div id="GalleryBanner">
+            <div id="TopicIcon" style="float:left; margin-right:10px;">
+              <img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
+              </div>
+              <div>
               <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
               <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
               <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
             </div>
             <div class="horzontalSpacer"></div>
         <?php else: ?>
-              <div id="TopicIcon" style="float:left; margin-right:10px;"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></div>
-              <div>
-                <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
-                <h2 style="margin-top:10px"><?php echo $row_FeaturedProject['TagLine']; ?></h2>
+              <div id="GalleryBanner">
+            <div id="TopicIcon" style="float:left; margin-right:10px;">
+              <img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
               </div>
-              <div class="horzontalSpacer"></div>
+              <div>
+              <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
+              <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+            </div>
+            <div class="horzontalSpacer"></div>
         <?php endif; ?>
         
         <div id="GalleryNavFilter">

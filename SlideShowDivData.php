@@ -54,9 +54,10 @@ $counter = 1;
  do { ?>
 
 <div id="carouselItemNumber<?php echo $counter;?>" class="captionLayer" data-imageURL="<?php echo $row_projectList['ImgLarge']; ?>">
+    <p>More projects</p>
     <h1><a href="ProjectDetails.php?Id=<?php echo $row_projectList['Id']; ?>"><?php echo $row_projectList['Name']; ?></a></h1>
     <p><?php echo getGrade($row_projectList); ?></p>
-    <p>Subject: <?php echo $row_projectList['Subject']; ?></p>
+    <p style="margin-top:-5px;">Subject: <?php echo $row_projectList['Subject']; ?></p>
 </div>
 
 <?php
