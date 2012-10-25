@@ -25,9 +25,6 @@ a:hover {
 a:active {
 	color: #0099CC;
 }
-.typekit-badge {
-	display:none !important;
-}
 
 #FullWidthWrapper {
 	width:100%;

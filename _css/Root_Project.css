@@ -49,6 +49,15 @@ li {
 	line-height: 130%;
 	font-size: 15px;
 }
+option {
+	outline: none;
+}
+option:focus {
+	color: #FFF;
+	background-color: #666;
+	border:none;
+	outline:none;
+}
 select {
 	/*Dark Grey - used in Gallery.php */ 
 	width: 200px;
@@ -62,29 +71,40 @@ select {
 	outline: none;
 	border-radius: 0px;
 	-moz-border-radius: 0;
+	-moz-appearance: none;
 	-webkit-border-radius: 0;
 	-webkit-appearance: none;
-	-moz-appearance: none;
 	padding-left: 15px;
 	padding-top: 4px;
 }
-select:hover {
+select:focus {
 	background-color: #666;
 	border:none;
-	
+	outline: none;
+	border-radius: 0px;
 }
+
+
 a:link {
 	text-decoration: none;
 	color:#0099CC;
+	outline:none;
+	-moz-outline: none;
 }
 a:visited {
 	color: #0099CC;
+	outline:none;
+	-moz-outline: none;
 }
 a:hover {
 	color: #0099CC;
+	outline:none;
+	-moz-outline: none;
 }
 a:active {
 	color: #0099CC;
+	outline:none;
+	-moz-outline: none;
 }
 a.navUp {
 	font-size: 13px;
@@ -98,7 +118,7 @@ a.navDown {
 	font-size:13px;
 	letter-spacing:1px;
 	line-height:38px;
-	color: #3AADEF;
+	color: #0099cc;
 	text-align:center;
 	font-weight:250;
 }
@@ -139,33 +159,31 @@ a.navDown {
 #HomeBannerDiv {
 	clear: both;
 	position: relative;
-	margin-top: 60px;
+	margin-top: 45px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 126px;
+	margin-bottom: 100px;
 	padding: 10px 15px 10px 15px;
 	width: 576px;
-	height: 360px;
-	background-image: url(../_images/homebannerbg_1by1.png);
-	background-repeat: repeat;
+	height: 400px;
+	/*IE7*/
+	background-color: #343434;
+	/*IE8 and newer browsers*/
+	background-color: rgba(0,0,0,0.8);
 	/*SHADOW*/
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 	/* Safari v3.0+ and by Chrome v0.2+ */
 	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
-	box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
-	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
-
 }
 #HomeBannerDiv h1 {
-	margin: 20px 5px 5px 5px;
-	font-weight:300;
-	line-height:20px;
-	font-size:18px;
-	color:rgb(255,255,255);
-	text-align:left;
+	margin: 5px;
+	font-weight: 200;
+	font-size: 22px;
+	line-height: 22px;
+	color: #0099CC;
+	text-align: left;
+	padding: 0px;
 
 }
 #HomeBannerDiv h2 {
@@ -190,7 +208,7 @@ a.navDown {
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-bottom: 5px;
-	margin-top: 10px;
+	margin-top: 15px;
 	background-image: url(../_images/hr.png);
 	height: 1px;
 	clear: both;
@@ -206,7 +224,7 @@ a.navDown {
 #HomeBannerRotator {
 	display: inline;
 	width: 448px;
-	height: 100px;
+	height: 110px;
 	float: left;
 	display: block;
 	cursor: default;
@@ -230,11 +248,18 @@ a.navDown {
 	padding-top: 20px;
 }
 .slides_container {
-	width: 450px;
+	width: 448px;
 }
 .slides_container div {
 	width: 450px;
-	height: 200px;
+	height: 150px;
+}
+.viewAllProjects {
+	display:block;
+	clear:both;
+	width:auto;
+	margin-left:64px;
+	margin-right:64px;
 }
 #HomeBackgroundDiv {
 	margin-left: auto;
@@ -460,11 +485,11 @@ a.navDown {
 	height: 38px;
 	top: -50px;
 	/* Firefox v3.5+ */
-	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
 	/* Safari v3.0+ and by Chrome v0.2+ */
-	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
 	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
-	box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
 	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
 	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
 	/* IE 9 shadow fix */
@@ -536,7 +561,7 @@ a.navDown {
 }
 #StudentGalleryUpload {
 	float: left;
-	background-color: #3AADEF;
+	background-color: #0099cc;
 	width: 20%;
 	height: 26px;
 	color: #FFF;
@@ -551,13 +576,14 @@ a.navDown {
 }
 #GalleryBanner {
 	float: left;
-	background-image: url(../_images/myvoice_banner.png);
-	height: 61px;
-	padding-left: 85px;
-	width: 555px;
+	background-image: url(../_images/myvoice_banner2.png);
+	height: 70px;
+	padding-left: 0px;
+	width: 640px;
 	padding-right: 300px;
-	padding-top: 6px;
+	padding-top: 0px;
 	background-repeat: no-repeat;
+	overflow: hidden;
 }
 .horzontalSpacer {
 	float: left;
@@ -569,6 +595,7 @@ a.navDown {
 	margin: 0px;
 	font-size: 14px;
 	font-weight: 600;
+	padding-top: 10px;
 }
 #GalleryBanner p{
 	margin: 0px;
@@ -617,7 +644,7 @@ a.navDown {
 	margin-top: 32px;
 }
 .GalleryBlueBar {
-	background-color: #00AEEF;
+	background-color: #0099cc;
 	width: 100%;
 	position: absolute;
 	display: block;
@@ -693,7 +720,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 480px;
+	height: 450px;
 	position: relative;
 }
 .GalleryColumn1Div p{
@@ -703,7 +730,7 @@ a.navDown {
 	margin-bottom: 0px;
 }
 .GalleryColumn1Div:hover {
-	background-color: #3AADEF;
+	background-color: #0099cc;
 	color:#FFF;
 	background-image: url(../_images/proj_gal_item_down.gif); 
 	background-position:bottom right;
@@ -722,7 +749,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 480px;
+	height: 450px;
 	position: relative;
 }
 .GalleryColumn2Div p{
@@ -732,7 +759,7 @@ a.navDown {
 	margin-bottom: 0px;
 }
 .GalleryColumn2Div:hover {
-	background-color: #3AADEF;
+	background-color: #0099cc;
 	color: #FFF;
 	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position: bottom right;
@@ -750,7 +777,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 480px;
+	height: 450px;
 	position: relative;
 }
 .GalleryColumn3Div p{
@@ -760,7 +787,7 @@ a.navDown {
 	margin-bottom: 0px;
 }
 .GalleryColumn3Div:hover {
-	background-color: #3AADEF;
+	background-color: #0099cc;
 	color:#FFF;
 	background-image: url(../_images/proj_gal_item_down.gif);
 	background-position:bottom right;
