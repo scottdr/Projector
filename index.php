@@ -169,6 +169,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 .pagination li.current a {
 	width:12px;
 	height:0px;
+	margin-left:0px;
 	padding-top:24px;
 	background-image:url(_images/home_banner_square_down.png);
 	background-position:0 0;
@@ -176,7 +177,9 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 	overflow:hidden;
 }
 
+
 </style>
+
 
 </head>
 
@@ -209,7 +212,6 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
                         <div class="slides_container">
                             <?php require_once("SlideShowDivData.php"); ?>
                         </div>
-                        <div><p><a href="Gallery.php">View all projects</a></p></div>
                 </div>
                 <div id="HomeBannerRotatorNext">
                     <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item" width="64" height="64"></a>
