@@ -66,6 +66,7 @@ $(document).ready(function() {
     <div id="ContentDiv">
         <!-- Banner for Featured Topic -->
         <?php if ($topic == "All") : ?>
+        	<a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">
             <div id="GalleryBanner">
                 <div id="TopicIcon" style="float:left; margin-right:10px;">
                 	<img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
@@ -76,6 +77,7 @@ $(document).ready(function() {
                     <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
                 </div>
             </div>
+            </a>
             <div class="horzontalSpacer"></div>
         <?php else: ?>
             <div id="GalleryBanner">

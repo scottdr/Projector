@@ -132,7 +132,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 	padding-top: 10px;
 	padding-left: 0px;
 	width: 400px;
-	height: 12px;
+	height: 9px;
 	overflow:hidden;
 }
 .pagination ul ol {
@@ -154,7 +154,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 }
 
 .pagination a {
-	width:12px;
+	width:9px;
 	height:0px;
 	padding-top:24px;
 	margin-left:0px;
@@ -168,7 +168,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 }
 
 .pagination li.current a {
-	width:12px;
+	width:9px;
 	height:0px;
 	margin-left:0px;
 	padding-top:24px;
@@ -208,6 +208,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
                     <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item" width="64" height="64"></a>
                 </div>
                 <div id="HomeBannerRotator">
+                		<p style="font-size:14px; padding-top:5px; padding-bottom:0px;">More projects</p>
                         <div class="slides_container">
                             <?php require_once("SlideShowDivData.php"); ?>
                         </div>
@@ -222,7 +223,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
                   
         
         <!-- FOOTER -->
-        <div id="FooterHomeDiv" style="top:-2px; z-index:-3;">
+        <div id="FooterHomeDiv" style="z-index:-3;">
             <?php include("GeneralFooter.php"); ?>
         </div>
         
