@@ -129,9 +129,10 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 	position:relative;
 	display: block;
 	margin-left: 68px;
-	padding: 0px;
+	padding-top: 10px;
+	padding-left: 0px;
 	width: 400px;
-	height: 24px;
+	height: 12px;
 	overflow:hidden;
 }
 .pagination ul ol {
@@ -179,8 +180,6 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 
 
 </style>
-
-
 </head>
 
 <body>
