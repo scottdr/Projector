@@ -70,10 +70,11 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 	function slideTransition(url) {
 		img = new Image();	// this is doing a preload of the image using javascript so that when we set the background via css using jQuery below after the 1 second fadeOut it has hopefully already loaded!
 		img.src = url;
-		$('#HomeBackgroundDiv').fadeOut(1000, "linear", function() {				// fade out old background image over 100 milliseconds
-				// Animation complete				
+		$('#HomeBackgroundDiv').animate( {opacity: .5} , 500, "swing", function() {				// fade out old background image to 50% opacity for half a second
+				// Animation complete
+				$(this).css("opacity", ".5");				// set background image opacity at 50% 
 				$(this).css("background-image",'url("' + url + '")');		// set the background image to the url for next / prev slide
-				$(this).fadeToggle(2000);			// toggle visibility fading the image back in to view
+				$(this).animate({opacity: 1} , 500, "swing");			// toggle visibility fading the image back in to view over half a second using swing easing
 		});
 	}
 	
