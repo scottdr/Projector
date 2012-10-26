@@ -66,18 +66,20 @@ $(document).ready(function() {
     <div id="ContentDiv">
         <!-- Banner for Featured Topic -->
         <?php if ($topic == "All") : ?>
-        	<a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">
+        	
             <div id="GalleryBanner">
+            <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">
                 <div id="TopicIcon" style="float:left; margin-right:10px;">
                 	<img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
                 </div>
                 <div>
-                    <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
-                    <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+                    <h1 style="color:#333"><?php echo $row_FeaturedProject['Name']; ?></h1>
+                    <p style="color:#333"><?php echo $row_FeaturedProject['TagLine']; ?></p>
                     <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
                 </div>
-            </div>
             </a>
+            </div>
+           
             <div class="horzontalSpacer"></div>
         <?php else: ?>
             <div id="GalleryBanner">
