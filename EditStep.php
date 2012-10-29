@@ -313,8 +313,8 @@ tinyMCE.init({
         mode : "textareas",
 				theme : "advanced",
 					// Theme options
-				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,charmap",
-				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor",
+				theme_advanced_buttons1 : "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect",
+				theme_advanced_buttons2 : "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,charmap,code",
 				theme_advanced_toolbar_location : "top",
 				theme_advanced_toolbar_align : "left",
 			/*	theme_advanced_statusbar_location : "bottom",*/
