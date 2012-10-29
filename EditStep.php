@@ -365,7 +365,9 @@ tinyMCE.init({
      	<label for="TemplateName">Template:</label>
       <select name="TemplateName" id="TemplateName" value="<?php echo $row_steps['TemplateName']; ?>">
       	<option value="Intro.php" <?php if ($row_steps['TemplateName'] == "Intro.php") echo ' selected="selected" '; ?>>Intro</option>
+        <option value="TextOnly.php" <?php if ($row_steps['TemplateName'] == "TextOnly.php") echo ' selected="selected" '; ?>>Text Only</option>
         <option value="MediaLeft.php" <?php if ($row_steps['TemplateName'] == "MediaLeft.php") echo ' selected="selected" '; ?>>Media Left</option>
+        <option value="MediaRight.php" <?php if ($row_steps['TemplateName'] == "MediaRight.php") echo ' selected="selected" '; ?>>Media Right</option>
         <option value="Plan.php" <?php if ($row_steps['TemplateName'] == "Plan.php") echo ' selected="selected" '; ?>>Plan</option>
         <option value="Research.php" <?php if ($row_steps['TemplateName'] == "Research.php") echo ' selected="selected" '; ?>>Research</option>
         <option value="Create.php" <?php if ($row_steps['TemplateName'] == "Create.php") echo ' selected="selected" '; ?>>Create</option>
