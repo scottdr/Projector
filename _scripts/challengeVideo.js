@@ -105,7 +105,10 @@ $(document).ready(function(){
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
 	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
 	$('div[data-type="wrapper"]').click(function(event){
-
+			if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
+				console.log("Ignore click on data wrapper");
+				return;
+			}
 			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
 			jQuery('.ribbonChallengeBottomCurrent').removeClass('ribbonChallengeBottomCurrent').addClass('ribbonChallengeBottom');
 			jQuery('.ribbonStartBottomCurrent').removeClass('ribbonStartBottomCurrent').addClass('ribbonStartBottom');
@@ -130,6 +133,10 @@ $(document).ready(function(){
 
 	$('div[data-type="wrapper"]').click(function(event)
 	{
+		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
+			console.log("IGNORE click on data-type = wrapper");
+			return;
+		}
 		StepNumber = event.currentTarget.getAttribute('data-number');
 		StepId = event.currentTarget.getAttribute('data-id');
 		loadStep(StepId,StepNumber);
@@ -148,6 +155,7 @@ $(document).ready(function(){
 
 function setSelectedRibbonItem(StepNumber) {
 	var e = jQuery.Event("click");
+	console.log("selecting ribbon item #: " + StepNumber);
 //	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
 	$('div[data-number="' + StepNumber + '"]').trigger(e);
 }

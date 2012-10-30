@@ -23,6 +23,7 @@
 	var swipeLength = 0;
 	var swipeAngle = null;
 	var swipeDirection = null;
+	var ribbonStartX = 0;
 	
 	// The 4 Touch Event Handlers
 	
@@ -43,6 +44,15 @@
 			startY = event.touches[0].pageY;
 			// store the triggering element ID
 			triggerElementID = passedName;
+			if (triggerElementID == 'ribbonButtons') {	// if we are moving the ribbon 
+				ribbonStartX = jQuery("#ribbonButtons").css("left");
+				if (ribbonStartX == "auto") {
+					ribbonStartX = 0;
+				} else {
+					ribbonStartX = parseInt(ribbonStartX, 10);
+				}
+				doLog("ribbon Touch Start pos: " + ribbonStartX,"MOVE"); 
+			}
 		} else {
 			// more than one finger touched so cancel
 			touchCancel(event);
@@ -54,6 +64,17 @@
 		if ( event.touches.length == 1 ) {
 			curX = event.touches[0].pageX;
 			curY = event.touches[0].pageY;
+			if (triggerElementID == 'ribbonButtons') {
+				deltaX = curX - startX;
+				currentXPos = jQuery("#ribbonButtons").css("left");
+				doLog("#ribbonButtons left: " + currentXPos,"MOVE");
+				doLog("move delta x: " + deltaX,"MOVE");
+				newPos = ribbonStartX + deltaX;
+				doLog("new position: " + newPos,"MOVE");
+				jQuery("#ribbonButtons").css("left",newPos);
+				
+//				jQuery("#ribbonButtons").animate({left : "-=" + StepWidth + "px"});
+			}
 		} else {
 			touchCancel(event);
 		}
@@ -121,7 +142,7 @@
 	
 	function processingRoutine() {
 		var swipedElement = document.getElementById(triggerElementID);
-		if ( swipeDirection == 'left' ) {
+		if ( swipeDirection == 'left' && triggerElementID == 'ContentScreens' ) {
 			StepNumber++;
 			if (StepNumber > NumberOfSteps)
 				StepNumber = NumberOfSteps;
@@ -129,8 +150,9 @@
 			if(jQuery("#ribbonButtons").position().left > stopPosition && !jQuery("#ribbonButtons").is(":animated")){
 				jQuery("#ribbonButtons").animate({left : "-=" + StepWidth + "px"});
 			}
+			doLog("#ribbonButtons left: " + jQuery("#ribbonButtons").css("left"));
 			setSelectedRibbonItem(StepNumber);
-		} else if ( swipeDirection == 'right' ) {
+		} else if ( swipeDirection == 'right' && triggerElementID == 'ContentScreens' ) {
 			StepNumber--;
 			if (StepNumber <= 0)
 				StepNumber = 1;
@@ -138,6 +160,7 @@
 			if(jQuery("#ribbonButtons").position().left < 0 && !jQuery("#ribbonButtons").is(":animated")){
 				jQuery("#ribbonButtons").animate({left : "+=" + StepWidth + "px"});
 			}
+			doLog("#ribbonButtons right: " + jQuery("#ribbonButtons").css("left"));
 			setSelectedRibbonItem(StepNumber);
 		} else if ( swipeDirection == 'up' ) {
 			// REPLACE WITH YOUR ROUTINES
