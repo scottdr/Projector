@@ -109,7 +109,9 @@
 						StepId = stepTarget.getAttribute('data-id');
 						doLog("stepTarget # " + StepNumber + " id: " + StepId);
 						loadStep(StepId,StepNumber);
-						selectStep(stepTarget);
+						var evt = document.createEvent("MouseEvents");
+						evt.currentTarget = stepTarget;
+						selectStep(evt);
 					}
 				}
 				touchCancel(event);
