@@ -1,5 +1,7 @@
 // JavaScript Document
 
+DEBUG = true;
+
 function goToURL(url) {
 	window.location = url;
 }
@@ -16,4 +18,12 @@ function getQueryVariable(variable,defaultValue)
 		 	return defaultValue;
 		 else
 		 	return(false);
+}
+
+function doLog(message,feature) {
+	switch (feature) {
+		case "MOVE" : return false;
+	}
+	if (DEBUG)
+		console.log(message);
 }

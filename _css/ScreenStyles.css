@@ -693,6 +693,7 @@ a:active {
 	padding-left: 2%;
 	margin-top: 5%;
 }
+
 #OpeningTwoColumnRight h2 {
 	font-size:20px;
 	line-height:100%;
@@ -703,6 +704,56 @@ a:active {
 	border: 0px;
 	font-weight:200;
 }
+
+
+/* 04 Media Right */
+
+#MediaRightColumnLeft {
+	float:left;
+	width:58%;
+	margin-top: 5%;
+}
+#MediaRightColumnRight img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#MediaRightColumnRight .caption{
+	color: #333;
+	background-color: #FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+	font-size: 12px;
+}
+
+#MediaRightColumnRight {
+	float:right;
+	width:40%;
+	padding-left: 2%;
+	margin-top: 5%;
+}
+
+#MediaRightColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+
+
+
+
 /* 06 07 08 Plan 09 Create 10 Revise 11 Present */
 #PCRPTwoColumnLeft {
 	float:left;
