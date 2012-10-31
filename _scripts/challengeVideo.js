@@ -102,29 +102,6 @@ $(document).ready(function(){
 		loadStep(StepId,StepNumber);
 	}
 	
-	function selectStep(event) {
-				// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
-			jQuery('.ribbonChallengeBottomCurrent').removeClass('ribbonChallengeBottomCurrent').addClass('ribbonChallengeBottom');
-			jQuery('.ribbonStartBottomCurrent').removeClass('ribbonStartBottomCurrent').addClass('ribbonStartBottom');
-			jQuery('.ribbonPlanBottomCurrent').removeClass('ribbonPlanBottomCurrent').addClass('ribbonPlanBottom');
-			jQuery('.ribbonCreateBottomCurrent').removeClass('ribbonCreateBottomCurrent').addClass('ribbonCreateBottom');
-			jQuery('.ribbonReviseBottomCurrent').removeClass('ribbonReviseBottomCurrent').addClass('ribbonReviseBottom');
-			jQuery('.ribbonPresentBottomCurrent').removeClass('ribbonPresentBottomCurrent').addClass('ribbonPresentBottom');
-			
-			
-			// remove all visible selected step call outs (arrow pointing down below the step) and hide them
-			jQuery('div[data-type="selector"]').removeClass('visibleStyle').addClass('hiddenStyle');
-				// Add the visible style to the selected lower div to display the arrow pointing down, div class=ribbonChallengeSelector
-			jQuery('div[data-type="selector"]',event.currentTarget).addClass("visibleStyle");
-			// Add Current to class for the step so that it stays highlighted in appropriate color
-			jQuery(".ribbonChallengeBottom",event.currentTarget).removeClass("ribbonChallengeBottom").addClass("ribbonChallengeBottomCurrent");
-			jQuery(".ribbonStartBottom",event.currentTarget).removeClass("ribbonStartBottom").addClass("ribbonStartBottomCurrent");	
-			jQuery(".ribbonPlanBottom",event.currentTarget).removeClass("ribbonPlanBottom").addClass("ribbonPlanBottomCurrent");
-			jQuery(".ribbonCreateBottom",event.currentTarget).removeClass("ribbonCreateBottom").addClass("ribbonCreateBottomCurrent");	
-			jQuery(".ribbonReviseBottom",event.currentTarget).removeClass("ribbonReviseBottom").addClass("ribbonReviseBottomCurrent");	
-			jQuery(".ribbonPresentBottom",event.currentTarget).removeClass("ribbonPresentBottom").addClass("ribbonPresentBottomCurrent");	
-	}
-	
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
 	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
 	$('div[data-type="wrapper"]').click(function(event){
@@ -186,6 +163,29 @@ function loadStep(StepId,StepOrderNumber) {
 	});
 };
 	
+/* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
+function selectStep(event) {
+			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
+		jQuery('.ribbonChallengeBottomCurrent').removeClass('ribbonChallengeBottomCurrent').addClass('ribbonChallengeBottom');
+		jQuery('.ribbonStartBottomCurrent').removeClass('ribbonStartBottomCurrent').addClass('ribbonStartBottom');
+		jQuery('.ribbonPlanBottomCurrent').removeClass('ribbonPlanBottomCurrent').addClass('ribbonPlanBottom');
+		jQuery('.ribbonCreateBottomCurrent').removeClass('ribbonCreateBottomCurrent').addClass('ribbonCreateBottom');
+		jQuery('.ribbonReviseBottomCurrent').removeClass('ribbonReviseBottomCurrent').addClass('ribbonReviseBottom');
+		jQuery('.ribbonPresentBottomCurrent').removeClass('ribbonPresentBottomCurrent').addClass('ribbonPresentBottom');
+		
+		
+		// remove all visible selected step call outs (arrow pointing down below the step) and hide them
+		jQuery('div[data-type="selector"]').removeClass('visibleStyle').addClass('hiddenStyle');
+			// Add the visible style to the selected lower div to display the arrow pointing down, div class=ribbonChallengeSelector
+		jQuery('div[data-type="selector"]',event.currentTarget).addClass("visibleStyle");
+		// Add Current to class for the step so that it stays highlighted in appropriate color
+		jQuery(".ribbonChallengeBottom",event.currentTarget).removeClass("ribbonChallengeBottom").addClass("ribbonChallengeBottomCurrent");
+		jQuery(".ribbonStartBottom",event.currentTarget).removeClass("ribbonStartBottom").addClass("ribbonStartBottomCurrent");	
+		jQuery(".ribbonPlanBottom",event.currentTarget).removeClass("ribbonPlanBottom").addClass("ribbonPlanBottomCurrent");
+		jQuery(".ribbonCreateBottom",event.currentTarget).removeClass("ribbonCreateBottom").addClass("ribbonCreateBottomCurrent");	
+		jQuery(".ribbonReviseBottom",event.currentTarget).removeClass("ribbonReviseBottom").addClass("ribbonReviseBottomCurrent");	
+		jQuery(".ribbonPresentBottom",event.currentTarget).removeClass("ribbonPresentBottom").addClass("ribbonPresentBottomCurrent");	
+}	
 		
 //  ///////////////////////////////////////////////////////////////////////
 
