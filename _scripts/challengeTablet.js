@@ -71,7 +71,7 @@
 				doLog("move delta x: " + deltaX,"MOVE");
 				newPos = ribbonStartX + deltaX;
 				doLog("new position: " + newPos,"MOVE");
-				if (newPos < 0)
+				if (newPos > 0)
 					newPos = 0;
 				jQuery("#ribbonButtons").css("left",newPos);
 				
