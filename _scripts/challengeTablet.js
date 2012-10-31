@@ -52,6 +52,8 @@
 					ribbonStartX = parseInt(ribbonStartX, 10);
 				}
 				doLog("ribbon Touch Start pos: " + ribbonStartX,"MOVE"); 
+				event.stopPropagation();
+				return false;
 			}
 		} else {
 			// more than one finger touched so cancel
@@ -90,11 +92,20 @@
 			swipeLength = Math.round(Math.sqrt(Math.pow(curX - startX,2) + Math.pow(curY - startY,2)));
 			// if the user swiped more than the minimum length, perform the appropriate action
 			if ( swipeLength >= minLength ) {
+				doLog("-- touchEnd with swipe","MOVE");
 				caluculateAngle();
 				determineSwipeDirection();
 				processingRoutine();
 				touchCancel(event); // reset the variables
 			} else {
+				doLog("-- touchEnd no swipe","MOVE");
+				if (triggerElementID == 'step') {
+					doLog("-- touchEnd triggerElementID == Step");
+					StepNumber = event.currentTarget.getAttribute('data-number');
+					StepId = event.currentTarget.getAttribute('data-id');
+					doLog("loadStep # " + StepNumber + " id: " + StepId);
+					loadStep(StepId,StepNumber);
+				}
 				touchCancel(event);
 			}	
 		} else {
