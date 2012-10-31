@@ -24,6 +24,7 @@
 	var swipeAngle = null;
 	var swipeDirection = null;
 	var ribbonStartX = 0;
+	var stepTarget = null;
 	
 	// The 4 Touch Event Handlers
 	
@@ -45,8 +46,8 @@
 			// store the triggering element ID
 			triggerElementID = passedName;
 			if (triggerElementID == 'step') {		// if we had clicked on one of the steps we first receive touch event for the step then for the outer ribbonButtons div try ignoring outer one for now
-				event.stopPropagation();
-			}
+				stepTarget = event.currentTarget;
+			} 
 			if (triggerElementID == 'ribbonButtons') {	// if we are moving the ribbon 
 				ribbonStartX = jQuery("#ribbonButtons").css("left");
 				if (ribbonStartX == "auto") {
@@ -107,6 +108,11 @@
 					StepNumber = event.currentTarget.getAttribute('data-number');
 					StepId = event.currentTarget.getAttribute('data-id');
 					doLog("loadStep # " + StepNumber + " id: " + StepId);
+					
+					// stepTarget saved when user did a touchstart on the step
+					StepNumber = stepTarget.getAttribute('data-number');
+					StepId = stepTarget.getAttribute('data-id');
+					doLog("stepTarget # " + StepNumber + " id: " + StepId);
 					loadStep(StepId,StepNumber);
 				}
 				touchCancel(event);
@@ -131,6 +137,7 @@
 		swipeAngle = null;
 		swipeDirection = null;
 		triggerElementID = null;
+		stepTarget = null;
 	}
 	
 	function caluculateAngle() {
