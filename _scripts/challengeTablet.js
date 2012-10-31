@@ -91,7 +91,7 @@
 	function touchEnd(event) {
 		event.preventDefault();
 		// check to see if more than one finger was used and that there is an ending coordinate
-		if ( fingerCount == 1 && curX != 0 ) {
+		if ( fingerCount == 1 /*&& curX != 0 */) {
 			// use the Distance Formula to determine the length of the swipe
 			swipeLength = Math.round(Math.sqrt(Math.pow(curX - startX,2) + Math.pow(curY - startY,2)));
 			// if the user swiped more than the minimum length, perform the appropriate action
