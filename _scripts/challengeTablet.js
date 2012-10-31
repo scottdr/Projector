@@ -44,6 +44,9 @@
 			startY = event.touches[0].pageY;
 			// store the triggering element ID
 			triggerElementID = passedName;
+			if (triggerElementID == 'step') {		// if we had clicked on one of the steps we first receive touch event for the step then for the outer ribbonButtons div try ignoring outer one for now
+				event.stopPropagation();
+			}
 			if (triggerElementID == 'ribbonButtons') {	// if we are moving the ribbon 
 				ribbonStartX = jQuery("#ribbonButtons").css("left");
 				if (ribbonStartX == "auto") {
@@ -99,7 +102,7 @@
 				touchCancel(event); // reset the variables
 			} else {
 				doLog("-- touchEnd no swipe","MOVE");
-				if (triggerElementID == 'step') {
+				if (triggerElementID == 'step' || triggerElementID == 'ribbonButtons') {
 					doLog("-- touchEnd triggerElementID == Step");
 					StepNumber = event.currentTarget.getAttribute('data-number');
 					StepId = event.currentTarget.getAttribute('data-id');
