@@ -110,7 +110,7 @@
 						doLog("stepTarget # " + StepNumber + " id: " + StepId);
 						loadStep(StepId,StepNumber);
 						var evt = document.createEvent("MouseEvents");
-						evt.currentTarget = stepTarget;
+						evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, stepTarget);
 						selectStep(evt);
 					}
 				}
