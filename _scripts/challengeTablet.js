@@ -40,14 +40,15 @@
 		// since we're looking for a swipe (single finger) and not a gesture (multiple fingers),
 		// check that only one finger was used
 		if ( fingerCount == 1 ) {
+			if (triggerElementID == 'step') {		// if we had clicked on one of the steps we first receive touch event for the step then for the outer ribbonButtons div try ignoring outer one for now
+				stepTarget = event.currentTarget;
+				return false;
+			} 
 			// get the coordinates of the touch
 			startX = event.touches[0].pageX;
 			startY = event.touches[0].pageY;
 			// store the triggering element ID
 			triggerElementID = passedName;
-			if (triggerElementID == 'step') {		// if we had clicked on one of the steps we first receive touch event for the step then for the outer ribbonButtons div try ignoring outer one for now
-				stepTarget = event.currentTarget;
-			} 
 			if (triggerElementID == 'ribbonButtons') {	// if we are moving the ribbon 
 				ribbonStartX = jQuery("#ribbonButtons").css("left");
 				if (ribbonStartX == "auto") {
@@ -56,8 +57,8 @@
 					ribbonStartX = parseInt(ribbonStartX, 10);
 				}
 				doLog("ribbon Touch Start pos: " + ribbonStartX,"MOVE"); 
-				event.stopPropagation();
-				return false;
+//				event.stopPropagation();
+//				return false;
 			}
 		} else {
 			// more than one finger touched so cancel
@@ -68,6 +69,9 @@
 	function touchMove(event) {
 		event.preventDefault();
 		if ( event.touches.length == 1 ) {
+			if (triggerElementID == 'step') { // we want to ignore touchMove on the actual step
+				return false;
+			}
 			curX = event.touches[0].pageX;
 			curY = event.touches[0].pageY;
 			if (triggerElementID == 'ribbonButtons') {
@@ -109,11 +113,12 @@
 					StepId = event.currentTarget.getAttribute('data-id');
 					doLog("loadStep # " + StepNumber + " id: " + StepId);
 					
-					// stepTarget saved when user did a touchstart on the step
-					StepNumber = stepTarget.getAttribute('data-number');
-					StepId = stepTarget.getAttribute('data-id');
-					doLog("stepTarget # " + StepNumber + " id: " + StepId);
-					loadStep(StepId,StepNumber);
+					if (stepTarget != null) {						// stepTarget is saved when user did a touchstart on the step, if it is set then user clicked on  astep
+						StepNumber = stepTarget.getAttribute('data-number');
+						StepId = stepTarget.getAttribute('data-id');
+						doLog("stepTarget # " + StepNumber + " id: " + StepId);
+						loadStep(StepId,StepNumber);
+					}
 				}
 				touchCancel(event);
 			}	
