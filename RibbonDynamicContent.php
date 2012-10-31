@@ -58,7 +58,7 @@ do {
 			$currentRoutineName = $row_stepsRecordset['CSSName'];
 		}
 		
-		print "\n  " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $row_stepsRecordset['SortOrder'] . '" data-id="' . $row_stepsRecordset['Id'] . 'ontouchstart="touchStart(event,\'step\');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"' . '" >'; 			// <div class="ribbonChallengeColumnWrap">
+		print "\n  " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $row_stepsRecordset['SortOrder'] . '" data-id="' . $row_stepsRecordset['Id'] . '" ' . 'ontouchstart="touchStart(event,\'step\');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"' . '" >'; 			// <div class="ribbonChallengeColumnWrap">
 		if ($StepNumber == $row_stepsRecordset['SortOrder']) {	// if the step number is the currently selected one set class to BottomCurrent
 			print "\n    " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'BottomCurrent" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">
 		} else
