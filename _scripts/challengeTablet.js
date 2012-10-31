@@ -99,16 +99,17 @@
 			if (curX ==0) {	// curX == 0 when the user does a single click look and see if the user had clicked on a step and select it
 				doLog("-- touchEnd no swipe","MOVE");
 				if (triggerElementID == 'step' || triggerElementID == 'ribbonButtons') {
-					doLog("-- touchEnd triggerElementID == Step");
+		/*			doLog("-- touchEnd triggerElementID == Step");
 					StepNumber = event.currentTarget.getAttribute('data-number');
 					StepId = event.currentTarget.getAttribute('data-id');
 					doLog("loadStep # " + StepNumber + " id: " + StepId);
-					
+			*/		
 					if (stepTarget != null) {						// stepTarget is saved when user did a touchstart on the step, if it is set then user clicked on  astep
 						StepNumber = stepTarget.getAttribute('data-number');
 						StepId = stepTarget.getAttribute('data-id');
 						doLog("stepTarget # " + StepNumber + " id: " + StepId);
 						loadStep(StepId,StepNumber);
+						selectStep(stepTarget);
 					}
 				}
 				touchCancel(event);

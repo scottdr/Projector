@@ -102,14 +102,8 @@ $(document).ready(function(){
 		loadStep(StepId,StepNumber);
 	}
 	
-	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
-	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
-	$('div[data-type="wrapper"]').click(function(event){
-			if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-				console.log("Ignore click on data wrapper");
-				return;
-			}
-			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
+	function selectStep(event) {
+				// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
 			jQuery('.ribbonChallengeBottomCurrent').removeClass('ribbonChallengeBottomCurrent').addClass('ribbonChallengeBottom');
 			jQuery('.ribbonStartBottomCurrent').removeClass('ribbonStartBottomCurrent').addClass('ribbonStartBottom');
 			jQuery('.ribbonPlanBottomCurrent').removeClass('ribbonPlanBottomCurrent').addClass('ribbonPlanBottom');
@@ -129,6 +123,17 @@ $(document).ready(function(){
 			jQuery(".ribbonCreateBottom",event.currentTarget).removeClass("ribbonCreateBottom").addClass("ribbonCreateBottomCurrent");	
 			jQuery(".ribbonReviseBottom",event.currentTarget).removeClass("ribbonReviseBottom").addClass("ribbonReviseBottomCurrent");	
 			jQuery(".ribbonPresentBottom",event.currentTarget).removeClass("ribbonPresentBottom").addClass("ribbonPresentBottomCurrent");	
+	}
+	
+	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
+	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
+	$('div[data-type="wrapper"]').click(function(event){
+	/*		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
+				console.log("Ignore click on data wrapper");
+				return;
+			}
+			*/
+			selectStep(event);
 	});
 
 	$('div[data-type="wrapper"]').click(function(event)
