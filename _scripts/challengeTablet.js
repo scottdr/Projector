@@ -40,9 +40,9 @@
 		// since we're looking for a swipe (single finger) and not a gesture (multiple fingers),
 		// check that only one finger was used
 		if ( fingerCount == 1 ) {
-			if (triggerElementID == 'step') {		// if we had clicked on one of the steps we first receive touch event for the step then for the outer ribbonButtons div try ignoring outer one for now
+			if (passedName == 'step') {		// if we had clicked on one of the steps we first receive touch event for the step then for the outer ribbonButtons div try ignoring outer one for now
 				stepTarget = event.currentTarget;
-				return false;
+				return true;
 			} 
 			// get the coordinates of the touch
 			startX = event.touches[0].pageX;
