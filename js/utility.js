@@ -22,7 +22,7 @@ function getQueryVariable(variable,defaultValue)
 
 function doLog(message,feature) {
 	switch (feature) {
-		case "MOVE" : return true;
+//		case "MOVE" : return true;
 	}
 	if (DEBUG)
 		console.log(message);

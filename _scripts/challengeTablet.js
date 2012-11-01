@@ -94,10 +94,12 @@
 	
 	function touchEnd(event) {
 		event.preventDefault();
+		doLog("-- touchEnd Start");
 		// check to see if more than one finger was used and that there is an ending coordinate
 		if ( fingerCount == 1 /*&& curX != 0 */) {
-			if (curX ==0) {	// curX == 0 when the user does a single click look and see if the user had clicked on a step and select it
-				doLog("-- touchEnd no swipe","MOVE");
+			doLog("-- touchEnd fingerCount == 1, curX: " + curX);
+			if (curX == 0) {	// curX == 0 when the user does a single click look and see if the user had clicked on a step and select it
+				doLog("-- touchEnd no swipe");
 				if (triggerElementID == 'step' || triggerElementID == 'ribbonButtons') {
 		/*			doLog("-- touchEnd triggerElementID == Step");
 					StepNumber = event.currentTarget.getAttribute('data-number');
