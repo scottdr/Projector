@@ -101,7 +101,7 @@
 				// use the Distance Formula to determine the length of the swipe
 				swipeLength = Math.round(Math.sqrt(Math.pow(curX - startX,2) + Math.pow(curY - startY,2)));
 				// if the user swiped more than the minimum length, perform the appropriate action
-				if ( swipeLength >= minLength ) {
+				if ( swipeLength >= minLength && curX != 0) {
 					doLog("-- touchEnd with swipe","MOVE");
 					caluculateAngle();
 					determineSwipeDirection();
