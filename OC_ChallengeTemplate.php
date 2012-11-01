@@ -103,7 +103,7 @@ body {
         <div id="leftButton"> </div>
         <div id="rightButton"> </div>
         <div id="ribbonStrip">
-          <div id="ribbonButtons">
+          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
             <?php require_once("RibbonDynamicContent.php") ?>
           </div>
         </div>
