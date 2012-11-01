@@ -74,6 +74,7 @@
 			}
 			curX = event.touches[0].pageX;
 			curY = event.touches[0].pageY;
+			event.touches[0].target.style.webkitTransform = 'translate(' + curX + 'px, ' + curY + 'px)';
 			if (triggerElementID == 'ribbonButtons') {
 				deltaX = curX - startX;
 				currentXPos = jQuery("#ribbonButtons").css("left");
@@ -83,7 +84,7 @@
 				doLog("new position: " + newPos,"MOVE");
 				if (newPos > 0)
 					newPos = 0;
-				jQuery("#ribbonButtons").css("left",newPos);
+//				jQuery("#ribbonButtons").css("left",newPos);
 				
 //				jQuery("#ribbonButtons").animate({left : "-=" + StepWidth + "px"});
 			}
