@@ -61,9 +61,10 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Challenge : <?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<link href="_css/ChallengeLayout.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeLayout_OC.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/RibbonStyles.css" rel="stylesheet" type="text/css">
+<link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
@@ -71,12 +72,6 @@ body {
 	background-image: url(_images/challenge/OC_challenge_bg.png);
 }
 </style>
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!--<script type="text/javascript" src="//use.typekit.net/mpm3cdl.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->
-
 <script src="js/utility.js"></script>
 <script src="_scripts/respond.min.js"></script>
 <script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
@@ -88,11 +83,12 @@ body {
 </head>
 <body>
 <?php include("Globals.php") ?>
+<?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
-  <div id="Header" style="height:45px;">
+  <div id="Header">
     <div id="headerLogo">
     <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24" />
-      <p style="color:#FFF;">The Projector</p>
+      <p>The Projector</p>
     </div>
   </div>
   <div id="RibbonNavigation">
@@ -100,8 +96,6 @@ body {
      
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton"> </div>
-        <div id="rightButton"> </div>
         <div id="ribbonStrip">
           <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
             <?php require_once("RibbonDynamicContent.php") ?>

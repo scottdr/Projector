@@ -1,68 +1,17 @@
 @charset "UTF-8";
-/* CSS Document */
-
-
-body {
-	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-.typekit-badge {
-	display:none !important;
-}
-#ribbonContainer {
-	height: 120px;
-	margin:0;
-	padding:0;
-	border:0;
-}
-#leftButton {
-	width: 60px;
-	float: left;
-	height: 80px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background-image: url(../_images/challenge/leftarrow.png);
-	overflow: hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-#leftButton:hover {
-	background-image: url(../_images/challenge/leftarrow-hover.png);
-	overflow: hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-#ribbonStrip {
-	height: 120px;
-	width: auto;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	overflow: hidden;
-}
-#ribbonButtons {
-	position:relative;
-	margin:0;
-	padding:0;
-	border:0;
-	width: 2200px;
-	height: 100px;
-	overflow:hidden;
-}
+/* CSS Document for Common Core ORANGE Ribbon*/
 
 
 
-/* Challenge */
-#ribbonChallenge {
+
+/* Challenge_CC_Opening */
+#ribbonChallenge_CC_Opening {
 	float:left;
 	min-width: 200px;
 	height: 100px;
 	position: relative;
 }
-#ribbonChallenge h2 {
+#ribbonChallenge_CC_Opening h2 {
 	margin:0;
 	padding-left:10px;
 	border:0;
@@ -70,7 +19,7 @@ body {
 	color:#FFF;
 	font-weight:300;
 }
-#ribbonChallengeTop {
+#ribbonChallenge_CC_OpeningTop {
 	width: 100%;
 	height: 22px;
 	line-height: 22px;
@@ -88,11 +37,11 @@ body {
 	border-left-style: solid;
 	border-left-width: 1px;
 }
-.ribbonChallengeColumnWrap {
+.ribbonChallenge_CC_OpeningColumnWrap {
 	float: left;
 	min-width: 200px;
 }
-.ribbonChallengeBottomCurrent {
+.ribbonChallenge_CC_OpeningBottomCurrent {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -109,7 +58,7 @@ body {
 	border-left-width: 1px;
 	color: #FDCEA7;
 }
-.ribbonChallengeBottom {
+.ribbonChallenge_CC_OpeningBottom {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -126,14 +75,14 @@ body {
 	border-left-width: 1px;
 	color: #F7AA1A;
 }
-.ribbonChallengeBottom:hover {
+.ribbonChallenge_CC_OpeningBottom:hover {
 	background-color: #F7AA1A;
 	border-top-color: #F7AA1A;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
 }
-.ChallengeNumber {
+.Challenge_CC_OpeningNumber {
 	float: left;
 	display: block;
 	font-size: 32px;
@@ -144,7 +93,7 @@ body {
 	font-weight: 300;
 	line-height: 54px;
 }
-.ribbonChallengeSelector {
+.ribbonChallenge_CC_OpeningSelector {
 	width: 100%;
 	height: 10px;
 	background-image: url(../_images/challenge/selected-challenge-CC.png);
@@ -152,14 +101,14 @@ body {
 	background-position:center;
 	margin-bottom: 10px;
 }
-/* Start */
-#ribbonStart {
+/* Start_CC_Writing */
+#ribbonStart_CC_Writing {
 	float:left;
 	min-width: 200px;
 	height: 100px;
 	position: relative;
 }
-#ribbonStart h2 {
+#ribbonStart_CC_Writing h2 {
 	margin:0;
 	padding-left:10px;
 	border:0;
@@ -167,7 +116,7 @@ body {
 	color:#FFF;
 	font-weight:300;
 }
-#ribbonStartTop {
+#ribbonStart_CC_WritingTop {
 	width: 100%;
 	height: 22px;
 	line-height: 22px;
@@ -185,11 +134,11 @@ body {
 	border-left-style: solid;
 	border-left-width: 1px;
 }
-.ribbonStartColumnWrap {
+.ribbonStart_CC_WritingColumnWrap {
 	float: left;
 	min-width : 200px;
 }
-.ribbonStartBottomCurrent {
+.ribbonStart_CC_WritingBottomCurrent {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -206,7 +155,7 @@ body {
 	border-left-width: 1px;
 	color: #F9BE7B;
 }
-.ribbonStartBottom {
+.ribbonStart_CC_WritingBottom {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -223,14 +172,14 @@ body {
 	border-left-width: 1px;
 	color: #F9921F;
 }
-.ribbonStartBottom:hover {
+.ribbonStart_CC_WritingBottom:hover {
 	background-color: #F9921F;
 	border-top-color: #F9921F;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
 }
-.StartNumber {
+.Start_CC_WritingNumber {
 	float: left;
 	display: block;
 	font-size: 30px;
@@ -241,7 +190,7 @@ body {
 	font-weight: 300;
 	line-height: 54px;
 }
-.ribbonStartSelector {
+.ribbonStart_CC_WritingSelector {
 	width: 100%;
 	height: 10px;
 	background-image: url(../_images/challenge/selected-start-CC.png);
@@ -249,14 +198,14 @@ body {
 	background-position:center;
 	margin-bottom: 10px;
 }
-/* Plan */
-#ribbonPlan {
+/* Plan_CC_GroupWork */
+#ribbonPlan_CC_GroupWork {
 	float:left;
 	min-width: 200px;
 	height: 100px;
 	position: relative;
 }
-#ribbonPlan h2 {
+#ribbonPlan_CC_GroupWork h2 {
 	margin:0;
 	padding-left:10px;
 	border:0;
@@ -264,7 +213,7 @@ body {
 	color:#FFF;
 	font-weight:300;
 }
-#ribbonPlanTop {
+#ribbonPlan_CC_GroupWorkTop {
 	width: 100%;
 	height: 22px;
 	line-height: 22px;
@@ -282,11 +231,11 @@ body {
 	border-left-style: solid;
 	border-left-width: 1px;
 }
-.ribbonPlanColumnWrap {
+.ribbonPlan_CC_GroupWorkColumnWrap {
 	float: left;
 	width: 200px;
 }
-.ribbonPlanBottomCurrent {
+.ribbonPlan_CC_GroupWorkBottomCurrent {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -303,7 +252,7 @@ body {
 	border-left-width: 1px;
 	color: #FAAE7B;
 }
-.ribbonPlanBottom {
+.ribbonPlan_CC_GroupWorkBottom {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -320,14 +269,14 @@ body {
 	border-left-width: 1px;
 	color: #FA7A24;
 }
-.ribbonPlanBottom:hover {
+.ribbonPlan_CC_GroupWorkBottom:hover {
 	background-color: #FA7A24;
 	border-top-color: #FA7A24;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
 }
-.PlanNumber {
+.Plan_CC_GroupWorkNumber {
 	float: left;
 	display: block;
 	font-size: 30px;
@@ -338,7 +287,7 @@ body {
 	font-weight: 300;
 	line-height: 54px;
 }
-.ribbonPlanSelector {
+.ribbonPlan_CC_GroupWorkSelector {
 	width: 100%;
 	height: 10px;
 	background-image: url(../_images/challenge/selected-plan-CC.png);
@@ -347,14 +296,14 @@ body {
 	margin-bottom: 10px;
 }
 
-/* Create */
-#ribbonCreate {
+/* Create_CC_CommonRead */
+#ribbonCreate_CC_CommonRead {
 	float:left;
 	min-width: 200px;
 	height: 100px;
 	position: relative;
 }
-#ribbonCreate h2 {
+#ribbonCreate_CC_CommonRead h2 {
 	margin:0;
 	padding-left:10px;
 	border:0;
@@ -362,7 +311,7 @@ body {
 	color:#FFF;
 	font-weight:300;
 }
-#ribbonCreateTop {
+#ribbonCreate_CC_CommonReadTop {
 	width: 100%;
 	height: 22px;
 	line-height: 22px;
@@ -380,11 +329,11 @@ body {
 	border-left-style: solid;
 	border-left-width: 1px;
 }
-.ribbonCreateColumnWrap {
+.ribbonCreate_CC_CommonReadColumnWrap {
 	float: left;
 	width: 100%;
 }
-.ribbonCreateBottomCurrent {
+.ribbonCreate_CC_CommonReadBottomCurrent {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -401,7 +350,7 @@ body {
 	border-left-width: 1px;
 	color: #FC9E7A;
 }
-.ribbonCreateBottom {
+.ribbonCreate_CC_CommonReadBottom {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -418,14 +367,14 @@ body {
 	border-left-width: 1px;
 	color: #FC6329;
 }
-.ribbonCreateBottom:hover {
+.ribbonCreate_CC_CommonReadBottom:hover {
 	background-color: #FC6329;
 	border-top-color: #FC6329;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
 }
-.CreateNumber {
+.Create_CC_CommonReadNumber {
 	float: left;
 	display: block;
 	font-size: 30px;
@@ -436,23 +385,23 @@ body {
 	font-weight: 300;
 	line-height: 54px;
 }
-.ribbonCreateSelector {
+.ribbonCreate_CC_CommonReadSelector {
 	width: 100%;
 	height: 10px;
-	background-image: url(../_images/challenge/selected-create-CC.png);
+	background-image: url(../_images/challenge/selected-CC.png);
 	background-repeat: no-repeat;
 	background-position:center;
 	margin-bottom: 10px;
 }
 
-/* Revise */
-#ribbonRevise {
+/* Revise_CC_Revise */
+#ribbonRevise_CC_Revise {
 	float:left;
 	min-width: 200px;
 	height: 100px;
 	position: relative;
 }
-#ribbonRevise h2 {
+#ribbonRevise_CC_Revise h2 {
 	margin:0;
 	padding-left:10px;
 	border:0;
@@ -460,7 +409,7 @@ body {
 	color:#FFF;
 	font-weight:300;
 }
-#ribbonReviseTop {
+#ribbonRevise_CC_ReviseTop {
 	width: 100%;
 	height: 22px;
 	line-height: 22px;
@@ -478,11 +427,11 @@ body {
 	border-left-style: solid;
 	border-left-width: 1px;
 }
-.ribbonReviseColumnWrap {
+.ribbonRevise_CC_ReviseColumnWrap {
 	float: left;
 	width: 100%;
 }
-.ribbonReviseBottomCurrent {
+.ribbonRevise_CC_ReviseBottomCurrent {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -499,7 +448,7 @@ body {
 	border-left-width: 1px;
 	color: #F7CB7A;
 }
-.ribbonReviseBottom {
+.ribbonRevise_CC_ReviseBottom {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -516,14 +465,14 @@ body {
 	border-left-width: 1px;
 	color: #F7AA1A;
 }
-.ribbonReviseBottom:hover {
+.ribbonRevise_CC_ReviseBottom:hover {
 	background-color: #F7AA1A;
 	border-top-color: #F7AA1A;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
 }
-.ReviseNumber {
+.Revise_CC_ReviseNumber {
 	float: left;
 	display: block;
 	font-size: 30px;
@@ -534,7 +483,7 @@ body {
 	font-weight: 300;
 	line-height: 54px;
 }
-.ribbonReviseSelector {
+.ribbonRevise_CC_ReviseSelector {
 	width: 100%;
 	height: 10px;
 	background-image: url(../_images/challenge/selected-revise-CC.png);
@@ -543,14 +492,14 @@ body {
 	margin-bottom: 10px;
 }
 
-/* Present */
-#ribbonPresent {
+/* Present_CC_Homework */
+#ribbonPresent_CC_Homework {
 	float:left;
 	min-width: 200px;
 	height: 100px;
 	position: relative;
 }
-#ribbonPresent h2 {
+#ribbonPresent_CC_Homework h2 {
 	margin:0;
 	padding-left:10px;
 	border:0;
@@ -558,7 +507,7 @@ body {
 	color:#FFF;
 	font-weight:300;
 }
-#ribbonPresentTop {
+#ribbonPresent_CC_HomeworkTop {
 	width: 100%;
 	height: 22px;
 	line-height: 22px;
@@ -576,11 +525,11 @@ body {
 	border-left-style: solid;
 	border-left-width: 1px;
 }
-.ribbonPresentColumnWrap {
+.ribbonPresent_CC_HomeworkColumnWrap {
 	float: left;
 	width: 100%;
 }
-.ribbonPresentBottomCurrent {
+.ribbonPresent_CC_HomeworkBottomCurrent {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -597,7 +546,7 @@ body {
 	border-left-width: 1px;
 	color: #F9BE7D;
 }
-.ribbonPresentBottom {
+.ribbonPresent_CC_HomeworkBottom {
 	width: 100%;
 	height: 54px;
 	line-height: 54px;
@@ -614,14 +563,14 @@ body {
 	border-left-width: 1px;
 	color: #F9921F;
 }
-.ribbonPresentBottom:hover {
+.ribbonPresent_CC_HomeworkBottom:hover {
 	background-color: #F9921F;
 	border-top-color: #F9921F;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFFFFF;
 }
-.PresentNumber {
+.Present_CC_HomeworkNumber {
 	float: left;
 	display: block;
 	font-size: 30px;
@@ -632,55 +581,11 @@ body {
 	font-weight: 300;
 	line-height: 54px;
 }
-.ribbonPresentSelector {
+.ribbonPresent_CC_HomeworkSelector {
 	width: 100%;
 	height: 10px;
 	background-image: url(../_images/challenge/selected-present-CC.png);
 	background-repeat: no-repeat;
 	background-position:center;
 	margin-bottom: 10px;
-}
-
-#ribbonPip {
-	margin:0;
-	padding:0;
-	border:0;
-	width: 100%;
-	height: 20px;
-	text-align:center;
-}
-#ribbonPip img {
-	margin:0;
-	padding-left:2px;
-	padding-right:2px;
-	border:0;
-	height: 9px;
-	width: 9px;
-}
-#rightButton {
-	width: 60px;
-	left: -60px;
-	float: right;
-	height: 80px;
-	margin:0;
-	padding:0;
-	border:0;
-	background-image: url(../_images/challenge/rightarrow.png);
-	overflow:hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-#rightButton:hover {
-	background-image: url(../_images/challenge/rightarrow-hover.png);
-	overflow: hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-.hiddenStyle {
-	visibility : hidden;
-}
-
-.visibleStyle {
-	visibility : visible;
 }
