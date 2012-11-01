@@ -31,9 +31,7 @@ img, object, embed, video {
 .gridContainer {
 	margin-left: auto;
 	margin-right: auto;
-	width: 90.1333%;
-	padding-left: 0.4333%;
-	padding-right: 0.4333%;
+	width: 100%;
 }
 #Header {
 	clear: both;
@@ -70,9 +68,7 @@ img, object, embed, video {
 
 @media only screen and (min-width: 481px) {
 .gridContainer {
-	width: 92.4464%;
-	padding-left: 0.2767%;
-	padding-right: 0.2767%;
+	width: 100%;
 /*background-color : lightyellow; */     	/* for debugging display light yellow when using tablet rules */
 }
 #LayoutDivHeader {
@@ -93,7 +89,7 @@ img, object, embed, video {
 	clear: both;
 	float: left;
 	margin-left: 0;
-	width: 100%;
+	width: 10%;
 	display: block;
 }
 #Footer {
