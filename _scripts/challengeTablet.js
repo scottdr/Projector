@@ -120,7 +120,6 @@
 					}
 					touchCancel(event);
 				}
-			}
 		} else {
 			touchCancel(event);
 		}
