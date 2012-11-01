@@ -97,28 +97,7 @@
 		doLog("-- touchEnd Start");
 		// check to see if more than one finger was used and that there is an ending coordinate
 		if ( fingerCount == 1 /*&& curX != 0 */) {
-			doLog("-- touchEnd fingerCount == 1, curX: " + curX);
-			if (curX == 0) {	// curX == 0 when the user does a single click look and see if the user had clicked on a step and select it
-				doLog("-- touchEnd no swipe");
-				if (triggerElementID == 'step' || triggerElementID == 'ribbonButtons') {
-		/*			doLog("-- touchEnd triggerElementID == Step");
-					StepNumber = event.currentTarget.getAttribute('data-number');
-					StepId = event.currentTarget.getAttribute('data-id');
-					doLog("loadStep # " + StepNumber + " id: " + StepId);
-			*/		
-					if (stepTarget != null) {						// stepTarget is saved when user did a touchstart on the step, if it is set then user clicked on  astep
-						StepNumber = stepTarget.getAttribute('data-number');
-						StepId = stepTarget.getAttribute('data-id');
-						doLog("stepTarget # " + StepNumber + " id: " + StepId);
-						loadStep(StepId,StepNumber);
-//						var evt = document.createEvent("MouseEvents");
-//						evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, stepTarget);
-						selectStep(stepTarget);
-					}
-				}
-				touchCancel(event);
-	
-			} else {
+				doLog("-- touchEnd fingerCount == 1, curX - startX: " + curX - startX);
 				// use the Distance Formula to determine the length of the swipe
 				swipeLength = Math.round(Math.sqrt(Math.pow(curX - startX,2) + Math.pow(curY - startY,2)));
 				// if the user swiped more than the minimum length, perform the appropriate action
@@ -128,6 +107,18 @@
 					determineSwipeDirection();
 					processingRoutine();
 					touchCancel(event); // reset the variables
+				} else {
+					if (triggerElementID == 'step' || triggerElementID == 'ribbonButtons') {
+		
+						if (stepTarget != null) {						// stepTarget is saved when user did a touchstart on the step, if it is set then user clicked on  astep
+							StepNumber = stepTarget.getAttribute('data-number');
+							StepId = stepTarget.getAttribute('data-id');
+							doLog("stepTarget # " + StepNumber + " id: " + StepId);
+							loadStep(StepId,StepNumber);
+							selectStep(stepTarget);
+						}
+					}
+					touchCancel(event);
 				}
 			}
 		} else {
