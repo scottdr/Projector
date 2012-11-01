@@ -27,6 +27,12 @@ a:active {
 }
 
 #FullWidthWrapper {
+	width:96%;
+	padding-left:2%;
+	padding-right:2%;
+	min-height:1000px;
+}
+#ZeroBorderWidthWrapper {
 	width:100%;
 	min-height:1000px;
 }
