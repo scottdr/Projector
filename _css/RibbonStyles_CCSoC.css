@@ -75,13 +75,13 @@
 	border-left-width: 1px;
 	color: #F7AA1A;
 }
-.ribbonChallenge_CC_OpeningBottom:hover {
+/*.ribbonChallenge_CC_OpeningBottom:hover {
 	background-color: #F7AA1A;
 	border-top-color: #F7AA1A;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
-}
+}*/
 .Challenge_CC_OpeningNumber {
 	float: left;
 	display: block;
@@ -172,13 +172,14 @@
 	border-left-width: 1px;
 	color: #F9921F;
 }
-.ribbonStart_CC_WritingBottom:hover {
+/*.ribbonStart_CC_WritingBottom:hover {
 	background-color: #F9921F;
 	border-top-color: #F9921F;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
 }
+*/
 .Start_CC_WritingNumber {
 	float: left;
 	display: block;
@@ -233,7 +234,7 @@
 }
 .ribbonPlan_CC_GroupWorkColumnWrap {
 	float: left;
-	width: 200px;
+	min-width: 200px;
 }
 .ribbonPlan_CC_GroupWorkBottomCurrent {
 	width: 100%;
@@ -269,13 +270,13 @@
 	border-left-width: 1px;
 	color: #FA7A24;
 }
-.ribbonPlan_CC_GroupWorkBottom:hover {
+/*.ribbonPlan_CC_GroupWorkBottom:hover {
 	background-color: #FA7A24;
 	border-top-color: #FA7A24;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
-}
+}*/
 .Plan_CC_GroupWorkNumber {
 	float: left;
 	display: block;
@@ -331,7 +332,7 @@
 }
 .ribbonCreate_CC_CommonReadColumnWrap {
 	float: left;
-	width: 100%;
+	min-width: 200px;
 }
 .ribbonCreate_CC_CommonReadBottomCurrent {
 	width: 100%;
@@ -367,13 +368,13 @@
 	border-left-width: 1px;
 	color: #FC6329;
 }
-.ribbonCreate_CC_CommonReadBottom:hover {
+/*.ribbonCreate_CC_CommonReadBottom:hover {
 	background-color: #FC6329;
 	border-top-color: #FC6329;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
-}
+}*/
 .Create_CC_CommonReadNumber {
 	float: left;
 	display: block;
@@ -429,7 +430,7 @@
 }
 .ribbonRevise_CC_ReviseColumnWrap {
 	float: left;
-	width: 100%;
+	min-width: 200px;
 }
 .ribbonRevise_CC_ReviseBottomCurrent {
 	width: 100%;
@@ -465,13 +466,13 @@
 	border-left-width: 1px;
 	color: #F7AA1A;
 }
-.ribbonRevise_CC_ReviseBottom:hover {
+/*.ribbonRevise_CC_ReviseBottom:hover {
 	background-color: #F7AA1A;
 	border-top-color: #F7AA1A;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
-}
+}*/
 .Revise_CC_ReviseNumber {
 	float: left;
 	display: block;
@@ -527,7 +528,7 @@
 }
 .ribbonPresent_CC_HomeworkColumnWrap {
 	float: left;
-	width: 100%;
+	min-width: 200px;
 }
 .ribbonPresent_CC_HomeworkBottomCurrent {
 	width: 100%;
@@ -563,13 +564,13 @@
 	border-left-width: 1px;
 	color: #F9921F;
 }
-.ribbonPresent_CC_HomeworkBottom:hover {
+/*.ribbonPresent_CC_HomeworkBottom:hover {
 	background-color: #F9921F;
 	border-top-color: #F9921F;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFFFFF;
-}
+}*/
 .Present_CC_HomeworkNumber {
 	float: left;
 	display: block;
