@@ -191,7 +191,9 @@
 			setSelectedRibbonItem(StepNumber);
 		} else if ( swipeDirection == 'up' ) {
 			// REPLACE WITH YOUR ROUTINES
+			return true;
 		} else if ( swipeDirection == 'down' ) {
 			// REPLACE WITH YOUR ROUTINES
+			return true;
 		}
 	}
