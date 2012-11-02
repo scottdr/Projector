@@ -86,10 +86,10 @@ body {
 <?php include("Globals.php") ?>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
-  <div id="Header" style="height:40px;">
+  <div id="Header" style="height:40px; padding-left:10px;">
     <div id="headerLogo">
     <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24" />
-      <p>The Projector</p>
+      <p>ELA Unit 2</p>
     </div>
   </div>
   <div id="RibbonNavigation">
