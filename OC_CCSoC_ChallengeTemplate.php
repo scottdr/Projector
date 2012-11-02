@@ -59,7 +59,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Challenge : <?php echo $projectName; ?></title>
+<title>Lesson :<?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeLayout_OC.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
