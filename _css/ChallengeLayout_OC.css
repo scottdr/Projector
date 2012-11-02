@@ -89,7 +89,7 @@ img, object, embed, video {
 	clear: both;
 	float: left;
 	margin-left: 0;
-	width: 10%;
+	width: 100%;
 	display: block;
 }
 #Footer {
