@@ -33,8 +33,7 @@
 	// <div id="picture-frame" ontouchstart="touchStart(event,'picture-frame');"  ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
 
 	function touchStart(event,passedName) {
-		// disable the standard ability to select the touched object
-		event.preventDefault();
+	
 		// get the total number of fingers touching the screen
 		fingerCount = event.touches.length;
 		// since we're looking for a swipe (single finger) and not a gesture (multiple fingers),
@@ -50,6 +49,8 @@
 			// store the triggering element ID
 			triggerElementID = passedName;
 			if (triggerElementID == 'ribbonButtons') {	// if we are moving the ribbon 
+				// disable the standard ability to select the touched object
+				event.preventDefault();
 				ribbonStartX = jQuery("#ribbonButtons").css("left");
 				if (ribbonStartX == "auto") {
 					ribbonStartX = 0;
@@ -67,7 +68,6 @@
 	}
 
 	function touchMove(event) {
-		event.preventDefault();
 		if ( event.touches.length == 1 ) {
 			if (triggerElementID == 'step') { // we want to ignore touchMove on the actual step
 				return true;
@@ -76,6 +76,7 @@
 			curY = event.touches[0].pageY;
 //			event.touches[0].target.style.webkitTransform = 'translate(' + curX + 'px, ' + curY + 'px)';
 			if (triggerElementID == 'ribbonButtons') {
+				event.preventDefault();
 				deltaX = curX - startX;
 				currentXPos = jQuery("#ribbonButtons").css("left");
 				doLog("#ribbonButtons left: " + currentXPos,"MOVE");
@@ -94,7 +95,6 @@
 	}
 	
 	function touchEnd(event) {
-		event.preventDefault();
 		doLog("-- touchEnd Start");
 		// check to see if more than one finger was used and that there is an ending coordinate
 		if ( fingerCount == 1 /*&& curX != 0 */) {
@@ -103,6 +103,7 @@
 				swipeLength = Math.round(Math.sqrt(Math.pow(curX - startX,2) + Math.pow(curY - startY,2)));
 				// if the user swiped more than the minimum length, perform the appropriate action
 				if ( swipeLength >= minLength && curX != 0) {
+					event.preventDefault();		// do we really want to call preventDefault here? I moved it down from the top of the function...
 					doLog("-- touchEnd with swipe","MOVE");
 					caluculateAngle();
 					determineSwipeDirection();
@@ -110,7 +111,7 @@
 					touchCancel(event); // reset the variables
 				} else {
 					if (triggerElementID == 'step' || triggerElementID == 'ribbonButtons') {
-		
+						event.preventDefault();	
 						if (stepTarget != null) {						// stepTarget is saved when user did a touchstart on the step, if it is set then user clicked on  astep
 							StepNumber = stepTarget.getAttribute('data-number');
 							StepId = stepTarget.getAttribute('data-id');
@@ -191,7 +192,9 @@
 			setSelectedRibbonItem(StepNumber);
 		} else if ( swipeDirection == 'up' ) {
 			// REPLACE WITH YOUR ROUTINES
+			return true;
 		} else if ( swipeDirection == 'down' ) {
 			// REPLACE WITH YOUR ROUTINES
+			return true;
 		}
 	}
