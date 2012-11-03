@@ -69,12 +69,20 @@
 
 	function touchMove(event) {
 		if ( event.touches.length == 1 ) {
-			if (triggerElementID == 'step') { // we want to ignore touchMove on the actual step
-				return true;
-			}
 			curX = event.touches[0].pageX;
 			curY = event.touches[0].pageY;
-//			event.touches[0].target.style.webkitTransform = 'translate(' + curX + 'px, ' + curY + 'px)';
+
+			if (triggerElementID == 'ContentScreens') { // we want to ignore touchMove on the actual step
+				event.preventDefault();
+				deltaX = curX - startX;
+				contentElement = document.getElementById('ContentScreens');
+				contentElement.style.webkitTransform = 'translate(' + deltaX + 'px)';
+				return true;
+			}
+			
+			curX = event.touches[0].pageX;
+			curY = event.touches[0].pageY;
+	//			event.touches[0].target.style.webkitTransform = 'translate(' + curX + 'px, ' + curY + 'px)';
 			if (triggerElementID == 'ribbonButtons') {
 				event.preventDefault();
 				deltaX = curX - startX;
@@ -83,10 +91,14 @@
 				doLog("move delta x: " + deltaX,"MOVE");
 				newPos = ribbonStartX + deltaX;
 				doLog("new position: " + newPos,"MOVE");
-				if (newPos > 0)
+				contentElement = document.getElementById('ribbonButtons');
+				if (newPos > 0)		// don't allow us to move first step to right of the left marging of the page 
 					newPos = 0;
-				jQuery("#ribbonButtons").css("left",newPos);
+				else
+					contentElement.style.webkitTransform = 'translate(' + deltaX + 'px)';						
+//				jQuery("#ribbonButtons").css("left",newPos);
 				
+
 //				jQuery("#ribbonButtons").animate({left : "-=" + StepWidth + "px"});
 			}
 		} else {
