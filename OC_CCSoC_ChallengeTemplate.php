@@ -59,7 +59,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Challenge : <?php echo $projectName; ?></title>
+<title>Lesson :<?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeLayout_OC.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
@@ -86,10 +86,10 @@ body {
 <?php include("Globals.php") ?>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
-  <div id="Header" style="height:40px;">
+  <div id="Header" style="height:40px; padding-left:10px;">
     <div id="headerLogo">
     <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24" />
-      <p>The Projector</p>
+      <p>ELA Unit 2</p>
     </div>
   </div>
   <div id="RibbonNavigation">
