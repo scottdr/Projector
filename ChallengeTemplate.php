@@ -49,6 +49,7 @@ if (isset($row_projectName['Name']))
 $totalRows_projectName = mysql_num_rows($projectNameResults);
 
 ?>
+<?php include("Globals.php") ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
@@ -83,7 +84,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/challengeTablet.js"></script>
 </head>
 <body>
-<?php include("Globals.php") ?>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
   <div id="Header">
