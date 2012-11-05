@@ -4,7 +4,10 @@
 var ProjectId = getQueryVariable("ProjectId", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
-
+if (disableSlideShow) {
+	if (StepNumber == 1)
+		StepNumber = 2;
+}
 
 // animationDuration: Duration of animations in milliseconds. In future, could be set in Presentation data.
 //  Each slide is composed of a series of animations.
