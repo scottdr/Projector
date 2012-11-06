@@ -4,6 +4,8 @@
 var ProjectId = getQueryVariable("ProjectId", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
+var disableSlideShow = false;	// disable the slide show until we polish it
+
 if (disableSlideShow) {
 	if (StepNumber == 1)
 		StepNumber = 2;
