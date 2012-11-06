@@ -66,7 +66,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/RibbonStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
-<!--<link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">-->
+<link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
