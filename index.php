@@ -209,7 +209,6 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
                     <a href="#" class="prev"><img src="_images/arrow-left-blue.png" alt="previous item" width="64" height="64"></a>
                 </div>
                 <div id="HomeBannerRotator">
-                		<p style="font-size:14px; padding-top:5px; padding-bottom:0px;">More projects</p>
                         <div class="slides_container">
                             <?php require_once("SlideShowDivData.php"); ?>
                         </div>
