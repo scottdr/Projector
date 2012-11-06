@@ -29,7 +29,6 @@ body {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-
 #leftButton:hover {
 	background-image: url(../_images/challenge/leftarrow-hover.png);
 	overflow: hidden;
@@ -127,15 +126,12 @@ body {
 	border-left-width: 1px;
 	color: #009EBE;
 }
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
 .ribbonChallengeBottom:hover {
 	background-color: #008DAA;
 	border-top-color: #00A3C4;
 	border-top-style: solid;
 	border-top-width: 1px;
 	color: #FFF;
-}
 }
 .ChallengeNumber {
 	float: left;
@@ -227,15 +223,12 @@ body {
 	border-left-width: 1px;
 	color: #0095B7;
 }
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
-	.ribbonStartBottom:hover {
-		background-color: #0086A7;
-		border-top-color: #009CC1;
-		border-top-style: solid;
-		border-top-width: 1px;
-		color: #FFF;
-	}
+.ribbonStartBottom:hover {
+	background-color: #0086A7;
+	border-top-color: #009CC1;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
 }
 .StartNumber {
 	float: left;
@@ -327,15 +320,12 @@ body {
 	border-left-width: 1px;
 	color: #008BAF;
 }
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
-	.ribbonPlanBottom:hover {
-		background-color: #007EA3;
-		border-top-color: #0093BF;
-		border-top-style: solid;
-		border-top-width: 1px;
-		color: #FFF;
-	}
+.ribbonPlanBottom:hover {
+	background-color: #007EA3;
+	border-top-color: #0093BF;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
 }
 .PlanNumber {
 	float: left;
@@ -428,17 +418,13 @@ body {
 	border-left-width: 1px;
 	color: #007DAF;
 }
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
-	.ribbonCreateBottom:hover {
-		background-color: #00769F;
-		border-top-color: #008CBC;
-		border-top-style: solid;
-		border-top-width: 1px;
-		color: #FFF;
-	}
+.ribbonCreateBottom:hover {
+	background-color: #00769F;
+	border-top-color: #008CBC;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
 }
-
 .CreateNumber {
 	float: left;
 	display: block;
@@ -530,17 +516,13 @@ body {
 	border-left-width: 1px;	
 	color: #00779E;
 }
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
-	.ribbonReviseBottom:hover {
-		background-color: #00709C;
-		border-top-color: #0084B9;
-		border-top-style: solid;
-		border-top-width: 1px;
-		color: #FFF;
-	}
+.ribbonReviseBottom:hover {
+	background-color: #00709C;
+	border-top-color: #0084B9;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
 }
-
 .ReviseNumber {
 	float: left;
 	display: block;
@@ -632,18 +614,13 @@ body {
 	border-left-width: 1px;
 	color: #006D96;
 }
-
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
-	.ribbonPresentBottom:hover {
-		background-color: #006898;
-		border-top-color: #007CB6;
-		border-top-style: solid;
-		border-top-width: 1px;
-		color: #FFFFFF;
-	}
+.ribbonPresentBottom:hover {
+	background-color: #006898;
+	border-top-color: #007CB6;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFFFFF;
 }
-
 .PresentNumber {
 	float: left;
 	display: block;
@@ -693,16 +670,13 @@ body {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-
-// desktop media query we need to hide the hover on the iPad
-@media only screen and (min-width: 769px) {
-	#rightButton:hover {
-		background-image: url(../_images/challenge/rightarrow-hover.png);
-		overflow: hidden;
-		background-size: contain;
-		background-repeat: no-repeat;
-	}
+#rightButton:hover {
+	background-image: url(../_images/challenge/rightarrow-hover.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
+
 .hiddenStyle {
 	visibility : hidden;
 }
