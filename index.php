@@ -216,8 +216,8 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
                 <div id="HomeBannerRotatorNext">
                     <a href="#" class="next"><img src="_images/arrow-right-blue.png" alt="next item" width="64" height="64"></a>
                 </div>  
-            </div>
-            <input type="hidden" id="carouselCounter" value="<?php echo $numProjects; ?>" />
+            </div><input type="hidden" id="carouselCounter" value="<?php echo $numProjects; ?>" />
+
             <div class="viewAllProjects"><p><a href="Gallery.php">View all projects</a></p></div>
 </div>
                   
