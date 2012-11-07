@@ -159,7 +159,7 @@ a.navDown {
 #HomeBannerDiv {
 	clear: both;
 	position: relative;
-	margin-top: 45px;
+	margin-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 100px;
@@ -279,6 +279,7 @@ a.navDown {
 	left: 0px;
 	position: absolute;
 	clear: none;
+	overflow: hidden;
 }
 #ProjGalleryBackgroundDiv {
 	position: relative;
