@@ -1,3 +1,3 @@
 <?php
-$PROJECTOR['versionNumber'] = 5;
+$PROJECTOR['versionNumber'] = 6;
 ?>
