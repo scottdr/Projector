@@ -4,6 +4,8 @@
 var ProjectId = getQueryVariable("ProjectId", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
+var disableSlideShow = true;	// disable the slide show until we polish it
+
 if (disableSlideShow) {
 	if (StepNumber == 1)
 		StepNumber = 2;
@@ -114,7 +116,7 @@ $(document).ready(function(){
 	$('div[data-type="wrapper"]').click(function(event)
 	{
 		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-			console.log("IGNORE click on data-type = wrapper");
+//			console.log("IGNORE click on data-type = wrapper");
 			return;
 		}
 		StepNumber = event.currentTarget.getAttribute('data-number');
@@ -135,7 +137,7 @@ $(document).ready(function(){
 
 function setSelectedRibbonItem(StepNumber) {
 	var e = jQuery.Event("click");
-	console.log("selecting ribbon item #: " + StepNumber);
+	doLog("selecting ribbon item #: " + StepNumber);
 //	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
 	$('div[data-number="' + StepNumber + '"]').trigger(e);
 }

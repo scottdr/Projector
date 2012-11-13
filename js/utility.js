@@ -1,6 +1,6 @@
 // JavaScript Document
 
-DEBUG = true;
+DEBUG = false;
 
 function goToURL(url) {
 	window.location = url;

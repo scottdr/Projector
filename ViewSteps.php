@@ -1,4 +1,5 @@
 <?php require_once('Connections/projector.php'); ?>
+<?php require_once('Globals.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -72,6 +73,11 @@ if (isset($_SESSION['ProjectUrl'])) {
 if (isset($_SESSION['ProjectImage'])) {
 	$projectImage = $_SESSION['ProjectImage'];
 }	
+
+if ($PROJECTOR['cc'])
+	$challengeTemplateURL = "OC_CCSoC_ChallengeTemplate.php";
+else
+	$challengeTemplateURL = "ChallengeTemplate.php";
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -174,7 +180,7 @@ function validateFields(evt)
 
 <body>
 <?php include("HeaderNav.php") ?>
-<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="_images/icons/Plus16x16.gif" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="ViewTopics.php">Topics</a> | <a href="ChallengeTemplate.php?ProjectId=<?php echo $colname_StepList; ?>">View Challenge</a></div>
+<div class="subNav"><a href="ViewProjects.php">View Projects</a> | <a href="EditProject.php?Id=<?php echo $colname_StepList; ?>">Edit Project</a> | <img src="_images/icons/Plus16x16.gif" height="16" width="16"/> <a href="EditStep.php?action=Add&ProjectId=<?php echo $colname_StepList; ?>">Add Step</a> | <a href="ViewMedia.php">View Media</a> | <a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.gif" height="16" width="16" /> Add Media</a> | <a href="ViewTopics.php">Topics</a> | <a href="<?php echo $challengeTemplateURL; ?>?ProjectId=<?php echo $colname_StepList; ?>">View Challenge</a></div>
 <?php if ($totalRows_StepList > 0): ?>
 <div id="content">
 <h3><?php echo $projectName; ?>&nbsp;<img id="projectImage" name="projectImage" src="<?php echo $projectImage; ?>" width="100" height="75" alt="" /></h3>
@@ -194,7 +200,7 @@ function validateFields(evt)
         <input style="background-image: url(_images/icons/Pencil26x26.gif); width:26px;" class="button" type="submit" name="button" id="button" value="Edit" />
         <input name="Id" type="hidden" id="Id" value="<?php echo $row_StepList['Id']; ?>" />
       </form>
-      <form id="viewForm" name="viewForm" method="get" action="ChallengeTemplate.php"><input style="width:26px;" class="button" type="submit" name="button" id="button" value="View"/>
+      <form id="viewForm" name="viewForm" method="get" action="<?php echo $challengeTemplateURL; ?>"><input style="width:26px;" class="button" type="submit" name="button" id="button" value="View"/>
         <input name="StepId" type="hidden" id="StepId" value="<?php echo $row_StepList['Id']; ?>" />
         <input name="ProjectId" type="hidden" id="ProjectId" value="<?php echo $colname_StepList; ?>" />
         <input name="TemplateName" type="hidden" id="TemplateName" value="<?php echo $row_StepList['TemplateName']; ?>" />
