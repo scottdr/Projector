@@ -88,6 +88,12 @@ $query_ProjectDetails = sprintf("SELECT * FROM ProjectDetails WHERE ProjectId = 
 $ProjectDetails = mysql_query($query_ProjectDetails, $projector) or die(mysql_error());
 $row_ProjectDetails = mysql_fetch_assoc($ProjectDetails);
 $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
+
+if ($PROJECTOR['cc'])
+	$challengeTemplateURL = "OC_CCSoC_ChallengeTemplate.php";
+else
+	$challengeTemplateURL = "ChallengeTemplate.php";
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -145,7 +151,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
           
         	<!-- SUMMARY -->
             <div id="ProjectSummary">
-                <a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
+                <a href="<?php echo $challengeTemplateURL; ?>?ProjectId=<?php echo $row_foundRecord['Id']; ?>"><img src="<?php echo $row_foundRecord['ImgMedium']; ?>" alt="" name="imgPlaceHolder" width="600" height="380" id="imgPlaceHolder"/></a>
                 <?php if ($row_foundRecord['Topic'] == 1) : ?>
                   <div class="GalleryDetailsBar"></div>
                   <div class="GalleryDetailsThumbnailIcon"></div>
@@ -183,7 +189,7 @@ $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
                     <hr/>
                     <h3>Online Challenge</h3>
                     <p>Ready to start the challenge online? Click the Start button below and begin the adventure.</p>
-                    <p><a href="ChallengeTemplate.php?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
+                    <p><a href="OC_CCSoC_ChallengeTemplate?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
                   </div>
                     <?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
                         <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
