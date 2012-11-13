@@ -10,8 +10,8 @@
 <?php
 
 $cmd = "cd /var/www; ";
-# $cmd .= "ls -l";
-$cmd .= "git pull";
+$cmd .= "ls -l";
+# $cmd .= "git pull";
 echo "shell_exec(" . $cmd . ")<br />";
 $result = shell_exec($cmd);
 echo "result: " . $result;
