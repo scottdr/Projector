@@ -11,7 +11,7 @@
 
 $cmd = "cd /var/www; ";
 # $cmd .= "ls -l";
-$cmd .= "sudo -u root git pull";
+$cmd .= "sudo -u root /usr/bin/git pull";
 echo "shell_exec(" . $cmd . ")<br />";
 $result = shell_exec($cmd);
 echo "result: " . $result;
