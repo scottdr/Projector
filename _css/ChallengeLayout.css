@@ -1,8 +1,5 @@
 @charset "UTF-8";
-/* Simple fluid media
-   Note: Fluid media requires that you remove the media's height and width attributes from the HTML
-   http://www.alistapart.com/articles/fluid-images/ 
-*/
+
 img, object, embed, video {
 	max-width: 100%;
 }
@@ -11,29 +8,14 @@ img, object, embed, video {
 	width:100%;
 }
 
-/*
-	Dreamweaver Fluid Grid Properties
-	----------------------------------
-	dw-num-cols-mobile:		5;
-	dw-num-cols-tablet:		8;
-	dw-num-cols-desktop:	12;
-	dw-gutter-percentage:	5;
-	
-	Inspiration from "Responsive Web Design" by Ethan Marcotte 
-	http://www.alistapart.com/articles/responsive-web-design
-	
-	and Golden Grid System by Joni Korpi
-	http://goldengridsystem.com/
-*/
-
 /* Mobile Layout: 480px and below. */
 
 .gridContainer {
 	margin-left: auto;
 	margin-right: auto;
-	width: 90.1333%;
-	padding-left: 0.4333%;
-	padding-right: 0.4333%;
+	width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 #Header {
 	clear: both;
@@ -50,6 +32,16 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 	height: 120px;
+}
+#TeacherNotes {
+	clear: both;
+	float: right;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: block;
+	top: -30px;
 }
 #ContentScreens {
 	clear: both;
@@ -70,9 +62,9 @@ img, object, embed, video {
 
 @media only screen and (min-width: 481px) {
 .gridContainer {
-	width: 92.4464%;
-	padding-left: 0.2767%;
-	padding-right: 0.2767%;
+	width: 95%;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
 /*background-color : lightyellow; */     	/* for debugging display light yellow when using tablet rules */
 }
 #LayoutDivHeader {
@@ -112,10 +104,6 @@ img, object, embed, video {
 */
 @media only screen and (min-width: 1025px) {
 .gridContainer {
-	/*width: 89.6428%;
-	max-width: 1232px;
-	padding-left: 0.1785%;
-	padding-right: 0.1785%;*/
 	width: 80%;
 	max-width: 1232px;
 	margin: auto;
