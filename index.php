@@ -36,6 +36,10 @@ $query_FeaturedProject = "SELECT * FROM Topics WHERE Featured = 1";
 $FeaturedProject = mysql_query($query_FeaturedProject, $projector) or die(mysql_error());
 $row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
 $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
+
+$featuredTopicId = 1;  // default to National Mock Elections
+if ($totalRows_FeaturedProject > 0)		// if we have a featured topic set the featuredTopicId
+	$featuredTopicId = $row_FeaturedProject['Id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
