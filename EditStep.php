@@ -112,7 +112,7 @@ if (isset($_POST["MM_action"])) {
   header(sprintf("Location: %s", $updateGoTo));
 } 
 
-if (defined($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
 	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";

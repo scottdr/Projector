@@ -89,7 +89,7 @@ $ProjectDetails = mysql_query($query_ProjectDetails, $projector) or die(mysql_er
 $row_ProjectDetails = mysql_fetch_assoc($ProjectDetails);
 $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
 
-if (defined($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
 	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";
