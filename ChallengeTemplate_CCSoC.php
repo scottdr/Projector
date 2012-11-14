@@ -63,7 +63,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <title>Lesson :<?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeLayout.css" rel="stylesheet" type="text/css">
-<link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeStyles_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
@@ -100,13 +100,14 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
       <h1><?php echo $projectName; ?></h1>
     </div>
   </div>
+  
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
      
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton-CC"></div>
-        <div id="rightButton-CC"></div>
+        <!--<div id="leftButton-CC"></div>
+        <div id="rightButton-CC"></div>-->
         <div id="ribbonStrip">
           <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
             <?php require_once("RibbonDynamicContent.php") ?>
@@ -118,6 +119,18 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
+  
+<!-- TeacherNotes Starts -->
+  <!--  <div id="TeacherNotes-Info-CC">
+  </div>
+  <div id="TeacherNotes-Close-CC">
+  </div>
+  <div id="TeacherNotesShadow-CC">
+  </div>
+  <div id="TeacherNotes-CC">
+  </div>-->
+  <!-- TeacherNotes Ends -->
+  
   <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
   	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
   </div>
