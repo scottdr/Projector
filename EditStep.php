@@ -112,8 +112,8 @@ if (isset($_POST["MM_action"])) {
   header(sprintf("Location: %s", $updateGoTo));
 } 
 
-if ($PROJECTOR['cc'])
-	$challengeTemplateURL = "OC_CCSoC_ChallengeTemplate.php";
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";
 	
@@ -376,6 +376,8 @@ tinyMCE.init({
         <option value="TextOnly.php" <?php if ($row_steps['TemplateName'] == "TextOnly.php") echo ' selected="selected" '; ?>>Text Only</option>
         <option value="MediaLeft.php" <?php if ($row_steps['TemplateName'] == "MediaLeft.php") echo ' selected="selected" '; ?>>Media Left</option>
         <option value="MediaRight.php" <?php if ($row_steps['TemplateName'] == "MediaRight.php") echo ' selected="selected" '; ?>>Media Right</option>
+         <option value="TwoMediaLeft.php" <?php if ($row_steps['TemplateName'] == "TwoMediaLeft.php") echo ' selected="selected" '; ?>>2xMedia Left</option>
+         <option value="TwoMediaRight.php" <?php if ($row_steps['TemplateName'] == "TwoMediaRight.php") echo ' selected="selected" '; ?>>2xMedia Right</option>
         <option value="IconLeft.php" <?php if ($row_steps['TemplateName'] == "IconLeft.php") echo ' selected="selected" '; ?>>Icon Left</option>
         <option value="Plan.php" <?php if ($row_steps['TemplateName'] == "Plan.php") echo ' selected="selected" '; ?>>Plan</option>
         <option value="Research.php" <?php if ($row_steps['TemplateName'] == "Research.php") echo ' selected="selected" '; ?>>Research</option>

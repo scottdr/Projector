@@ -89,8 +89,8 @@ $ProjectDetails = mysql_query($query_ProjectDetails, $projector) or die(mysql_er
 $row_ProjectDetails = mysql_fetch_assoc($ProjectDetails);
 $totalRows_ProjectDetails = mysql_num_rows($ProjectDetails);
 
-if ($PROJECTOR['cc'])
-	$challengeTemplateURL = "OC_CCSoC_ChallengeTemplate.php";
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";
 
@@ -189,7 +189,7 @@ else
                     <hr/>
                     <h3>Online Challenge</h3>
                     <p>Ready to start the challenge online? Click the Start button below and begin the adventure.</p>
-                    <p><a href="OC_CCSoC_ChallengeTemplate?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
+                    <p><a href="<?php echo $challengeTemplateURL;?>?ProjectId=<?php echo $row_foundRecord['Id']; ?>">Start the online challenge</a></p>
                   </div>
                     <?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
                         <input class="button floatRight" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="button" value="Edit" onclick="goToURL('EditDetails.php?action=Update&ProjectId=<?php echo $row_foundRecord['Id']; ?>')" />
