@@ -6,6 +6,6 @@
   <div id="MediaRightColumnRight">
 	  <?php GenerateImageTag(0); ?>
       <br/> <br/>
-      <?php GenerateImageTag(0); ?>
+      <?php GenerateImageTag(1); ?>
   </div>
 </div>
