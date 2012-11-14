@@ -37,7 +37,7 @@ img, object, embed, video {
 	clear: both;
 	float: right;
 	position: relative;
-	height: 500px;
+	height: 600px;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -51,6 +51,7 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 	position: relative;
+	top:-550px;
 }
 #Footer {
 	clear: both;

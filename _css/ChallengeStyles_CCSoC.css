@@ -123,6 +123,7 @@ hr {
 	font-weight: 200;
 	margin: 0;
 	padding: 0;
+	padding-top: 2px;
 }
 #headerBackButton-CC {
 	position: relative;
@@ -219,10 +220,11 @@ hr {
 	float: right;
 	width:40px;
 	height:40px;
-	background-image:url(../_images/challenge/button-close-CC.png);
+	background-image:url(../_images/challenge/button-info-close-CC.png);
+	display:none;
 }
 #TeacherNotes-Close-CC:hover {
-	background-image:url(../_images/challenge/button-close-hover-CC.png);
+	background-image:url(../_images/challenge/button-info-close-hover-CC.png);
 }
 
 #TeacherNotes-Shadow-CC {
@@ -243,4 +245,19 @@ hr {
 	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
 }
 #TeacherNotes-Text-CC {
+	position: relative;
+	float: right;
+	background-color: rgba(0,0,0,1);
+	top: -40px;
+	left: -40px;
+	width: 660px;
+	height: 600px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 0px;
+	margin: 0px;
+	z-index: 1;
+	overflow:hidden;
+	clear: both;
+	visibility:hidden;
 }

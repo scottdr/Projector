@@ -62,7 +62,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson :<?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
-<link href="_css/ChallengeLayout.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeLayout_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
@@ -82,6 +82,27 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/challengeVideo_CCSoC.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){ 
+	
+		jQuery("#TeacherNotes-Info-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+			$('#TeacherNotes-Info-CC').css({'display':'none'});
+			$('#TeacherNotes-Close-CC').css({'display':'block'});
+			return false;
+		});
+	
+		jQuery("#TeacherNotes-Close-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+			$('#TeacherNotes-Info-CC').css({'display':'block'});
+			$('#TeacherNotes-Close-CC').css({'display':'none'});
+			return false;
+		});
+	
+	});
+</script>
+
 </head>
 <body>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
@@ -121,14 +142,14 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
   
 <!-- TeacherNotes Starts -->
-  <!--  <div id="TeacherNotes-Info-CC">
-  </div>
-  <div id="TeacherNotes-Close-CC">
-  </div>
-  <div id="TeacherNotesShadow-CC">
-  </div>
-  <div id="TeacherNotes-CC">
-  </div>-->
+        <div id="TeacherNotes-Info-CC">
+        </div>
+        <div id="TeacherNotes-Close-CC">
+        </div>
+        <div id="TeacherNotesShadow-CC">
+        </div>
+        <div id="TeacherNotes-CC">
+        </div>
   <!-- TeacherNotes Ends -->
   
   <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
