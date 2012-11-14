@@ -74,8 +74,8 @@ if (isset($_SESSION['ProjectImage'])) {
 	$projectImage = $_SESSION['ProjectImage'];
 }	
 
-if ($PROJECTOR['cc'])
-	$challengeTemplateURL = "OC_CCSoC_ChallengeTemplate.php";
+if (defined($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";
 	
@@ -190,6 +190,7 @@ function validateFields(evt)
     <th>Order</th>
     <th>Name</th>
     <th>Title</th>
+    <th>Routine</th>
     <th>Template</th>
     <th>Media</th>
   </tr>
@@ -207,6 +208,7 @@ function validateFields(evt)
       <td><?php echo $row_StepList['SortOrder']; ?></td>
       <td nowrap="nowrap"><?php echo $row_StepList['LessonName']; ?></td>
       <td class="titleColumn" nowrap="nowrap"><div class="ellipsis"><?php echo $row_StepList['Title']; ?></div></td>
+      <td><?php echo $row_StepList['RoutineId']; ?></td>
       <td><?php echo $row_StepList['TemplateName']; ?></td>
       <td><?php GetMediaForStep($row_StepList['Id']); ?></td>
     </tr>

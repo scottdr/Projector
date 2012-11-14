@@ -577,7 +577,6 @@ a.navDown {
 }
 #GalleryBanner {
 	float: left;
-	background-image: url(../_images/myvoice_banner2.png);
 	height: 70px;
 	padding-left: 0px;
 	width: 640px;
@@ -586,6 +585,22 @@ a.navDown {
 	background-repeat: no-repeat;
 	overflow: hidden;
 }
+
+#GalleryBanner:hover {
+	cursor:pointer;
+}
+
+#GalleryHeader {
+	float: left;
+	height: 70px;
+	padding-left: 0px;
+	width: 640px;
+	padding-right: 300px;
+	padding-top: 0px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+
 .horzontalSpacer {
 	float: left;
 	width: 100%;
