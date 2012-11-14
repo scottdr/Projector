@@ -1,7 +1,51 @@
 @charset "UTF-8";
 /* CSS Document for Common Core ORANGE Ribbon*/
 
+#leftButton-CC {
+	width: 60px;
+	float: left;
+	height: 80px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-image: url(../_images/challenge/leftarrow-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#leftButton-CC:hover {
+	background-image: url(../_images/challenge/leftarrow-hover-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#rightButton-CC {
+	width: 60px;
+	left: -60px;
+	float: right;
+	height: 80px;
+	margin:0;
+	padding:0;
+	border:0;
+	background-image: url(../_images/challenge/rightarrow-CC.png);
+	overflow:hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#rightButton-CC:hover {
+	background-image: url(../_images/challenge/rightarrow-hover-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
+.hiddenStyle {
+	visibility : hidden;
+}
+
+.visibleStyle {
+	visibility : visible;
+}
 
 
 /* Challenge_CC_Opening */
