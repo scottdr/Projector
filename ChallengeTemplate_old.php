@@ -60,7 +60,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Challenge :<?php echo $projectName; ?></title>
+<title>Challenge : <?php echo $projectName; ?></title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeLayout.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
@@ -82,27 +82,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
-
-<!--<script type="text/javascript">
-	$(document).ready(function(){ 
-	
-		jQuery("#TeacherNotes-Info-CC").click(function(){
-			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
-			$('#TeacherNotes-Info-CC').css({'display':'none'});
-			$('#TeacherNotes-Close-CC').css({'display':'block'});
-			return false;
-		});
-	
-		jQuery("#TeacherNotes-Close-CC").click(function(){
-			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
-			$('#TeacherNotes-Info-CC').css({'display':'block'});
-			$('#TeacherNotes-Close-CC').css({'display':'none'});
-			return false;
-		});
-	
-	});
-</script>-->
-
 </head>
 <body>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
@@ -121,14 +100,13 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
       <h1><?php echo $projectName; ?></h1>
     </div>
   </div>
-  
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
      
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton"></div>
-        <div id="rightButton"></div>
+        <div id="leftButton"> </div>
+        <div id="rightButton"> </div>
         <div id="ribbonStrip">
           <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
             <?php require_once("RibbonDynamicContent.php") ?>
@@ -140,21 +118,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  
-  <!-- TeacherNotes Starts -->
-  <!--<div id="TeacherNotes">
-	  <div id="TeacherNotes-Info-CC">
-      </div>
-      <div id="TeacherNotes-Close-CC">
-      </div>
-      <div id="TeacherNotesShadow-CC">
-      </div>
-      <div id="TeacherNotes-Text-CC">
-      <h1>Notes here ... </h1>
-      </div>
-  </div>-->
-<!-- TeacherNotes Ends -->
-  
   <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
   	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
   </div>

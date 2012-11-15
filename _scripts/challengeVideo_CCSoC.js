@@ -49,7 +49,7 @@ var replayBtnImg = "assets/images/challengeintro_replay.png";
 var NumberOfSteps = 0;
 var visibleWidth = 0;
 var ribbonWidth = 0;
-var stopPoistion = 0;
+var stopPosition = 0;
 
 $(document).ready(function(){ 
 
@@ -60,7 +60,8 @@ $(document).ready(function(){
 //		console.log("# steps: " + NumberOfSteps);
 			
 		// Declare variables
-		visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
+		//visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
+		visibleWidth = jQuery("#ribbonStrip").innerWidth(true);
 		ribbonWidth = NumberOfSteps * StepWidth;
 		stopPosition = (visibleWidth - ribbonWidth);
 			
