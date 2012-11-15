@@ -127,8 +127,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
      
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <!--<div id="leftButton-CC"></div>
-        <div id="rightButton-CC"></div>-->
+        <div id="leftButton-CC"></div>
+        <div id="rightButton-CC"></div>
         <div id="ribbonStrip">
           <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
             <?php require_once("RibbonDynamicContent.php") ?>
