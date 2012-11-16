@@ -190,7 +190,7 @@ hr {
 	border-top-width: 1px;
 	z-index: -1;
 	height: 76px;
-	top: -100px;
+	top: -120px;
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 	/* Safari v3.0+ and by Chrome v0.2+ */
