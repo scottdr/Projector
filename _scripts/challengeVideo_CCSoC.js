@@ -155,6 +155,8 @@ function loadStep(StepId,StepOrderNumber) {
 			if (StepOrderNumber == 1) {
 				requestPresentationData(ProjectId);
 			}
+			// Send custom 'HTMLChange' event to inform of update.
+			$('#ContentScreens').trigger('HTMLChange');
 	});
 };
 	

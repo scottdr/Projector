@@ -86,16 +86,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script type="text/javascript">
 	$(document).ready(function(){ 
 	
-		if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
-		  if ((document.getElementsByTagName("math").length > 0) ||
-		      (document.getElementsByTagNameNS == null ? false :
-		      (document.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML","math").length > 0))) {
-		    var script = document.createElement("script");
-		    script.type = "text/javascript";
-		    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-		    document.getElementsByTagName("head")[0].appendChild(script);
-		  }
-		}
+		updatePage();
 	
 		jQuery("#TeacherNotes-Info-CC").click(function(){
 			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
@@ -110,8 +101,28 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 			$('#TeacherNotes-Close-CC').css({'display':'none'});
 			return false;
 		});
+		
+		// Listen for dynamic innerHTML change (custom) events.
+		$("#ContentScreens").on("HTMLChange", function(event){
+			updatePage();
+		});
 	
 	});
+	
+	// Perform meta page post processing.
+	function updatePage() {
+		// Check to see if there is a MathML tag. If so, init MathJax libraries and defer display responsibility to it.
+		if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
+		  if ((document.getElementsByTagName("math").length > 0) ||
+		      (document.getElementsByTagNameNS == null ? false :
+		      (document.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML","math").length > 0))) {
+		    var script = document.createElement("script");
+		    script.type = "text/javascript";
+		    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+		    document.getElementsByTagName("head")[0].appendChild(script);
+		  }
+		}
+	}
 </script>
 
 </head>
