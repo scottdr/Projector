@@ -60,14 +60,13 @@ $(document).ready(function(){
 //		console.log("# steps: " + NumberOfSteps);
 			
 		// Declare variables
-		//visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
-		visibleWidth = jQuery("#ribbonStrip").innerWidth(true);
+		visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
 		ribbonWidth = NumberOfSteps * StepWidth;
 		stopPosition = (visibleWidth - ribbonWidth);
 			
 		jQuery("#ribbonButtons").width(ribbonWidth);
 		
-//		console.log("ribbon width: " + jQuery("#ribbonButtons").width());
+//	console.log("ribbon width: " + jQuery("#ribbonButtons").width());
 		
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
 		jQuery("#leftButton-CC").click(function(){
@@ -112,7 +111,7 @@ $(document).ready(function(){
 	$('div[data-type="wrapper"]').click(function(event)
 	{
 		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-			console.log("IGNORE click on data-type = wrapper");
+//		console.log("IGNORE click on data-type = wrapper");
 			return;
 		}
 		StepNumber = event.currentTarget.getAttribute('data-number');
@@ -133,7 +132,7 @@ $(document).ready(function(){
 
 function setSelectedRibbonItem(StepNumber) {
 	var e = jQuery.Event("click");
-	console.log("selecting ribbon item #: " + StepNumber);
+//	console.log("selecting ribbon item #: " + StepNumber);
 //	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
 	$('div[data-number="' + StepNumber + '"]').trigger(e);
 }
