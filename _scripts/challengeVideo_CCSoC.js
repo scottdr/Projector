@@ -151,6 +151,21 @@ function loadStep(StepId,StepOrderNumber) {
 	}).done(function( html ) {
 			var contentElement = document.getElementById("ContentScreens");
 			contentElement.innerHTML = html;
+			
+			// need to add click handlers to the Teacher Notes button
+			jQuery("#TeacherNotes-Info-CC").click(function(){
+				$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+				$('#TeacherNotes-Info-CC').css({'display':'none'});
+				$('#TeacherNotes-Close-CC').css({'display':'block'});
+				return false;
+			});
+		
+			jQuery("#TeacherNotes-Close-CC").click(function(){
+				$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+				$('#TeacherNotes-Info-CC').css({'display':'block'});
+				$('#TeacherNotes-Close-CC').css({'display':'none'});
+				return false;
+			});
 			// if we are on the very first step
 			if (StepOrderNumber == 1) {
 				requestPresentationData(ProjectId);
