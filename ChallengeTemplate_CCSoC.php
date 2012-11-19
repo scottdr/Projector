@@ -47,7 +47,6 @@ $projectName = "";
 if (isset($row_projectName['Name']))
 	$projectName = $row_projectName['Name'];
 $totalRows_projectName = mysql_num_rows($projectNameResults);
-
 ?>
 <?php include("Globals.php") ?>
 <!doctype html>
@@ -140,21 +139,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  
-  <!-- TeacherNotes Starts -->
-  <div id="TeacherNotes">
-	  <div id="TeacherNotes-Info-CC">
-      </div>
-      <div id="TeacherNotes-Close-CC">
-      </div>
-      <div id="TeacherNotesShadow-CC">
-      </div>
-      <div id="TeacherNotes-Text-CC">
-      <h1>Notes here ... </h1>
-      </div>
-  </div>
-<!-- TeacherNotes Ends -->
-  
   <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
   	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
   </div>

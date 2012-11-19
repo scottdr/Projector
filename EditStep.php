@@ -122,7 +122,7 @@ else
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Edit Project</title>
+<title>Edit Project</title><script type="text/javascript" src="js/utility.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript">
@@ -282,6 +282,13 @@ legend {
 	padding-right:30px;
 }
 
+.whiteButton {
+	background-color: #ffffff;
+	color:#333;
+	padding-left:30px;
+	padding-right:30px;
+}
+
 /* small button for detach under images*/
 a.smallRedButton {
 	color : #FFF;
@@ -396,7 +403,7 @@ tinyMCE.init({
     </div>
     <div class="clearFloat"></div>
     <div style="text-align:center">    	
-    	<input class="blueButton" type="button" name="button" id="button" value="Attach Media" onclick="attachMedia(<?php echo $projectId; ?>)" />
+    	<input class="whiteButton" type="button" name="button" id="button" value="Attach Media" onclick="attachMedia(<?php echo $projectId; ?>)" /><input class="whiteButton" name="TeacherNotes" type="button" value="Teacher Notes" onclick="goToURL('EditNotes.php?StepId=<?php echo $stepId; ?>')" />
     </div>
     <?php endif; ?>
   </fieldset>
