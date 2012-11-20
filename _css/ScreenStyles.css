@@ -31,6 +31,7 @@ a:active {
 	padding-left: 2%;
 	padding-right: 2%;
 	min-height: 1000px;
+	margin-top: 40px;
 }
 #ZeroBorderWidthWrapper {
 	width:100%;
@@ -557,9 +558,9 @@ a:active {
 /* 04 Opening Experience 05 Opening Activity */
 
 #OpeningTwoColumnLeft {
-	float:left;
-	width:40%;
-	margin-top: 5%;
+	float: left;
+	width: 40%;
+	margin-top: 0px;
 }
 #OpeningTwoColumnLeft img {
 	background-color:#FFF;
@@ -582,10 +583,10 @@ a:active {
 }
 
 #OpeningTwoColumnRight {
-	float:right;
-	width:58%;
+	float: right;
+	width: 58%;
 	padding-left: 2%;
-	margin-top: 5%;
+	margin-top: 0px;
 }
 
 #OpeningTwoColumnRight h2 {
@@ -602,9 +603,9 @@ a:active {
 /* 04 Media Right */
 
 #MediaRightColumnLeft {
-	float:left;
-	width:58%;
-	margin-top: 5%;
+	float: left;
+	width: 58%;
+	margin-top: 0px;
 }
 #MediaRightColumnLeft h2 {
 	font-size:20px;
@@ -638,10 +639,10 @@ a:active {
 }
 
 #MediaRightColumnRight {
-	float:right;
-	width:40%;
+	float: right;
+	width: 40%;
 	padding-left: 2%;
-	margin-top: 5%;
+	margin-top: 0px;
 }
 
 #MediaRightColumnRight h2 {
@@ -660,9 +661,9 @@ a:active {
 
 /* 06 07 08 Plan 09 Create 10 Revise 11 Present */
 #PCRPTwoColumnLeft {
-	float:left;
-	width:40%;
-	margin-top: 5%;
+	float: left;
+	width: 40%;
+	margin-top: 0px;
 	min-height: 400px;
 }
 #PCRPTwoColumnLeft img {
@@ -672,13 +673,13 @@ a:active {
 	border:none;
 }
 #PCRPTwoColumnRight {
-	float:right;
-	width:57%;
+	float: right;
+	width: 57%;
 	padding-left: 2%;
-	border-left-style:dotted;
+	border-left-style: dotted;
 	border-left-width: 1px;
 	border-left-color: #666;
-	margin-top: 5%;
+	margin-top: 0px;
 }
 #PCRPTwoColumnRight h2 {
 	font-size:20px;

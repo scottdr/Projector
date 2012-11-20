@@ -190,7 +190,7 @@ a.navDown {
 	margin: 5px;
 	font-weight: 200;
 	font-size: 22px;
-	line-height: 20px;
+	line-height: 22px;
 	color: #0099CC;
 	text-align: left;
 	padding: 0px;
@@ -199,7 +199,7 @@ a.navDown {
 	margin: 5px;
 	font-weight: 200;
 	font-size: 18px;
-	line-height: 22px;
+	line-height: 20px;
 	color: rgb(255,255,255);
 	text-align: left;
 }
@@ -224,7 +224,7 @@ a.navDown {
 #HomeBannerRotator {
 	display: inline;
 	width: 448px;
-	height: 90px;
+	height: 100px;
 	float: left;
 	display: block;
 	cursor: default;
