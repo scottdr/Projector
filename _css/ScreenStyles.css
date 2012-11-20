@@ -560,7 +560,7 @@ a:active {
 #OpeningTwoColumnLeft {
 	float: left;
 	width: 40%;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 #OpeningTwoColumnLeft img {
 	background-color:#FFF;
@@ -586,7 +586,7 @@ a:active {
 	float: right;
 	width: 58%;
 	padding-left: 2%;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 
 #OpeningTwoColumnRight h2 {
@@ -605,7 +605,7 @@ a:active {
 #MediaRightColumnLeft {
 	float: left;
 	width: 58%;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 #MediaRightColumnLeft h2 {
 	font-size:20px;
@@ -642,7 +642,7 @@ a:active {
 	float: right;
 	width: 40%;
 	padding-left: 2%;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 
 #MediaRightColumnRight h2 {
@@ -663,7 +663,7 @@ a:active {
 #PCRPTwoColumnLeft {
 	float: left;
 	width: 40%;
-	margin-top: 40px;
+	margin-top: 0px;
 	min-height: 400px;
 }
 #PCRPTwoColumnLeft img {
@@ -679,7 +679,7 @@ a:active {
 	border-left-style: dotted;
 	border-left-width: 1px;
 	border-left-color: #666;
-	margin-top: 40px;
+	margin-top: 0px;
 }
 #PCRPTwoColumnRight h2 {
 	font-size:20px;
