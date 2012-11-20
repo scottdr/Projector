@@ -34,15 +34,16 @@ img, object, embed, video {
 	height: 120px;
 }
 #TeacherNotes {
-	clear: both;
+	clear: none;
 	float: right;
-	position: relative;
 	height: 600px;
 	margin: 0;
 	padding: 0;
-	width: 100%;
-	display: block;
-	top: -30px;
+	position: absolute;
+	z-index: 100;
+	left: 0px;
+	width: 90%;
+	top: 185px;
 }
 #ContentScreens {
 	clear:both;

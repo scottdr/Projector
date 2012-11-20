@@ -208,9 +208,10 @@ hr {
 }
 #TeacherNotes-Info-CC {
 	float: right;
-	width:40px;
-	height:40px;
-	background-image:url(../_images/challenge/button-info-CC.png);
+	width: 40px;
+	height: 40px;
+	background-image: url(../_images/challenge/button-info-CC.png);
+	clear: none;
 }
 #TeacherNotes-Info-CC:hover {
 	background-image:url(../_images/challenge/button-info-hover-CC.png);
@@ -251,13 +252,12 @@ hr {
 	top: -40px;
 	left: -40px;
 	width: 660px;
-	height: 600px;
 	padding-left: 10px;
 	padding-right: 10px;
 	border: 0px;
 	margin: 0px;
 	z-index: 1;
-	overflow:hidden;
+	overflow: hidden;
 	clear: both;
-	visibility:hidden;
+	visibility: hidden;
 }
