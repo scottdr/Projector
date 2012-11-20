@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MathML Test Page, No MathJax</title>
+<title>MathJax MathML Test Page 2</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 <script src="../../_scripts/jquery.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
+	  if ((document.getElementsByTagName("math").length > 0) ||
+	      (document.getElementsByTagNameNS == null ? false :
+	      (document.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML","math").length > 0))) {
+	    var script = document.createElement("script");
+	    script.type = "text/javascript";
+	    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
+	    document.getElementsByTagName("head")[0].appendChild(script);
+	  }
+	}
+});
+</script>
+
 </head>
 <body>
 
-<h1>MathML Markup Display Test</h1>
-<p>The following page tests rendering of several basic mathematic expressions written in MathML markup, and utilizing the JavaScript MathJax library for display.
+<h1>MathML Markup Display Test 2</h1>
+<p>The following page further tests rendering of several basic mathematic expressions written in MathML markup, and utilizing the JavaScript MathJax library for display.
 </br>
 </br>
 
