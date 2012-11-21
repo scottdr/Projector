@@ -9,23 +9,34 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
-	  if ((document.getElementsByTagName("math").length > 0) ||
-	      (document.getElementsByTagNameNS == null ? false :
-	      (document.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML","math").length > 0))) {
-	    var script = document.createElement("script");
-	    script.type = "text/javascript";
-	    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
-	    document.getElementsByTagName("head")[0].appendChild(script);
-	  }
+
+	if !(isMathMLCapable()) {
+		if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
+		  if ((document.getElementsByTagName("math").length > 0) ||
+		      (document.getElementsByTagNameNS == null ? false :
+		      (document.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML","math").length > 0))) {
+		    var script = document.createElement("script");
+		    script.type = "text/javascript";
+		    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
+		    document.getElementsByTagName("head")[0].appendChild(script);
+		  }
+		}
 	}
+
 });
+
+function isMathMLCapable() {
+	var e = document.createElement('div');
+    e.innerHTML = '<math></math>';
+    return e.firstChild && "namespaceURI" in e.firstChild && e.firstChild.namespaceURI == 'http://www.w3.org/1998/Math/MathML';
+}
+    
 </script>
 
 </head>
 <body>
 
-<h1>MathML Markup Display Test 2</h1>
+<h1>MathML Markup Display Test 2: MathJax only when needed</h1>
 <p>The following page further tests rendering of several basic mathematic expressions written in MathML markup, and utilizing the JavaScript MathJax library for display.
 </br>
 </br>
