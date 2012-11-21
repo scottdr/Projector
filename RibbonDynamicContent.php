@@ -61,14 +61,14 @@ do {
 		if ($row_stepsRecordset['CSSName'] != $currentRoutineName) {
 			if ($currentRoutineName != '')
 				print "\n</div>\n"; // close off previous div when we need to
-			print "\n" . '<div id="ribbon' . $row_stepsRecordset['CSSName'] . '">';							// <div id="ribbonChallenge">
+			print "\n" . '<div class="ribbonBlock" id="ribbon' . $row_stepsRecordset['CSSName'] . '">';							// <div id="ribbonChallenge">
 			print "\n  " . '<div id="ribbon' . $row_stepsRecordset['CSSName'] . 'Top">'; 	//   <div id="ribbonChallengeTop">
 			print "\n    " . '<h2>' . $row_stepsRecordset['RoutineName'] . '</h2>'; 				//   <h2>YOUR CHALLENGE</h2>
 			print "\n  </div>";
 			$currentRoutineName = $row_stepsRecordset['CSSName'];
 		}
 		
-		print "\n  " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" ' . 'ontouchstart="touchStart(event,\'step\');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"' . '" >'; 			// <div class="ribbonChallengeColumnWrap">
+		print "\n  " . '<div class="singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" >'; 			// <div class="ribbonChallengeColumnWrap">
 		if ($SelectedStepNumber == $rowStepNumber) {	// if the step number is the currently selected one set class to BottomCurrent
 			print "\n    " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'BottomCurrent" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">
 		} else

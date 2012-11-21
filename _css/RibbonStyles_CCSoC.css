@@ -21,8 +21,12 @@ body {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	overflow: hidden;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 }
+
+*::-webkit-scrollbar, *::-webkit-scrollbar-thumb  { height: 0 !important; width: 0!important;}
+
 #ribbonButtons {
 	position:relative;
 	margin:0;
@@ -78,6 +82,10 @@ body {
 	visibility : visible;
 }
 
+#ribbonButtons .ribbonBlock, #ribbonButtons .ribbonBlock .singleRibbonBlock {min-width:50px;width:auto;display:block;positive:relative;-webkit-touch-callout: none;-webkit-user-select: none;user-select:none;}
+#ribbonButtons .ribbonBlock h2 {float:left;display:block;position:relative;}
+
+#ribbonButtons .ribbonBlock .singleRibbonBlock div {padding:0 20px 0 0;}
 
 /* Challenge_CC_Opening */
 #ribbonChallenge_CC_Opening {

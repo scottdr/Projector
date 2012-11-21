@@ -52,8 +52,23 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 	position: relative;
-	/*top:-550px;*/
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
+
+#ContentScreensHolder {
+	width:100%;
+	position: relative;
+	padding-right:1px;
+	top: 0;
+	left: 0;	
+}
+
+* {
+	-webkit-transform: translate3d(0,0,0));
+}
+
+
 #Footer {
 	clear: both;
 	float: left;

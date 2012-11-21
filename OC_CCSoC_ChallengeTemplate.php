@@ -82,7 +82,7 @@ body {
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
 </head>
-<body>
+<body style="overflow-x:hidden">
 <?php include("Globals.php") ?>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
@@ -98,7 +98,7 @@ body {
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
         <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+          <div id="ribbonButtons">
             <?php require_once("RibbonDynamicContent.php") ?>
           </div>
         </div>
@@ -108,8 +108,22 @@ body {
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-  	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
+  <div id="ContentScreens" ontouchend="touchEnd(event);">
+    <div id="ContentScreensHolder"> 
+      <!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php --> 
+    </div>
+  </div>
+  <div id="ContentScreensLoader">
+    <div id="floatingCirclesG">
+      <div class="f_circleG" id="frotateG_01"> </div>
+      <div class="f_circleG" id="frotateG_02"> </div>
+      <div class="f_circleG" id="frotateG_03"> </div>
+      <div class="f_circleG" id="frotateG_04"> </div>
+      <div class="f_circleG" id="frotateG_05"> </div>
+      <div class="f_circleG" id="frotateG_06"> </div>
+      <div class="f_circleG" id="frotateG_07"> </div>
+      <div class="f_circleG" id="frotateG_08"> </div>
+    </div>
   </div>
   <div id="Footer">
     <p></p>

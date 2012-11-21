@@ -50,6 +50,7 @@ var NumberOfSteps = 0;
 var visibleWidth = 0;
 var ribbonWidth = 0;
 var stopPosition = 0;
+var changingStep = false;
 
 $(document).ready(function(){ 
 
@@ -63,6 +64,19 @@ $(document).ready(function(){
 		visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
 		ribbonWidth = NumberOfSteps * StepWidth;
 		stopPosition = (visibleWidth - ribbonWidth);
+		
+		ribbonWidth = 0;
+		jQuery.each(jQuery("#ribbonStrip .ribbonBlock"), function(index, elem){
+			var obj = jQuery(elem);
+			ribbonWidth += parseInt(obj.width());
+		});
+		
+		var wid = 0;
+		jQuery.each(jQuery("#ribbonStrip .singleRibbonBlock"), function(index, elem){
+			var obj = jQuery(elem);
+			obj.attr('data-position', wid);
+			wid += parseInt(obj.width());
+		});
 			
 		jQuery("#ribbonButtons").width(ribbonWidth);
 		
@@ -104,19 +118,29 @@ $(document).ready(function(){
 	
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
 	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
-	$('div[data-type="wrapper"]').click(function(event){
-			selectStep(event.currentTarget);
-	});
-
 	$('div[data-type="wrapper"]').click(function(event)
 	{
-		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-//		console.log("IGNORE click on data-type = wrapper");
-			return;
+		var newStep = event.currentTarget.getAttribute('data-number');
+		
+		if(newStep != StepNumber && !changingStep)
+		{
+			changingStep = true;
+			
+			var fullWidth 	= parseInt(jQuery('#ContentScreens').width());
+			if(newStep > StepNumber)
+				fullWidth = -fullWidth;
+				
+			selectStep(event.currentTarget);
+			StepNumber = newStep;
+			
+			jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+				jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+				StepId = event.currentTarget.getAttribute('data-id');
+				loadStep(StepId,StepNumber);
+			});
+			
+			
 		}
-		StepNumber = event.currentTarget.getAttribute('data-number');
-		StepId = event.currentTarget.getAttribute('data-id');
-		loadStep(StepId,StepNumber);
 	});
 
 	
@@ -131,16 +155,19 @@ $(document).ready(function(){
 // Ribbon Code To Handle Selecting Ribbon Items & Update Content appropriately 
 
 function setSelectedRibbonItem(StepNumber) {
-	var e = jQuery.Event("click");
+	//var e = jQuery.Event("click");
 //	console.log("selecting ribbon item #: " + StepNumber);
 //	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
-	$('div[data-number="' + StepNumber + '"]').trigger(e);
+	//$('div[data-number="' + StepNumber + '"]').trigger(e);
+	selectStep($('div[data-number="' + StepNumber + '"]').get(0));
 }
 
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
 function loadStep(StepId,StepOrderNumber) {
+	changingStep = true;
 	//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
 	var urlLoadStep = "LoadStep.php";
+	jQuery('#ContentScreensLoader').fadeIn(200);
 	if (StepId > -1)
 		urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
 	else
@@ -149,7 +176,7 @@ function loadStep(StepId,StepOrderNumber) {
 		url: urlLoadStep,
 		cache: false
 	}).done(function( html ) {
-			var contentElement = document.getElementById("ContentScreens");
+			var contentElement = document.getElementById("ContentScreensHolder");
 			contentElement.innerHTML = html;
 			
 			// need to add click handlers to the Teacher Notes button
@@ -172,11 +199,17 @@ function loadStep(StepId,StepOrderNumber) {
 			}
 			// Send custom 'HTMLChange' event to inform of update.
 			$('#ContentScreens').trigger('HTMLChange');
+			$('#ContentScreens').animate({'left' : 0}, 200);
+			jQuery('#ContentScreensLoader').fadeOut(200);
+			
+			changingStep = false;
 	});
 };
 	
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
 function selectStep(eventTarget) {
+		StepNumber = jQuery(eventTarget).attr('data-number');
+	
 			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
 		jQuery('.ribbonChallenge_CC_OpeningBottomCurrent').removeClass('ribbonChallenge_CC_OpeningBottomCurrent').addClass('ribbonChallenge_CC_OpeningBottom');
 		jQuery('.ribbonStart_CC_WritingBottomCurrent').removeClass('ribbonStart_CC_WritingBottomCurrent').addClass('ribbonStart_CC_WritingBottom');
@@ -196,7 +229,20 @@ function selectStep(eventTarget) {
 		jQuery(".ribbonPlan_CC_GroupWorkBottom",eventTarget).removeClass("ribbonPlan_CC_GroupWorkBottom").addClass("ribbonPlan_CC_GroupWorkBottomCurrent");
 		jQuery(".ribbonCreate_CC_CommonReadBottom",eventTarget).removeClass("ribbonCreate_CC_CommonReadBottom").addClass("ribbonCreate_CC_CommonReadBottomCurrent");	
 		jQuery(".ribbonRevise_CC_ReviseBottom",eventTarget).removeClass("ribbonRevise_CC_ReviseBottom").addClass("ribbonRevise_CC_ReviseBottomCurrent");	
-		jQuery(".ribbonPresent_CC_HomeworkBottom",eventTarget).removeClass("ribbonPresent_CC_HomeworkBottom").addClass("ribbonPresent_CC_HomeworkBottomCurrent");	
+		jQuery(".ribbonPresent_CC_HomeworkBottom",eventTarget).removeClass("ribbonPresent_CC_HomeworkBottom").addClass("ribbonPresent_CC_HomeworkBottomCurrent");
+		
+		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
+		var wid = parseInt(jQuery(eventTarget).width());
+		var sWid = parseInt(jQuery('body').width());
+		var left = document.getElementById('ribbonStrip').scrollLeft;
+		
+		if(xPos + wid > (sWid + left))
+			left = (xPos + wid) - sWid;
+		else if(xPos < left)
+			left = xPos;
+			
+		//jQuery('#ribbonStrip').get(0).scrollLeft = left;
+		jQuery('#ribbonStrip').clearQueue().animate({'scrollLeft': left}, 200);
 }	
 		
 //  ///////////////////////////////////////////////////////////////////////
