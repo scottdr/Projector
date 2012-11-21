@@ -22,7 +22,7 @@ $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Projector Gallery</title>
+<title>Project Gallery</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css" />
 <link href="_css/Root_Project.css" rel="stylesheet" type="text/css" />
 <link href="_css/main.css" rel="stylesheet" type="text/css" />
