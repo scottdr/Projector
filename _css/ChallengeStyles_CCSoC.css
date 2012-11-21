@@ -259,5 +259,6 @@ hr {
 	z-index: 1;
 	overflow: hidden;
 	clear: both;
-	visibility: hidden;
+	max-height:600px;
+	overflow:scroll;
 }
