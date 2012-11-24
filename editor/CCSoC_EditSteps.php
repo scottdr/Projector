@@ -24,6 +24,9 @@
 	<section class="row-fluid">
         <h3 class="span11 offset1">Define Tasks: &lt;Lesson Name&gt; - &lt;Grade&gt; <a class="btn btn-small" href="#"><i class="icon-edit"></i> Edit</a></h3>
     </section>
+	<div class="row-fluid">
+		<hr class="span10 offset1" />
+    </div>
   	<section class="row-fluid">
     	<div class="span5 offset1">
             <table class="table table-striped table-hover" style="font-size:12px;">
