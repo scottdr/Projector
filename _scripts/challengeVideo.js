@@ -68,6 +68,19 @@ $(document).ready(function(){
 		visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
 		ribbonWidth = NumberOfSteps * StepWidth;
 		stopPosition = (visibleWidth - ribbonWidth);
+		
+		ribbonWidth = 0;
+		jQuery.each(jQuery("#ribbonStrip .ribbonBlock"), function(index, elem){
+			var obj = jQuery(elem);
+			ribbonWidth += parseInt(obj.width());
+		});
+		
+		var wid = 0;
+		jQuery.each(jQuery("#ribbonStrip .singleRibbonBlock"), function(index, elem){
+			var obj = jQuery(elem);
+			obj.attr('data-position', wid);
+			wid += parseInt(obj.width());
+		});
 			
 		jQuery("#ribbonButtons").width(ribbonWidth);
 		
@@ -81,9 +94,7 @@ $(document).ready(function(){
 				StepNumber = 1;
 				return false;
 			}
-			if(jQuery("#ribbonButtons").position().left < 0 && !jQuery("#ribbonButtons").is(":animated")){
-				jQuery("#ribbonButtons").animate({left : "+=" + StepWidth + "px"});
-			}
+			
 			setSelectedRibbonItem(StepNumber);
 			return false;
 		});
@@ -96,9 +107,7 @@ $(document).ready(function(){
 				StepNumber = NumberOfSteps;
 				return false;
 			}
-			if(jQuery("#ribbonButtons").position().left > stopPosition && !jQuery("#ribbonButtons").is(":animated")){
-				jQuery("#ribbonButtons").animate({left : "-=" + StepWidth + "px"});
-			}
+			
 			setSelectedRibbonItem(StepNumber);
 			return false;
 		});
@@ -109,17 +118,12 @@ $(document).ready(function(){
 	
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
 	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
-	$('div[data-type="wrapper"]').click(function(event){
-			selectStep(event.currentTarget);
-	});
-
 	$('div[data-type="wrapper"]').click(function(event)
 	{
-		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-//			console.log("IGNORE click on data-type = wrapper");
-			return;
-		}
-		StepNumber = event.currentTarget.getAttribute('data-number');
+		var newStep = event.currentTarget.getAttribute('data-number');
+		selectStep(event.currentTarget);
+		StepNumber = newStep;
+			
 		StepId = event.currentTarget.getAttribute('data-id');
 		loadStep(StepId,StepNumber);
 	});
@@ -144,6 +148,8 @@ function setSelectedRibbonItem(StepNumber) {
 
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
 function loadStep(StepId,StepOrderNumber) {
+	jQuery('#ContentScreensLoader').fadeIn(200);
+	jQuery('#ContentScreens').fadeOut(200);
 	//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
 	var urlLoadStep = "LoadStep.php";
 	if (StepId > -1)
@@ -160,31 +166,42 @@ function loadStep(StepId,StepOrderNumber) {
 			if (StepOrderNumber == 1) {
 				requestPresentationData(ProjectId);
 			}
+			
+			jQuery('#ContentScreensLoader').fadeOut(200);
+			jQuery('#ContentScreens').fadeIn(200);
 	});
 };
 	
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
 function selectStep(eventTarget) {
-			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
-		jQuery('.ribbonChallengeBottomCurrent').removeClass('ribbonChallengeBottomCurrent').addClass('ribbonChallengeBottom');
-		jQuery('.ribbonStartBottomCurrent').removeClass('ribbonStartBottomCurrent').addClass('ribbonStartBottom');
-		jQuery('.ribbonPlanBottomCurrent').removeClass('ribbonPlanBottomCurrent').addClass('ribbonPlanBottom');
-		jQuery('.ribbonCreateBottomCurrent').removeClass('ribbonCreateBottomCurrent').addClass('ribbonCreateBottom');
-		jQuery('.ribbonReviseBottomCurrent').removeClass('ribbonReviseBottomCurrent').addClass('ribbonReviseBottom');
-		jQuery('.ribbonPresentBottomCurrent').removeClass('ribbonPresentBottomCurrent').addClass('ribbonPresentBottom');
+	StepNumber = jQuery(eventTarget).attr('data-number');
+	
+	jQuery('.singleRibbonBlock').removeClass('current');
+	jQuery(eventTarget).addClass('current');
+	
+	var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
+	var wid = parseInt(jQuery(eventTarget).width());
+	var sWid = parseInt(jQuery('#ribbonStrip').width());
+	var left = parseInt(jQuery('#ribbonButtons').css('left'));
+	
+	if(isNaN(left))
+		left = 0;
+	
+	if(xPos + wid > (sWid - left)) {
+		left = (xPos + wid) - sWid;
+	}
+	else if(xPos < -left) {
+		left = xPos + 2;
 		
+		if(left == 2)
+			left = 0;
+	}
+	else {
+		return;
+	}
+	
 		
-		// remove all visible selected step call outs (arrow pointing down below the step) and hide them
-		jQuery('div[data-type="selector"]').removeClass('visibleStyle').addClass('hiddenStyle');
-			// Add the visible style to the selected lower div to display the arrow pointing down, div class=ribbonChallengeSelector
-		jQuery('div[data-type="selector"]',eventTarget).addClass("visibleStyle");
-		// Add Current to class for the step so that it stays highlighted in appropriate color
-		jQuery(".ribbonChallengeBottom",eventTarget).removeClass("ribbonChallengeBottom").addClass("ribbonChallengeBottomCurrent");
-		jQuery(".ribbonStartBottom",eventTarget).removeClass("ribbonStartBottom").addClass("ribbonStartBottomCurrent");	
-		jQuery(".ribbonPlanBottom",eventTarget).removeClass("ribbonPlanBottom").addClass("ribbonPlanBottomCurrent");
-		jQuery(".ribbonCreateBottom",eventTarget).removeClass("ribbonCreateBottom").addClass("ribbonCreateBottomCurrent");	
-		jQuery(".ribbonReviseBottom",eventTarget).removeClass("ribbonReviseBottom").addClass("ribbonReviseBottomCurrent");	
-		jQuery(".ribbonPresentBottom",eventTarget).removeClass("ribbonPresentBottom").addClass("ribbonPresentBottomCurrent");	
+	jQuery('#ribbonButtons').clearQueue().animate({'left': (-left)}, 200);
 }	
 		
 //  ///////////////////////////////////////////////////////////////////////

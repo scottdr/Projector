@@ -62,24 +62,24 @@ do {
 			if ($currentRoutineName != '')
 				print "\n</div>\n"; // close off previous div when we need to
 			print "\n" . '<div class="ribbonBlock" id="ribbon' . $row_stepsRecordset['CSSName'] . '">';							// <div id="ribbonChallenge">
-			print "\n  " . '<div id="ribbon' . $row_stepsRecordset['CSSName'] . 'Top">'; 	//   <div id="ribbonChallengeTop">
+			print "\n  " . '<div class="ribbonHeader" id="ribbon' . $row_stepsRecordset['CSSName'] . 'Top">'; 	//   <div id="ribbonChallengeTop">
 			print "\n    " . '<h2>' . $row_stepsRecordset['RoutineName'] . '</h2>'; 				//   <h2>YOUR CHALLENGE</h2>
 			print "\n  </div>";
 			$currentRoutineName = $row_stepsRecordset['CSSName'];
 		}
 		
-		print "\n  " . '<div class="singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" >'; 			// <div class="ribbonChallengeColumnWrap">
+		
 		if ($SelectedStepNumber == $rowStepNumber) {	// if the step number is the currently selected one set class to BottomCurrent
-			print "\n    " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'BottomCurrent" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">
-		} else
-			print "\n    " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'Bottom" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">		
-		print "\n      " . '<p class="' . $row_stepsRecordset['CSSName'] . 'Number">' . $rowStepNumber . '</p>'; // <p class="ChallengeNumber">1</p>
+			print "\n  " . '<div class="current singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" >'; 			// <div class="ribbonChallengeColumnWrap">
+		} else {
+			print "\n  " . '<div class="singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" >'; 
+		}
+		print "\n    " . '<div class="ribbonBottom ribbon' . $row_stepsRecordset['CSSName'] . 'Bottom" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">		
+		print "\n      " . '<p class="ribbonOpeningNumber ' . $row_stepsRecordset['CSSName'] . 'Number">' . $rowStepNumber . '</p>'; // <p class="ChallengeNumber">1</p>
 		print "\n      " . '<h2>' . $row_stepsRecordset['LessonName'] . '</h2>';  // <h2>Challenge Video</h2>
 		print "\n    " . '</div>';
-		if ($SelectedStepNumber == $rowStepNumber)
-			print "\n    " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'Selector visibleStyle" data-type="selector"> </div>'; 
-		else
-			print "\n    " . '<div class="ribbon' . $row_stepsRecordset['CSSName'] . 'Selector hiddenStyle" data-type="selector"> </div>';
+		print "\n    " . '<div class="ribbonSelector ribbon' . $row_stepsRecordset['CSSName'] . 'Selector" data-type="selector"> </div>';
+		
 		print "\n  " . '</div>';
 		$stepsArray[] = $row_stepsRecordset;
 		$rowNumber++;
