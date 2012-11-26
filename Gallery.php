@@ -37,7 +37,11 @@ $(document).ready(function() {
 		/*
 		alert('You clicked the DIV:' + e.currentTarget.getAttribute("data-id")); */
 		window.location = "ProjectDetails.php?Id=" + e.currentTarget.getAttribute("data-id");
-	});  
+	});
+	$('#GalleryBanner').click(function(e) {
+//		console.log('You clicked the banner DIV go to url: ' + e.currentTarget.getAttribute("data-url"));
+		window.location = e.currentTarget.getAttribute("data-url");
+	});    
 });
 </script>
 
@@ -67,8 +71,7 @@ $(document).ready(function() {
         <!-- Banner for Featured Topic -->
         <?php if ($topic == "All") : ?>
         	
-            <div id="GalleryBanner">
-            <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">
+            <div id="GalleryBanner" data-url="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>" style="background-image:url(<?php echo $row_FeaturedProject['Banner']; ?>)">
                 <div id="TopicIcon" style="float:left; margin-right:10px;">
                 	<img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
                 </div>
@@ -77,12 +80,11 @@ $(document).ready(function() {
                     <p style="color:#333"><?php echo $row_FeaturedProject['TagLine']; ?></p>
                     <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
                 </div>
-            </a>
             </div>
            
             <div class="horzontalSpacer"></div>
         <?php else: ?>
-            <div id="GalleryBanner">
+            <div id="GalleryHeader">
                 <div id="TopicIcon" style="float:left; margin-right:10px;">
                   <img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" />
                 </div>
