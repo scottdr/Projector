@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax MathML Test Page 2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<script src="../../_scripts/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	if (!isMathMLCapable()) {
+		if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
+		  if ((document.getElementsByTagName("math").length > 0) ||
+		      (document.getElementsByTagNameNS == null ? false :
+		      (document.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML","math").length > 0))) {
+		    var script = document.createElement("script");
+		    script.type = "text/javascript";
+		    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML";
+		    document.getElementsByTagName("head")[0].appendChild(script);
+		  }
+		}
+	}
+
+});
+
+function isMathMLCapable() {
+	var e = document.createElement('div');
+    e.innerHTML = '<math></math>';
+    return e.firstChild && "namespaceURI" in e.firstChild && e.firstChild.namespaceURI == 'http://www.w3.org/1998/Math/MathML';
+}
+    
+</script>
+
+</head>
+<body>
+
+<h1>MathML Markup Display Test 2: MathJax only when needed</h1>
+<p>The following page further tests rendering of several basic mathematic expressions written in MathML markup, and utilizing the JavaScript MathJax library for display.
+</br>
+</br>
+
+<h2>Test 1: Default MathML expression</h2>
+<p>
+When
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>a</mi><mo>&#x2260;</mo><mn>0</mn>
+</math>,
+there are two solutions to
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>a</mi><msup><mi>x</mi><mn>2</mn></msup>
+  <mo>+</mo> <mi>b</mi><mi>x</mi>
+  <mo>+</mo> <mi>c</mi> <mo>=</mo> <mn>0</mn>
+</math>
+and they are
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>x</mi> <mo>=</mo>
+  <mrow>
+    <mfrac>
+      <mrow>
+        <mo>&#x2212;</mo>
+        <mi>b</mi>
+        <mo>&#x00B1;</mo>
+        <msqrt>
+          <msup><mi>b</mi><mn>2</mn></msup>
+          <mo>&#x2212;</mo>
+          <mn>4</mn><mi>a</mi><mi>c</mi>
+        </msqrt>
+      </mrow>
+      <mrow> <mn>2</mn><mi>a</mi> </mrow>
+    </mfrac>
+  </mrow>
+  <mtext>.</mtext>
+</math>
+</p>
+</br>
+
+<h2>Test 2a: MathML fractions</h2>
+<p>Fraction: 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+	<mfrac>
+		<mrow><mn>1</mn></mrow>
+		<mrow><mn>2</mn></mrow>
+</mfrac>
+</math>
+</p>
+</br>
+
+<h2>Test 2b: MathML fractions, inline</h2>
+<p>In mathematics the set of all numbers which can be expressed in the form a/b, where a and b are integers and b is not zero, is called the set of rational numbers and is represented by the symbol Q, which stands for quotient. The test for a number being a rational number is that it can be written in that form (i.e., as a common fraction). FRACTION TEST: 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+	<mfrac>
+		<mrow><mn>1</mn></mrow>
+		<mrow><mn>2</mn></mrow>
+</mfrac>
+</math>
+In mathematics the set of all numbers which can be expressed in the form a/b, where a and b are integers and b is not zero, is called the set of rational numbers and is represented by the symbol Q, which stands for quotient. The test for a number being a rational number is that it can be written in that form (i.e., as a common fraction).
+</p>
+</br>
+
+<h2>Test 3a: MathML exponents</h2>
+<p>Exponents:
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <msup><mi>a</mi><mn>2</mn></msup>
+        <mo>+</mo>
+        <msup><mi>b</mi><mn>2</mn></msup>
+        <mo>=</mo>
+        <msup><mi>c</mi><mn>2</mn></msup>
+      </mrow>
+    </math>
+</p>
+</br>
+
+<h2>Test 3b: MathML exponents, inline</h2>
+<p>In mathematics the set of all numbers which can be expressed in the form a/b, where a and b are integers and b is not zero, is called the set of rational numbers and is represented by the symbol Q, which stands for quotient. The test for a number being a rational number is that it can be written in that form (i.e., as a common fraction). EXPONENTS TEST: 
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <msup><mi>a</mi><mn>2</mn></msup>
+        <mo>+</mo>
+        <msup><mi>b</mi><mn>2</mn></msup>
+        <mo>=</mo>
+        <msup><mi>c</mi><mn>2</mn></msup>
+      </mrow>
+    </math>
+    However, the word fraction is also used to describe mathematical expressions that are not rational numbers, for example algebraic fractions (quotients of algebraic expressions), and expressions that contain irrational numbers, such as √2/2 (see square root of 2) and π/4 (see proof that π is irrational).
+</p>
+</br>
+
+<h2>Test 4a: MathML radicals</h2>
+<p>Square root: 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msqrt>
+        <mi>x</mi>
+      </msqrt>
+</math>
+</p>
+<p>Radical with indices: 
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mroot>
+        <mi>x</mi>
+        <mn>3</mn>
+      </mroot>
+</math>
+</p>
+</br>
+
+<h2>Test 4b: MathML radicals, inline</h2>
+<p>In mathematics the set of all numbers which can be expressed in the form a/b, where a and b are integers and b is not zero, is called the set of rational numbers and is represented by the symbol Q, which stands for quotient. The test for a number being a rational number is that it can be written in that form (i.e., as a common fraction). RADICALS TEST:
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msqrt>
+        <mi>x</mi>
+      </msqrt>
+</math>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mroot>
+        <mi>x</mi>
+        <mn>3</mn>
+      </mroot>
+</math>
+However, the word fraction is also used to describe mathematical expressions that are not rational numbers, for example algebraic fractions (quotients of algebraic expressions), and expressions that contain irrational numbers, such as √2/2 (see square root of 2) and π/4 (see proof that π is irrational).</p>
+</br>
+
+<h2>Test 5a: MathML matrix</h2>
+<p>Matrix: 
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mfenced open="[" close="]">
+             <mtable>
+                <mtr>
+                   <mtd><mi>x</mi></mtd>
+                   <mtd><mi>y</mi></mtd>
+                </mtr>
+                <mtr>
+                   <mtd><mi>z</mi></mtd>
+                   <mtd><mi>w</mi></mtd>
+                </mtr>
+             </mtable>
+         </mfenced>
+      </mrow>
+   </math>
+</p>
+</br>
+
+<h2>Test 5b: MathML matrix, inline</h2>
+<p>In mathematics the set of all numbers which can be expressed in the form a/b, where a and b are integers and b is not zero, is called the set of rational numbers and is represented by the symbol Q, which stands for quotient. The test for a number being a rational number is that it can be written in that form (i.e., as a common fraction). MATRIX TEST: 
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
+       <mrow>
+          <mi>A</mi>
+          <mo>=</mo>
+          <mfenced open="[" close="]">
+             <mtable>
+                <mtr>
+                   <mtd><mi>x</mi></mtd>
+                   <mtd><mi>y</mi></mtd>
+                </mtr>
+                <mtr>
+                   <mtd><mi>z</mi></mtd>
+                   <mtd><mi>w</mi></mtd>
+                </mtr>
+             </mtable>
+         </mfenced>
+      </mrow>
+   </math>
+   In mathematics the set of all numbers which can be expressed in the form a/b, where a and b are integers and b is not zero, is called the set of rational numbers and is represented by the symbol Q, which stands for quotient. The test for a number being a rational number is that it can be written in that form (i.e., as a common fraction). However, the word fraction is also used to describe mathematical expressions that are not rational numbers, for example algebraic fractions (quotients of algebraic expressions), and expressions that contain irrational numbers, such as √2/2 (see square root of 2) and π/4 (see proof that π is irrational).
+</p>
+</br>
+
+</body>
+</html>

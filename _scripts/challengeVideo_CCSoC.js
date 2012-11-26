@@ -49,7 +49,7 @@ var replayBtnImg = "assets/images/challengeintro_replay.png";
 var NumberOfSteps = 0;
 var visibleWidth = 0;
 var ribbonWidth = 0;
-var stopPoistion = 0;
+var stopPosition = 0;
 
 $(document).ready(function(){ 
 
@@ -66,10 +66,10 @@ $(document).ready(function(){
 			
 		jQuery("#ribbonButtons").width(ribbonWidth);
 		
-//		console.log("ribbon width: " + jQuery("#ribbonButtons").width());
+//	console.log("ribbon width: " + jQuery("#ribbonButtons").width());
 		
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
-		jQuery("#leftButton").click(function(){
+		jQuery("#leftButton-CC").click(function(){
 			//need to write if statment to check if the left position is offset more that the ribbonWidth
 			StepNumber--;		// decrement Step we are going to set it to previous step
 			if (StepNumber <= 0 ) {		// don't decrement before the first slide
@@ -84,7 +84,7 @@ $(document).ready(function(){
 		});
 		
 			// handler called when user clicks on the > button to right of the ribbon, go to next step
-		jQuery("#rightButton").click(function(){
+		jQuery("#rightButton-CC").click(function(){
 			//need to write if statment to check if the left position is offset more that the ribbonWidth
 			StepNumber++;		// incrmenet Step we are going to set it to next step
 			if (StepNumber > NumberOfSteps) {		// make sure don't go past last step
@@ -111,7 +111,7 @@ $(document).ready(function(){
 	$('div[data-type="wrapper"]').click(function(event)
 	{
 		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-			console.log("IGNORE click on data-type = wrapper");
+//		console.log("IGNORE click on data-type = wrapper");
 			return;
 		}
 		StepNumber = event.currentTarget.getAttribute('data-number');
@@ -132,7 +132,7 @@ $(document).ready(function(){
 
 function setSelectedRibbonItem(StepNumber) {
 	var e = jQuery.Event("click");
-	console.log("selecting ribbon item #: " + StepNumber);
+//	console.log("selecting ribbon item #: " + StepNumber);
 //	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
 	$('div[data-number="' + StepNumber + '"]').trigger(e);
 }
@@ -151,10 +151,27 @@ function loadStep(StepId,StepOrderNumber) {
 	}).done(function( html ) {
 			var contentElement = document.getElementById("ContentScreens");
 			contentElement.innerHTML = html;
+			
+			// need to add click handlers to the Teacher Notes button
+			jQuery("#TeacherNotes-Info-CC").click(function(){
+				$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+				$('#TeacherNotes-Info-CC').css({'display':'none'});
+				$('#TeacherNotes-Close-CC').css({'display':'block'});
+				return false;
+			});
+		
+			jQuery("#TeacherNotes-Close-CC").click(function(){
+				$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+				$('#TeacherNotes-Info-CC').css({'display':'block'});
+				$('#TeacherNotes-Close-CC').css({'display':'none'});
+				return false;
+			});
 			// if we are on the very first step
 			if (StepOrderNumber == 1) {
 				requestPresentationData(ProjectId);
 			}
+			// Send custom 'HTMLChange' event to inform of update.
+			$('#ContentScreens').trigger('HTMLChange');
 	});
 };
 	

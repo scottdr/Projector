@@ -1,4 +1,5 @@
 <?php require_once('Connections/projector.php'); ?>
+<?php require_once('Globals.php'); ?>
 <?php require_once('GetMediaForStep.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
@@ -62,4 +63,32 @@ $templateName = "lessonTemplates/" . $row_StepQuery['TemplateName'];
 require($templateName);
 
 mysql_free_result($StepQuery);
+
+
+// if we are in common core then look for TeacherNotes
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true) {
+	mysql_select_db($database_projector, $projector);
+	$query_NotesQuery = sprintf("SELECT * FROM TeacherNotes WHERE StepId = %s", $StepId);
+	$NotesQuery = mysql_query($query_NotesQuery, $projector) or die(mysql_error());
+	$row_NotesQuery = mysql_fetch_assoc($NotesQuery);
+	$totalRows_NotesQuery = mysql_num_rows($NotesQuery);
+//	echo "teacher notes: " . $row_NotesQuery['Text']; 
+	mysql_free_result($NotesQuery);
+
+}
 ?>
+<?php if ($totalRows_NotesQuery > 0) : ?>
+ <!-- TeacherNotes Starts -->
+  <div id="TeacherNotes">
+	  <div id="TeacherNotes-Info-CC">
+      </div>
+      <div id="TeacherNotes-Close-CC">
+      </div>
+      <div id="TeacherNotesShadow-CC">
+      </div>
+      <div id="TeacherNotes-Text-CC">
+      <?php echo $row_NotesQuery['Text']; ?>
+      </div>
+  </div>
+<!-- TeacherNotes Ends -->
+<?php endif; ?>

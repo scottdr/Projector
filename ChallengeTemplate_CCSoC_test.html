@@ -1,0 +1,248 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson :Where Are You Going, Where Have You Been?</title>
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeLayout_CCSoC.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeStyles_CCSoC.css" rel="stylesheet" type="text/css">
+<link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
+<link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
+<link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
+<link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--<script type="text/javascript" src="//use.typekit.net/mpm3cdl.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->
+
+<script src="js/utility.js"></script>
+<script src="_scripts/respond.min.js"></script>
+<script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
+<script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
+<script src="_scripts/challengeVideo_CCSoC.js" type="text/javascript"></script>
+<script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
+<script src="_scripts/challengeTablet.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){ 
+	
+		jQuery("#TeacherNotes-Info-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+			$('#TeacherNotes-Info-CC').css({'display':'none'});
+			$('#TeacherNotes-Close-CC').css({'display':'block'});
+			return false;
+		});
+	
+		jQuery("#TeacherNotes-Close-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+			$('#TeacherNotes-Info-CC').css({'display':'block'});
+			$('#TeacherNotes-Close-CC').css({'display':'none'});
+			return false;
+		});
+	
+	});
+</script>
+
+</head>
+<body>
+<!--<div id="NavBar">
+<a href="ViewProjects.php">View Projects</a> | 
+<a href="ViewSteps.php?ProjectId=26">View Steps</a> | 
+<a onclick="goToEditStepUrl()" href="javascript:void(0);"><img src="_images/icons/Plus16x16.png" height="16" width="16" />Edit Step</a> | 
+<a href="EditStep.php?action=Add"><img src="_images/icons/Plus16x16.png" height="16" width="16" /> Add Step</a> | 
+<a href="EditMedia.php?action=Add"><img src="_images/icons/Plus16x16.png" height="16" width="16" /> Add Media</a>
+</div>
+-->
+<div class="gridContainer clearfix">
+
+  <!-- Header Starts -->
+  <div id="Header">
+    <div id="headerBackButton-CC">
+      <a href="ProjectDetails.php?Id=26">Back to Lesson Details</a>
+    </div>
+    <a href="index.php">
+    <div id="headerLogo">
+    <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24" />
+      <p style="color:#FFF;">Common Core Lessons</p>
+    </div>
+    </a>
+    <div id="headerChallengeTitle">
+      <h1>Where Are You Going, Where Have You Been?</h1>
+    </div>
+  </div>
+  <!-- Header Ends -->
+  
+  <!-- NavRibbon Starts -->
+  <div id="RibbonNavigation">
+    <div id="NavRibbonDiv"> 
+     
+        
+        <div id="ribbonContainer">
+        	<div id="rightButton-CC"></div>
+            <div id="leftButton-CC"></div>
+            
+            <div id="ribbonStrip">
+              <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+                
+                    <div id="ribbonChallenge_CC_Opening">
+                      <div id="ribbonChallenge_CC_OpeningTop">
+                        <h2>OPENING</h2>
+                      </div>
+                      <div class="ribbonChallenge_CC_OpeningColumnWrap" data-type="wrapper" data-number="1" data-id="214" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonChallenge_CC_OpeningBottomCurrent" data-type="bottom">
+                          <p class="Challenge_CC_OpeningNumber">1</p>
+                          <h2>Introduction</h2>
+                        </div>
+                        <div class="ribbonChallenge_CC_OpeningSelector visibleStyle" data-type="selector"> </div>
+                      </div>
+                      <div class="ribbonChallenge_CC_OpeningColumnWrap" data-type="wrapper" data-number="2" data-id="206" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonChallenge_CC_OpeningBottom" data-type="bottom">
+                          <p class="Challenge_CC_OpeningNumber">2</p>
+                          <h2>Lesson Overview</h2>
+                        </div>
+                        <div class="ribbonChallenge_CC_OpeningSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                    </div>
+                    
+                    <div id="ribbonStart_CC_Writing">
+                      <div id="ribbonStart_CC_WritingTop">
+                        <h2>INDEPENDENT WRITING</h2>
+                      </div>
+                      <div class="ribbonStart_CC_WritingColumnWrap" data-type="wrapper" data-number="3" data-id="207" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonStart_CC_WritingBottom" data-type="bottom">
+                          <p class="Start_CC_WritingNumber">3</p>
+                          <h2>Short Stories</h2>
+                        </div>
+                        <div class="ribbonStart_CC_WritingSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                      <div class="ribbonStart_CC_WritingColumnWrap" data-type="wrapper" data-number="4" data-id="208" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonStart_CC_WritingBottom" data-type="bottom">
+                          <p class="Start_CC_WritingNumber">4</p>
+                          <h2>Pair Share</h2>
+                        </div>
+                        <div class="ribbonStart_CC_WritingSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                    </div>
+                    
+                    <div id="ribbonPlan_CC_GroupWork">
+                      <div id="ribbonPlan_CC_GroupWorkTop">
+                        <h2>SMALL GROUP WORK</h2>
+                      </div>
+                      <div class="ribbonPlan_CC_GroupWorkColumnWrap" data-type="wrapper" data-number="5" data-id="209" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonPlan_CC_GroupWorkBottom" data-type="bottom">
+                          <p class="Plan_CC_GroupWorkNumber">5</p>
+                          <h2>Research the 1960's</h2>
+                        </div>
+                        <div class="ribbonPlan_CC_GroupWorkSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                      <div class="ribbonPlan_CC_GroupWorkColumnWrap" data-type="wrapper" data-number="6" data-id="210" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonPlan_CC_GroupWorkBottom" data-type="bottom">
+                          <p class="Plan_CC_GroupWorkNumber">6</p>
+                          <h2>Whole Group Share</h2>
+                        </div>
+                        <div class="ribbonPlan_CC_GroupWorkSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                    </div>
+                    <!--
+                    <div id="ribbonCreate_CC_CommonRead">
+                      <div id="ribbonCreate_CC_CommonReadTop">
+                        <h2>COMMON READ</h2>
+                      </div>
+                      <div class="ribbonCreate_CC_CommonReadColumnWrap" data-type="wrapper" data-number="7" data-id="211" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonCreate_CC_CommonReadBottom" data-type="bottom">
+                          <p class="Create_CC_CommonReadNumber">7</p>
+                          <h2>Read for the Basics</h2>
+                        </div>
+                        <div class="ribbonCreate_CC_CommonReadSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                      <div class="ribbonCreate_CC_CommonReadColumnWrap" data-type="wrapper" data-number="8" data-id="212" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonCreate_CC_CommonReadBottom" data-type="bottom">
+                          <p class="Create_CC_CommonReadNumber">8</p>
+                          <h2>Pair Share</h2>
+                        </div>
+                        <div class="ribbonCreate_CC_CommonReadSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                    </div>
+                    
+                    <div id="ribbonRevise_CC_Revise">
+                      <div id="ribbonRevise_CC_ReviseTop">
+                        <h2>HOMEWORK</h2>
+                      </div>
+                      <div class="ribbonRevise_CC_ReviseColumnWrap" data-type="wrapper" data-number="9" data-id="213" ontouchstart="touchStart(event,'step');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);"" >
+                        <div class="ribbonRevise_CC_ReviseBottom" data-type="bottom">
+                          <p class="Revise_CC_ReviseNumber">9</p>
+                          <h2>Common Read</h2>
+                        </div>
+                        <div class="ribbonRevise_CC_ReviseSelector hiddenStyle" data-type="selector"> </div>
+                      </div>
+                    </div>-->
+                    
+                    
+                </div>
+             </div>
+            
+             
+            
+        </div>
+        
+       
+        
+      </div>
+    </div>
+     
+     
+    <div id="NavShadowDiv"></div>
+
+  <input id="numberSteps" type="hidden" value="9" />
+  <!-- NavRibbon Ends -->
+  
+  <!-- ContentScreens Starts -->
+  <div>
+  	<div id="SplashWrapper">
+        <div id="LeftCopyDkBg">
+            <div id="Text"><h1>Title text here</h1></div>
+        </div>
+        
+        <div id="FullWidthBgImg">
+            <img src="_images/projects/Virtual suitcase/virtual suitcase_hut on ocean_600x600.jpg"/>
+        </div>
+        
+    </div>
+  </div>
+  <!-- ContentScreens Ends -->
+  
+    <!-- TeacherNotes Starts -->
+  <div id="TeacherNotes">
+	  <div id="TeacherNotes-Info-CC">
+      </div>
+      <div id="TeacherNotes-Close-CC">
+      </div>
+      <div id="TeacherNotesShadow-CC">
+      </div>
+      <div id="TeacherNotes-Text-CC">
+      <h1>Notes here ... </h1>
+      <p>Nunc ante nunc, euismod et dignissim vel, interdum nec enim. Aenean felis urna, pretium eu lobortis in, mattis sit amet risus. Duis eget magna in ligula feugiat porttitor. Proin nec mauris dui, eu sagittis massa. Proin suscipit, nulla nec tempus hendrerit, massa nisi commodo eros, ut egestas risus purus aliquet quam. Nulla enim est, scelerisque nec consequat vitae, euismod non velit. Pellentesque et erat diam. Duis eu nibh nec tortor feugiat commodo. Ut a arcu in sapien lobortis mollis vel vitae felis. Ut blandit mattis placerat. Quisque consequat, quam at dapibus ullamcorper, elit nulla facilisis est, quis porta est felis ut urna. Fusce lacinia nunc nec velit vulputate vel tempus ipsum scelerisque. Ut diam nulla, tincidunt eget euismod quis, vulputate quis lacus.
+
+Morbi eget quam eu arcu tempus molestie eu at libero. Maecenas vel nibh est. Nunc in sollicitudin quam. Ut leo orci, faucibus sit amet elementum ut, feugiat in velit. Phasellus pulvinar tincidunt est ac tristique. Nulla facilisi. Sed rhoncus sollicitudin iaculis. Nunc elementum, eros at ullamcorper vestibulum, orci ante laoreet diam, ac molestie ante magna id ante. Donec fermentum sapien vel diam sollicitudin nec venenatis justo semper. Proin vel dui tellus, vel rhoncus magna. Fusce quis justo sit amet nisi euismod posuere. Nunc sagittis lorem quis lorem tincidunt blandit. Aliquam erat volutpat. Nullam rutrum lectus tincidunt odio bibendum sollicitudin.
+
+Aliquam erat volutpat. Nunc eget ligula nibh, id porttitor augue. Fusce sagittis, ligula ut consequat pellentesque, velit neque aliquam arcu, ac consequat libero odio in arcu. Etiam rutrum sapien ut eros sagittis iaculis. Aliquam aliquam rhoncus libero et consectetur. Praesent tellus quam, tincidunt in auctor sed, tristique vitae felis. Maecenas justo nibh, ultrices mollis pulvinar id, semper eget turpis. Morbi viverra eleifend erat at imperdiet. Morbi mattis magna a justo ultrices sed ultricies ipsum posuere. Aliquam elit orci, congue id viverra vitae, fermentum quis mi. Fusce in velit ante, eu bibendum lacus. Maecenas nisl nulla, sagittis in placerat a, convallis sit amet arcu. Sed in augue urna, sit amet rhoncus diam. Nulla non neque in odio porta placerat. Fusce eget malesuada justo.
+
+Duis blandit nisi in eros tincidunt tempor. Fusce ut iaculis nisi. Nam sit amet dictum erat. Integer nec sodales eros. Sed pretium dapibus dictum. Pellentesque erat tellus, convallis nec placerat sit amet, viverra sit amet libero. Donec volutpat tellus eu nisl tempus quis condimentum erat tempor. Aenean non turpis sed augue sodales viverra et a massa. Nullam ullamcorper sollicitudin orci ac tincidunt. In hac habitasse platea dictumst. Donec sit amet est sit amet tellus molestie faucibus vitae id velit. Ut interdum sem vitae quam imperdiet eget pulvinar eros commodo. Morbi non elit in arcu porttitor scelerisque vehicula et nunc.</p>
+      </div>
+  </div>
+  <!-- TeacherNotes Ends -->
+  
+  <div id="Footer">
+    <p></p>
+  </div>
+</div>
+</body>
+</html>

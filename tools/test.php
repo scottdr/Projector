@@ -13,7 +13,7 @@ $cmd = "cd /var/www; ";
 # $cmd .= "ls -l";
 $cmd .= "sudo -u root /usr/bin/git pull";
 echo "shell_exec(" . $cmd . ")<br />";
-$result = shell_exec($cmd);
+$result = shell_exec("/usr/bin/gitsync.sh");
 echo "result: " . $result;
 ?>
 </body>

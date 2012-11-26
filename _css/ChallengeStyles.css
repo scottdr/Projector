@@ -113,18 +113,17 @@ hr {
 	font-weight:200;
 }
 #headerChallengeTitle {
-	top: -20px;
-	float:left;
-	display:block;
+	float: left;
+	display: block;
 	height: 30px;
-	width: 600px;
-	margin-left:0px;
+	margin: 0px;
+	padding: 0px;
 }
 #headerChallengeTitle h1{
 	font-size: 20px;
-	line-height: 0px;
-	vertical-align:text-top;
-	font-weight:200;
+	font-weight: 200;
+	margin: 0;
+	padding: 0;
 }
 #headerBackButton-CC {
 	position: relative;

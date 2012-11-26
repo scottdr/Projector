@@ -74,7 +74,7 @@ if (isset($_SESSION['ProjectImage'])) {
 	$projectImage = $_SESSION['ProjectImage'];
 }	
 
-if (defined($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
 	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";

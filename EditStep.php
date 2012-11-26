@@ -112,7 +112,7 @@ if (isset($_POST["MM_action"])) {
   header(sprintf("Location: %s", $updateGoTo));
 } 
 
-if (defined($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
+if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true)
 	$challengeTemplateURL = "ChallengeTemplate_CCSoC.php";
 else
 	$challengeTemplateURL = "ChallengeTemplate.php";
@@ -122,7 +122,7 @@ else
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Edit Project</title>
+<title>Edit Project</title><script type="text/javascript" src="js/utility.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.21/js/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript">
@@ -282,6 +282,13 @@ legend {
 	padding-right:30px;
 }
 
+.whiteButton {
+	background-color: #ffffff;
+	color:#333;
+	padding-left:30px;
+	padding-right:30px;
+}
+
 /* small button for detach under images*/
 a.smallRedButton {
 	color : #FFF;
@@ -376,6 +383,8 @@ tinyMCE.init({
         <option value="TextOnly.php" <?php if ($row_steps['TemplateName'] == "TextOnly.php") echo ' selected="selected" '; ?>>Text Only</option>
         <option value="MediaLeft.php" <?php if ($row_steps['TemplateName'] == "MediaLeft.php") echo ' selected="selected" '; ?>>Media Left</option>
         <option value="MediaRight.php" <?php if ($row_steps['TemplateName'] == "MediaRight.php") echo ' selected="selected" '; ?>>Media Right</option>
+         <option value="TwoMediaLeft.php" <?php if ($row_steps['TemplateName'] == "TwoMediaLeft.php") echo ' selected="selected" '; ?>>2xMedia Left</option>
+         <option value="TwoMediaRight.php" <?php if ($row_steps['TemplateName'] == "TwoMediaRight.php") echo ' selected="selected" '; ?>>2xMedia Right</option>
         <option value="IconLeft.php" <?php if ($row_steps['TemplateName'] == "IconLeft.php") echo ' selected="selected" '; ?>>Icon Left</option>
         <option value="Plan.php" <?php if ($row_steps['TemplateName'] == "Plan.php") echo ' selected="selected" '; ?>>Plan</option>
         <option value="Research.php" <?php if ($row_steps['TemplateName'] == "Research.php") echo ' selected="selected" '; ?>>Research</option>
@@ -394,7 +403,7 @@ tinyMCE.init({
     </div>
     <div class="clearFloat"></div>
     <div style="text-align:center">    	
-    	<input class="blueButton" type="button" name="button" id="button" value="Attach Media" onclick="attachMedia(<?php echo $projectId; ?>)" />
+    	<input class="whiteButton" type="button" name="button" id="button" value="Attach Media" onclick="attachMedia(<?php echo $projectId; ?>)" /><input class="whiteButton" name="TeacherNotes" type="button" value="Teacher Notes" onclick="goToURL('EditNotes.php?StepId=<?php echo $stepId; ?>')" />
     </div>
     <?php endif; ?>
   </fieldset>

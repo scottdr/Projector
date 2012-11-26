@@ -190,7 +190,7 @@ a.navDown {
 	margin: 5px;
 	font-weight: 200;
 	font-size: 22px;
-	line-height: 20px;
+	line-height: 22px;
 	color: #0099CC;
 	text-align: left;
 	padding: 0px;
@@ -199,7 +199,7 @@ a.navDown {
 	margin: 5px;
 	font-weight: 200;
 	font-size: 18px;
-	line-height: 22px;
+	line-height: 20px;
 	color: rgb(255,255,255);
 	text-align: left;
 }
@@ -224,7 +224,7 @@ a.navDown {
 #HomeBannerRotator {
 	display: inline;
 	width: 448px;
-	height: 90px;
+	height: 100px;
 	float: left;
 	display: block;
 	cursor: default;
@@ -736,7 +736,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 450px;
+	height: 475px;
 	position: relative;
 }
 .GalleryColumn1Div p{
@@ -765,7 +765,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 450px;
+	height: 475px;
 	position: relative;
 }
 .GalleryColumn2Div p{
@@ -793,7 +793,7 @@ a.navDown {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	overflow: hidden;
-	height: 450px;
+	height: 475px;
 	position: relative;
 }
 .GalleryColumn3Div p{

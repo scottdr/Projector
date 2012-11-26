@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 does not support max-width so default to width 100% */
+.ie6 img {
+	width:100%;
+}
+
+/* Mobile Layout: 480px and below. */
+
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+#Header {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	height: 92px;
+}
+#RibbonNavigation {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	height: 100px;
+}
+#TeacherNotes {
+	clear: none;
+	float: right;
+	height: 600px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	z-index: 100;
+	left: 0px;
+	width:100%;
+	top: 0px;
+}
+#ContentScreens {
+	clear:both;
+	float: left;
+	margin: 0;
+	width: 100%;
+	display: block;
+	position: relative;
+	/*top:-550px;*/
+}
+#Footer {
+	clear: both;
+	float: left;
+	margin: 0;
+	width: 100%;
+	display: block;
+}
+
+/* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
+
+@media only screen and (min-width: 481px) {
+.gridContainer {
+	width: 95%;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+/*background-color : lightyellow; */     	/* for debugging display light yellow when using tablet rules */
+}
+
+}
+
+/* Desktop Layout: 1025px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+
+/* @media only screen and (min-width: 769px) { 
+	Bumping desktop min width to be greater than the 1024 landscape orientation of iPad because the desktop rules did not give enough space on iPad in landscape mode 
+*/
+@media only screen and (min-width: 1025px) {
+.gridContainer {
+	width: 80%;
+	max-width: 1232px;
+	margin: auto;
+/*	background-color : lightblue; *//* for debugging light blue for desktop */
+}
+
+}
