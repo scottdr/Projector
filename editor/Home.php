@@ -20,9 +20,22 @@
     <?php include("EditorHeader.php"); ?>
     
     <!-- CONTENT STARTS -->
-    
+    <section class="row-fluid">
+        <h3 class="span11 offset1">Welcome to the Mermaid content editing tool.</h3>
+    </section>
 	<section class="row-fluid">
-         <h3 class="span11 offset1">Welcome to the Mermaid content editing tool.</h3>
+		<h4 class="span11 offset1">1. What type of content are you working on?</h4>
+        <label class="radio span11 offset1">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            Common Core Lesson
+      </label>
+        <label class="radio span11 offset1">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Projector Challenge
+        </label>
+  </section>
+	<section class="row-fluid">
+      <h4 class="span11 offset1">2. Are you adding new content, or editing existing content?</h4>
     </section>
     <section class="row-fluid" style="padding-bottom:10px">
    	  <input name="Add" type="button" class="span4 offset1 btn btn-large" id="Submit" value="Add new content">
@@ -31,7 +44,8 @@
     	<input name="Edit" type="button" class="span4 offset1 btn btn-large" id="Submit" value="Edit existing content">
     </section>
     
-    <!-- CONTENT ENDS -->
+    
+  <!-- CONTENT ENDS -->
     
     <?php include("EditorFooter.php"); ?>
 </div>

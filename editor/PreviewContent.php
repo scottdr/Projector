@@ -22,7 +22,10 @@
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span12">&nbsp;Preview - &lt;Challenge / Lesson Name&gt;</h3>
+        <h3 class="span12">&nbsp;Preview - &lt;Challenge / Lesson Name&gt;
+        	<a class="btn btn-small" href="#"><i class="icon-edit"></i> Edit</a>
+            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish</a>
+        </h3>
     </section>
     <section class="row-fluid">
         <div class="span12" style="background-color:#333;">
