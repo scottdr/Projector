@@ -22,7 +22,14 @@
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Define Routines: &lt;Lesson Name&gt; - &lt;Grade&gt; <a class="btn btn-small" href="#"><i class="icon-edit"></i> Edit</a></h3>
+        <h3 class="span11 offset1">Define routines: &lt;lesson name&gt; - &lt;grade&gt; 
+        	<a class="btn btn-small" href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Edit lesson details</a>
+            <a class="btn btn-small" href="CCSoC_DefineTask.php"><i class="icon-edit"></i> Edit lesson tasks</a>
+            <a class="btn btn-small" href="CCSoC_EditSteps.php"><i class="icon-edit"></i> Edit lesson steps</a>
+            <a class="btn btn-small" href="#"><i class="icon-eye-open"></i> View media library</a>
+            <a class="btn btn-small" href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a>
+            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish lesson</a>
+        </h3>
         <ul class="span11 offset1">
           <li>Select the lesson routines from the left panel and add them. Press the control key to select multiple items.</li>
           <li>You can add multiple copies of the same routine by repeating the process.</li>

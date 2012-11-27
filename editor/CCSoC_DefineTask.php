@@ -22,7 +22,14 @@
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Define Tasks: &lt;Lesson Name&gt; - &lt;Grade&gt; <a class="btn btn-small" href="#"><i class="icon-edit"></i> Edit</a></h3>
+        <h3 class="span11 offset1">Define tasks: &lt;lesson name&gt; - &lt;grade&gt;
+            <a class="btn btn-small" href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Edit lesson details</a>
+            <a class="btn btn-small" href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a>
+            <a class="btn btn-small" href="CCSoC_EditSteps.php"><i class="icon-edit"></i> Edit lesson steps</a>
+            <a class="btn btn-small" href="#"><i class="icon-eye-open"></i> View media library</a>
+            <a class="btn btn-small" href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a>
+            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish lesson</a>
+        </h3>
    </section>
        <div class="row-fluid">
 		<hr class="span10 offset1" />
@@ -69,18 +76,6 @@
               </tbody>
             </table>
    	  </div>
-    </section>
-    <div class="row-fluid">
-		<hr class="span10 offset1" />
-    </div>
-    <section class="row-fluid">
-    	<h4 class="span11 offset1">Publishing</h4>
-    </section>
-    <section class="row-fluid">
-    	<input name="Preview" type="button" class="span2 offset1 btn" id="Preview" title="Preview" value="Preview" style="margin-bottom:10px;">
-    </section>
-    <section class="row-fluid">	
-        <input name="Publish" type="button" class="span2 offset1 btn" id="Publish" title="Publish" value="Publish">
     </section>
     
     <!-- CONTENT ENDS -->
