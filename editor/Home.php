@@ -20,7 +20,7 @@
     <?php include("EditorHeader.php"); ?>
     
     <!-- CONTENT STARTS -->
-    <section class="row-fluid">
+    <section class="row-fluid" style="margin-top: 44px;">
         <h3 class="span11 offset1">Welcome to the Mermaid content editing tool.</h3>
     </section>
 	<section class="row-fluid">
@@ -33,16 +33,25 @@
             <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
             Projector Challenge
         </label>
-  </section>
+  	</section>
 	<section class="row-fluid">
       <h4 class="span11 offset1">2. Are you adding new content, or editing existing content?</h4>
     </section>
     <section class="row-fluid" style="padding-bottom:10px">
-   	  <input name="Add" type="button" class="span4 offset1 btn btn-large" id="Submit" value="Add new content">
+   	  <input name="Add" type="button" class="span4 offset1 btn btn-large" id="Submit" value="Add content">
     </section>
   	<section class="row-fluid">
-    	<input name="Edit" type="button" class="span4 offset1 btn btn-large" id="Submit" value="Edit existing content">
+    	<input name="Edit" type="button" class="span4 offset1 btn btn-large" id="Submit" value="Edit content">
     </section>
+    <section class="row-fluid">
+    	<p class="span11 offset1" style="margin-top: 44px;">
+        	These buttons are temporary:
+            <a class="btn btn-small" href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Common Core</a>
+            <a class="btn btn-small" href="Projector_EditChallenge.php"><i class="icon-edit"></i> Projector</a>
+        </p>
+    </section>
+    
+    
     
     
   <!-- CONTENT ENDS -->

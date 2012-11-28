@@ -26,6 +26,13 @@ caption {
 	font-weight:600;
 }
 
+.width-narrow {
+  width: 25%;
+}
+.width-auto {
+  width: 100%;
+}
+
 .table tbody tr.noFocus td {
 	background-color: #E6E6E6;
 }
@@ -38,7 +45,7 @@ caption {
   border: none;
 }
 #header {
-	margin-bottom: 22px;
+	margin-bottom: 0px;
 	background-color:#364395;
 	margin-right: auto;
 	margin-left: auto;
@@ -73,6 +80,43 @@ caption {
 	padding-left: 10px;
 }
 
+.navbar-inner {
+  min-height: 40px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #fafafa;
+  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+  background-repeat: repeat-x;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.065);
+     -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.065);
+          box-shadow: 0 1px 0px rgba(0, 0, 0, 0.065);
+}
+
+.navbar .nav {
+  float: right;
+}
+.btn-right {
+	float: right;
+}
+.accordion-heading {
+  background-color:#E5E5E5;
+}
+.accordion-task {
+	margin-left: 20px;
+}
+.accordion-step {
+	margin-left: 40px;
+}
 #footer {
 	margin-top: 100px;
 	background-color: #364395;

@@ -19,56 +19,155 @@
 	
     <?php include("EditorHeader.php"); ?>
     
+    <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
+    <div class="navbar">
+      <div class="navbar-inner">
+      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Lesson name&gt; - &lt;grade&gt;</h2>
+        <ul class="nav">
+          <li class="active"><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
+          <li><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a></li>
+          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Edit tasks  &amp; steps</a></li>
+          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
+          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS END -->
+    
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Lesson details: &lt;lesson name&gt;
-            <a class="btn btn-small" href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a>
-            <a class="btn btn-small" href="CCSoC_DefineTask.php"><i class="icon-edit"></i> Edit lesson tasks</a>
-            <a class="btn btn-small" href="CCSoC_EditSteps.php"><i class="icon-edit"></i> Edit lesson steps</a>
-            <a class="btn btn-small" href="#"><i class="icon-eye-open"></i> View media library</a>
-            <a class="btn btn-small" href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a>
-            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish lesson</a>
-        </h3>
+        <h3 class="span11 offset1">Lesson details:</h3>
 	</section>
     <section class="row-fluid">
-        <table class="table table-condensed unborderedTable span11 offset1" style="font-size:12px;">
+        <table class="table table-condensed unborderedTable span10 offset1">
               <tbody>
-                <tr>
-                  <td width="154">ID</td>
-                  <td colspan="2">26</td>
+              	<tr>
+                  <td class="width-narrow">Unit</td>
+                  <td colspan="2">
+                  <select name="select2">
+					<option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+				</select></td>
                 </tr>
                 <tr>
-                  <td width="154">Name</td>
-                  <td colspan="2"><input type="text" name="textfield2" id="textfield2"></td>
+                  <td>Lesson number</td>
+                  <td colspan="2">
+                  <select name="select2">
+					<option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+				</select></td>
                 </tr>
                 <tr>
-                  <td width="154">Author</td>
-                  <td colspan="2"><input type="text" name="textfield" id="textfield"></td>
-                </tr>
-                <tr>
-                  <td width="154">Subject</td>
-                  <td colspan="2"><input type="text" name="textfield" id="textfield"></td>
-                </tr>
-                <tr>
-                  <td width="154">Grade<span class="muted"></span></td>
+                  <td>Grade level</td>
                   <td colspan="2">Min.
-                    <input name="textfield6" type="text" id="textfield6" style="width:50px;">
-&nbsp;&nbsp;&nbsp;
-                   Max.
-                  <input name="textfield6" type="text" id="textfield7" style="width:50px;"></td>
+                    <select name="select3">
+                      <option value="K">Kindergarten</option>
+                      <option value="1">Grade 1</option>
+                      <option value="2">Grade 2</option>
+                      <option value="3">Grade 3</option>
+                      <option value="4">Grade 4</option>
+                      <option value="5">Grade 5</option>
+                      <option value="6">Grade 6</option>
+                      <option value="7">Grade 7</option>
+                      <option value="8">Grade 8</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                    </select>
+					
+                   &nbsp;&nbsp;&nbsp;Max.
+                   <select name="select4">
+                     <option value="K">Kindergarten</option>
+                      <option value="1">Grade 1</option>
+                      <option value="2">Grade 2</option>
+                      <option value="3">Grade 3</option>
+                      <option value="4">Grade 4</option>
+                      <option value="5">Grade 5</option>
+                      <option value="6">Grade 6</option>
+                      <option value="7">Grade 7</option>
+                      <option value="8">Grade 8</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                  </select></td>
                 </tr>
                 <tr>
-                  <td width="154">Duration<span class="muted"> (days)</span></td>
-                  <td colspan="2"><input name="textfield3" type="text" id="textfield3" style="width:50px;"></td>
+                  <td>Lesson name</td>
+                  <td colspan="2"><input type="text" name="textfield2" id="textfield2" class="width-auto"></td>
                 </tr>
                 <tr>
-                  <td width="154">Description</td>
-                  <td colspan="2"><textarea name="textarea" rows="10" id="textarea"></textarea></td>
+                  <td>Author</td>
+                  <td colspan="2"><input type="text" name="textfield" id="textfield" class="width-auto"></td>
                 </tr>
                 <tr>
-                  <td width="154">Status</td>
-                  <td colspan="2"><select name="select" id="select">
+                  <td>Subject</td>
+                  <td colspan="2"><select name="select6">
+                    <option value="Math">Math</option>
+                    <option value="ELA">English Language Arts</option>
+                  </select></td>
+                </tr>
+                
+                
+                <tr>
+                  <td>Duration<span class="muted"> (days)</span></td>
+                  <td colspan="2">
+                  <select name="select5">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>Lesson type</td>
+                  <td colspan="2">
+                  <select name="select7">
+                    <option value="Exploratory lesson">Exploratory lesson</option>
+                    <option value="Concept development lesson">Concept development lesson</option>
+                    <option value="Formative assessment lesson">Formative assessment lesson</option>
+                    <option value="Gallery lesson">Gallery lesson</option>
+                    <option value="Unit test and review lesson">Unit test and review lesson</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>Description</td>
+                  <td colspan="2"><textarea name="textarea" rows="10" id="textarea" class="width-auto"></textarea></td>
+                </tr>
+                <tr>
+                  <td>Status</td>
+                  <td colspan="2">
+                  <select name="select">
                     <option value="Edit">Edit</option>
                     <option value="Review">Review</option>
                     <option value="Pilot">Pilot</option>
@@ -76,28 +175,49 @@
                   </select></td>
                 </tr>
                 <tr>
-                  <td width="154">Topic</td>
-                  <td colspan="2"><input type="text" name="textfield4" id="textfield4"></td>
-                </tr>
-                <tr>
-                  <td width="154">Small image</td>
-                  <td colspan="2"><input type="text" name="textfield5" id="textfield5"></td>
-                </tr>
-                <tr>
-                  <td width="154">Medium image</td>
-                  <td colspan="2"><input type="text" name="textfield7" id="textfield8"></td>
-                </tr>
-                <tr>
-                  <td width="154">Large image</td>
-                  <td colspan="2"><input type="text" name="textfield8" id="textfield9"></td>
-                </tr>
-                <tr>
-                  <td width="154"></td>
-                  <td width="390">
-                  <input name="Save" type="button" class="btn btn-primary" id="Save" title="Save" value="Save" style="width:40%;">
-                  <input name="Delete" type="button" class="btn btn-primary btn-danger" id="Delete" title="Delete" value="Delete" style="width:40%;">
+                  <td>Topic</td>
+                  <td colspan="2">
+                  <select name="select">
+                    <option value="Topic 1">Topic 1</option>
+                    <option value="Topic 2">Topic 2</option>
+                  </select>
                   </td>
-                  <td width="350">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Small image</td>
+                  <td colspan="2">
+                 <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <img src="img/placeholder-square.jpg" class="img-rounded" width="100">
+                 </td>
+                </tr>
+                <tr>
+                  <td>Medium image</td>
+                  <td colspan="2">
+                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <img src="img/placeholder-square.jpg" class="img-rounded" width="150">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Large image</td>
+                  <td colspan="2">
+                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <img src="img/placeholder-square.jpg" class="img-rounded" width="200">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3"><hr /></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                  <a href="CCSoC_EditRoutines.php" class="btn btn-primary" style="width:200px;">Save</a>
+                  </td>
+                  <td>
+                  <a href="CCSoC_EditRoutines.php" class="btn btn-primary btn-danger" style="width:200px;">Delete</a>
+                  </td>
                 </tr>
               </tbody>
             </table>

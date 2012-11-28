@@ -19,15 +19,24 @@
 	
     <?php include("EditorHeader.php"); ?>
     
+    <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
+    <div class="navbar">
+      <div class="navbar-inner">
+      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Challenge name&gt;</h2>
+        <ul class="nav">
+          <li class="active"><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Edit steps</a></li>
+          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
+          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->
+    
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1"> Challenge details: &lt;challenge name&gt;
-        	<a class="btn btn-small" href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a>
-            <a class="btn btn-small" href="Projector_EditSteps.php"><i class="icon-edit"></i> Edit challenge steps</a>
-            <a class="btn btn-small" href="#"><i class="icon-eye-open"></i> View media library</a>
-            <a class="btn btn-small" href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a>
-            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish lesson</a>
+        <h3 class="span11 offset1"> Challenge details:
         </h3>
 	</section>
     <section class="row-fluid">
@@ -53,7 +62,7 @@
                   <td width="154">Grade<span class="muted"></span></td>
                   <td colspan="2">Min.
                     <input name="textfield6" type="text" id="textfield6" style="width:50px;">
-&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;
                    Max.
                   <input name="textfield6" type="text" id="textfield7" style="width:50px;"></td>
                 </tr>

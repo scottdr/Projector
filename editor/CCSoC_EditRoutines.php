@@ -19,16 +19,25 @@
 	
     <?php include("EditorHeader.php"); ?>
     
+	<!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
+    <div class="navbar">
+      <div class="navbar-inner">
+      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Lesson name&gt; - &lt;grade&gt;</h2>
+        <ul class="nav">
+          <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
+          <li class="active"><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a></li>
+          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Edit tasks  &amp; steps</a></li>
+          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
+          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS END -->
+    
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Define routines: &lt;lesson name&gt; - &lt;grade&gt; 
-        	<a class="btn btn-small" href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Edit lesson details</a>
-            <a class="btn btn-small" href="CCSoC_DefineTask.php"><i class="icon-edit"></i> Edit lesson tasks</a>
-            <a class="btn btn-small" href="CCSoC_EditSteps.php"><i class="icon-edit"></i> Edit lesson steps</a>
-            <a class="btn btn-small" href="#"><i class="icon-eye-open"></i> View media library</a>
-            <a class="btn btn-small" href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a>
-            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish lesson</a>
+        <h3 class="span11 offset1">Define routines: 
         </h3>
         <ul class="span11 offset1">
           <li>Select the lesson routines from the left panel and add them. Press the control key to select multiple items.</li>
@@ -62,7 +71,6 @@
         </div>
         <div class="span3">
             <SELECT size="12" multiple="MULTIPLE" style="width:100%;">
-                <OPTION  value="Opening">Opening</OPTION>
             </SELECT>
         </div>
         <div class="span2">
@@ -74,7 +82,7 @@
         <hr class="span10 offset1" />
     </section>
     <section class="row-fluid">
-        <input type="button" value="Save Routines"  class="span3 offset2 btn btn-large btn-primary">
+    	<a href="CCSoC_EditTasksSteps.php" class="span3 offset6 btn btn-primary">Save Routines</a>
     </section>
     
     <!-- CONTENT ENDS -->

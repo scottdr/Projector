@@ -19,70 +19,95 @@
 	
     <?php include("EditorHeader.php"); ?>
     
+	<!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
+    <div class="navbar">
+      <div class="navbar-inner">
+      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Challenge name&gt;</h2>
+        <ul class="nav">
+          <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
+          <li class="active"><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Edit steps</a></li>
+          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
+          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->
+    
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Define challenge steps: &lt;challenge name&gt;
-        	<a class="btn btn-small" href="Projector_EditSteps.php"><i class="icon-edit"></i> Edit challenge</a>
-        	<a class="btn btn-small" href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a>
-            <a class="btn btn-small" href="#"><i class="icon-eye-open"></i> View media library</a>
-            <a class="btn btn-small" href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a>
-            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish lesson</a>
+        <h3 class="span11 offset1">Define challenge steps:
         </h3>
     </section>
     <div class="row-fluid">
 		<hr class="span10 offset1" />
     </div>
   	<section class="row-fluid">
-  		
-    	<div class="span5 offset1">
-            <table class="table table-striped table-hover" style="font-size:12px;">
-            <caption>1. Select a routine below to create a step.</caption>
-              <thead>
-                <tr bgcolor="#CCCCCC">
-                  <th>Project Structure</th>
-                  <th width="120"><a class="btn btn-small" href="#"><i class="icon-edit"></i> Edit Routines</a></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Your Challenge (1)</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-edit"></i> Add Step</a></td>
-                </tr>
-                <tr class="">
-                  <td>&nbsp;1. <a href="">In Detail</a></td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-pencil"></i> Edit</a></td>
-                </tr>
-                <tr class="">
-                  <td>&nbsp;2. <a href="">Driving Questions</a></td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-pencil"></i> Edit</a></td>
-                </tr>
-                <tr class="noFocus">
-                  <td>Start (0)</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-edit"></i> Add Step</a></td>
-                </tr>
-                <tr class="noFocus">
-                  <td>Plan (0)</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-edit"></i> Add Step</a></td>
-                </tr>
-                <tr class="noFocus">
-                  <td>Create (0)</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-edit"></i> Add Step</a></td>
-                </tr>
-                <tr class="noFocus">
-                  <td>Revise (0)</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-edit"></i> Add Step</a></td>
-                </tr>
-                <tr class="noFocus">
-                  <td>Present (0)</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-edit"></i> Add Step</a></td>
-                </tr>
-              </tbody>
-            </table>
-		</div>
+        
+      <div class="span4 offset1">
+        	<p><strong>Select a routine from the Challenge to modify steps.</strong></p>
+            
+            <div class="accordion" id="acc_routines">
+              <div class="accordion-group">
+              
+                <div class="accordion-heading">
+                  <a class="accordion-toggle " data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine1_inner">
+                    Routine one - Your challenge (2) 
+                  </a>
+                </div>
+                <div id="acc_routine1_inner" class="accordion-body collapse in">
+                  <div class="accordion-inner accordion-step">
+                    1. Step one <a class="btn btn-small btn-right" href="#"><i class="icon-pencil"></i> Edit step</a></div>
+                  <div class="accordion-inner accordion-step">
+                    2. Step two <a class="btn btn-small btn-right" href="#"><i class="icon-pencil"></i> Edit step</a></div>
+                  <div class="accordion-inner accordion-step">
+                    <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine2_inner">
+                    Routine two - Start (1)
+                  </a>
+                </div>
+                <div id="acc_routine2_inner" class="accordion-body collapse">
+                  <div class="accordion-inner accordion-step">
+                    1. Step one <a class="btn btn-small btn-right" href="#"><i class="icon-pencil"></i> Edit step</a></div>
+                  <div class="accordion-inner accordion-step">
+                    2. Step two <a class="btn btn-small btn-right" href="#"><i class="icon-pencil"></i> Edit step</a></div>
+                  <div class="accordion-inner accordion-step">
+                    <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine3_inner">
+                    Routine three - Plan (0)
+                  </a>
+                </div>
+                <div id="acc_routine3_inner" class="accordion-body collapse">
+                  <div class="accordion-inner accordion-step">
+                  1. Step one <a class="btn btn-small btn-right" href="#"><i class="icon-pencil"></i> Edit step</a></div>
+                  <div class="accordion-inner accordion-step">
+                    2. Step two <a class="btn btn-small btn-right" href="#"><i class="icon-pencil"></i> Edit step</a></div>
+                  <div class="accordion-inner accordion-step">
+                    <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+       
+      	</div>
         <div class="span5">
             <table class="table table-condensed unborderedTable" style="font-size:12px;">
-            <caption>2. Add a step to this project.</caption>
+            <caption>
+            Add a step to this project.
+            </caption>
               <tbody>
                 <tr>
                   <td colspan="2">Each step defined will appear as a separate step within the project ribbon.</td>
@@ -105,12 +130,28 @@
                   <td><input type="text" name="textfield" id="textfield"></td>
                 </tr>
                 <tr>
-                  <td>Content title</td>
+                  <td>Page title</td>
                   <td><input type="text" name="textfield" id="textfield"></td>
                 </tr>
                 <tr>
                   <td>Order <span class="muted">(step number)</span></td>
-                  <td><input name="textfield" type="text" id="textfield" size="3"></td>
+                  <td><select name="select" size="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                  </select></td>
                 </tr>
                 <tr>
                   <td>Type</td>
@@ -166,8 +207,113 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
-    	</div>
+          </table>
+          
+          <table class="table table-condensed unborderedTable" style="font-size:12px;">
+            <caption>
+            Add a step to this project.
+            </caption>
+              <tbody>
+                <tr>
+                  <td colspan="2">Each step defined will appear as a separate step within the project ribbon.</td>
+                </tr>
+                <tr>
+                  <td>Routine</td>
+                  <td>
+                      <select size="1">
+                        <option value="Your Challenge" selected="SELECTED">Your Challenge</option>
+                        <option value="Start">Start</option>
+                        <option value="Plan">Plan</option>
+                        <option value="Create">Create</option>
+                        <option value="Revise">Revise</option>
+                        <option value="Present">Present</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Step name</td>
+                  <td><input type="text" name="textfield" id="textfield"></td>
+                </tr>
+                <tr>
+                  <td>Page title</td>
+                  <td><input type="text" name="textfield" id="textfield"></td>
+                </tr>
+                <tr>
+                  <td>Order <span class="muted">(step number)</span></td>
+                  <td><select name="select" size="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <td>Type</td>
+                  <td>
+                  	  <select size="1">
+                        <option value="Generic" selected="SELECTED">Generic</option>
+                        <option value="Individual">Individual</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Template</td>
+                  <td>
+                      <select size="1">
+                        <option value="Intro" selected="SELECTED">Intro</option>
+                        <option value="Splash">Splash</option>
+                        <option value="Text only">Text only</option>
+                        <option value="Media left">Media left</option>
+                        <option value="Media right">Media right</option>
+                        <option value="Icon left">Icon left</option>
+                        <option value="Plan">Plan</option>
+                        <option value="Research">Research</option>
+                        <option value="Create">Create</option>
+                        <option value="Revise">Revise</option>
+                        <option value="Present">Present</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Content</td>
+                  <td>
+                  	<textarea style="width:90%;" rows="10"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Template media</td>
+                  <td>
+                  	<a class="btn btn-small" href="#"><i class="icon-folder-open"></i> Select media from library</a>
+                    &nbsp;
+                    <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add new media</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Teacher notes</td>
+                  <td>
+                  	<textarea style="width:90%;" rows="10"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                  <input name="Add Step" type="button" class="btn btn-primary" style="width:100%; margin-top:10px;" id="AddStep" title="Add Step" value="Add Step">
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+   	  </div>
     </section>
     
     <!-- CONTENT ENDS -->
