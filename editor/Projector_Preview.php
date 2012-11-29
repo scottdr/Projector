@@ -19,14 +19,22 @@
 	
     <?php include("EditorHeader.php"); ?>
     
+    <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
+    <div class="navbar">
+      <div class="navbar-inner">
+      <h2 class="brand" >&lt;Challenge name&gt;</h2>
+        <ul class="nav">
+          <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
+          <li><a href="Projector_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
+          <li class="active"><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->
+    
     <!-- CONTENT STARTS -->
     
-	<section class="row-fluid">
-        <h3 class="span12">&nbsp;Preview - &lt;Challenge / Lesson Name&gt;
-        	<a class="btn btn-small" href="#"><i class="icon-edit"></i> Edit</a>
-            <a class="btn btn-small" href="#"><i class="icon-ok"></i> Publish</a>
-        </h3>
-    </section>
     <section class="row-fluid">
         <div class="span12" style="background-color:#333;">
         <p class="label">Dynamic ribbon and content layouts inserted here: </p>
