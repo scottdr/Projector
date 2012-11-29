@@ -7,6 +7,11 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 <link href="css/editor-customization.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="css/prettify.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css"/>
+
 <!-- HTML5 shim for IE backwards compatibility -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,16 +24,16 @@
 	
     <?php include("EditorHeader.php"); ?>
     
-    <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
+<!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Lesson name&gt; - &lt;grade&gt;</h2>
+      <h2 class="brand">&lt;Lesson name&gt;</h2>
         <ul class="nav">
           <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
-          <li><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a></li>
-          <li class="active"><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Edit tasks  &amp; steps</a></li>
-          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
-          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+          <li><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
+          <li class="active"><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Tasks  &amp; steps</a></li>
+          <li><a href="CCSoC_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="CCSoC_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -53,8 +58,8 @@
                 </div>
                 <div id="acc_routine1_inner" class="accordion-body collapse">
                   <div class="accordion-inner accordion-task">
-                    1. Task one <a class="btn btn-small btn-right task" href="#"><i class="icon-pencil"></i> Edit task</a>
-                  (2)</div>
+                    1. Task one (4)<a class="btn btn-small btn-right task btn-primary" href="#"><i class="icon-pencil icon-white"></i> Edit task</a>
+                  </div>
                   <div class="accordion-inner accordion-step">
                     Steps:
                       <a class="step" href="#"><img src="img/square_up.png"></a>
@@ -66,8 +71,8 @@
                     <a class="btn btn-small step" href="#"><i class="icon-plus"></i> Add step</a>
                   </div>
                   <div class="accordion-inner accordion-task">
-                    2. Task two <a class="btn btn-small btn-right task" href="#"><i class="icon-pencil"></i> Edit task</a>
-                  (0)</div>
+                    2. Task two (0)<a class="btn btn-small btn-right task btn-primary" href="#"><i class="icon-pencil icon-white"></i> Edit task</a>
+                  </div>
                   <div class="accordion-inner accordion-step">
                     <a class="btn btn-small step" href="#"><i class="icon-plus"></i> Add step</a>
                   </div>
@@ -85,13 +90,13 @@
                 </div>
                 <div id="acc_routine2_inner" class="accordion-body collapse">
 				<div class="accordion-inner accordion-task">
-                    1. Task one <a class="btn btn-small btn-right task" href="#"><i class="icon-pencil"></i> Edit task</a>
-                  (0)</div>
+                    1. Task one (0)<a class="btn btn-small btn-right task btn-primary" href="#"><i class="icon-pencil icon-white"></i> Edit task</a>
+                  </div>
                   <div class="accordion-inner accordion-step">
                     <a class="btn btn-small step" href="#"><i class="icon-plus"></i> Add step</a>
                   </div>
                   <div class="accordion-inner accordion-task">
-                    <a class="btn btn-small task" href="#"><i class="icon-plus"></i> Add task</a>
+                    <a class="btn btn-small  task" href="#"><i class="icon-plus"></i> Add task</a>
                   </div>
                 </div>
               </div>
@@ -146,7 +151,7 @@
                     <tr>
                       <td width="140"></td>
                       <td>
-                      <input name="Update task" type="button" class="btn btn-primary" style="width:50%; margin-top:10px;" id="Update task" title="Update task" value="Update task">
+                      <input name="Update task" type="button" class="btn btn-primary" id="Update task" title="Update task" value="Update task">
                       </td>
                     </tr>
                   </tbody>
@@ -178,12 +183,12 @@
                     </tr>
                     <tr>
                       <td width="140">Preview</td>
-                      <td><img src="img/placeholder.png" width="153" height="114" /></td>
+                      <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="153" height="114" /></td>
                     </tr>
                     <tr>
                       <td width="140"></td>
                       <td>
-                      <input name="Select template" type="button" class="btn btn-primary" style="width:50%; margin-top:10px;" id="Select template" title="Select template" value="Select template">
+                      <input name="Select template" type="button" class="btn btn-primary" margin-top:10px;" id="Select template" title="Select template" value="Select template">
                       </td>
                     </tr>
                   </tbody>
@@ -201,7 +206,9 @@
                     </tr>
                     <tr>
                       <td>Step description</td>
-                      <td><textarea name="textarea" id="textarea"></textarea></td>
+                      <td>
+                      <textarea name="textarea" placeholder="Enter description ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                      </td>
                     </tr>
                     <tr>
                       <td>Template media</td>
@@ -213,12 +220,14 @@
                     </tr>
                     <tr>
                       <td>Teacher hints</td>
-                      <td><textarea name="textarea2" id="textarea2"></textarea></td>
+                      <td>
+                      <textarea name="textarea2" placeholder="Enter teacher hints ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                      </td>
                     </tr>
                     <tr>
                       <td width="140"></td>
                       <td>
-                      <input name="Update step" type="button" class="btn btn-primary" style="width:50%; margin-top:10px;" id="Update step" title="Update step" value="Update step">
+                      <input name="Update step" type="button" class="btn btn-primary" id="Update step" title="Update step" value="Update step">
                       </td>
                     </tr>
                   </tbody>
@@ -235,6 +244,19 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap-transition.js"></script>
+
+<script src="js/wysihtml5-0.3.0.js"></script>
+<script src="js/prettify.js"></script>
+<script src="js/bootstrap-wysihtml5.js"></script>
+
+<script>
+	$('.wysiwyg-editor').wysihtml5();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+	$(prettyPrint);
+</script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#editTask").hide();
@@ -251,6 +273,11 @@
 	$(".step").click(function () {
     	$("#editTask").hide("slow");
 		$("#editStep").show("slow");
+    });
+	
+	$(".closeStepTask").click(function () {
+    	$("#editTask").hide("slow");
+		$("#editStep").hide("slow");
     });
 </script>
 

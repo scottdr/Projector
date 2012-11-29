@@ -15,13 +15,13 @@
     </nav>-->
     
 	<div id="header" class="row-fluid">
-    <h1 class="span8">
+    <h1 class="span6">
         <a href="Home.php" style="font-size:22px; text-decoration:none;">
             <img src="img/headerlogo.png" style="padding-bottom:6px;" />
             Project Mermaid Editor
         </a>
     </h1>
-    <p class="span4">
+    <p class="span6">
       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="Home.php">
           <i class="icon-plus icon-white"></i> 
           Add new

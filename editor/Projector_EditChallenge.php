@@ -7,6 +7,10 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 <link href="css/editor-customization.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="css/prettify.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css"/>
+
 <!-- HTML5 shim for IE backwards compatibility -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,12 +26,12 @@
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Challenge name&gt;</h2>
+      <h2 class="brand" >&lt;Challenge name&gt;</h2>
         <ul class="nav">
           <li class="active"><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
-          <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Edit steps</a></li>
-          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
-          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+          <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
+          <li><a href="Projector_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -42,41 +46,85 @@
     <section class="row-fluid">
         <table class="table table-condensed unborderedTable span11 offset1" style="font-size:12px;">
               <tbody>
-                <tr>
+                <!--<tr>
                   <td width="154">ID</td>
                   <td colspan="2">26</td>
-                </tr>
+                </tr>-->
                 <tr>
                   <td width="154">Name</td>
-                  <td colspan="2"><input type="text" name="textfield2" id="textfield2"></td>
+                  <td><input type="text" name="textfield2" id="textfield2"></td>
                 </tr>
                 <tr>
                   <td width="154">Author</td>
-                  <td colspan="2"><input type="text" name="textfield" id="textfield"></td>
+                  <td><input type="text" name="textfield" id="textfield"></td>
                 </tr>
                 <tr>
                   <td width="154">Subject</td>
-                  <td colspan="2"><input type="text" name="textfield" id="textfield"></td>
+                  <td><input type="text" name="textfield" id="textfield"></td>
                 </tr>
                 <tr>
-                  <td width="154">Grade<span class="muted"></span></td>
-                  <td colspan="2">Min.
-                    <input name="textfield6" type="text" id="textfield6" style="width:50px;">
-					&nbsp;&nbsp;&nbsp;
-                   Max.
-                  <input name="textfield6" type="text" id="textfield7" style="width:50px;"></td>
+                  <td>Grade level</td>
+                  <td>Min.
+                    <select name="select3" class="span3">
+                      <option value="K">Kindergarten</option>
+                      <option value="1">Grade 1</option>
+                      <option value="2">Grade 2</option>
+                      <option value="3">Grade 3</option>
+                      <option value="4">Grade 4</option>
+                      <option value="5">Grade 5</option>
+                      <option value="6">Grade 6</option>
+                      <option value="7">Grade 7</option>
+                      <option value="8">Grade 8</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                    </select>
+					
+                   &nbsp;&nbsp;&nbsp;Max.
+                   <select name="select4"  class="span3">
+                     <option value="K">Kindergarten</option>
+                      <option value="1">Grade 1</option>
+                      <option value="2">Grade 2</option>
+                      <option value="3">Grade 3</option>
+                      <option value="4">Grade 4</option>
+                      <option value="5">Grade 5</option>
+                      <option value="6">Grade 6</option>
+                      <option value="7">Grade 7</option>
+                      <option value="8">Grade 8</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                  </select></td>
                 </tr>
                 <tr>
-                  <td width="154">Duration<span class="muted"> (days)</span></td>
-                  <td colspan="2"><input name="textfield3" type="text" id="textfield3" style="width:50px;"></td>
+                  <td>Duration<span class="muted"> (days)</span></td>
+                  <td>
+                  <select name="select5" class="span2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select></td>
                 </tr>
                 <tr>
                   <td width="154">Description</td>
-                  <td colspan="2"><textarea name="textarea" rows="10" id="textarea"></textarea></td>
+                  <td>
+                  <textarea name="textarea" placeholder="Enter description ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                  </td>
                 </tr>
                 <tr>
                   <td width="154">Status</td>
-                  <td colspan="2"><select name="select" id="select">
+                  <td><select name="select" id="select">
                     <option value="Edit">Edit</option>
                     <option value="Review">Review</option>
                     <option value="Pilot">Pilot</option>
@@ -85,27 +133,38 @@
                 </tr>
                 <tr>
                   <td width="154">Topic</td>
-                  <td colspan="2"><input type="text" name="textfield4" id="textfield4"></td>
+                  <td><input type="text" name="textfield4" id="textfield4"></td>
                 </tr>
                 <tr>
-                  <td width="154">Small image</td>
-                  <td colspan="2"><input type="text" name="textfield5" id="textfield5"></td>
+                  <td>Small image</td>
+                  <td>
+                 <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <img src="img/placeholder-square.jpg" class="img-polaroid" width="100">
+                 </td>
                 </tr>
                 <tr>
-                  <td width="154">Medium image</td>
-                  <td colspan="2"><input type="text" name="textfield7" id="textfield8"></td>
+                  <td>Medium image</td>
+                  <td>
+                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <img src="img/placeholder-square.jpg" class="img-polaroid" width="150">
+                  </td>
                 </tr>
                 <tr>
-                  <td width="154">Large image</td>
-                  <td colspan="2"><input type="text" name="textfield8" id="textfield9"></td>
+                  <td>Large image</td>
+                  <td>
+                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <img src="img/placeholder-square.jpg" class="img-polaroid" width="200">
+                  </td>
                 </tr>
                 <tr>
                   <td width="154"></td>
-                  <td width="390">
-                  <input name="Save" type="button" class="btn btn-primary" id="Save" title="Save" value="Save" style="width:40%;">
-                  <input name="Delete" type="button" class="btn btn-primary btn-danger" id="Delete" title="Delete" value="Delete" style="width:40%;">
+                  <td>
+                  <a href="Projector_EditSteps.php" class="btn btn-primary">Save</a>
+                  <a href="#" class="btn btn-primary btn-danger">Delete</a>
                   </td>
-                  <td width="350">&nbsp;</td>
                 </tr>
               </tbody>
             </table>
@@ -118,5 +177,18 @@
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script src="js/wysihtml5-0.3.0.js"></script>
+<script src="js/prettify.js"></script>
+<script src="js/bootstrap-wysihtml5.js"></script>
+
+<script>
+	$('.wysiwyg-editor').wysihtml5();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+	$(prettyPrint);
+</script>
+
 </body>
 </html>

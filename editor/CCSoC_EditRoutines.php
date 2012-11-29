@@ -22,13 +22,13 @@
 	<!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Lesson name&gt; - &lt;grade&gt;</h2>
+      <h2 class="brand">&lt;Lesson name&gt;</h2>
         <ul class="nav">
           <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
-          <li class="active"><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a></li>
-          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Edit tasks  &amp; steps</a></li>
-          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
-          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+          <li class="active"><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
+          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Tasks  &amp; steps</a></li>
+          <li><a href="CCSoC_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="CCSoC_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -50,7 +50,7 @@
     <section class="row-fluid">
         <p class="span1 offset1">Select</p>
         <div class="span3">
-            <SELECT size="12" multiple="MULTIPLE" style="width:100%;">
+            <SELECT size="15"  multiple="multiple" style="width:100%;">
                 <OPTION  value="Opening">Opening</OPTION>
                 <OPTION  value="Work Time">Work Time</OPTION>
                 <OPTION  value="Ways of Thinking">Ways of Thinking</OPTION>
@@ -70,7 +70,7 @@
             <input type="button" value="&lt;" class="btn" style="width:100%;">
         </div>
         <div class="span3">
-            <SELECT size="12" multiple="MULTIPLE" style="width:100%;">
+            <SELECT size="15"  multiple="multiple" style="width:100%;">
             </SELECT>
         </div>
         <div class="span2">

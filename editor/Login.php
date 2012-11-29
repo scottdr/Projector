@@ -21,7 +21,7 @@
     
     <!-- CONTENT STARTS -->
     
-	<section class="row-fluid">
+	<section class="row-fluid" style="margin-top: 44px;">
          <h3 class="span11 offset1">Log in to start adding content.</h3>
     </section>
     <section class="row-fluid">
@@ -31,8 +31,8 @@
     	<input name="Password" type="password" class="span3 offset1" id="Password" placeholder="Password">
     </section>
   <section class="row-fluid">
-    	<input name="Submit" type="button" class="span2 offset1 btn btn-large btn-primary" id="Submit" title="Submit" value="Submit">
-    </section>
+  	<a href="Home.php" class="span2 offset1 btn btn-large btn-primarybtn btn-primary">Login</a>
+  </section>
     
     <!-- CONTENT ENDS -->
     

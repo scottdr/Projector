@@ -7,6 +7,10 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 <link href="css/editor-customization.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="css/prettify.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css"/>
+
 <!-- HTML5 shim for IE backwards compatibility -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,13 +26,13 @@
     <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand" style="padding-top:0px;padding-bottom:0px;">&lt;Lesson name&gt; - &lt;grade&gt;</h2>
+      <h2 class="brand">&lt;Lesson name&gt;</h2>
         <ul class="nav">
           <li class="active"><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
-          <li><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Define routines</a></li>
-          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Edit tasks  &amp; steps</a></li>
-          <li><a href="#"><i class="icon-eye-open"></i> View media</a></li>
-          <li><a href="PreviewContent.php"><i class="icon-eye-open"></i> Preview lesson</a></li>
+          <li><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
+          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Tasks  &amp; steps</a></li>
+          <li><a href="CCSoC_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="CCSoC_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -44,7 +48,7 @@
               <tbody>
               	<tr>
                   <td class="width-narrow">Unit</td>
-                  <td colspan="2">
+                  <td>
                   <select name="select2">
 					<option value="1">1</option>
                     <option value="2">2</option>
@@ -62,7 +66,7 @@
                 </tr>
                 <tr>
                   <td>Lesson number</td>
-                  <td colspan="2">
+                  <td>
                   <select name="select2">
 					<option value="1">1</option>
                     <option value="2">2</option>
@@ -80,7 +84,7 @@
                 </tr>
                 <tr>
                   <td>Grade level</td>
-                  <td colspan="2">Min.
+                  <td>Min.
                     <select name="select3">
                       <option value="K">Kindergarten</option>
                       <option value="1">Grade 1</option>
@@ -116,15 +120,15 @@
                 </tr>
                 <tr>
                   <td>Lesson name</td>
-                  <td colspan="2"><input type="text" name="textfield2" id="textfield2" class="width-auto"></td>
+                  <td><input type="text" name="textfield2" id="textfield2" class="width-auto"></td>
                 </tr>
                 <tr>
                   <td>Author</td>
-                  <td colspan="2"><input type="text" name="textfield" id="textfield" class="width-auto"></td>
+                  <td><input type="text" name="textfield" id="textfield" class="width-auto"></td>
                 </tr>
                 <tr>
                   <td>Subject</td>
-                  <td colspan="2"><select name="select6">
+                  <td><select name="select6">
                     <option value="Math">Math</option>
                     <option value="ELA">English Language Arts</option>
                   </select></td>
@@ -133,7 +137,7 @@
                 
                 <tr>
                   <td>Duration<span class="muted"> (days)</span></td>
-                  <td colspan="2">
+                  <td>
                   <select name="select5">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -151,7 +155,7 @@
                 </tr>
                 <tr>
                   <td>Lesson type</td>
-                  <td colspan="2">
+                  <td>
                   <select name="select7">
                     <option value="Exploratory lesson">Exploratory lesson</option>
                     <option value="Concept development lesson">Concept development lesson</option>
@@ -162,11 +166,13 @@
                 </tr>
                 <tr>
                   <td>Description</td>
-                  <td colspan="2"><textarea name="textarea" rows="10" id="textarea" class="width-auto"></textarea></td>
+                  <td>
+                  <textarea name="textarea" placeholder="Enter description ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                  </td>
                 </tr>
                 <tr>
                   <td>Status</td>
-                  <td colspan="2">
+                  <td>
                   <select name="select">
                     <option value="Edit">Edit</option>
                     <option value="Review">Review</option>
@@ -176,7 +182,7 @@
                 </tr>
                 <tr>
                   <td>Topic</td>
-                  <td colspan="2">
+                  <td>
                   <select name="select">
                     <option value="Topic 1">Topic 1</option>
                     <option value="Topic 2">Topic 2</option>
@@ -185,38 +191,36 @@
                 </tr>
                 <tr>
                   <td>Small image</td>
-                  <td colspan="2">
+                  <td>
                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <img src="img/placeholder-square.jpg" class="img-rounded" width="100">
+                 <img src="img/placeholder-square.jpg" class="img-polaroid" width="100">
                  </td>
                 </tr>
                 <tr>
                   <td>Medium image</td>
-                  <td colspan="2">
+                  <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <img src="img/placeholder-square.jpg" class="img-rounded" width="150">
+                 <img src="img/placeholder-square.jpg" class="img-polaroid" width="150">
                   </td>
                 </tr>
                 <tr>
                   <td>Large image</td>
-                  <td colspan="2">
+                  <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <img src="img/placeholder-square.jpg" class="img-rounded" width="200">
+                 <img src="img/placeholder-square.jpg" class="img-polaroid" width="200">
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="3"><hr /></td>
+                  <td colspan="2"><hr /></td>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>
                   <td>
-                  <a href="CCSoC_EditRoutines.php" class="btn btn-primary" style="width:200px;">Save</a>
-                  </td>
-                  <td>
-                  <a href="CCSoC_EditRoutines.php" class="btn btn-primary btn-danger" style="width:200px;">Delete</a>
+                  <a href="CCSoC_EditRoutines.php" class="btn btn-primary">Save</a>
+                  <a href="#" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
               </tbody>
@@ -230,5 +234,18 @@
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script src="js/wysihtml5-0.3.0.js"></script>
+<script src="js/prettify.js"></script>
+<script src="js/bootstrap-wysihtml5.js"></script>
+
+<script>
+	$('.wysiwyg-editor').wysihtml5();
+</script>
+
+<script type="text/javascript" charset="utf-8">
+	$(prettyPrint);
+</script>
+
 </body>
 </html>
