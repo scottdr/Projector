@@ -11,14 +11,14 @@ body {
 	display:none !important;
 }
 
-#ribbonStrip {
+.touch #ribbonStrip {
 	height: 140px;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
-}
+} 
 
 /* Challenge */
-#ribbonChallenge_CC_Opening .ribbonHeader, #ribbonChallenge_CC_Opening .current .ribbonBottom, #ribbonChallenge_CC_Opening .current .ribbonBottom:hover, #ribbonChallenge_CC_Opening .ribbonBottom:hover {
+#ribbonChallenge_CC_Opening .ribbonHeader, #ribbonChallenge_CC_Opening .current .ribbonBottom, .no-touch #ribbonChallenge_CC_Opening .current .ribbonBottom:hover, .no-touch #ribbonChallenge_CC_Opening .ribbonBottom:hover {
 	background: #F7AA1A;
 	border-top-color: #F7AA1A;
 }
@@ -31,9 +31,9 @@ body {
 }
 
 /* Start */
-#ribbonStart_CC_Writing .ribbonHeader, #ribbonStart_CC_Writing .current .ribbonBottom, #ribbonStart_CC_Writing .current .ribbonBottom:hover, #ribbonStart_CC_Writing .ribbonBottom:hover {
+#ribbonStart_CC_Writing .ribbonHeader, #ribbonStart_CC_Writing .current .ribbonBottom, .no-touch #ribbonStart_CC_Writing .current .ribbonBottom:hover, .no-touch #ribbonStart_CC_Writing .ribbonBottom:hover {
 	background: #F9921F;
-	border-top: 1px solid #F9921F;
+	border-top: 1px solid #F9921F; 
 }
 
 #ribbonStart_CC_Writing .ribbonBottom {
@@ -45,7 +45,7 @@ body {
 }
 
 /* Plan */
-#ribbonPlan_CC_GroupWork .ribbonHeader, #ribbonPlan_CC_GroupWork .current .ribbonBottom, #ribbonPlan_CC_GroupWork .current .ribbonBottom:hover, #ribbonPlan_CC_GroupWork .ribbonBottom:hover {
+#ribbonPlan_CC_GroupWork .ribbonHeader, #ribbonPlan_CC_GroupWork .current .ribbonBottom, .no-touch #ribbonPlan_CC_GroupWork .current .ribbonBottom:hover, .no-touch #ribbonPlan_CC_GroupWork .ribbonBottom:hover {
 	background: #FA7A24;
 	border-top-color: #FA7A24;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 /* Create */
-#ribbonCreate_CC_CommonRead .ribbonHeader, #ribbonCreate_CC_CommonRead .current .ribbonBottom, #ribbonCreate_CC_CommonRead .current .ribbonBottom:hover, #ribbonCreate_CC_CommonRead .ribbonBottom:hover {
+#ribbonCreate_CC_CommonRead .ribbonHeader, #ribbonCreate_CC_CommonRead .current .ribbonBottom, .no-touch #ribbonCreate_CC_CommonRead .current .ribbonBottom:hover, .no-touch #ribbonCreate_CC_CommonRead .ribbonBottom:hover {
 	background: #FC6329;
 	border-top-color: #FC6329;
 }
@@ -73,7 +73,7 @@ body {
 }
 
 /* Revise */
-#ribbonRevise_CC_Revise .ribbonHeader, #ribbonRevise_CC_Revise .current .ribbonBottom, #ribbonRevise_CC_Revise .current .ribbonBottom:hover, #ribbonRevise_CC_Revise .ribbonBottom:hover {
+#ribbonRevise_CC_Revise .ribbonHeader, #ribbonRevise_CC_Revise .current .ribbonBottom, .no-touch #ribbonRevise_CC_Revise .current .ribbonBottom:hover, .no-touch #ribbonRevise_CC_Revise .ribbonBottom:hover {
 	background: #F7AA1A;
 	border-top-color: #F7AA1A;
 }
@@ -87,7 +87,7 @@ body {
 }
 
 /* Present */
-#ribbonPresent_CC_Homework .ribbonHeader, #ribbonPresent_CC_Homework .current .ribbonBottom, #ribbonPresent_CC_Homework .current .ribbonBottom:hover, #ribbonPresent_CC_Homework .ribbonBottom:hover {
+#ribbonPresent_CC_Homework .ribbonHeader, #ribbonPresent_CC_Homework .current .ribbonBottom, .no-touch #ribbonPresent_CC_Homework .current .ribbonBottom:hover, .no-touch #ribbonPresent_CC_Homework .ribbonBottom:hover {
 	background: #F9921F;
 	border-top-color: #F9921F;
 }

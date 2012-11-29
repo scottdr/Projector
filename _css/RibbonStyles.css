@@ -42,6 +42,13 @@ body {
 	border: 0;
 	overflow:hidden;
 }
+
+.touch #ribbonStrip {
+	height: 140px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
 #ribbonButtons {
 	position:relative;
 	margin:0;
@@ -167,11 +174,11 @@ body {
 	border-bottom:0 none;
 }
 
-.current .ribbonBottom p, .ribbonBottom:hover p {
+.current .ribbonBottom p, .no-touch .ribbonBottom:hover p {
 	color: #FFF;
 }
 
-.current .ribbonBottom, .current .ribbonBottom:hover {
+.current .ribbonBottom, .no-touch .current .ribbonBottom:hover {
 	border-top:1px solid #00A3C4;
 }
 
@@ -206,13 +213,13 @@ body {
 	color: #009EBE;
 }
 
-#ribbonChallenge_CC_Opening .current .ribbonBottom, #ribbonChallenge_CC_Opening .current .ribbonBottom:hover {
+#ribbonChallenge_CC_Opening .current .ribbonBottom, .no-touch #ribbonChallenge_CC_Opening .current .ribbonBottom:hover {
 	background: #00809A;
 	border-top:1px solid #00A3C4;
 	border-left:1px solid #323232;
 }
 
-#ribbonChallenge_CC_Opening .ribbonBottom:hover {
+.no-touch #ribbonChallenge_CC_Opening .ribbonBottom:hover {
 	background: #008DAA;
 	border-top: 1px solid #00A3C4;
 }
@@ -230,13 +237,13 @@ body {
 	color: #0095B7;
 }
 
-#ribbonStart_CC_Writing .current .ribbonBottom, #ribbonStart_CC_Writing .current .ribbonBottom:hover {
+#ribbonStart_CC_Writing .current .ribbonBottom, .no-touch #ribbonStart_CC_Writing .current .ribbonBottom:hover {
 	background: #007996;
 	border-top:1px solid #00A3C4;
 
 }
 
-#ribbonStart_CC_Writing .ribbonBottom:hover {
+.no-touch #ribbonStart_CC_Writing .ribbonBottom:hover {
 	background: #0086A7;
 	border-top: 1px solid #009CC1;
 }
@@ -256,13 +263,13 @@ body {
 	color: #008BAF;
 }
 
-#ribbonPlan_CC_GroupWork .current .ribbonBottom, #ribbonPlan_CC_GroupWork .current .ribbonBottom:hover {
+#ribbonPlan_CC_GroupWork .current .ribbonBottom, .no-touch #ribbonPlan_CC_GroupWork .current .ribbonBottom:hover {
 	background: #007091;
 	border-top:1px solid #008BAF;
 
 }
 
-#ribbonPlan_CC_GroupWork .ribbonBottom:hover {
+.no-touch #ribbonPlan_CC_GroupWork .ribbonBottom:hover {
 	background: #007EA3;
 	border-top: 1px solid #0093BF;
 }
@@ -281,13 +288,13 @@ body {
 	color: #007DAF;
 }
 
-#ribbonCreate_CC_CommonRead .current .ribbonBottom, #ribbonCreate_CC_CommonRead .current .ribbonBottom:hover {
+#ribbonCreate_CC_CommonRead .current .ribbonBottom, .no-touch #ribbonCreate_CC_CommonRead .current .ribbonBottom:hover {
 	background: #00688C;
 	border-top:1px solid #007DAF;
 
 }
 
-#ribbonCreate_CC_CommonRead .ribbonBottom:hover {
+.no-touch #ribbonCreate_CC_CommonRead .ribbonBottom:hover {
 	background: #00769F;
 	border-top: 1px solid #008CBC;
 }
@@ -306,15 +313,15 @@ body {
 	color: #00779E;
 }
 
-#ribbonRevise_CC_Revise .current .ribbonBottom, #ribbonRevise_CC_Revise .current .ribbonBottom:hover {
+#ribbonRevise_CC_Revise .current .ribbonBottom, .no-touch #ribbonRevise_CC_Revise .current .ribbonBottom:hover {
 	background: #006087;
 	border-top:1px solid #00779E;
 
 }
 
-#ribbonRevise_CC_Revise .ribbonBottom:hover {
+.no-touch #ribbonRevise_CC_Revise .ribbonBottom:hover {
 	background: #00709C;
-	border-top: 1px solid #0084B9;
+	border-top: 1px solid #0084B9; 
 }
 
 #ribbonRevise_CC_Revise .ribbonSelector {
@@ -331,13 +338,13 @@ body {
 	color: #006D96;
 }
 
-#ribbonPresent_CC_Homework .current .ribbonBottom, #ribbonPresent_CC_Homework .current .ribbonBottom:hover {
+#ribbonPresent_CC_Homework .current .ribbonBottom, .no-touch #ribbonPresent_CC_Homework .current .ribbonBottom:hover {
 	background: #005983;
 	border-top:1px solid #006D96;
 
 }
 
-#ribbonPresent_CC_Homework .ribbonBottom:hover {
+.no-touch #ribbonPresent_CC_Homework .ribbonBottom:hover {
 	background: #006898;
 	border-top: 1px solid #007CB6;
 }

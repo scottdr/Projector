@@ -79,6 +79,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
 <script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
+<script src="_scripts/modernizr.custom.42097.js"></script>
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
@@ -104,7 +105,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 </script>-->
 
 </head>
-<body>
+<body style="overflow-x:hidden">
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
   <div id="Header">
@@ -129,11 +130,11 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
       <div id="ribbonContainer">
         <div id="leftButton"></div>
         <div id="rightButton"></div>
-        <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+        <div id="ribbonStrip" class="noscroll">
+          <div id="ribbonButtons" ontouchend="touchEnd(event);">
             <?php require_once("RibbonDynamicContent.php") ?>
           </div>
-        </div>
+        </div> 
         <!-- NavRibbon Ends --> 
       </div>
     </div>
@@ -155,8 +156,10 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
   </div>-->
 <!-- TeacherNotes Ends -->
   
-  <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-  	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
+  <div id="ContentScreens" ontouchend="touchEnd(event);">
+  	<div id="ContentScreensHolder"> 
+      <!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php --> 
+    </div>
   </div>
   <div id="ContentScreensLoader">
     <div id="floatingCirclesG">

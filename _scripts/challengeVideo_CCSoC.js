@@ -52,6 +52,8 @@ var ribbonWidth = 0;
 var stopPosition = 0;
 var changingStep = false;
 
+var useSlideAnimation = false;
+
 $(document).ready(function(){ 
 
 	if(jQuery("#ribbonButtons").length){
@@ -133,13 +135,21 @@ $(document).ready(function(){
 			selectStep(event.currentTarget);
 			StepNumber = newStep;
 			
-			jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
-				jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
-				StepId = event.currentTarget.getAttribute('data-id');
-				loadStep(StepId,StepNumber);
-			});
-			
-			
+			if(useSlideAnimation)
+			{
+				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+					StepId = event.currentTarget.getAttribute('data-id');
+					loadStep(StepId,StepNumber);
+				});
+			}
+			else
+			{
+				jQuery('#ContentScreens').fadeOut(200, function(){
+					StepId = event.currentTarget.getAttribute('data-id');
+					loadStep(StepId,StepNumber);
+				});
+			}
 		}
 	});
 
@@ -199,7 +209,11 @@ function loadStep(StepId,StepOrderNumber) {
 			}
 			// Send custom 'HTMLChange' event to inform of update.
 			$('#ContentScreens').trigger('HTMLChange');
-			$('#ContentScreens').animate({'left' : 0}, 200);
+			if(useSlideAnimation)
+				$('#ContentScreens').animate({'left' : 0}, 200);
+			else
+				$('#ContentScreens').fadeIn(200);
+			
 			jQuery('#ContentScreensLoader').fadeOut(200);
 			
 			changingStep = false;
@@ -215,15 +229,15 @@ function selectStep(eventTarget) {
 		
 		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
 		var wid = parseInt(jQuery(eventTarget).width());
-		var sWid = parseInt(jQuery('body').width());
+		var sWid = parseInt(jQuery('#ribbonContainer').width());
 		var left = document.getElementById('ribbonStrip').scrollLeft;
 		
 		if(xPos + wid > (sWid + left))
-			left = (xPos + wid) - sWid;
+			left = (xPos + wid) - sWid; 
 		else if(xPos < left)
 			left = xPos;
 			
-		//jQuery('#ribbonStrip').get(0).scrollLeft = left;
+		//jQuery('#ribbonStrip').get(0).scrollLeft = left; 
 		jQuery('#ribbonStrip').clearQueue().animate({'scrollLeft': left}, 200);
 }	
 		

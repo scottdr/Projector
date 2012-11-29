@@ -7,8 +7,8 @@ var StepNumber = getQueryVariable("StepNumber", 1);
 var disableSlideShow = true;	// disable the slide show until we polish it
 
 if (disableSlideShow) {
-	if (StepNumber == 1)
-		StepNumber = 2;
+	//if (StepNumber == 1)
+		//StepNumber = 2;
 }
 
 // animationDuration: Duration of animations in milliseconds. In future, could be set in Presentation data.
@@ -56,7 +56,15 @@ var visibleWidth = 0;
 var ribbonWidth = 0;
 var stopPoistion = 0;
 
+var useSlideAnimation = false;
+
 $(document).ready(function(){ 
+
+	if (Modernizr.touch){
+	   $('body').addClass('touch');
+	} else {
+	   $('body').addClass('no-touch');
+	}
 
 	if(jQuery("#ribbonButtons").length){
 		
@@ -149,7 +157,9 @@ function setSelectedRibbonItem(StepNumber) {
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
 function loadStep(StepId,StepOrderNumber) {
 	jQuery('#ContentScreensLoader').fadeIn(200);
-	jQuery('#ContentScreens').fadeOut(200);
+	
+	if($('body').hasClass('no-touch'))
+		jQuery('#ContentScreens').fadeOut(200);
 	//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
 	var urlLoadStep = "LoadStep.php";
 	if (StepId > -1)
@@ -160,7 +170,7 @@ function loadStep(StepId,StepOrderNumber) {
 		url: urlLoadStep,
 		cache: false
 	}).done(function( html ) {
-			var contentElement = document.getElementById("ContentScreens");
+			var contentElement = document.getElementById("ContentScreensHolder");
 			contentElement.innerHTML = html;
 			// if we are on the very first step
 			if (StepOrderNumber == 1) {
@@ -168,40 +178,66 @@ function loadStep(StepId,StepOrderNumber) {
 			}
 			
 			jQuery('#ContentScreensLoader').fadeOut(200);
-			jQuery('#ContentScreens').fadeIn(200);
+			
+			if(!$('body').hasClass('no-touch'))
+				$('#ContentScreens').animate({'left' : 0}, 200);
+			else
+				$('#ContentScreens').fadeIn(200);
 	});
 };
 	
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
 function selectStep(eventTarget) {
-	StepNumber = jQuery(eventTarget).attr('data-number');
-	
-	jQuery('.singleRibbonBlock').removeClass('current');
-	jQuery(eventTarget).addClass('current');
-	
-	var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
-	var wid = parseInt(jQuery(eventTarget).width());
-	var sWid = parseInt(jQuery('#ribbonStrip').width());
-	var left = parseInt(jQuery('#ribbonButtons').css('left'));
-	
-	if(isNaN(left))
-		left = 0;
-	
-	if(xPos + wid > (sWid - left)) {
-		left = (xPos + wid) - sWid;
-	}
-	else if(xPos < -left) {
-		left = xPos + 2;
+	if($('body').hasClass('no-touch'))
+	{
+		StepNumber = jQuery(eventTarget).attr('data-number');
 		
-		if(left == 2)
-			left = 0;
-	}
-	else {
-		return;
-	}
-	
+		jQuery('.singleRibbonBlock').removeClass('current');
+		jQuery(eventTarget).addClass('current');
 		
-	jQuery('#ribbonButtons').clearQueue().animate({'left': (-left)}, 200);
+		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
+		var wid = parseInt(jQuery(eventTarget).width());
+		var sWid = parseInt(jQuery('#ribbonStrip').width());
+		var left = parseInt(jQuery('#ribbonButtons').css('left'));
+		
+		if(isNaN(left)) 
+			left = 0; 
+		
+		if(xPos + wid > (sWid - left)) {
+			left = (xPos + wid) - sWid;
+		}
+		else if(xPos < -left) {
+			left = xPos + 2; 
+			
+			if(left == 2)
+				left = 0;
+		}
+		else {
+			return;
+		}
+			
+		jQuery('#ribbonButtons').clearQueue().animate({'left': (-left)}, 200);
+	}
+	else
+	{
+		StepNumber = jQuery(eventTarget).attr('data-number');
+			
+		jQuery('.singleRibbonBlock').removeClass('current');
+		jQuery(eventTarget).addClass('current');
+		
+		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
+		var wid = parseInt(jQuery(eventTarget).width());
+		var sWid = parseInt(jQuery('#ribbonContainer').width());
+		var left = document.getElementById('ribbonStrip').scrollLeft;
+		
+		if(xPos + wid > (sWid + left))
+			left = (xPos + wid) - sWid;
+		else if(xPos < left)
+			left = xPos;
+			
+		//jQuery('#ribbonStrip').get(0).scrollLeft = left;
+		jQuery('#ribbonStrip').clearQueue().animate({'scrollLeft': left}, 200);
+	}
 }	
 		
 //  ///////////////////////////////////////////////////////////////////////
