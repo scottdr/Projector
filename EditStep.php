@@ -391,6 +391,7 @@ tinyMCE.init({
         <option value="IconLeft.php" <?php if ($row_steps['TemplateName'] == "IconLeft.php") echo ' selected="selected" '; ?>>Icon Left</option>
           <option value="Equation.php" <?php if ($row_steps['TemplateName'] == "Equation.php") echo ' selected="selected" '; ?>>Equation</option>
           <option value="Video.php" <?php if ($row_steps['TemplateName'] == "Video.php") echo ' selected="selected" '; ?>>Video</option>
+          <option value="Foxtrot.php" <?php if ($row_steps['TemplateName'] == "Foxtrot.php") echo ' selected="selected" '; ?>>Foxtrot</option> 
         <option value="Plan.php" <?php if ($row_steps['TemplateName'] == "Plan.php") echo ' selected="selected" '; ?>>Plan</option>
         <option value="Research.php" <?php if ($row_steps['TemplateName'] == "Research.php") echo ' selected="selected" '; ?>>Research</option>
         <option value="Create.php" <?php if ($row_steps['TemplateName'] == "Create.php") echo ' selected="selected" '; ?>>Create</option>
