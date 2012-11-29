@@ -219,12 +219,17 @@
                         </td>
                     </tr>
                     <tr>
-                      <td>Teacher hints</td>
+                      <td>Teacher tips</td>
                       <td>
                       <textarea name="textarea2" placeholder="Enter teacher hints ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
                       </td>
                     </tr>
                     <tr>
+                      <td>Student tips</td>
+                      <td>
+                      <textarea name="textarea2" placeholder="Enter teacher hints ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                      </td>
+                    </tr>                    <tr>
                       <td width="140"></td>
                       <td>
                       <input name="Update step" type="button" class="btn btn-primary" id="Update step" title="Update step" value="Update step">

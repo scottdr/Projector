@@ -181,15 +181,6 @@
                   </select></td>
                 </tr>
                 <tr>
-                  <td>Topic</td>
-                  <td>
-                  <select name="select">
-                    <option value="Topic 1">Topic 1</option>
-                    <option value="Topic 2">Topic 2</option>
-                  </select>
-                  </td>
-                </tr>
-                <tr>
                   <td>Small image</td>
                   <td>
                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>

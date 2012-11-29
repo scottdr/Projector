@@ -47,9 +47,16 @@
     <div class="row-fluid">
 		<hr class="span10 offset1" />
     </div>
+    <div class="row-fluid">
+		<p class="span3 offset1">
+        	Select routines:
+        </p>
+        <p class="span3 offset1">
+        	Added routines:
+        </p>
+    </div>
     <section class="row-fluid">
-        <p class="span1 offset1">Select</p>
-        <div class="span3">
+        <div class="span3 offset1">
             <SELECT size="15"  multiple="multiple" style="width:100%;">
                 <OPTION  value="Opening">Opening</OPTION>
                 <OPTION  value="Work Time">Work Time</OPTION>
@@ -82,7 +89,7 @@
         <hr class="span10 offset1" />
     </section>
     <section class="row-fluid">
-    	<a href="CCSoC_EditTasksSteps.php" class="span3 offset6 btn btn-primary">Save Routines</a>
+    	<a href="CCSoC_EditTasksSteps.php" class="span3 offset5 btn btn-primary">Save Routines</a>
     </section>
     
     <!-- CONTENT ENDS -->
