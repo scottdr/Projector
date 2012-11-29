@@ -1,4 +1,5 @@
 <?php
+require_once('Globals.php');
 if (!isset($selectedNav)) $selectedNav = "NavGallery";
 ?>
 <!-- Header -->
@@ -6,8 +7,10 @@ if (!isset($selectedNav)) $selectedNav = "NavGallery";
   <a href="index.php">
   <div id="HeaderDiv">
     <div id="HeaderImg">
-      <img src="_images/headerlogo.png" width="48" height="24" alt="Projector Home"/>
-      <h1>The Projector</h1>
+      <?php if (isset($PROJECTOR['logo'])) : ?>
+      <img src="<? echo $PROJECTOR['logo'] ?>" width="48" height="24" alt="Projector Home"/>
+      <?php endif; ?>
+      <h1><? echo $PROJECTOR['thename'] ?></h1>
     </div>
   </div>
   </a>

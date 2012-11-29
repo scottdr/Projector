@@ -1,4 +1,5 @@
 <?php require_once('Connections/projector.php'); ?>
+<?php require_once('Globals.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -45,7 +46,7 @@ if ($totalRows_FeaturedProject > 0)		// if we have a featured topic set the feat
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Projector Home</title>
+<title><? echo $PROJECTOR['name'] ?> Home</title>
 <link href="_css/boilerplate.css" rel="stylesheet" type="text/css" />
 <link href="_css/Root_Project.css" rel="stylesheet" type="text/css" />
 <link href="_css/main.css" rel="stylesheet" type="text/css" />	
@@ -201,7 +202,7 @@ if ($totalRows_FeaturedProject > 0)		// if we have a featured topic set the feat
 
         <div id="HomeBannerDiv">
         
-            <p>The Projector is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
+            <p><? echo $PROJECTOR['thename'] ?> is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
             <hr />
             <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></a>
             <p style="font-size:14px; padding-top:5px;">This month ...</p>
