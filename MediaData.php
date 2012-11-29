@@ -46,12 +46,24 @@ if (isset($_GET['Size'])) {
 	}
 }
 
+$tableName = "Media";
+if (isset($_GET['type'])) {
+	$type = $_GET['type'];
+	switch ($type) {
+		case 'video' : 	$tableName = "Video";
+										break;
+		default : $tableName = "Media";
+							break;
+	}
+} else
+	$type = "image";
+
 // TO DO handle case where you do not specify a project Id but you specify a size
 mysql_select_db($database_projector, $projector);
 if ($colname_MediaQuery == -1)
-	$query_MediaQuery = "SELECT * FROM Media";
+	$query_MediaQuery = sprintf("SELECT * FROM %s", $tableName);
 else {
-	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($colname_MediaQuery, "int"));
+	$query_MediaQuery = sprintf("SELECT * FROM %s WHERE ProjectId = %s", $tableName, GetSQLValueString($colname_MediaQuery, "int"));
 	if ($width > 0 && $height > 0)
 		$query_MediaQuery .= sprintf(" AND Width = %s AND Height = %s", $width, $height);
 }
@@ -59,6 +71,7 @@ else {
 $MediaQuery = mysql_query($query_MediaQuery, $projector) or die(mysql_error());
 $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
 $row_MediaQuery = mysql_fetch_assoc($MediaQuery);
+
 
 session_start();
 
@@ -68,14 +81,22 @@ session_start();
 if (isset($_GET['attachTo']) && $_GET['attachTo'] == "slide")
 	$attachURL = "AttachSlideMedia.php?SlideId=" . $_SESSION['SlideId'] /*. "&SortOrder=" . $_SESSION['SortOrder']*/;
 else
-	$attachURL = "AttachMedia.php?ProjectId=" . $_SESSION['ProjectId'] . "&StepId=" . $_SESSION['StepId'];
+	$attachURL = "AttachMedia.php?ProjectId=" . $_SESSION['ProjectId'] . "&StepId=" . $_SESSION['StepId'] . "&type=" . $type;
 
 ?>
 <div style="text-align:center">
 <table id="MediaTable" width="320	" class="clearFloat">
-  <?php do { ?>
+  <?php do {
+					// set the thumbnail url 
+					switch ($type) {
+						case "image" : 	$thumbnailUrl = $row_MediaQuery['Url'];
+														break;
+						case "video" :  $thumbnailUrl = $row_MediaQuery['PosterUrl'];
+														break;
+					}
+	?>
   <tr class="rowItem">
-      <td width="120"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><img src="<?php echo $row_MediaQuery['Url']; ?>" alt="<?php echo $row_MediaQuery['Description']; ?>" name="" width="120" height="90" /></a></td>
+      <td width="120"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><img src="<?php echo $thumbnailUrl; ?>" name="" width="120" height="90" /></a></td>
       <td width="200" nowrap="nowrap"><div class="captionDiv"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></div></td>
       <td width="100" nowrap="nowrap"><?php echo $row_MediaQuery['Width']; ?>x<?php echo $row_MediaQuery['Height']; ?></td>
     </tr>

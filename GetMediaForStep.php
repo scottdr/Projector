@@ -29,5 +29,24 @@ function GenerateImageTag($rowNumber) {
 		print '<img src="lessonTemplates/images/mountains.jpg" />';
 }
 
+/*
+<video id="my_video_1" class="video-js vjs-default-skin" controls
+  preload="auto" width="960" height="540" poster="my_video_poster.png"
+  data-setup="{}">
+ <source src="xml/lessons/math-6.4.2/video/mth_6_4_2_egg%20problem.mp4" type='video/mp4'>
+</video>
+*/
+function GenerateVideoTag($rowNumber) {
+	global $mediaArray;
+	if ($rowNumber < count($mediaArray))
+		$rowData = $mediaArray[$rowNumber];
+	if (isset($rowData)) {
+		print '<video id="Id=' . $rowData['Id'] . '" class="video-js vjs-default-skin" controls preload="auto" ' . ' />';
+		print '\t<source src="' . $rowData['Url'] . '" type=\'video/mp4\'>';
+		print '</video>';
+	} else
+		print '<img src="lessonTemplates/images/mountains.jpg" />';
+}
+
 //$mediaArray = GetMediaForStep($StepId);
 ?>
