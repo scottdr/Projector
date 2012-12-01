@@ -57,7 +57,11 @@ $StepId = $row_StepQuery['Id'];
 //print "StepId: " . $StepId . "\n";
 //print "Lesson Name: " . $row_StepQuery['LessonName'] . "\n";
 
-$mediaArray = GetMediaForStep($StepId);
+$mediaType = "image";
+if ($row_StepQuery['TemplateName'] == "Video.php")
+	$mediaType = "video";
+
+$mediaArray = GetMediaForStep($StepId,$mediaType);
 
 $templateName = "lessonTemplates/" . $row_StepQuery['TemplateName'];
 require($templateName);

@@ -81,20 +81,22 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-			$sqlCommand = sprintf("INSERT INTO Video SET ProjectId = %s, mp4Url = %s, oggUrl = %s, PosterUrl = %s, Length = %s, Caption = %s, Script = %s",
+			$sqlCommand = sprintf("INSERT INTO Video SET ProjectId = %s, mp4Url = %s, oggUrl = %s, PosterUrl = %s, Length = %s, Caption = %s, Script = %s, Width = %s, Height = %s",
 			 								 GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['mp4'], "text"),
                        GetSQLValueString($_POST['ogg'], "text"),
 											 GetSQLValueString($_POST['Poster'], "text"),
                        GetSQLValueString($_POST['Length'], "int"),
                        GetSQLValueString($_POST['Caption'], "text"),
-											 GetSQLValueString($_POST['Script'], "text"));
+											 GetSQLValueString($_POST['Script'], "text"),
+											 GetSQLValueString($_POST['Width'], "int"),
+											 GetSQLValueString($_POST['Height'], "int"));
 	//	print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */
 	} else
-  	$sqlCommand = sprintf("UPDATE Video SET ProjectId=%s, mp4Url=%s, oggUrl=%s, PosterUrl = %s, Length = %s, Caption = %s, Text = %s, Script = %s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE Video SET ProjectId=%s, mp4Url=%s, oggUrl=%s, PosterUrl = %s, Length = %s, Caption = %s, Script = %s, Width = %s, Height = %s WHERE Id=%s",
 											 GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['mp4'], "text"),
                        GetSQLValueString($_POST['ogg'], "text"),
@@ -102,6 +104,8 @@ if (isset($_POST["MM_action"])) {
 											  GetSQLValueString($_POST['Length'], "int"),
                        GetSQLValueString($_POST['Caption'], "text"),
                        GetSQLValueString($_POST['Script'], "text"),
+											 GetSQLValueString($_POST['Width'], "int"),
+											 GetSQLValueString($_POST['Height'], "int"),
 											 $videoId);
 
 //  print "sqlCommand: " . $sqlCommand;
@@ -343,8 +347,14 @@ tinyMCE.init({
           <input name="Poster" type="text" id="Poster" value="<?php echo $video_data['PosterUrl']; ?>" />
     </div>
     <div class="clearFloat"></div>
-    <label for="Length">Video Length:</label>
+    <label for="Height">Video Length:</label>
     <input class="floatLeft" name="Length" type="text" id="Length" value="<?php echo $video_data['Length']; ?>" size="5" />
+    <div class="clearFloat"></div>
+    <label for="Height">Width:</label>
+    <input class="floatLeft" name="Width" type="text" id="Width" value="<?php echo $video_data['Width']; ?>" size="5" />
+    <div class="clearFloat"></div>
+    <label for="Height">Height:</label>
+    <input class="floatLeft" name="Height" type="text" id="Height" value="<?php echo $video_data['Height']; ?>" size="5" />
     <div class="clearFloat"></div>
   </fieldset>
   <div style="text-align:center">

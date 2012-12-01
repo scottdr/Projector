@@ -1,11 +1,15 @@
 <?php
 
 // does a JOIN of the Medias attached to the specified step returns an array of results for each image with the Media, Caption & URL
-function GetMediaForStep($StepId) {
+function GetMediaForStep($StepId,$mediaType) {
 	global $database_projector, $projector;
 	
 	mysql_select_db($database_projector, $projector);
-	$sqlStatement = "SELECT Media.Id, Media.Caption, Media.Url FROM Media, MediaAttach WHERE MediaAttach.MediaId = Media.Id AND MediaAttach.StepId = " . $StepId;
+	if ($mediaType == "video")
+		$sqlStatement = "SELECT Video.Id, Video.Caption, Video.mp4Url, Video.PosterUrl, Video.Width, Video.Height FROM Video, MediaAttach WHERE MediaAttach.MediaId = Video.Id AND MediaAttach.StepId = " . $StepId;
+	else
+		$sqlStatement = "SELECT Media.Id, Media.Caption, Media.Url FROM Media, MediaAttach WHERE MediaAttach.MediaId = Media.Id AND MediaAttach.StepId = " . $StepId;
+	
 	$media = mysql_query($sqlStatement, $projector) or die(mysql_error());
 	$media_steps = mysql_fetch_assoc($media);
 	$rowArray = array();
@@ -41,8 +45,13 @@ function GenerateVideoTag($rowNumber) {
 	if ($rowNumber < count($mediaArray))
 		$rowData = $mediaArray[$rowNumber];
 	if (isset($rowData)) {
-		print '<video id="Id=' . $rowData['Id'] . '" class="video-js vjs-default-skin" controls preload="auto" ' . ' />';
-		print '\t<source src="' . $rowData['Url'] . '" type=\'video/mp4\'>';
+		print '<video id="Id=' . $rowData['Id'] . '" class="video-js vjs-default-skin" controls preload="auto" ';
+		if ($rowData['Width'] && $rowData['Height'])
+			print 'width="' . $rowData['Width'] . '" height="' . $rowData['Height'] . '"';
+		if ($rowData['PosterUrl'])
+			print 'poster="' . $rowData['PosterUrl'] . '"';
+		print ' >';
+		print '\t<source src="' . $rowData['mp4Url'] . '" type=\'video/mp4\'>';
 		print '</video>';
 	} else
 		print '<img src="lessonTemplates/images/mountains.jpg" />';
