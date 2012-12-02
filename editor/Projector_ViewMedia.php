@@ -45,8 +45,9 @@
                     <tr>
                         <th width="10%">&nbsp;</th>
                         <th width="5%">ID</th>
-                        <th width="25%">Thumbnail</th>
-                        <th width="30%">Caption</th>
+                        <th width="20%">Thumbnail</th>
+                        <th width="25%">Caption</th>
+                        <th width="20%">Step Title</th>
                         <th width="10%">Project ID</th>
                     </tr>
                 </thead>
@@ -55,14 +56,16 @@
                         <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a></td>
                         <td>21</td>
                         <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="100"></td>
-                        <td>Title</td>
+                        <td>Caption</td>
+                        <td>Step Title</td>
                         <td>6</td>
                     </tr>
                     <tr>
                       <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a></td>
                       <td>22</td>
                       <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="100"></td>
-                      <td>Title</td>
+                      <td>Caption</td>
+                      <td>Step Title</td>
                       <td>6</td>
                     </tr>
                 </tbody>

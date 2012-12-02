@@ -151,7 +151,13 @@
                     <tr>
                       <td width="140"></td>
                       <td>
-                      <input name="Update task" type="button" class="btn btn-primary" id="Update task" title="Update task" value="Update task">
+                      <input name="Save and add another task" type="button" class="btn btn-primary" id="Save and add another task" title="Save and add another task" value="Save and add another task">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="140"></td>
+                      <td>
+                      <input name="Save and add steps to this task" type="button" class="btn btn-primary" id="Save and add steps to this task" title="Save and add steps to this task" value="Save and add steps to this task">
                       </td>
                     </tr>
                   </tbody>
@@ -186,21 +192,6 @@
                       <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="153" height="114" /></td>
                     </tr>
                     <tr>
-                      <td width="140"></td>
-                      <td>
-                      <input name="Select template" type="button" class="btn btn-primary" margin-top:10px;" id="Select template" title="Select template" value="Select template">
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-            
-            
-                <table class="table table-condensed unborderedTable">
-                <caption>
-                Complete the details in the form below to save the content for this step.
-                </caption>
-                  <tbody>
-                    <tr>
                       <td width="140">Step title</td>
                       <td><input type="text" name="textfield2" id="textfield2"></td>
                     </tr>
@@ -221,18 +212,25 @@
                     <tr>
                       <td>Teacher tips</td>
                       <td>
-                      <textarea name="textarea2" placeholder="Enter teacher hints ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                      <textarea name="textarea2" placeholder="Enter teacher tips ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
                       </td>
                     </tr>
                     <tr>
                       <td>Student tips</td>
                       <td>
-                      <textarea name="textarea2" placeholder="Enter teacher hints ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                      <textarea name="textarea2" placeholder="Enter student tips ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
                       </td>
-                    </tr>                    <tr>
+                    </tr>
+                    <tr>
                       <td width="140"></td>
                       <td>
                       <input name="Update step" type="button" class="btn btn-primary" id="Update step" title="Update step" value="Update step">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="140"></td>
+                      <td>
+                      <input name="Update and add another step" type="button" class="btn btn-primary" id="Update and add another step" title="Update and add another step" value="Update and add another step">
                       </td>
                     </tr>
                   </tbody>
