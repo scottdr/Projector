@@ -49,10 +49,10 @@
     </div>
     <div class="row-fluid">
 		<p class="span3 offset1">
-        	Select routines:
+        	Available routines:
         </p>
         <p class="span3 offset1">
-        	Added routines:
+        	Routines in this lesson:
         </p>
     </div>
     <section class="row-fluid">
@@ -86,12 +86,19 @@
         </div>
     </section>
     <section class="row-fluid">
-        <hr class="span10 offset1" />
+    		<!-- Hide and show this div when routines are being removed from a lesson -->
+            <div class="span7 offset1 alert alert-block alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Alert!</h4>
+            Removing a routine from your lesson will result in the associated content being appended to the preceeding routine.
+            </div>
     </section>
     <section class="row-fluid">
     	<a href="CCSoC_EditTasksSteps.php" class="span3 offset5 btn btn-primary">Save Routines</a>
     </section>
-    
+    <section class="row-fluid">
+        <hr class="span10 offset1" />
+    </section>
     <!-- CONTENT ENDS -->
     
     <?php include("EditorFooter.php"); ?>

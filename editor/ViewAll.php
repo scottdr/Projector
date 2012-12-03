@@ -70,7 +70,25 @@ $totalRows_projectList = mysql_num_rows($projectList);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid" style="margin-top: 44px;">
-        <h3 class="span11 offset1">Projector Projects:</h3>
+        <h3 class="span11 offset1"> Projects:</h3>
+	</section>
+    <section class="row-fluid">
+        <p class="span11 offset1">Select a lesson to edit or <a href="Projector_EditChallenge.php">add a new lesson</a></p>
+    </section>
+    <section class="row-fluid">
+    <div class="span10 offset1" style="background-color: #EDEDED;">
+    <p style="padding:10px; margin:0;">Filter: &nbsp;
+        <select class="dropdown">
+          <option>Select Grade</option>
+        </select>
+        <select class="dropdown">
+          <option>Select Subject</option>
+        </select>
+        <select class="dropdown">
+          <option>Select Status</option>
+        </select>
+    </p>
+    </div>
     </section>
     <section class="row-fluid">
     	<div class="span10 offset1">
@@ -79,10 +97,11 @@ $totalRows_projectList = mysql_num_rows($projectList);
                     <tr>
                         <th width="10%">&nbsp;</th>
                         <th width="5%">ID</th>
-                        <th width="20%">Thumbnail</th>
-                        <th width="35%">Title</th>
-                        <th width="20%">Subject</th>
+                        <th width="15%">Thumbnail</th>
+                        <th width="40%">Title</th>
                         <th width="10%">Grade</th>
+                        <th width="10%">Subject</th>
+						<th width="10%">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,13 +111,17 @@ $totalRows_projectList = mysql_num_rows($projectList);
                         <td><?php echo $row_projectList['Id']; ?></td>
                         <td><a href="Projector_EditChallenge.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
                         <td><a href="Projector_EditChallenge.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></td>
-                        <td><?php echo $row_projectList['Subject']; ?></td>
                         <td><?php echo getGrade($row_projectList); ?></td>
+                        <td><?php echo $row_projectList['Subject']; ?></td>
+                        <td><?php echo $row_projectList['Status']; ?></td>
                     </tr>
                   <?php } while ($row_projectList = mysql_fetch_assoc($projectList)); ?>
                 </tbody>
             </table>
       </div>
+    </section>
+    <section class="row-fluid">
+        <hr class="span11 offset1"/>
     </section>
     
     <!-- CONTENT ENDS -->
