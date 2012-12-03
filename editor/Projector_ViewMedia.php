@@ -1,3 +1,61 @@
+<?php require_once('../Connections/projector.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+$colname_MediaQuery = "-1";
+if (isset($_GET['ProjectId'])) {
+  $colname_MediaQuery = $_GET['ProjectId'];
+}
+mysql_select_db($database_projector, $projector);
+if ($colname_MediaQuery == -1)
+	$query_MediaQuery = "SELECT * FROM Media ORDER BY ProjectId";
+else
+	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($colname_MediaQuery, "int"));
+$MediaQuery = mysql_query($query_MediaQuery, $projector) or die(mysql_error());
+$row_MediaQuery = mysql_fetch_assoc($MediaQuery);
+$totalRows_MediaQuery = mysql_num_rows($MediaQuery);
+
+$projectName = "All Projects";
+if ($colname_MediaQuery > -1) {
+	$query_ProjectQuery = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($colname_MediaQuery, "int"));
+	$ProjectQuery = mysql_query($query_ProjectQuery, $projector) or die(mysql_error());
+	$row_ProjectQuery = mysql_fetch_assoc($ProjectQuery);
+	$totalRows_ProjectQuery = mysql_num_rows($ProjectQuery);
+	if ($totalRows_ProjectQuery > 0 )	
+		$projectName = $row_ProjectQuery['Name'];
+}
+
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -22,7 +80,7 @@
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand">&lt;Challenge name&gt;</h2>
+      <h2 class="brand"><?php echo $projectName; ?></h2>
         <ul class="nav">
           <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
           <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
@@ -40,31 +98,32 @@
     </section>
     <section class="row-fluid">
     	<div class="span10 offset1">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" style="min-width:400px">
                 <thead>
                     <tr>
                         <th width="10%">&nbsp;</th>
-                        <th width="5%">ID</th>
-                        <th width="25%">Thumbnail</th>
-                        <th width="30%">Caption</th>
-                        <th width="10%">Project ID</th>
+                      	<!--<th width="5%">ID</th> -->
+                        <th width="20%">Thumbnail</th>
+                        <th width="70%">Caption</th>
+                        <!--<th width="10%">Project ID</th>-->
                     </tr>
                 </thead>
                 <tbody>
+                		<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a></td>
-                        <td>21</td>
-                        <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="100"></td>
-                        <td>Title</td>
-                        <td>6</td>
+                        <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a>
+                        <form id="stepForm" name="form1" method="get" action="EditMedia.php">
+        <input class="btn btn-mini btn-primary" style="width:50px" type="submit" name="button" id="button" value="Edit" />
+        <br />
+        <input name="Id" type="hidden" id="Id" value="<?php echo $row_MediaQuery['Id']; ?>" />
+      									</form>
+                  			</td>
+                        <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
+                        <td width="140"><img src="/<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
+                        <td><?php echo $row_MediaQuery['Caption']; ?></td>
+                        <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
                     </tr>
-                    <tr>
-                      <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a></td>
-                      <td>22</td>
-                      <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="100"></td>
-                      <td>Title</td>
-                      <td>6</td>
-                    </tr>
+                  	<?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
                 </tbody>
             </table>
       </div>
