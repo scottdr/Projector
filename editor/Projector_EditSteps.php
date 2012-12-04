@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_GET['ProjectId']))
-	$projectId = $_GET['ProjectId'];
+if (isset($_GET['Id']))
+	$projectId = $_GET['Id'];
 
 	
 ?>
@@ -38,9 +38,7 @@ function loadStepData(ProjectId,StepId) {
 
 /* set the values of the html form elements based on the JSON data returned from querying for the step data */
 function updateData(jsonStepData) {
-	alert(jsonStepData);
 	var stepData = JSON.parse(jsonStepData);
-	alert("Title = " + stepData.Title);
 	document.getElementById('Name').value = stepData.Name;
 	// SCOTT To Do figure out why wysiwyg editor is not working
 	document.getElementById('Text').value = stepData.Text;	
@@ -62,10 +60,10 @@ function updateData(jsonStepData) {
       <div class="navbar-inner">
       <h2 class="brand">&lt;Challenge name&gt;</h2>
         <ul class="nav">
-          <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
-          <li class="active"><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
-          <li><a href="Projector_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="Projector_PreviewProjector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="Projector_EditChallenge.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
+          <li class="active"><a href="#"><i class="icon-edit"></i> Steps</a></li>
+          <li><a href="Projector_ViewMedia.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="Projector_PreviewProjector_Preview.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>

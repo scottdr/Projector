@@ -31,22 +31,22 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
-$colname_MediaQuery = "-1";
-if (isset($_GET['ProjectId'])) {
-  $colname_MediaQuery = $_GET['ProjectId'];
+$projectId = "-1";
+if (isset($_GET['Id'])) {
+  $projectId = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-if ($colname_MediaQuery == -1)
+if ($projectId == -1)
 	$query_MediaQuery = "SELECT * FROM Media ORDER BY ProjectId";
 else
-	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($colname_MediaQuery, "int"));
+	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($projectId, "int"));
 $MediaQuery = mysql_query($query_MediaQuery, $projector) or die(mysql_error());
 $row_MediaQuery = mysql_fetch_assoc($MediaQuery);
 $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
 
 $projectName = "All Projects";
-if ($colname_MediaQuery > -1) {
-	$query_ProjectQuery = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($colname_MediaQuery, "int"));
+if ($projectId > -1) {
+	$query_ProjectQuery = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
 	$ProjectQuery = mysql_query($query_ProjectQuery, $projector) or die(mysql_error());
 	$row_ProjectQuery = mysql_fetch_assoc($ProjectQuery);
 	$totalRows_ProjectQuery = mysql_num_rows($ProjectQuery);
@@ -82,10 +82,10 @@ if ($colname_MediaQuery > -1) {
       <div class="navbar-inner">
       <h2 class="brand"><?php echo $projectName; ?></h2>
         <ul class="nav">
-          <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
-          <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
-          <li class="active"><a href="Projector_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="Projector_EditChallenge.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditSteps.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
+          <li class="active"><a href="#"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="Projector_Preview.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>

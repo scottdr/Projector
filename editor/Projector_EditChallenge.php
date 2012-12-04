@@ -162,9 +162,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
       
 <h2 class="brand" >#<?php echo $row_foundRecord['Id']; ?> <?php echo $row_foundRecord['Name']; ?></h2>
         <ul class="nav">
-          <li class="active"><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
-          <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?ProjectId=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
-          <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?ProjectId=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
+          <li class="active"><a href="Projector_EditChallenge.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
+          <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
           <li><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
