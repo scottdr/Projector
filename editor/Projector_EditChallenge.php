@@ -44,10 +44,12 @@ if (isset($_GET["action"])) {
 	$actionTitle = $_GET["action"];
 }
 
+/* We are either adding or editing a Project */
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+/*		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", */
+		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
@@ -55,9 +57,9 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Duration'], "int"),
                        GetSQLValueString($_POST['Description'], "text"),
 											 GetSQLValueString($_POST['Author'], "text"),
-											 GetSQLValueString($_POST['ImgSmall'], "text"),
+/*											 GetSQLValueString($_POST['ImgSmall'], "text"),
 											 GetSQLValueString($_POST['ImgMedium'], "text"),
-											 GetSQLValueString($_POST['ImgLarge'], "text"),
+											 GetSQLValueString($_POST['ImgLarge'], "text"), */
 											 GetSQLValueString($_POST['Status'], "text"),
 											 GetSQLValueString($_POST['Topic'], "int"));
 	/*	
@@ -66,12 +68,13 @@ if (isset($_POST["MM_action"])) {
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
+/*  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s", */
+	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
-                       GetSQLValueString($_POST['ImgSmall'], "text"),
+  /*                     GetSQLValueString($_POST['ImgSmall'], "text"),
 											 GetSQLValueString($_POST['ImgMedium'], "text"),
-											 GetSQLValueString($_POST['ImgLarge'], "text"),
+											 GetSQLValueString($_POST['ImgLarge'], "text"), */
                        GetSQLValueString($_POST['MinGrade'], "int"),
                        GetSQLValueString($_POST['MaxGrade'], "int"),
                        GetSQLValueString($_POST['Duration'], "int"),
@@ -84,12 +87,27 @@ if (isset($_POST["MM_action"])) {
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 
-  $updateGoTo = "ViewAll.php";
-  if (isset($_SERVER['QUERY_STRING'])) {
-    $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
-    $updateGoTo .= $_SERVER['QUERY_STRING'];
-  }
-  header(sprintf("Location: %s", $updateGoTo));
+	if ($_POST["MM_action"] == "Add") {
+		$inserted_id = mysql_insert_id();
+//		echo "Insert ID: $inserted_id\n";
+		if ($inserted_id > 0) {
+			// code to Attach Default set of Routines for a Projector Project
+			for ($i=1;$i<=6;$i++) {
+				$sqlCommand = sprintf("INSERT INTO RoutineAttach (ProjectId, RoutineId, SortOrder) VALUES (%s, %s, %s)",
+													 GetSQLValueString($inserted_id, "int"), $i, $i);
+//				echo "Insert Command: $sqlCommand\n";
+  			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+			}
+		}
+	}
+	/*
+	$updateGoTo = "ViewAll.php";
+	if (isset($_SERVER['QUERY_STRING'])) {
+		$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
+		$updateGoTo .= $_SERVER['QUERY_STRING'];
+	} 
+	header(sprintf("Location: %s", $updateGoTo));
+	*/
 } 
 
 
@@ -141,11 +159,12 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand" >&lt;Challenge name&gt;</h2>
+      
+<h2 class="brand" >#<?php echo $row_foundRecord['Id']; ?> <?php echo $row_foundRecord['Name']; ?></h2>
         <ul class="nav">
           <li class="active"><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
-          <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
-          <li><a href="Projector_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
+          <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?ProjectId=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
+          <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?ProjectId=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
           <li><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
@@ -160,6 +179,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 	</section>
     <section class="row-fluid">
     	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
+      	<input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>">
         <table class="table table-condensed unborderedTable span11 offset1" style="font-size:12px;">
               <tbody>
                 <!--<tr>
@@ -248,7 +268,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                 </tr>
                 <tr>
                   <td width="154">Topic</td>
-                  <td><input name="textfield4" type="text" id="textfield4" value="<?php echo $row_foundRecord['Topic']; ?>"></td>
+                  <td><input name="Topic" type="text" id="Topic" value="<?php echo $row_foundRecord['Topic']; ?>"></td>
                 </tr>
                 <tr>
                   <td>Small image</td>

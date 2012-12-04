@@ -1,3 +1,10 @@
+<?php
+
+if (isset($_GET['ProjectId']))
+	$projectId = $_GET['ProjectId'];
+
+	
+?>
 <!doctype html>
 <html>
 <head>
@@ -47,54 +54,7 @@
       <div class="span4 offset1">
         	<p><strong>Select a routine from the Challenge to modify steps.</strong></p>
             
-            <div class="accordion" id="acc_routines">
-              <div class="accordion-group">
-              
-                <div class="accordion-heading">
-                  <a class="accordion-toggle " data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine1_inner">
-                    Routine one - Your challenge (2) 
-                  </a>
-                </div>
-                <div id="acc_routine1_inner" class="accordion-body collapse">
-                  <div class="accordion-inner accordion-step">
-                    1. Step one <a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a></div>
-                  <div class="accordion-inner accordion-step">
-                    2. Step two <a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a></div>
-                  <div class="accordion-inner accordion-step">
-                    <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine2_inner">
-                    Routine two - Start (1)
-                  </a>
-                </div>
-                <div id="acc_routine2_inner" class="accordion-body collapse">
-                  <div class="accordion-inner accordion-step">
-                    1. Step one <a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a></div>
-                  <div class="accordion-inner accordion-step">
-                    <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine3_inner">
-                    Routine three - Plan (0)
-                  </a>
-                </div>
-                <div id="acc_routine3_inner" class="accordion-body collapse">
-                  <div class="accordion-inner accordion-step">
-                    <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
+           <?php require_once('_php/AccordionContent.php'); ?> 
        
       	</div>
         <div id="editStep" class="span6">
