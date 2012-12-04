@@ -37,6 +37,7 @@ if (isset($projectId)) {
 //	echo "Project ID: $projectId\n<br />";
 	$sqlQuery = sprintf("SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.LessonName AS LessonName, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId AND Steps.ProjectId = %s ORDER BY RoutineAttach.SortOrder",$projectId);
 } else {
+	$projectId = -1;
 	$sqlQuery = "SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.LessonName, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId ORDER BY RoutineAttach.SortOrder";
 }
 	
@@ -94,76 +95,27 @@ for ($i=0;$i<$totalRows_Recordset1;$i++) {
 for ($i=0;$i<count($routineArray);$i++) {
 		$routineCSSId = "acc_routine" . $i . "_inner"; 
 		$currentRoutine = $routineArray[$i];
-		echo '<div class="accordion-heading">' . "\n";
-    echo '<a class="accordion-toggle " data-toggle="collapse" data-parent="#acc_routines" href="#' . $routineCSSId . '">' . "\n";
+		echo "\t\t" . '<div class="accordion-heading">' . "\n";
+    echo "\t\t\t" .'<a class="accordion-toggle " data-toggle="collapse" data-parent="#acc_routines" href="#' . $routineCSSId . '">' . "\n";
 			echo $routineArray[$i]->name . '(' . count($routineArray[$i]->steps) . ')'; 
     echo "</a>\n";
-    echo "</div>\n";
+    echo "\t\t</div>\n";
 	
-		echo '<div id="' . $routineCSSId . '" class="accordion-body collapse">' . "\n";
+		echo "\t\t" . '<div id="' . $routineCSSId . '" class="accordion-body collapse">' . "\n";
 		for ($j=0;$j<count($currentRoutine->steps);$j++) {
-			echo '<div class="accordion-inner accordion-step">' . "\n";
-      echo $j + 1 . ". ". $currentRoutine->steps[$j]->name . '<a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a>' . "\n";
-			echo "</div>\n";
+			echo "\t\t\t" . '<div class="accordion-inner accordion-step">' . "\n";
+      echo "\t\t\t\t" . $j + 1 . ". ". $currentRoutine->steps[$j]->name . '<a class="btn btn-small btn-right btn-primary step" href="#' .  $currentRoutine->steps[$j]->id . '" data-stepId="' . $currentRoutine->steps[$j]->id . '" onclick="loadStepData(' . $projectId . ',' . $currentRoutine->steps[$j]->id . ')" ><i class="icon-pencil icon-white"></i> Edit step</a>' . "\n";
+			echo "\t\t\t</div>\n";
 		}
-			echo '<div class="accordion-inner accordion-step">' . "\n";
-    	echo '<a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>' . "\n";
-   		echo '</div>' . "\n";
-	 	echo "</div>\n";
+		echo "\t\t" . '<div class="accordion-inner accordion-step">' . "\n";
+		echo "\t\t\t" . '<a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>' . "\n";
+		echo "\t\t" . '</div>' . "\n";
+	 	echo "\t</div>\n";
 }
 
 ?>
   </div>
 </div>
-
-<!--
-<div class="accordion" id="acc_routines">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle " data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine1_inner">
-        Routine one - Your challenge (2) 
-      </a>
-    </div>
-    <div id="acc_routine1_inner" class="accordion-body collapse">
-      <div class="accordion-inner accordion-step">
-        1. Step one <a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a></div>
-      <div class="accordion-inner accordion-step">
-        2. Step two <a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a></div>
-      <div class="accordion-inner accordion-step">
-        <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine2_inner">
-        Routine two - Start (1)
-      </a>
-    </div>
-    <div id="acc_routine2_inner" class="accordion-body collapse">
-      <div class="accordion-inner accordion-step">
-        1. Step one <a class="btn btn-small btn-right btn-primary step" href="#"><i class="icon-pencil icon-white"></i> Edit step</a></div>
-      <div class="accordion-inner accordion-step">
-        <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#acc_routines" href="#acc_routine3_inner">
-        Routine three - Plan (0)
-      </a>
-    </div>
-    <div id="acc_routine3_inner" class="accordion-body collapse">
-      <div class="accordion-inner accordion-step">
-        <a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>
-      </div>
-    </div>
-  </div>
-</div>
--->
 <?php
 mysql_free_result($Recordset1);
 ?>
