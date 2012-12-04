@@ -35,10 +35,10 @@ mysql_select_db($database_projector, $projector);
 
 if (isset($projectId)) {
 //	echo "Project ID: $projectId\n<br />";
-	$sqlQuery = sprintf("SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.LessonName AS LessonName, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId AND Steps.ProjectId = %s ORDER BY RoutineAttach.SortOrder",$projectId);
+	$sqlQuery = sprintf("SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.Name AS Name, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId AND Steps.ProjectId = %s ORDER BY RoutineAttach.SortOrder",$projectId);
 } else {
 	$projectId = -1;
-	$sqlQuery = "SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.LessonName, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId ORDER BY RoutineAttach.SortOrder";
+	$sqlQuery = "SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.Name, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId ORDER BY RoutineAttach.SortOrder";
 }
 	
 $Recordset1 = mysql_query($sqlQuery, $projector) or die(mysql_error());
@@ -85,10 +85,10 @@ for ($i=0;$i<$totalRows_Recordset1;$i++) {
 		$routineNumber++;
 		$routineId = $row_Recordset1['RoutineId'];
 	}
-	$step =  new StepInfo($row_Recordset1['LessonName'],$row_Recordset1['StepId']);
+	$step =  new StepInfo($row_Recordset1['Name'],$row_Recordset1['StepId']);
 //	echo "Step Id " . $step->id . ", Name: ". $step->name . "<br />\n";
 	$routineArray[$routineNumber-1]->steps[] = $step;
-//	echo $row_Recordset1['RoutineId'] . ", " . $row_Recordset1['RoutineName'] . ", " . $row_Recordset1['LessonName'] . ", " . $row_Recordset1['StepId'] . "<br />\n";
+//	echo $row_Recordset1['RoutineId'] . ", " . $row_Recordset1['RoutineName'] . ", " . $row_Recordset1['Name'] . ", " . $row_Recordset1['StepId'] . "<br />\n";
 	$row_Recordset1 = mysql_fetch_assoc($Recordset1);
 }
 
@@ -104,7 +104,7 @@ for ($i=0;$i<count($routineArray);$i++) {
 		echo "\t\t" . '<div id="' . $routineCSSId . '" class="accordion-body collapse">' . "\n";
 		for ($j=0;$j<count($currentRoutine->steps);$j++) {
 			echo "\t\t\t" . '<div class="accordion-inner accordion-step">' . "\n";
-      echo "\t\t\t\t" . $j + 1 . ". ". $currentRoutine->steps[$j]->name . '<a class="btn btn-small btn-right btn-primary step" href="#' .  $currentRoutine->steps[$j]->id . '" data-stepId="' . $currentRoutine->steps[$j]->id . '" onclick="loadStepData(' . $projectId . ',' . $currentRoutine->steps[$j]->id . ')" ><i class="icon-pencil icon-white"></i> Edit step</a>' . "\n";
+      echo "\t\t\t\t" . $j + 1 . ". ". $currentRoutine->steps[$j]->name . '<a class="btn btn-small btn-right btn-primary step" data-stepId="' . $currentRoutine->steps[$j]->id . '" onclick="loadStepData(' . $projectId . ',' . $currentRoutine->steps[$j]->id . ')" ><i class="icon-pencil icon-white"></i> Edit step</a>' . "\n";
 			echo "\t\t\t</div>\n";
 		}
 		echo "\t\t" . '<div class="accordion-inner accordion-step">' . "\n";

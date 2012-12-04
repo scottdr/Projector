@@ -22,6 +22,33 @@ if (isset($_GET['ProjectId']))
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    
+<script type="text/javascript">
+function loadStepData(ProjectId,StepId) {
+	//alert ('user clicked on Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
+	
+	urlLoadStep = "_php/LoadStepData.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
+	$.ajax({
+		url: urlLoadStep,
+		cache: false
+	}).done(function( jsonStepData ) {
+			updateData(jsonStepData );
+	});
+};
+
+/* set the values of the html form elements based on the JSON data returned from querying for the step data */
+function updateData(jsonStepData) {
+	alert(jsonStepData);
+	var stepData = JSON.parse(jsonStepData);
+	alert("Title = " + stepData.Title);
+	document.getElementById('Name').value = stepData.Name;
+	// SCOTT To Do figure out why wysiwyg editor is not working
+	document.getElementById('Text').value = stepData.Text;	
+	document.getElementById('Title').value = stepData.Title;
+	document.getElementById('SortOrder').value = stepData.SortOrder;
+}
+
+</script>
 </head>
 
 <body>
@@ -69,27 +96,27 @@ if (isset($_GET['ProjectId']))
                 <tr>
                   <td width="140">Routine</td>
                   <td>
-                      <select size="1">
-                        <option value="Your Challenge" selected="SELECTED">Your Challenge</option>
-                        <option value="Start">Start</option>
-                        <option value="Plan">Plan</option>
-                        <option value="Create">Create</option>
-                        <option value="Revise">Revise</option>
-                        <option value="Present">Present</option>
+                      <select name="RoutineId" size="1" id="RoutineId">
+                        <option value="1" selected="SELECTED">Your Challenge</option>
+                        <option value="2">Start</option>
+                        <option value="3">Plan</option>
+                        <option value="4">Create</option>
+                        <option value="5">Revise</option>
+                        <option value="6">Present</option>
                       </select>
                   </td>
                 </tr>
                 <tr>
-                  <td width="140">Step name</td>
-                  <td><input type="text" name="textfield" id="textfield"></td>
+                  <td width="140">Name</td>
+                  <td><input name="Name" type="text" id="Name"></td>
                 </tr>
                 <tr>
                   <td width="140">Title</td>
-                  <td><input type="text" name="textfield" id="textfield"></td>
+                  <td><input type="text" name="Title" id="Title"></td>
                 </tr>
                 <tr>
                   <td width="140">Order <span class="muted">(step number)</span></td>
-                  <td><select name="select" size="1">
+                  <td><select name="SortOrder" size="1" id="SortOrder">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -107,7 +134,7 @@ if (isset($_GET['ProjectId']))
                     <option value="15">15</option>
                   </select></td>
                 </tr>
-                <tr>
+              <!--  <tr>
                   <td width="140">Type</td>
                   <td>
                   	  <select size="1">
@@ -115,11 +142,11 @@ if (isset($_GET['ProjectId']))
                         <option value="Individual">Individual</option>
                       </select>
                   </td>
-                </tr>
+                </tr> -->
                 <tr>
                   <td width="140">Template</td>
                   <td>
-                      <select size="1">
+                      <select name="Template" size="1" id="Template">
                         <option value="Intro" selected="SELECTED">Intro</option>
                         <option value="Splash">Splash</option>
                         <option value="Text only">Text only</option>
@@ -137,7 +164,7 @@ if (isset($_GET['ProjectId']))
                 <tr>
                   <td width="140">Content</td>
                   <td>
-                      <textarea name="textarea" placeholder="Enter content ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
+                      <textarea name="Text" placeholder="Enter content ..." rows="10" id="Text" class="wysiwyg-editor width-auto"></textarea>
                   </td>
                 </tr>
                 <tr>
@@ -189,7 +216,8 @@ if (isset($_GET['ProjectId']))
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#editStep").hide();
-		$( ".accordion" ).accordion({ collapsible: true });
+//	SCOTT I was getting a javascript error on the below method that .accordion was not defined so I commented it out for now, I verified the class exists in AccodionContent.php
+//		$(".accordion").accordion({ collapsible: true });
 		
 	});
 	
