@@ -1,5 +1,29 @@
 <?php require_once('../Connections/projector.php'); ?>
 <?php
+
+
+class StepInfo {
+	public $name, $title, $template, $routineId, $sortOrder;
+	
+	function __construct($routineId,$sortOrder,$name,$template) {
+       $this->name = $name;
+			 $this->routineId = $routineId;
+			 $this->sortOrder = $sortOrder;
+			 $this->template = $template;
+	}
+}
+
+$projectorSteps[] = new StepInfo(1,1,"In Detail","MediaLeft.php");
+$projectorSteps[] = new StepInfo(1,2,"Driving Questions","MediaLeft.php");
+$projectorSteps[] = new StepInfo(2,1,"Opening Experience","MediaLeft.php");
+$projectorSteps[] = new StepInfo(2,2,"Gathering Knowledge","MediaLeft.php");
+$projectorSteps[] = new StepInfo(2,3,"The Assignment","MediaLeft.php");
+$projectorSteps[] = new StepInfo(3,1,"Researching","Research.php");
+$projectorSteps[] = new StepInfo(3,2,"The Plan","Plan.php");
+$projectorSteps[] = new StepInfo(4,1,"Building Your Project","Create.php");
+$projectorSteps[] = new StepInfo(5,1,"Improving Your Project","Revise.php");
+$projectorSteps[] = new StepInfo(6,1,"Sharing Your Project","Present.php");
+
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -95,8 +119,17 @@ if (isset($_POST["MM_action"])) {
 			for ($i=1;$i<=6;$i++) {
 				$sqlCommand = sprintf("INSERT INTO RoutineAttach (ProjectId, RoutineId, SortOrder) VALUES (%s, %s, %s)",
 													 GetSQLValueString($inserted_id, "int"), $i, $i);
-//				echo "Insert Command: $sqlCommand\n";
+				echo "Insert Command: $sqlCommand<br />\n";
   			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+				echo "RESULT: $Result1<br />\n";
+			}
+			// Create Steps
+			for ($i=0;$i<count($projectorSteps);$i++) {
+				$sqlCommand = sprintf("INSERT INTO Steps (ProjectId, RoutineId, SortOrder, Name, TemplateName) VALUES (%s, %s, %s, %s, %s)",
+													 GetSQLValueString($inserted_id, "int"), $projectorSteps[$i]->routineId, $projectorSteps[$i]->sortOrder, GetSQLValueString($projectorSteps[$i]->name, "text"), GetSQLValueString($projectorSteps[$i]->template, "text"));
+				echo "Insert Command: $sqlCommand<br />\n";
+  			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+				echo "RESULT: $Result1<br />\n";
 			}
 		}
 	}

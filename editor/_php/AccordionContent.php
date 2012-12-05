@@ -108,7 +108,7 @@ for ($i=0;$i<count($routineArray);$i++) {
 			echo "\t\t\t</div>\n";
 		}
 		echo "\t\t" . '<div class="accordion-inner accordion-step">' . "\n";
-		echo "\t\t\t" . '<a class="btn btn-small" href="#"><i class="icon-plus"></i> Add step</a>' . "\n";
+		echo "\t\t\t" . '<a class="btn btn-small step-add"><i class="icon-plus"></i> Add step</a>' . "\n";
 		echo "\t\t" . '</div>' . "\n";
 	 	echo "\t</div>\n";
 }

@@ -1,9 +1,94 @@
+<?php require_once('../Connections/projector.php'); ?>
+<?php require_once('../Globals.php'); ?>
 <?php
+
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
 
 if (isset($_GET['Id']))
 	$projectId = $_GET['Id'];
 
-	
+// Default to performing an upate unless we posted a action on the url then use that
+$action = "Update";
+if (isset($_GET["action"])) {
+	$action = $_GET["action"];
+}
+
+// put url parameters back on the url we pass when you click the save button to re-post form data to this same page
+$editFormAction = $_SERVER['PHP_SELF'];
+if (isset($_SERVER['QUERY_STRING'])) {
+  $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+}
+
+
+if (isset($_POST["MM_action"])) {
+	if ($_POST["MM_action"] == "Add") {
+			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, Name = %s, Title = %s, TemplateName = %s",
+                       GetSQLValueString($_POST['ProjectId'], "int"),
+                       GetSQLValueString($_POST['SortOrder'], "int"),
+											 GetSQLValueString($_POST['RoutineId'], "int"),
+                       GetSQLValueString($_POST['Name'], "text"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Template'], "text") 
+											 /* comment out until I fix up WYSIWYG ,
+											 GetSQLValueString($_POST['Text'], "text") */);
+//		print "sqlCommand: " . $sqlCommand;									 
+/* To Do get the id of the record we just added											 
+		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
+*/
+	} else
+  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, Name=%s, Title=%s, TemplateName=%s WHERE Id=%s",
+                       GetSQLValueString($_POST['ProjectId'], "int"),
+                       GetSQLValueString($_POST['SortOrder'], "int"),
+											 GetSQLValueString($_POST['RoutineId'], "int"),
+                       GetSQLValueString($_POST['Name'], "text"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Template'], "text"),
+										/*	 GetSQLValueString($_POST['Text'], "text"), */
+                       GetSQLValueString($_POST['Id'], "int"));
+
+//	print "sqlCommand: " . $sqlCommand . "<br />\n";
+  mysql_select_db($database_projector, $projector);
+  $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+/*
+  $updateGoTo = "ViewAll.php";
+  if (isset($_SERVER['QUERY_STRING'])) {
+    $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
+    $updateGoTo .= $_SERVER['QUERY_STRING'];
+  }
+	$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
+	$updateGoTo .= "ProjectId=" . $projectId; 
+  header(sprintf("Location: %s", $updateGoTo));
+*/
+} 	
 ?>
 <!doctype html>
 <html>
@@ -44,6 +129,7 @@ function updateData(jsonStepData) {
 	document.getElementById('Text').value = stepData.Text;	
 	document.getElementById('Title').value = stepData.Title;
 	document.getElementById('SortOrder').value = stepData.SortOrder;
+	document.getElementById('Id').value = stepData.Id;
 }
 
 </script>
@@ -83,13 +169,16 @@ function updateData(jsonStepData) {
        
       	</div>
         <div id="editStep" class="span6">
+        	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
             <table class="table table-condensed unborderedTable">
             <caption>
             Edit a step for this project.
+            <input name="ProjectId" type="hidden" id="ProjectId" value="<?php echo $projectId; ?>">
             </caption>
               <tbody>
                 <tr>
-                  <td colspan="2">Each step defined will appear as a separate step within the project ribbon.</td>
+                  <td colspan="2">Each step will appear as a separate step within the project ribbon.
+                  <input type="hidden" name="Id" id="Id"></td>
                 </tr>
                 <tr>
                   <td width="140">Routine</td>
@@ -181,13 +270,14 @@ function updateData(jsonStepData) {
                   </td>
                 </tr>-->
                 <tr>
-                  <td width="140"></td>
+                  <td width="140"><input type="hidden" name="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
-                  <input name="Save step" type="button" class="btn btn-primary" id="Save step" title="Save step" value="Save step">
+                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step">
                   </td>
                 </tr>
               </tbody>
           </table>
+          </form>
       </div>
     </section>
     
@@ -220,6 +310,10 @@ function updateData(jsonStepData) {
 	});
 	
 	$(".step").click(function () {
+		$("#editStep").show("slow");
+    });
+	
+	$(".step-add").click(function () {
 		$("#editStep").show("slow");
     });
 	
