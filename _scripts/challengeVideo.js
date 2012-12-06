@@ -56,8 +56,6 @@ var visibleWidth = 0;
 var ribbonWidth = 0;
 var stopPoistion = 0;
 
-var useSlideAnimation = false;
-
 $(document).ready(function(){ 
 
 	if (Modernizr.touch){

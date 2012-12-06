@@ -81,7 +81,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
 <script src="_scripts/modernizr.custom.42097.js"></script>
-<script src="_scripts/challengeVideo_CCSoC.js" type="text/javascript"></script>
+<script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
 
@@ -129,10 +129,10 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
      
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton-CC"></div>
-        <div id="rightButton-CC"></div>
+        <div id="leftButton"></div>
+        <div id="rightButton"></div>
         <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+          <div id="ribbonButtons" ontouchend="touchEnd(event);">
             <?php require_once("RibbonDynamicContent.php") ?>
           </div>
         </div>
@@ -143,7 +143,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
   <div id="ContentScreens" ontouchend="touchEnd(event);" >
-    <div id="ContentScreensHolder"> 
+    <div id="ContentScreensHolder" style="padding-right:0px;"> 
       <!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php --> 
     </div>
   </div>

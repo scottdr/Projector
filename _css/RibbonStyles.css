@@ -111,11 +111,13 @@ body {
 	background-repeat: no-repeat;
 }
 
+.touch #leftButton, .touch #rightButton {display:none;} 
+
 .ribbonSelector {display:none;}
 .current .ribbonSelector {display:block;}
 
 /* STANDARDISED RIBBON STYLES */
-#ribbonButtons .ribbonBlock, #ribbonButtons .ribbonBlock .singleRibbonBlock {min-width:50px;width:auto;display:block;positive:relative;-webkit-touch-callout: none;-webkit-user-select: none;user-select:none;position:relative;}
+#ribbonButtons .ribbonBlock, #ribbonButtons .ribbonBlock .singleRibbonBlock {min-width:170px;width:auto;display:block;positive:relative;-webkit-touch-callout: none;-webkit-user-select: none;user-select:none;position:relative;}
 #ribbonButtons .ribbonBlock h2 {float:left;display:block;position:relative;padding-right:15px;}
 
 .ribbonBlock {

@@ -93,6 +93,9 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
+}
+
+.touch #ContentScreens {
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 }
@@ -100,9 +103,12 @@ img, object, embed, video {
 #ContentScreensHolder {
 	width:100%;
 	position: relative;
-	padding-right:1px;
 	top: 0;
 	left: 0;	
+}
+
+.touch #ContentScreensHolder {
+	padding-right:1px;
 }
 
 * {

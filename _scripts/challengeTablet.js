@@ -43,7 +43,3 @@ function touchEnd(event) {
 		});
 	}
 }
-
-$(function(){
-	useSlideAnimation = true;
-});

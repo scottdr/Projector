@@ -95,7 +95,8 @@ body {
   </div>
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
-     
+     	<div id="leftButton"></div>
+        <div id="rightButton"></div>
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
         <div id="ribbonStrip">

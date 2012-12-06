@@ -52,6 +52,9 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 	position: relative;
+}
+
+.touch #ContentScreens {
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 }
