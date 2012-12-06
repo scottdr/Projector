@@ -39,7 +39,7 @@ if (isset($_GET['ProjectId'])) {
 }
 
 mysql_select_db($database_projector, $projector);
-$query_stepsRecordset = sprintf("SELECT Steps.Id, ProjectId, SortOrder, TemplateName, LessonName, RoutineId, RoutineName, CSSName FROM Steps, Routines WHERE ProjectId = %s AND Steps.RoutineId = Routines.Id ORDER BY SortOrder",$ProjectId);
+$query_stepsRecordset = sprintf("SELECT Steps.Id, ProjectId, SortOrder, TemplateName, Name, RoutineId, RoutineName, CSSName FROM Steps, Routines WHERE ProjectId = %s AND Steps.RoutineId = Routines.Id ORDER BY SortOrder",$ProjectId);
 $stepsRecordset = mysql_query($query_stepsRecordset, $projector) or die(mysql_error());
 $row_stepsRecordset = mysql_fetch_assoc($stepsRecordset);
 $subtractSlideShowStep = 0;
@@ -76,7 +76,7 @@ do {
 		}
 		print "\n    " . '<div class="ribbonBottom ribbon' . $row_stepsRecordset['CSSName'] . 'Bottom" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">		
 		print "\n      " . '<p class="ribbonOpeningNumber ' . $row_stepsRecordset['CSSName'] . 'Number">' . $rowStepNumber . '</p>'; // <p class="ChallengeNumber">1</p>
-		print "\n      " . '<h2>' . $row_stepsRecordset['LessonName'] . '</h2>';  // <h2>Challenge Video</h2>
+		print "\n      " . '<h2>' . $row_stepsRecordset['Name'] . '</h2>';  // <h2>Challenge Video</h2>
 		print "\n    " . '</div>';
 		print "\n    " . '<div class="ribbonSelector ribbon' . $row_stepsRecordset['CSSName'] . 'Selector" data-type="selector"> </div>';
 		
