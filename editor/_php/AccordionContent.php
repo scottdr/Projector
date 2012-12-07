@@ -97,18 +97,18 @@ for ($i=0;$i<count($routineArray);$i++) {
 		$currentRoutine = $routineArray[$i];
 		echo "\t\t" . '<div class="accordion-heading">' . "\n";
     echo "\t\t\t" .'<a class="accordion-toggle " data-toggle="collapse" data-parent="#acc_routines" href="#' . $routineCSSId . '">' . "\n";
-			echo $routineArray[$i]->name . '(' . count($routineArray[$i]->steps) . ')'; 
+			echo $routineArray[$i]->name . ' (' . count($routineArray[$i]->steps) . ')'; 
     echo "</a>\n";
     echo "\t\t</div>\n";
 	
 		echo "\t\t" . '<div id="' . $routineCSSId . '" class="accordion-body collapse">' . "\n";
 		for ($j=0;$j<count($currentRoutine->steps);$j++) {
 			echo "\t\t\t" . '<div class="accordion-inner accordion-step">' . "\n";
-      echo "\t\t\t\t" . $j + 1 . ". ". $currentRoutine->steps[$j]->name . '<a class="btn btn-small btn-right btn-primary step" data-stepId="' . $currentRoutine->steps[$j]->id . '" onclick="loadStepData(' . $projectId . ',' . $currentRoutine->steps[$j]->id . ')" ><i class="icon-pencil icon-white"></i> Edit step</a>' . "\n";
+      echo "\t\t\t\t" . $j + 1 . ". ". $currentRoutine->steps[$j]->name . '<a class="btn btn-small btn-right btn-primary step" data-stepId="' . $currentRoutine->steps[$j]->id . '" onclick="loadStepData(' . $projectId . ',' . count($routineArray[$i]->steps) . ','. $currentRoutine->steps[$j]->id . ')" ><i class="icon-pencil icon-white"></i> Edit step</a>' . "\n";
 			echo "\t\t\t</div>\n";
 		}
 		echo "\t\t" . '<div class="accordion-inner accordion-step">' . "\n";
-		echo "\t\t\t" . '<a class="btn btn-small step-add"><i class="icon-plus"></i> Add step</a>' . "\n";
+		echo "\t\t\t" . '<a class="btn btn-small step-add" onclick="addStep(' . $projectId . ',' . count($routineArray[$i]->steps) . ',' . $routineArray[$i]->id . ')"><i class="icon-plus"></i> Add step</a>' . "\n";
 		echo "\t\t" . '</div>' . "\n";
 	 	echo "\t</div>\n";
 }

@@ -69,31 +69,30 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, Name = %s, Title = %s, TemplateName = %s",
-                       GetSQLValueString($_POST['ProjectId'], "int"),
-                       GetSQLValueString($_POST['SortOrder'], "int"),
-											 GetSQLValueString($_POST['RoutineId'], "int"),
-                       GetSQLValueString($_POST['Name'], "text"),
-                       GetSQLValueString($_POST['Title'], "text"),
-                       GetSQLValueString($_POST['Template'], "text") 
-											 /* comment out until I fix up WYSIWYG ,
-											 GetSQLValueString($_POST['Text'], "text") */);
-//		print "sqlCommand: " . $sqlCommand;									 
-/* To Do get the id of the record we just added											 
-		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
-*/
-	} else
-  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, Name=%s, Title=%s, TemplateName=%s WHERE Id=%s",
+			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, Name = %s, Title = %s, TemplateName = %s, Text=%s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['SortOrder'], "int"),
 											 GetSQLValueString($_POST['RoutineId'], "int"),
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Template'], "text"),
-										/*	 GetSQLValueString($_POST['Text'], "text"), */
+											 GetSQLValueString($_POST['Text'], "text") );
+//		print "sqlCommand: " . $sqlCommand;									 
+/* To Do get the id of the record we just added											 
+		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
+*/
+	} else
+  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, Name=%s, Title=%s, TemplateName=%s, Text=%s WHERE Id=%s",
+                       GetSQLValueString($_POST['ProjectId'], "int"),
+                       GetSQLValueString($_POST['SortOrder'], "int"),
+											 GetSQLValueString($_POST['RoutineId'], "int"),
+                       GetSQLValueString($_POST['Name'], "text"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Template'], "text"),
+											 GetSQLValueString($_POST['Text'], "text"), 
                        GetSQLValueString($_POST['Id'], "int"));
 
-//	print "sqlCommand: " . $sqlCommand . "<br />\n";
+	print "sqlCommand: " . $sqlCommand . "<br />\n";
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 /*
@@ -127,10 +126,33 @@ if (isset($_POST["MM_action"])) {
     <![endif]-->
     
 <script type="text/javascript">
-function loadStepData(ProjectId,StepId) {
+
+function populateOrderMenu(numItems) {
+	var dropdown = document.getElementById("SortOrder");
+	var currentCount = dropdown.options.length;
+	if (numItems != currentCount) {
+		  var lastItem = Math.max(numItems,currentCount)
+			for (var i=0; i < lastItem;++i){
+					if (i >= currentCount)    
+						addOption(dropdown, String(i+1), i+1);
+					else if (i >= numItems)
+						dropdown.remove(numItems);
+			}
+	}
+}
+
+function addOption(selectbox, text, value) {
+    var optn = document.createElement("OPTION");
+    optn.text = text;
+    optn.value = value;
+    selectbox.options.add(optn);  
+}
+
+function loadStepData(ProjectId, StepNumber, StepId) {
 	//alert ('user clicked on Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
-	
+	populateOrderMenu(StepNumber);
 	urlLoadStep = "_php/LoadStepData.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
+	
 	$.ajax({
 		url: urlLoadStep,
 		cache: false
@@ -150,8 +172,10 @@ function updateData(jsonStepData) {
 	document.getElementById('Id').value = stepData.Id;
 }
 
+/* When we add a step clear out all the fields, and set the Order to the StepNumber, and select the appropriate routine Id  */
 function addStep(ProjectId, StepNumber, RoutineId) {
 //	alert('adding step # ' + StepNumber + " id = " + RoutineId);
+	populateOrderMenu(StepNumber+1);
 	document.getElementById('MM_action').value = "Add";		// set this hidden value so we know to do an insert instead of update
 	document.getElementById('Name').value = "";
 	// SCOTT To Do figure out why wysiwyg editor is not working
@@ -335,11 +359,11 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#editStep").hide();
-//	SCOTT I was getting a javascript error on the below method that .accordion was not defined so I commented it out for now, I verified the class exists in AccodionContent.php
-		//	var accordionElement = $(".accordion").get();
-		//	alert(accordionElement[0].innerHTML);
-			$(".accordion").accordion({ collapsible: true });
-		
+		var icons = {
+            header: "ui-icon-circle-arrow-e",
+            activeHeader: "ui-icon-circle-arrow-s"
+        };
+		$(".accordion").accordion({ collapsible: false,  icons: icons });
 	});
 	
 	$(".step").click(function () {
