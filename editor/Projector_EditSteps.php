@@ -33,6 +33,24 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+$colname_ProjectInfo = "-1";
+if (isset($_GET['Id'])) {
+  $colname_ProjectInfo = $_GET['Id'];
+}
+$routineId = -1;
+if (isset($_GET['RoutineId'])) {
+	$routineId = $_GET['RoutineId'];
+}
+
+mysql_select_db($database_projector, $projector);
+$query_ProjectInfo = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($colname_ProjectInfo, "int"));
+$ProjectInfo = mysql_query($query_ProjectInfo, $projector) or die(mysql_error());
+$row_ProjectInfo = mysql_fetch_assoc($ProjectInfo);
+$totalRows_ProjectInfo = mysql_num_rows($ProjectInfo);
+
+if ($totalRows_ProjectInfo > 0)
+	$projectName = $row_ProjectInfo['Name']; 
+
 if (isset($_GET['Id']))
 	$projectId = $_GET['Id'];
 
@@ -119,7 +137,7 @@ function loadStepData(ProjectId,StepId) {
 	}).done(function( jsonStepData ) {
 			updateData(jsonStepData );
 	});
-};
+}
 
 /* set the values of the html form elements based on the JSON data returned from querying for the step data */
 function updateData(jsonStepData) {
@@ -130,6 +148,18 @@ function updateData(jsonStepData) {
 	document.getElementById('Title').value = stepData.Title;
 	document.getElementById('SortOrder').value = stepData.SortOrder;
 	document.getElementById('Id').value = stepData.Id;
+}
+
+function addStep(ProjectId, StepNumber, RoutineId) {
+//	alert('adding step # ' + StepNumber + " id = " + RoutineId);
+	document.getElementById('MM_action').value = "Add";		// set this hidden value so we know to do an insert instead of update
+	document.getElementById('Name').value = "";
+	// SCOTT To Do figure out why wysiwyg editor is not working
+	document.getElementById('Text').value = "";	
+	document.getElementById('Title').value = "";
+	document.getElementById('SortOrder').value = StepNumber + 1;
+	document.getElementById('RoutineId').value = RoutineId;
+	document.getElementById('Id').value = "";
 }
 
 </script>
@@ -144,12 +174,12 @@ function updateData(jsonStepData) {
 	<!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand">&lt;Challenge name&gt;</h2>
+      <h2 class="brand"><?php if (isset($projectName)) echo $projectName ?></h2>
         <ul class="nav">
           <li><a href="Projector_EditChallenge.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
           <li class="active"><a href="#"><i class="icon-edit"></i> Steps</a></li>
           <li><a href="Projector_ViewMedia.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="Projector_PreviewProjector_Preview.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="/ChallengeTemplate_CCSoC.php?ProjectId=<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -270,7 +300,7 @@ function updateData(jsonStepData) {
                   </td>
                 </tr>-->
                 <tr>
-                  <td width="140"><input type="hidden" name="MM_action" value="<?php echo $action; ?>" /></td>
+                  <td width="140"><input type="hidden" name="MM_action" id="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
                   <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step">
                   </td>
@@ -287,6 +317,7 @@ function updateData(jsonStepData) {
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 <script src="js/wysihtml5-0.3.0.js"></script>
@@ -305,7 +336,9 @@ function updateData(jsonStepData) {
 	$(document).ready(function() {
 		$("#editStep").hide();
 //	SCOTT I was getting a javascript error on the below method that .accordion was not defined so I commented it out for now, I verified the class exists in AccodionContent.php
-//		$(".accordion").accordion({ collapsible: true });
+		//	var accordionElement = $(".accordion").get();
+		//	alert(accordionElement[0].innerHTML);
+			$(".accordion").accordion({ collapsible: true });
 		
 	});
 	
@@ -323,3 +356,6 @@ function updateData(jsonStepData) {
 </script>
 </body>
 </html>
+<?php
+mysql_free_result($ProjectInfo);
+?>

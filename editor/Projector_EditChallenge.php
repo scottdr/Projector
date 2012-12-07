@@ -155,6 +155,7 @@ $query_foundRecord = sprintf("SELECT * FROM projects WHERE Id = %s", GetSQLValue
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
+$projectId = $row_foundRecord['Id'];
 session_start();
 $_SESSION['ProjectName'] = $row_foundRecord['Name'];
 $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
@@ -200,7 +201,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
           <li class="active"><a href="Projector_EditChallenge.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
           <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
           <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="/ChallengeTemplate_CCSoC.php?ProjectId=<?php if (isset($row_foundRecord['Id'])) echo $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -333,7 +334,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td width="154"></td>
                   <td>
                   <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
-                  <a href="#" class="btn btn-primary btn-danger">Delete</a>
+                  <a href="_php/DeleteProject.php?Id=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
               </tbody>
