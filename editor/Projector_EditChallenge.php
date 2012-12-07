@@ -132,9 +132,11 @@ if (isset($_POST["MM_action"])) {
 //				echo "RESULT: $Result1<br />\n";
 			}
 		}
-	}
+		$updateGoTo = "Projector_EditSteps.php?Id=" . $inserted_id;
+	} else
+		$updateGoTo = "ViewAll.php";
 	
-	$updateGoTo = "ViewAll.php";
+	
 	if (isset($_SERVER['QUERY_STRING'])) {
 		$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
 		$updateGoTo .= $_SERVER['QUERY_STRING'];
