@@ -1,0 +1,74 @@
+/*!
+ * customized elements 
+ */
+
+body {
+  	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+  	color: #FFF;
+	font-size: 12px;
+ 	line-height: 20px;
+	margin: 0;
+	-webkit-text-size-adjust: none;
+}
+
+h1, h2, h3, h4, p {
+	font-weight:300;
+	margin: 0px 5px 0px 5px;
+}
+
+a:link {
+  	color: #ffffff;
+  	text-decoration: none;
+
+} 
+h2, p, a:hover {
+  	color: #ffffff;
+  	text-decoration: none;
+} 
+.LearnMoreBar {
+	background-color:#000;
+	color: #F3F3F3;
+	text-transform:uppercase;
+	letter-spacing: 0.06em;
+	padding: 10px;
+	margin-bottom: 1px;
+}
+.span3 {
+	padding-top: 15px;
+	padding-bottom: 0px;
+  	color: #000;
+}
+.span3:hover {
+	background-color: #FEA800;
+}
+
+.InfoButton {
+	position: relative;
+	display:block;
+	float: right;
+	margin: 0px 0px 0px 0px;
+	z-index: 1;
+}
+.FoxtrotThumbnailImg {
+	position:relative;
+	vertical-align: top;
+	clear:none;
+	top: -40px;
+}
+.FoxtrotTitleCopy {
+	font-size: 1.4em;
+	position:relative;
+	vertical-align: top;
+	clear:none;
+	top: -40px;
+}
+.FoxtrotBodyCopy {
+	position:relative;
+	vertical-align: top;
+	clear:none;
+	top: -40px;
+}
+.modal-body p {
+	color:#000;
+	padding-top:10px;
+}
