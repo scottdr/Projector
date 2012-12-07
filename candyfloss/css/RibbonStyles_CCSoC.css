@@ -1,0 +1,682 @@
+@charset "UTF-8";
+/* CSS Document for Common Core ORANGE Ribbon*/
+
+body {
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+.typekit-badge {
+	display:none !important;
+}
+#ribbonContainer {
+	height: 120px;
+	margin:0;
+	padding:0;
+	border:0;
+}
+#ribbonStrip {
+	height: 120px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+}
+#ribbonButtons {
+	position:relative;
+	margin:0;
+	padding:0;
+	border:0;
+	width: 2200px;
+	height: 100px;
+	overflow:hidden;
+}
+#leftButton-CC {
+	width: 60px;
+	float: left;
+	height: 80px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-image: url(../../_images/challenge/leftarrow-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#leftButton-CC:hover {
+	background-image: url(../../_images/challenge/leftarrow-hover-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#rightButton-CC {
+	width: 60px;
+	left: -60px;
+	float: right;
+	height: 80px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-image: url(../../_images/challenge/rightarrow-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#rightButton-CC:hover {
+	background-image: url(../../_images/challenge/rightarrow-hover-CC.png);
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.hiddenStyle {
+	visibility : hidden;
+}
+
+.visibleStyle {
+	visibility : visible;
+}
+
+
+.ribbonChallenge_bottomH2 {
+	margin: 0;
+	padding-left: 10px;
+	padding-top: 10px;
+	border: 0;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: 300;
+	line-height: 24px;
+}
+/* Challenge_CC_Opening */
+#ribbonChallenge_CC_Opening {
+	float:left;
+	min-width: 200px;
+	height: 100px;
+	position: relative;
+}
+#ribbonChallenge_CC_Opening h2 {
+	margin: 0;
+	padding-left: 10px;
+	border: 0;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: 300;
+	line-height: 24px;
+}
+#ribbonChallenge_CC_OpeningTop {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	background-color: #F7AA1A;
+	border-top-color: #F7AA1A;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: #323232;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.ribbonChallenge_CC_OpeningColumnWrap {
+	float: left;
+	min-width: 200px;
+}
+.ribbonChallenge_CC_OpeningBottomCurrent {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #F7AA1A;
+	border-top-color: #FEA016;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #FDCEA7;
+}
+.ribbonChallenge_CC_OpeningBottom {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #181818;
+	border-top-color: #181818;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F7AA1A;
+}
+/*.ribbonChallenge_CC_OpeningBottom:hover {
+	background-color: #F7AA1A;
+	border-top-color: #F7AA1A;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
+}*/
+.Challenge_CC_OpeningNumber {
+	float: left;
+	display: block;
+	font-size: 32px;
+	margin-left: 5px;
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 300;
+	line-height: 54px;
+}
+.ribbonChallenge_CC_OpeningSelector {
+	width: 100%;
+	height: 10px;
+	background-image: url(../_images/challenge/selected-challenge-CC.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 10px;
+}
+/* Start_CC_Writing */
+#ribbonStart_CC_Writing {
+	float:left;
+	min-width: 200px;
+	height: 100px;
+	position: relative;
+}
+#ribbonStart_CC_Writing h2 {
+	margin: 0;
+	padding-left: 10px;
+	border: 0;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: 300;
+	line-height: 24px;
+}
+#ribbonStart_CC_WritingTop {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	background-color: #F9921F;
+	border-top-color: #F9921F;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: #323232;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.ribbonStart_CC_WritingColumnWrap {
+	float: left;
+	min-width : 200px;
+}
+.ribbonStart_CC_WritingBottomCurrent {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #F9921F;
+	border-top-color: #F9921F;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F9BE7B;
+}
+.ribbonStart_CC_WritingBottom {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #181818;
+	border-top-color: #181818;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F9921F;
+}
+/*.ribbonStart_CC_WritingBottom:hover {
+	background-color: #F9921F;
+	border-top-color: #F9921F;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
+}
+*/
+.Start_CC_WritingNumber {
+	float: left;
+	display: block;
+	font-size: 30px;
+	margin-left: 5px;
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 300;
+	line-height: 54px;
+}
+.ribbonStart_CC_WritingSelector {
+	width: 100%;
+	height: 10px;
+	background-image: url(../_images/challenge/selected-start-CC.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 10px;
+}
+/* Plan_CC_GroupWork */
+#ribbonPlan_CC_GroupWork {
+	float:left;
+	min-width: 200px;
+	height: 100px;
+	position: relative;
+}
+#ribbonPlan_CC_GroupWork h2 {
+	margin: 0;
+	padding-left: 10px;
+	border: 0;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: 300;
+	line-height: 24px;
+}
+#ribbonPlan_CC_GroupWorkTop {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	background-color: #FA7A24;
+	border-top-color: #FA7A24;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: #323232;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.ribbonPlan_CC_GroupWorkColumnWrap {
+	float: left;
+	min-width: 200px;
+}
+.ribbonPlan_CC_GroupWorkBottomCurrent {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #FA7A24;
+	border-top-color: #FA7A24;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #FAAE7B;
+}
+.ribbonPlan_CC_GroupWorkBottom {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #181818;
+	border-top-color: #181818;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #FA7A24;
+}
+/*.ribbonPlan_CC_GroupWorkBottom:hover {
+	background-color: #FA7A24;
+	border-top-color: #FA7A24;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
+}*/
+.Plan_CC_GroupWorkNumber {
+	float: left;
+	display: block;
+	font-size: 30px;
+	margin-left: 5px;
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 300;
+	line-height: 54px;
+}
+.ribbonPlan_CC_GroupWorkSelector {
+	width: 100%;
+	height: 10px;
+	background-image: url(../_images/challenge/selected-plan-CC.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 10px;
+}
+
+/* Create_CC_CommonRead */
+#ribbonCreate_CC_CommonRead {
+	float:left;
+	min-width: 200px;
+	height: 100px;
+	position: relative;
+}
+#ribbonCreate_CC_CommonRead h2 {
+	margin: 0;
+	padding-left: 10px;
+	border: 0;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: 300;
+	line-height: 24px;
+}
+#ribbonCreate_CC_CommonReadTop {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	background-color: #FC6329;
+	border-top-color: #FC6329;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: #323232;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.ribbonCreate_CC_CommonReadColumnWrap {
+	float: left;
+	min-width: 200px;
+}
+.ribbonCreate_CC_CommonReadBottomCurrent {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #FC6329;
+	border-top-color: #FC6329;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #FC9E7A;
+}
+.ribbonCreate_CC_CommonReadBottom {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #181818;
+	border-top-color: #181818;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #FC6329;
+}
+/*.ribbonCreate_CC_CommonReadBottom:hover {
+	background-color: #FC6329;
+	border-top-color: #FC6329;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
+}*/
+.Create_CC_CommonReadNumber {
+	float: left;
+	display: block;
+	font-size: 30px;
+	margin-left: 5px;
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;	
+	font-weight: 300;
+	line-height: 54px;
+}
+.ribbonCreate_CC_CommonReadSelector {
+	width: 100%;
+	height: 10px;
+	background-image: url(../_images/challenge/selected-create-CC.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 10px;
+}
+
+/* Revise_CC_Revise */
+#ribbonRevise_CC_Revise {
+	float:left;
+	min-width: 200px;
+	height: 100px;
+	position: relative;
+}
+#ribbonRevise_CC_Revise h2 {
+	margin: 0;
+	padding-left: 10px;
+	border: 0;
+	font-size: 14px;
+	color: #FFF;
+	font-weight: 300;
+	line-height: 24px;
+}
+#ribbonRevise_CC_ReviseTop {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	background-color: #F7AA1A;
+	border-top-color: #F7AA1A;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: #323232;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.ribbonRevise_CC_ReviseColumnWrap {
+	float: left;
+	min-width: 200px;
+}
+.ribbonRevise_CC_ReviseBottomCurrent {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #F7AA1A;
+	border-top-color: #F7AA1A;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F7CB7A;
+}
+.ribbonRevise_CC_ReviseBottom {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #181818;
+	border-top-color: #181818;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F7AA1A;
+}
+/*.ribbonRevise_CC_ReviseBottom:hover {
+	background-color: #F7AA1A;
+	border-top-color: #F7AA1A;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFF;
+}*/
+.Revise_CC_ReviseNumber {
+	float: left;
+	display: block;
+	font-size: 30px;
+	margin-left: 5px;
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;	
+	font-weight: 300;
+	line-height: 54px;
+}
+.ribbonRevise_CC_ReviseSelector {
+	width: 100%;
+	height: 10px;
+	background-image: url(../_images/challenge/selected-revise-CC.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 10px;
+}
+
+/* Present_CC_Homework */
+#ribbonPresent_CC_Homework {
+	float:left;
+	min-width: 200px;
+	height: 100px;
+	position: relative;
+}
+#ribbonPresent_CC_Homework h2 {
+	margin:0;
+	padding-left:10px;
+	border:0;
+	font-size:14px;
+	color:#FFF;
+	font-weight:300;
+}
+#ribbonPresent_CC_HomeworkTop {
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	background-color: #F9921F;
+	border-top-color: #F9921F;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-bottom-color: #323232;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+.ribbonPresent_CC_HomeworkColumnWrap {
+	float: left;
+	min-width: 200px;
+}
+.ribbonPresent_CC_HomeworkBottomCurrent {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #F9921F;
+	border-top-color: #F9921F;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F9BE7D;
+}
+.ribbonPresent_CC_HomeworkBottom {
+	width: 100%;
+	height: 54px;
+	line-height: 54px;
+	left: -1px;
+	background-color: #181818;
+	border-top-color: #181818;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-right-color: #323232;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-left-color: #323232;
+	border-left-style: solid;
+	border-left-width: 1px;
+	color: #F9921F;
+}
+/*.ribbonPresent_CC_HomeworkBottom:hover {
+	background-color: #F9921F;
+	border-top-color: #F9921F;
+	border-top-style: solid;
+	border-top-width: 1px;
+	color: #FFFFFF;
+}*/
+.Present_CC_HomeworkNumber {
+	float: left;
+	display: block;
+	font-size: 30px;
+	margin-left: 5px;
+	margin-right: 2px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: 300;
+	line-height: 54px;
+}
+.ribbonPresent_CC_HomeworkSelector {
+	width: 100%;
+	height: 10px;
+	background-image: url(../_images/challenge/selected-present-CC.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 10px;
+}
