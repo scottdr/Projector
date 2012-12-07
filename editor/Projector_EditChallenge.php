@@ -119,28 +119,30 @@ if (isset($_POST["MM_action"])) {
 			for ($i=1;$i<=6;$i++) {
 				$sqlCommand = sprintf("INSERT INTO RoutineAttach (ProjectId, RoutineId, SortOrder) VALUES (%s, %s, %s)",
 													 GetSQLValueString($inserted_id, "int"), $i, $i);
-				echo "Insert Command: $sqlCommand<br />\n";
+//				echo "Insert Command: $sqlCommand<br />\n";
   			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-				echo "RESULT: $Result1<br />\n";
+//				echo "RESULT: $Result1<br />\n";
 			}
 			// Create Steps
 			for ($i=0;$i<count($projectorSteps);$i++) {
 				$sqlCommand = sprintf("INSERT INTO Steps (ProjectId, RoutineId, SortOrder, Name, TemplateName) VALUES (%s, %s, %s, %s, %s)",
 													 GetSQLValueString($inserted_id, "int"), $projectorSteps[$i]->routineId, $projectorSteps[$i]->sortOrder, GetSQLValueString($projectorSteps[$i]->name, "text"), GetSQLValueString($projectorSteps[$i]->template, "text"));
-				echo "Insert Command: $sqlCommand<br />\n";
+//				echo "Insert Command: $sqlCommand<br />\n";
   			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-				echo "RESULT: $Result1<br />\n";
+//				echo "RESULT: $Result1<br />\n";
 			}
 		}
-	}
-	/*
-	$updateGoTo = "ViewAll.php";
+		$updateGoTo = "Projector_EditSteps.php?Id=" . $inserted_id;
+	} else
+		$updateGoTo = "ViewAll.php";
+	
+	
 	if (isset($_SERVER['QUERY_STRING'])) {
 		$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
 		$updateGoTo .= $_SERVER['QUERY_STRING'];
 	} 
 	header(sprintf("Location: %s", $updateGoTo));
-	*/
+	
 } 
 
 

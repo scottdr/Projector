@@ -47,7 +47,7 @@
     	<p class="span11 offset1" style="margin-top: 44px;">
         	These buttons are temporary:
             <a class="btn btn-small" href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Common Core</a>
-            <a class="btn btn-small" href="Projector_EditChallenge.php"><i class="icon-edit"></i> Projector</a>
+            <a class="btn btn-small" href="ViewAll.php"><i class="icon-edit"></i> Projector</a>
         </p>
     </section>
     
