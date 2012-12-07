@@ -169,6 +169,7 @@ function updateData(jsonStepData) {
 	document.getElementById('Text').value = stepData.Text;	
 	document.getElementById('Title').value = stepData.Title;
 	document.getElementById('SortOrder').value = stepData.SortOrder;
+	document.getElementById('RoutineId').value = stepData.RoutineId;
 	document.getElementById('Id').value = stepData.Id;
 }
 
