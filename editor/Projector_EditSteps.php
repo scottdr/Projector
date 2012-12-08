@@ -126,6 +126,8 @@ if (isset($_POST["MM_action"])) {
     <![endif]-->
     
 <script type="text/javascript">
+var editor;
+var editorInstance;
 
 function populateOrderMenu(numItems) {
 	var dropdown = document.getElementById("SortOrder");
@@ -166,7 +168,10 @@ function updateData(jsonStepData) {
 	var stepData = JSON.parse(jsonStepData);
 	document.getElementById('Name').value = stepData.Name;
 	// SCOTT To Do figure out why wysiwyg editor is not working
-	document.getElementById('Text').value = stepData.Text;	
+	document.getElementById('Text').value = stepData.Text;
+	if (editorInstance) {
+		editorInstance.setValue(stepData.Text,true);
+	}
 	document.getElementById('Title').value = stepData.Title;
 	document.getElementById('SortOrder').value = stepData.SortOrder;
 	document.getElementById('RoutineId').value = stepData.RoutineId;
@@ -259,22 +264,8 @@ function addStep(ProjectId, StepNumber, RoutineId) {
                 <tr>
                   <td width="140">Order <span class="muted">(step number)</span></td>
                   <td><select name="SortOrder" size="1" id="SortOrder">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                  </select></td>
+                  	</select>
+                  </td>
                 </tr>
               <!--  <tr>
                   <td width="140">Type</td>
@@ -350,7 +341,7 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 <script src="js/bootstrap-wysihtml5.js"></script>
 
 <script>
-	$('.wysiwyg-editor').wysihtml5();
+//	var editor = $('.wysiwyg-editor').wysihtml5();
 </script>
 
 <script type="text/javascript" charset="utf-8">
@@ -358,7 +349,11 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 </script>
 
 <script type="text/javascript">
+
 	$(document).ready(function() {
+		editor = $('.wysiwyg-editor').wysihtml5();
+		editorInstance = editor.data('wysihtml5').editor;
+		
 		$("#editStep").hide();
 		var icons = {
             header: "ui-icon-circle-arrow-e",
