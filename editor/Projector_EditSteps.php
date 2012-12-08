@@ -92,7 +92,7 @@ if (isset($_POST["MM_action"])) {
 											 GetSQLValueString($_POST['Text'], "text"), 
                        GetSQLValueString($_POST['Id'], "int"));
 
-	print "sqlCommand: " . $sqlCommand . "<br />\n";
+//	print "sqlCommand: " . $sqlCommand . "<br />\n";
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 /*
@@ -190,6 +190,13 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 	document.getElementById('SortOrder').value = StepNumber + 1;
 	document.getElementById('RoutineId').value = RoutineId;
 	document.getElementById('Id').value = "";
+}
+
+function deleteStep() 
+{
+	var stepId = document.getElementById('Id').value;
+	var projectId = document.getElementById('ProjectId').value;
+	window.location = "_php/DeleteStep.php?Id=" + stepId + "&ProjectId=" + projectId;
 }
 
 </script>
@@ -318,7 +325,7 @@ function addStep(ProjectId, StepNumber, RoutineId) {
                 <tr>
                   <td width="140"><input type="hidden" name="MM_action" id="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
-                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step">
+                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step"> <a onClick="deleteStep()" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
               </tbody>
