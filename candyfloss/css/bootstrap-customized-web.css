@@ -1,0 +1,136 @@
+/*!
+ * customized elements 
+ */
+
+body {
+  	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+	font-size: 12px;
+ 	line-height: 20px;
+	margin: 0;
+	-webkit-text-size-adjust: none;
+	background-image: url(../../_images/proj_gal_bg.gif);
+	background-repeat:repeat-x;
+	background-color:#FFF;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	  margin: 10px 0;
+	  font-family: inherit;
+	  font-weight: 300;
+	  line-height: 20px;
+	  color: inherit;
+	  text-rendering: optimizelegibility;
+}
+.navbar .brand {
+	display: block;
+	float: left;
+	padding: 15px;
+	margin-left: -20px;
+	font-size: 20px;
+	font-weight: 200;
+	color: #FFF;
+	height: 20px;
+	overflow:hidden;
+	-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+	box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
+	/* IE 9 shadow fix */
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
+}
+.nav-pills > li > a {
+	padding-top: 14px;
+	padding-bottom: 6px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	height: 20px;
+}
+
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+	color: #ffffff;
+	background-color: #0088cc;
+}
+
+.row-fluid .controls-row [class*="span"] + [class*="span"] {
+  margin-left: 0;
+}
+
+.navbar-inner {
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+.FoxtrotSpan3 {
+	padding-top: 15px;
+	padding-bottom: 0px;
+  	color: #000;
+}
+.FoxtrotSpan3 a {
+	padding-top: 15px;
+	padding-bottom: 0px;
+  	color: #000;
+}
+.FoxtrotSpan3:hover {
+	background-color: #FEA800;
+	color:#FFF;
+}
+.FoxtrotSpan3:hover a {
+	background-color: #FEA800;
+	color:#FFF;
+}
+
+.InfoButton {
+	position: relative;
+	display:block;
+	float: right;
+	margin: 0px 0px 0px 0px;
+	z-index: 1;
+}
+.FoxtrotThumbnailImg {
+	position:relative;
+	vertical-align: top;
+	clear:none;
+	top: -40px;
+}
+.FoxtrotTitleCopy {
+	font-size: 1.4em;
+	position: relative;
+	vertical-align: top;
+	clear: none;
+	top: -40px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.FoxtrotBodyCopy {
+	position: relative;
+	vertical-align: top;
+	clear: none;
+	top: -40px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.modal-body p {
+	color:#000;
+	padding-top:10px;
+}
+a:hover {
+  color: #005580;
+  text-decoration: none;
+}
