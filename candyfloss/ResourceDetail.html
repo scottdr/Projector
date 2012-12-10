@@ -6,40 +6,10 @@
         
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-customized-web.css" rel="stylesheet" type="text/css" />
         <style type="text/css">
-			body {
-				background-image: url(../_images/proj_gal_bg.gif);
-				background-repeat:repeat-x;
-				background-color:#FFF;
-				font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
-				font-weight:300;
-			}
-				h1,
-				h2,
-				h3,
-				h4,
-				h5,
-				h6 {
-				  margin: 10px 0;
-				  font-family: inherit;
-				  font-weight: 300;
-				  line-height: 20px;
-				  color: inherit;
-				  text-rendering: optimizelegibility;
-			}
-			.row {
-				margin-left: -20px;
-			}
-			.navbar .brand {
-				display: block;
-				float: left;
-				padding: 15px;
-				margin-left: -20px;
-				font-size: 20px;
-				font-weight: 200;
-				color: #FFF;
-				height: 20px;
-				overflow:hidden;
+			.shadow {
+				/* Firefox v3.5+ */
 				-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
 				/* Safari v3.0+ and by Chrome v0.2+ */
 				-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
@@ -50,55 +20,136 @@
 				/* IE 9 shadow fix */
 				filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
 			}
-			.NavItemUp {
-				z-index: -1;
-				margin-left:0;
-				margin-right: 1px;
-				margin-bottom: 1px;
-				color: #FFF;
+			.navItemUp {
 				text-align: left;
-				overflow: hidden;
 				padding: 10px;
-				border: 0px;
+				float:left;
+				width:30%;
+				margin:0;
+				color: #FFF;
 				background-color: #03ACEF;
-				/* Firefox v3.5+ */
-				-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				/* Safari v3.0+ and by Chrome v0.2+ */
-				-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
-				box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
-				filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
-				/* IE 9 shadow fix */
-				filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
 			}
-			.NavItemDown {
-				z-index: -1;
-				margin-left:0;
-				margin-right: 1px;
-				margin-bottom: 1px;
-				color: #03ACEF;
+			.navItemUp a{
+				color: #FFF;
+				text-decoration:none;
+			}
+			.navItemDown {
 				text-align: left;
-				overflow: hidden;
 				padding: 10px;
-				border: 0px;
+				float:left;
+				width:30%;
+				margin:0;
+				color: #03ACEF;
 				background-color: #FFF;
-				/* Firefox v3.5+ */
-				-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				/* Safari v3.0+ and by Chrome v0.2+ */
-				-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
-				box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
-				filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
-				/* IE 9 shadow fix */
-				filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
+			}
+			.navItemDown a{
+				color: #03ACEF;
+				text-decoration:none;
 			}
 			.backButtonContainer {
 				display:block;
 				border:0px;
 				float:right;
 				color:#FFF;
+			}
+			#TeacherNotes-Info-CC {
+				width: 40px;
+				height: 40px;
+				background-image: url(../_images/challenge/button-info-CC.png);
+				clear: none;
+			}
+			#TeacherNotes-Info-CC:hover {
+				background-image:url(../_images/challenge/button-info-hover-CC.png);
+			}
+			
+			#TeacherNotes-Close-CC {
+				float: right;
+				width:40px;
+				height:40px;
+				background-image:url(../_images/challenge/button-info-close-CC.png);
+				display:none;
+			}
+			#TeacherNotes-Close-CC:hover {
+				background-image:url(../_images/challenge/button-info-close-hover-CC.png);
+			}
+			
+			#TeacherNotes-Shadow-CC {
+				float: right;
+				width:40px;
+				height:40px;
+				position: relative;
+				display: block;
+				z-index: -1;
+				top: -40px;
+				/* Firefox v3.5+ */
+				-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+				/* Safari v3.0+ and by Chrome v0.2+ */
+				-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+				/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+				box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+				-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
+				filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
+			}
+			#TeacherNotes-Text-CC {
+				position: relative;
+				float: right;
+				background-color: rgba(0,0,0,1);
+				top: -40px;
+				left: -40px;
+				width: 660px;
+				padding-left: 10px;
+				padding-right: 10px;
+				border: 0px;
+				margin: 0px;
+				z-index: 1;
+				overflow: hidden;
+				clear: both;
+				max-height:600px;
+				overflow:scroll;
+			}
+			#headerBackButton {
+				position: relative;
+				float: right;
+				display: block;
+				width: 140px;
+				height: 26px;
+				margin-top: 10px;
+				margin-bottom: 0px;
+				margin-left: 0px;
+				margin-right: 0px;
+				border: 0px;
+				background-image: url(../_images/challenge/backtoproject.png);
+				overflow: hidden;
+				text-align: right;
+				background-repeat: no-repeat;
+				background-size: contain;
+				padding: 0;
+				padding-top: 2px;
+			}
+			#headerBackButton a {
+				font-size: 12px;
+				color: #FFFFFF;
+				margin-right: 10px;
+			}
+			#headerBackButton:hover {
+				background-image: url(../_images/challenge/backtoproject-hover.png);
+				background-repeat: no-repeat;
+			}
+			.descriptionCopyHeading {
+	margin: 0;
+	padding-bottom: 5px;
+	font-weight: 500;
+	line-height: 20px;
+	text-rendering: optimizelegibility;
+	font-size: 16px;
+			}
+			.descriptionCopyBody {
+	margin: 0;
+	padding-bottom: 10px;
+	font-weight: 300;
+	line-height: 16px;
+	text-rendering: optimizelegibility;
+	font-size: 14px;
 			}
         </style>
         
@@ -112,73 +163,85 @@
     <body>
     	
         
-        	<!-- Header Starts -->
-            <div class="navbar navbar-inverse navbar-fixed-top">
-          		<div class="navbar-inner">
-                    <div class="container">
-                     <a class="brand" href="#"><img src="../_images/headerlogo.png">Common Core Lessons</a>
-                    </div>
-          		</div>
-        	</div>
-            
-            <div class="container">
-            <section class="row-fluid" style="padding-top:50px; border:0px"> 
-              <!-- Nav Starts -->
-              <div id="Nav">
-                    <a href="#">
-                        <div class="NavItemUp span3">
-                        HOME
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="NavItemUp span3">
-                        COLLECTIONS
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="NavItemDown span3">
-                        MY WEB
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="NavItemUp span3">
-                        ABOUT
-                    	</div>
-                	</a>
-              </div>
+    <!-- Header Starts -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                 <a class="brand" href="#"><img src="../_images/headerlogo.png">Common Core</a>
+                </div>
+            </div>
+        </div>
+        
+    	<div class="container-fluid">
+            <section class="row-fluid" style="padding-top:50px;">
+              <div class="span12" style="background-color: #02ACF0; height: 40px; overflow: hidden; border: 0; padding: 0; margin: 0;">
+                    <a href="#" class="navItemDown">COLLECTIONS</a>
+                    <a href="#" class="navItemUp">MY WEB</a>
+                    <a href="#" class="navItemUp">ABOUT</a>
+                </div>
             </section>  
-            
-            <section class="row-fluid" style="padding-top:10px;"> 
-              <!-- Content Starts -->
-              <div id="Content">
-              	<section>
-                	  <div class="span8" style="background-color:#CCC">
-                      	<h2>What's cool about surface area?</h2>
-                      </div>
-                      <div class="span4" style="background-color:#999">
-                          <a href="#" class="backButtonContainer">
-                            <img src="images/back_arrow.png">
-                            Back to Collections
-                          </a>
-                      </div>
-                  </section>
-                  
-                  
+        </div>
+        
+        
+        <!-- Content Starts -->
+        <div class="container-fluid">
+            <section class="row-fluid" style="padding-top:10px;padding-bottom:20px;"> 
+              
+              <div class="span8">
+                <h3>Common Core Resource Details</h3>
               </div>
+              <div class="span4">
+              	<div id="headerBackButton">
+                  <a href="CollectionsPage.html">Back to Collections </a>
+                </div>
+              </div>
+              
             </section>
             
-            <section class="row-fluid"> 
-              <!-- Footer Starts -->
-              <div id="Footer" class="span12">
-              Footer
-              </div>
+            <section class="row-fluid" style="background-color:#FFF;">
+       	    <img class="span7" src="images/static-content/powersoften.jpg">
+            <div class="span5" style="padding-top:20px; padding-right:20px;">
+            	<a href="#" class="btn btn-small btn-success" style="float:right; clear:none;"><i class="icon-globe icon-white"></i> Open web link</a>
+                <h4 class="descriptionCopyHeading">Powers of 10</h4>
+                <p class="descriptionCopyBody">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                <h5 class="descriptionCopyHeading">Publisher</h5>
+                <p class="descriptionCopyBody">The Teaching Channel</p>
+                <h5 class="descriptionCopyHeading">Lessons Used</h5>
+                <p class="descriptionCopyBody">Grade 6, Lesson 1</p>
+                <h5 class="descriptionCopyHeading">Resource Type</h5>
+                <p class="descriptionCopyBody">Video</p>
+            </div>
             </section>
-          
-         </div>
-         
+            
+            <section class="row-fluid">
+                <div style="padding-top:10px;">
+                    <ul id="myTab" class="nav nav-tabs">
+                      <li class="active"><a href="#notes" data-toggle="tab">NOTES</a></li>
+                      <li><a href="#comments" data-toggle="tab">COMMENTS</a></li>
+                      <li><a href="#details" data-toggle="tab">DETAILS</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                      <div class="tab-pane fade in active" id="notes">
+                        <p>Notes are only displayed for teachers. These notes are for personal use only as reference for teaching the lesson in other sections or in subsequent years.</p>
+                        <p>Within the notes section, we will need a means of sharing notes with the community that would then expose the notes in the comments section.</p>
+                        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                      </div>
+                      <div class="tab-pane fade" id="comments">
+                        <p>Comments section displays notes from the community. This section is only visible to teachers. The teachers can add comments directly from this section or ‘share’ notes from the notes section. Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                      </div>
+                      <div class="tab-pane fade" id="details">
+                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                      </div>
+                    </div>
+                </div>            
+            </section>
+            
+		</div>
+        
         <!-- JS at the end of the page for faster loading -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script> 
+          <script src="http://code.jquery.com/jquery-latest.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+          <script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script>
+        <p></p> 
 </body>
 </html>
