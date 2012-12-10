@@ -1,4 +1,5 @@
 <?php require_once('../../Connections/projector.php'); ?>
+<?php require_once('ReorderSteps.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -36,6 +37,9 @@ if (isset($_GET['Id']))
 	
 if (isset($_GET['ProjectId']))
 	$projectId = $_GET['ProjectId'];
+	
+if (isset($_GET['RoutineId']))
+	$routineId = $_GET['RoutineId'];
 
 if ((isset($_GET['Id'])) && ($_GET['Id'] != "")) {
   $deleteSQL = sprintf("DELETE FROM Steps WHERE Id=%s",
@@ -44,6 +48,10 @@ if ((isset($_GET['Id'])) && ($_GET['Id'] != "")) {
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($deleteSQL, $projector) or die(mysql_error());
 
+	// after deleting the steps we need to reorder all steps that follow the deleted in that routine
+	doQuery($projectId,$routineId);		// first do the query
+	resort();				// resort the steps
+	
   $deleteGoTo = "../Projector_EditSteps.php";
 	if (isset($projectId))
 		$deleteGoTo .= "?Id=" . $projectId; 

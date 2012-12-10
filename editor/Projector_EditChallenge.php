@@ -142,7 +142,6 @@ if (isset($_POST["MM_action"])) {
 		$updateGoTo .= $_SERVER['QUERY_STRING'];
 	} 
 	header(sprintf("Location: %s", $updateGoTo));
-	
 } 
 
 

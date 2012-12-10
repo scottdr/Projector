@@ -37,17 +37,21 @@ if (isset($_GET['ProjectId']))
 if (isset($_GET['RoutineId']))
 	$routineId = $_GET['RoutineId'];
 
-
-if (isset($projectId) && isset($routineId)) {
-	$sqlQuery = sprintf("SELECT Steps.Id, Steps.Name, Steps.RoutineId, Steps.SortOrder FROM Steps WHERE Steps.ProjectId = %s AND Steps.RoutineId = %s ORDER By SortOrder",$projectId,$routineId);
-	
-	mysql_select_db($database_projector, $projector);
-	$Recordset = mysql_query($sqlQuery, $projector) or die(mysql_error());
-	$row = mysql_fetch_assoc($Recordset);
-	$recordCount = mysql_num_rows($Recordset);
-	print "record # $recordCount\n";
-} 
-
+/* Perform a Query based on the project ID and Routine Id
+*/
+function doQuery($projectId,$routineId)
+{
+	global $database_projector, $projector, $recordCount, $Recordset, $row;
+	if (isset($projectId) && isset($routineId)) {
+		$sqlQuery = sprintf("SELECT Steps.Id, Steps.Name, Steps.RoutineId, Steps.SortOrder FROM Steps WHERE Steps.ProjectId = %s AND Steps.RoutineId = %s ORDER By SortOrder",$projectId,$routineId);
+		
+		mysql_select_db($database_projector, $projector);
+		$Recordset = mysql_query($sqlQuery, $projector) or die(mysql_error());
+		$row = mysql_fetch_assoc($Recordset);
+		$recordCount = mysql_num_rows($Recordset);
+		print "record # $recordCount\n";
+	} 
+}
 
 /*
 SortOrder 	StepId	RoutineId
@@ -66,7 +70,7 @@ SortOrder 	StepId	RoutineId
 4 			15		1
 
 
-?action=delete&stepNumber=3&stepId=13&routineId=1
+?Action=Delete&StepNumber=3&StepId=13&RoutineId=1
 
 SELECT * FROM Steps Where Steps.RoutineId = 1 ORDER BY Steps.SortOrder
 
@@ -116,7 +120,7 @@ function resort() {
 
 /*
 Move 3rd Step to be 1st Step
-?action=reorder&stepNumber=3&stepId=13&routineId=1&newOrder=1
+?Action=Reorder&AtepNumber=3&StepId=13&RoutineId=1&NewOrder=1
 
 SortOrder 	StepId	RoutineId
 1 			10		1
@@ -135,7 +139,7 @@ SortOrder 	StepId	RoutineId
 5 			15		1
 
 Move 2nd Step to be after the 4th Step
-?action=reorder&stepNumber=2 & stepId=12&routineId=1&newOrder=4
+?action=Reorder&StepNumber=2 & StepId=12&RoutineId=1&NewOrder=4
 
 $stepNumber = 2
 $newOrder = 4
@@ -153,27 +157,37 @@ SortOrder 	StepId	RoutineId
 
 
 function reorder($stepNumber,$stepId,$newOrder) {
-	
+	global $recordCount, $row, $Recordset;
+	echo "stepNumber = " . $stepNumber . ", Id = " . $stepId . ", NewOrder = " . $newOrder . "\n<br />";
 	for ($i=0;$i<$recordCount;$i++) {
-		if ($row['SortOrder'] >= $newOrder) {
-			$newSortOrder = $row['SortOrder'] + 1;
-			pushUpdate($row['Id'],$newSortOrder);
+		echo "Id = " . $row['Id']. ", Order = " . $row['SortOrder'] . "\n<br />"; 
+		// we are moving the Step forward at the beggining of the list, so increment everything before it up to where it was in the list
+		if ($stepNumber > $newOrder && $row['SortOrder'] >= $newOrder) {
+			// stop when we get to the place where it was originally in the list 
+			if ($row['SortOrder'] >= $stepNumber)
+				break;
+			if ($row['Id'] != $stepId) {	// if we are at the step we are repositioning don't update it 
+				$newSortOrder = $row['SortOrder'] + 1;
+				echo '$row[\'SortOrder\'] >= $newOrder' . "\n<br />";
+				pushUpdate($row['Id'],$newSortOrder);
+			}
 		} 	
 		if ($row['Id'] == $stepId) {
 			$newSortOrder = $newOrder;
 			pushUpdate($row['Id'],$newSortOrder);
-		if ($newOrder < $stepNumber) 	// if we are moving the item before where it was before we can stop when we reach it
-				break;
+			echo '$row[\'Id\'] == $stepId' . "\n<br />";
 		} else
 		// we are moving beyond the existing item
 		if ($row['SortOrder'] > $stepNumber && $newOrder > $stepNumber) {
 			if ($row['SortOrder'] > $newOrder)	// if we find a record greater than the new step number we can stop decrementing record numbers
 				break;
+			echo '$row[\'SortOrder\'] > $stepNumber' . "\n<br />";
 			$newSortOrder = $row['SortOrder'] - 1;
 			pushUpdate($row['Id'],$newSortOrder);
 		}
 		$row = mysql_fetch_assoc($Recordset);
 	}
+	runCommands();
 }
 
 if (isset($_GET['StepNumber']))
@@ -184,12 +198,17 @@ if (isset($_GET['NewOrder']))
 	$newOrder = $_GET['NewOrder'];
 	
 if (isset($_GET['Action']) && $_GET['Action'] == 'Delete') {
+	doQuery($projectId,$routineId);
 	resort();
 }
 if (isset($_GET['Action']) && $_GET['Action'] == 'Reorder') {
+	doQuery($projectId,$routineId);
 	reorder($stepNumber,$stepId,$newOrder);
 }
 
 if (isset($Recordset))
 	mysql_free_result($Recordset);
+
+if (isset($_GET['GoTo']))
+	header(sprintf("Location: %s", $_GET['GoTo'])); 
 ?>

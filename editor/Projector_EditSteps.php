@@ -95,16 +95,27 @@ if (isset($_POST["MM_action"])) {
 //	print "sqlCommand: " . $sqlCommand . "<br />\n";
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-/*
-  $updateGoTo = "ViewAll.php";
-  if (isset($_SERVER['QUERY_STRING'])) {
-    $updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
-    $updateGoTo .= $_SERVER['QUERY_STRING'];
-  }
-	$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
-	$updateGoTo .= "ProjectId=" . $projectId; 
-  header(sprintf("Location: %s", $updateGoTo));
-*/
+	
+	// when we are done updating 
+	$updateGoTo = "../Projector_EditSteps.php";
+	$updateGoTo .= "?Id=" . $projectId; 
+	if (isset($routineId))
+		$updateGoTo .= "&RoutineId=" . $routineId;	
+	
+	$originalSortOrder = GetSQLValueString($_POST['OriginalSortOrder'], "int");
+	$newSortOrder = GetSQLValueString($_POST['SortOrder'], "int");
+	// if the sort order changed then we are going to need to update the sort order
+	if ($originalSortOrder != $newSortOrder)	{
+//		$projectId = GetSQLValueString($_POST['ProjectId'],int);
+		$stepId = GetSQLValueString($_POST['Id'],"int");
+		$projectId = GetSQLValueString($_POST['ProjectId'],"int");
+		$routineId = GetSQLValueString($_POST['RoutineId'],"int");
+		$reOrderURL = "_php/ReorderSteps.php?Action=Reorder&StepId=" . $stepId . "&ProjectId=" . $projectId . "&RoutineId=" . $routineId . "&StepNumber=" . $originalSortOrder . "&NewOrder=" . $newSortOrder . "&GoTo=" . $updateGoTo;
+		echo "url = $reOrderURL\n<br />";
+		header(sprintf("Location: %s", $reOrderURL));
+	}
+	
+	
 } 	
 ?>
 <!doctype html>
@@ -174,7 +185,9 @@ function updateData(jsonStepData) {
 	}
 	document.getElementById('Title').value = stepData.Title;
 	document.getElementById('SortOrder').value = stepData.SortOrder;
+	document.getElementById('OriginalSortOrder').value = stepData.SortOrder;
 	document.getElementById('RoutineId').value = stepData.RoutineId;
+	document.getElementById('Template').value = stepData.TemplateName;
 	document.getElementById('Id').value = stepData.Id;
 }
 
@@ -188,7 +201,9 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 	document.getElementById('Text').value = "";	
 	document.getElementById('Title').value = "";
 	document.getElementById('SortOrder').value = StepNumber + 1;
+	document.getElementById('OriginalSortOrder').value = StepNumber + 1;
 	document.getElementById('RoutineId').value = RoutineId;
+	document.getElementById('Template').value = "";	
 	document.getElementById('Id').value = "";
 }
 
@@ -196,7 +211,8 @@ function deleteStep()
 {
 	var stepId = document.getElementById('Id').value;
 	var projectId = document.getElementById('ProjectId').value;
-	window.location = "_php/DeleteStep.php?Id=" + stepId + "&ProjectId=" + projectId;
+	var routineId = document.getElementById('RoutineId').value;
+	window.location = "_php/DeleteStep.php?Id=" + stepId + "&ProjectId=" + projectId + "&RoutineId=" + routineId;
 }
 
 </script>
@@ -248,7 +264,7 @@ function deleteStep()
                   <input type="hidden" name="Id" id="Id"></td>
                 </tr>
                 <tr>
-                  <td width="140">Routine</td>
+                  <td width="140">Routine                  </td>
                   <td>
                       <select name="RoutineId" size="1" id="RoutineId">
                         <option value="1" selected="SELECTED">Your Challenge</option>
@@ -269,7 +285,9 @@ function deleteStep()
                   <td><input type="text" name="Title" id="Title"></td>
                 </tr>
                 <tr>
-                  <td width="140">Order <span class="muted">(step number)</span></td>
+                  <td width="140">Order <span class="muted">(step number)
+                    <input type="hidden" name="OriginalSortOrder" id="OriginalSortOrder">
+                  </span></td>
                   <td><select name="SortOrder" size="1" id="SortOrder">
                   	</select>
                   </td>
@@ -287,17 +305,17 @@ function deleteStep()
                   <td width="140">Template</td>
                   <td>
                       <select name="Template" size="1" id="Template">
-                        <option value="Intro" selected="SELECTED">Intro</option>
-                        <option value="Splash">Splash</option>
-                        <option value="Text only">Text only</option>
-                        <option value="Media left">Media left</option>
-                        <option value="Media right">Media right</option>
-                        <option value="Icon left">Icon left</option>
-                        <option value="Plan">Plan</option>
-                        <option value="Research">Research</option>
-                        <option value="Create">Create</option>
-                        <option value="Revise">Revise</option>
-                        <option value="Present">Present</option>
+                        <option value="Intro.php" selected="SELECTED">Intro</option>
+                        <option value="Splash.php">Splash</option>
+                        <option value="TextOnly.php">Text only</option>
+                        <option value="MediaLeft.php">Media left</option>
+                        <option value="MediaRight.php">Media right</option>
+                        <option value="IconLeft.php">Icon left</option>
+                        <option value="Plan.php">Plan</option>
+                        <option value="Research.php">Research</option>
+                        <option value="Create.php">Create</option>
+                        <option value="Revise.php">Revise</option>
+                        <option value="Present.php">Present</option>
                       </select>
                   </td>
                 </tr>
