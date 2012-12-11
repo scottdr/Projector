@@ -81,6 +81,8 @@ $(document).ready(function()
 		jQuery("#leftButton").click(function()
 		{
 			var currentStep = $('div[data-number="' + StepNumber + '"]');
+			
+			//Work back through pips
 			if(StepPhaseNumber > 0)
 			{
 				StepPhaseNumber--;
@@ -88,12 +90,15 @@ $(document).ready(function()
 			}
 			else
 			{
+				//or back through steps
 				var newNum = parseInt(StepNumber) - 1;
 				if (newNum <= 0 ) {
 					return false;
 				}
 				
 				StepPhaseNumber = parseInt($('div[data-number="' + newNum + '"]').attr('data-count')) - 1;
+				
+				//If going back to step with pips, start on last pip
 				if(StepPhaseNumber > 0)
 				{
 					var pip = $('div[data-number="' + newNum + '"] .pip').last();
@@ -112,6 +117,8 @@ $(document).ready(function()
 		{	
 			var currentStep = $('div[data-number="' + StepNumber + '"]');
 			var phaseCount = currentStep.attr('data-count');
+			
+			//Move through pips
 			if(StepPhaseNumber + 1 < phaseCount)
 			{
 				StepPhaseNumber++;
@@ -119,6 +126,7 @@ $(document).ready(function()
 			}
 			else
 			{
+				//Then on to next step
 				var newNum = parseInt(StepNumber) + 1;
 				if (newNum > NumberOfSteps) {
 					return false;

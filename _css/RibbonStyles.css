@@ -94,7 +94,11 @@
 	height:10px;
 	background: url(../_images/pip.png) 2px 2px no-repeat;
 	float:left;
-	opacity:0.5;
+}
+
+.current .pip, .singleRibbonBlock:hover .pip {
+	opacity: 0.55;
+	background: url(../_images/pip.png) 2px 2px no-repeat!important;
 }
 
 .current .pip.active, .current .pip.complete {
@@ -217,6 +221,11 @@
 #ribbonChallenge_CC_Opening .ribbonSelector {
 	background: url(../_images/challenge/selected-challenge.png) no-repeat center;
 }
+
+#ribbonChallenge_CC_Opening .pip {
+	background: url(../_images/pip-a.png) 2px 2px no-repeat;
+}
+
 /* Start */
 #ribbonStart_CC_Writing .ribbonHeader {
 	background: #007996;
@@ -242,6 +251,9 @@
 	background: url(../_images/challenge/selected-start.png) no-repeat center;
 }
 
+#ribbonStart_CC_Writing .pip {
+	background: url(../_images/pip-a.png) 2px 2px no-repeat;
+}
 
 /* Plan */
 #ribbonPlan_CC_GroupWork .ribbonHeader {
@@ -266,6 +278,10 @@
 
 #ribbonPlan_CC_GroupWork .ribbonSelector {
 	background: url(../_images/challenge/selected-plan.png) no-repeat center;
+}
+
+#ribbonPlan_CC_GroupWork .pip {
+	background: url(../_images/pip-b.png) 2px 2px no-repeat;
 }
 
 /* Create */
@@ -293,6 +309,10 @@
 	background: url(../_images/challenge/selected-create.png) no-repeat center;
 }
 
+#ribbonCreate_CC_CommonRead .pip {
+	background: url(../_images/pip-c.png) 2px 2px no-repeat;
+}
+
 /* Revise */
 #ribbonRevise_CC_Revise .ribbonHeader {
 	background: #006087;
@@ -318,6 +338,10 @@
 	background: url(../_images/challenge/selected-revise.png) no-repeat center;
 }
 
+#ribbonRevise_CC_Revise .pip {
+	background: url(../_images/pip-d.png) 2px 2px no-repeat;
+}
+
 /* Present */
 #ribbonPresent_CC_Homework .ribbonHeader {
 	background: #005983;
@@ -341,4 +365,8 @@
 
 #ribbonPresent_CC_Homework .ribbonSelector {
 	background: url(../_images/challenge/selected-present.png) no-repeat center;
+}
+
+#ribbonPresent_CC_Homework .pip {
+	background: url(../_images/pip-d.png) 2px 2px no-repeat;
 }

@@ -86,11 +86,11 @@ do {
 		if($count > 1)
 		{
 			print '<div class="pips">
-						<a class="pip active" data-pip="0" href="#"></a>
-						<a class="pip" data-pip="1" href="#"></a>
-						<a class="pip" data-pip="2" href="#"></a>
-						<a class="pip" data-pip="3" href="#"></a>
-						<a class="pip" data-pip="4" href="#"></a>
+						<a class="pip active" href="#"></a>
+						<a class="pip" href="#"></a>
+						<a class="pip" href="#"></a>
+						<a class="pip" href="#"></a>
+						<a class="pip" href="#"></a>
 					</div>';
 		}
 		//End of pip code
