@@ -22,7 +22,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
-                 <a class="brand" href="#"><img src="../_images/headerlogo.png">Common Core</a>
+                 <a class="brand" href="#"><img src="img/headerlogo.png">Common Core</a>
                 </div>
             </div>
         </div>
