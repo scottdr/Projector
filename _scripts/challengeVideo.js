@@ -4,6 +4,7 @@
 var ProjectId = getQueryVariable("ProjectId", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
+var StepPhaseNumber = 0;
 var disableSlideShow = true;	// disable the slide show until we polish it
 
 if (disableSlideShow) {
@@ -19,8 +20,6 @@ var animationDuration = 1000;
 var animationStartDelay = 1000;
 // slideDuration: Length of time in milliseconds that a slide is shown.
 var slideDuration = 20000;
-// Width of each step in the ribbon
-var StepWidth = 200;
 
 // Challenge Video content data. cvd == challenge video data.
 //
@@ -52,9 +51,7 @@ var pauseBtnImg = "assets/images/challengeintro_pause.png";
 var playBtnImg = "assets/images/challengeintro_arrow.png";
 var replayBtnImg = "assets/images/challengeintro_replay.png";
 var NumberOfSteps = 0;
-var visibleWidth = 0;
-var ribbonWidth = 0;
-var stopPoistion = 0;
+var numberOfPhasesInStep = 1;
 
 $(document).ready(function()
 {
@@ -63,14 +60,8 @@ $(document).ready(function()
 	if(jQuery("#ribbonButtons").length){
 		
 		NumberOfSteps = document.getElementById("numberSteps").getAttribute("value");
-		
-//		console.log("# steps: " + NumberOfSteps);
-			
-		// Declare variables
-		visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
-		ribbonWidth = NumberOfSteps * StepWidth;
-		stopPosition = (visibleWidth - ribbonWidth);
-		
+		NumberOfPhasesInStep = $('div[data-number="' + StepNumber + '"]').attr('data-count');
+	
 		ribbonWidth = 0;
 		jQuery.each(jQuery("#ribbonStrip .ribbonBlock"), function(index, elem){
 			var obj = jQuery(elem);
@@ -86,46 +77,90 @@ $(document).ready(function()
 			
 		jQuery("#ribbonButtons").width(ribbonWidth);
 		
-//		console.log("ribbon width: " + jQuery("#ribbonButtons").width());
-		
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
-		jQuery("#leftButton").click(function(){
-			//need to write if statment to check if the left position is offset more that the ribbonWidth
-			StepNumber--;		// decrement Step we are going to set it to previous step
-			if (StepNumber <= 0 ) {		// don't decrement before the first slide
-				StepNumber = 1;
-				return false;
+		jQuery("#leftButton").click(function()
+		{
+			var currentStep = $('div[data-number="' + StepNumber + '"]');
+			if(StepPhaseNumber > 0)
+			{
+				StepPhaseNumber--;
+				currentStep.find('.pip').eq(StepPhaseNumber).trigger(jQuery.Event("click"));
 			}
-			
-			//setSelectedRibbonItem(StepNumber);
-			var e = jQuery.Event("click");
-			$('div[data-number="' + StepNumber + '"]').trigger(e);
+			else
+			{
+				var newNum = parseInt(StepNumber) - 1;
+				if (newNum <= 0 ) {
+					return false;
+				}
+				
+				StepPhaseNumber = parseInt($('div[data-number="' + newNum + '"]').attr('data-count')) - 1;
+				if(StepPhaseNumber > 0)
+				{
+					var pip = $('div[data-number="' + newNum + '"] .pip').last();
+					pip.trigger(jQuery.Event("click"));
+				}
+				else
+				{
+					$('div[data-number="' + newNum + '"]').trigger(jQuery.Event("click"));
+				}
+			}
 			return false;
 		});
 		
-			// handler called when user clicks on the > button to right of the ribbon, go to next step
-		jQuery("#rightButton").click(function(){
-			//need to write if statment to check if the left position is offset more that the ribbonWidth
-			StepNumber++;		// incrmenet Step we are going to set it to next step
-			if (StepNumber > NumberOfSteps) {		// make sure don't go past last step
-				StepNumber = NumberOfSteps;
-				return false;
+		// handler called when user clicks on the > button to right of the ribbon, go to next step
+		jQuery("#rightButton").click(function()
+		{	
+			var currentStep = $('div[data-number="' + StepNumber + '"]');
+			var phaseCount = currentStep.attr('data-count');
+			if(StepPhaseNumber + 1 < phaseCount)
+			{
+				StepPhaseNumber++;
+				currentStep.find('.pip').eq(StepPhaseNumber).trigger(jQuery.Event("click"));
 			}
-			
-			//setSelectedRibbonItem(StepNumber);
-			var e = jQuery.Event("click");
-			$('div[data-number="' + StepNumber + '"]').trigger(e);
+			else
+			{
+				var newNum = parseInt(StepNumber) + 1;
+				if (newNum > NumberOfSteps) {
+					return false;
+				}
+				
+				StepPhaseNumber = 0;
+				
+				$('div[data-number="' + newNum + '"]').trigger(jQuery.Event("click"));
+			}
 			return false;
+		});
+		
+		jQuery(".pip").click(function(event)
+		{
+			var pip = $(event.currentTarget);
+			var block = pip.parentsUntil('.singleRibbonBlock').parent();
+			
+			var newStepNum = block.attr('data-number');
+			var phaseNum = pip.parent().children().index(pip);
+			StepId = block.attr('data-id');
+			
+			if(newStepNum != StepNumber)
+			{
+				StepNumber = newStepNum;
+				selectStep($('div[data-number="' + StepNumber + '"]').get(0));
+			}
+			StepPhaseNumber = phaseNum;
+			loadStep(StepId, StepNumber, StepPhaseNumber);
+			
+			selectPip(pip);
 		});
 		
 		// TO DO don't hard code these values
-		loadStep(StepId,StepNumber);
+		loadStep(StepId,StepNumber,StepPhaseNumber);
 	}
 	
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
 	$('.singleRibbonBlock').click(function(event)
 	{
 		var newStep = event.currentTarget.getAttribute('data-number');
+		if(StepNumber == newStep)
+			return false;
 			
 		if(Modernizr.touch)
 		{
@@ -141,7 +176,7 @@ $(document).ready(function()
 				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
 					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
 					StepId = event.currentTarget.getAttribute('data-id');
-					loadStep(StepId,StepNumber);
+					loadStep(StepId,StepNumber, StepPhaseNumber);
 				});
 			}
 		}
@@ -152,14 +187,12 @@ $(document).ready(function()
 		
 			jQuery('#ContentScreens').fadeOut(200, function(){
 				StepId = event.currentTarget.getAttribute('data-id');
-				loadStep(StepId,StepNumber);
+				loadStep(StepId,StepNumber,StepPhaseNumber);
 			});
 		}
+		
+		return false;
 	});
-
-	
-	
-	
 
 }); <!-- end document ready -->
 
@@ -168,7 +201,7 @@ $(document).ready(function()
 
 // Ribbon Code To Handle Selecting Ribbon Items & Update Content appropriately 
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
-function loadStep(StepId,StepOrderNumber) 
+function loadStep(StepId,StepOrderNumber, StepPhaseNumber) 
 {
 	if(Modernizr.touch)
 	{
@@ -177,13 +210,15 @@ function loadStep(StepId,StepOrderNumber)
 	else
 	{
 		jQuery('#ContentScreens').fadeOut(200);
-	}	
+	}
 		
+	//NOTE: Do something with StepPhaseNumber here
 	var urlLoadStep = "LoadStep.php";
 	if (StepId > -1)
-		urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
+		urlLoadStep += "?StepId=" + StepId + '&ProjectId=' + ProjectId;
 	else
-		urlLoadStep =  "LoadStep.php?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
+		urlLoadStep +=  "?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
+		
 	$.ajax({
 		url: urlLoadStep,
 		cache: false
@@ -227,14 +262,20 @@ function loadStep(StepId,StepOrderNumber)
 };
 	
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
-function selectStep(eventTarget) {
+function selectStep(eventTarget) 
+{
+	StepNumber = jQuery(eventTarget).attr('data-number');
+	StepPhaseNumber = 0;
+	NumberOfPhasesInStep = $('div[data-number="' + StepNumber + '"]').attr('data-count');
+		
+	jQuery('.singleRibbonBlock').removeClass('current');
+	jQuery(eventTarget).addClass('current');
+	
+	var pip = $('div[data-number="' + StepNumber + '"] .pip').eq(0);
+	if(pip) selectPip(pip);
+		
 	if($('html').hasClass('no-touch'))
 	{
-		StepNumber = jQuery(eventTarget).attr('data-number');
-		
-		jQuery('.singleRibbonBlock').removeClass('current');
-		jQuery(eventTarget).addClass('current');
-		
 		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
 		var wid = parseInt(jQuery(eventTarget).width());
 		var sWid = parseInt(jQuery('#ribbonStrip').width());
@@ -259,12 +300,7 @@ function selectStep(eventTarget) {
 		jQuery('#ribbonButtons').clearQueue().animate({'left': (-left)}, 200);
 	}
 	else
-	{
-		StepNumber = jQuery(eventTarget).attr('data-number');
-			
-		jQuery('.singleRibbonBlock').removeClass('current');
-		jQuery(eventTarget).addClass('current');
-		
+	{	
 		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
 		var wid = parseInt(jQuery(eventTarget).width());
 		var sWid = parseInt(jQuery('#ribbonContainer').width());
@@ -279,6 +315,12 @@ function selectStep(eventTarget) {
 		jQuery('#ribbonStrip').clearQueue().animate({'scrollLeft': left}, 200);
 	}
 }	
+
+function selectPip(eventTarget)
+{
+	$('.pip').removeClass('active');
+	$(eventTarget).addClass('active');
+}
 		
 //  ///////////////////////////////////////////////////////////////////////
 

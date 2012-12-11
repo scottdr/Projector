@@ -55,6 +55,7 @@ $totalRows_stepsRecordset = mysql_num_rows($stepsRecordset);
 $currentRoutineName = "";
 $stepsArray = array();
 $rowNumber = 0;
+$rowsWithPips = array(3,5); //random steps to add pips too
 do {
 	if (isset($row_stepsRecordset)) {
 		$rowStepNumber = $row_stepsRecordset['SortOrder'] - $subtractSlideShowStep;
@@ -68,15 +69,32 @@ do {
 			$currentRoutineName = $row_stepsRecordset['CSSName'];
 		}
 		
+		$extra = ''; //Extra classes to add, such as 'current'
+		$count = 1; //NOTE: Set this variable to show pips
 		
-		if ($SelectedStepNumber == $rowStepNumber) {	// if the step number is the currently selected one set class to BottomCurrent
-			print "\n  " . '<div class="current singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" >'; 			// <div class="ribbonChallengeColumnWrap">
-		} else {
-			print "\n  " . '<div class="singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" >'; 
-		}
+		if ($SelectedStepNumber == $rowStepNumber)
+			$extra = 'current';
+		if(in_array($rowStepNumber, $rowsWithPips))
+			$count = 5;
+		
+		print "\n  " . '<div class="' . $extra . ' singleRibbonBlock ribbon' . $row_stepsRecordset['CSSName'] . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" data-count="' . $count . '" >'; 			
 		print "\n    " . '<div class="ribbonBottom ribbon' . $row_stepsRecordset['CSSName'] . 'Bottom" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">		
 		print "\n      " . '<p class="ribbonOpeningNumber ' . $row_stepsRecordset['CSSName'] . 'Number">' . $rowStepNumber . '</p>'; // <p class="ChallengeNumber">1</p>
 		print "\n      " . '<h2>' . $row_stepsRecordset['Name'] . '</h2>';  // <h2>Challenge Video</h2>
+		
+		//Pip code
+		if($count > 1)
+		{
+			print '<div class="pips">
+						<a class="pip active" data-pip="0" href="#"></a>
+						<a class="pip" data-pip="1" href="#"></a>
+						<a class="pip" data-pip="2" href="#"></a>
+						<a class="pip" data-pip="3" href="#"></a>
+						<a class="pip" data-pip="4" href="#"></a>
+					</div>';
+		}
+		//End of pip code
+		
 		print "\n    " . '</div>';
 		print "\n    " . '<div class="ribbonSelector ribbon' . $row_stepsRecordset['CSSName'] . 'Selector" data-type="selector"> </div>';
 		
