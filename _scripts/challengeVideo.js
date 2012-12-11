@@ -56,14 +56,8 @@ var visibleWidth = 0;
 var ribbonWidth = 0;
 var stopPoistion = 0;
 
-$(document).ready(function(){ 
-
-	if (Modernizr.touch){
-	   $('body').addClass('touch');
-	} else {
-	   $('body').addClass('no-touch');
-	}
-
+$(document).ready(function()
+{
 	if(jQuery("#ribbonButtons").length){
 		
 		NumberOfSteps = document.getElementById("numberSteps").getAttribute("value");
@@ -93,7 +87,7 @@ $(document).ready(function(){
 //		console.log("ribbon width: " + jQuery("#ribbonButtons").width());
 		
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
-		jQuery("#leftButton").click(function(){
+		jQuery("#leftButton-CC, #leftButton").click(function(){
 			//need to write if statment to check if the left position is offset more that the ribbonWidth
 			StepNumber--;		// decrement Step we are going to set it to previous step
 			if (StepNumber <= 0 ) {		// don't decrement before the first slide
@@ -101,12 +95,14 @@ $(document).ready(function(){
 				return false;
 			}
 			
-			setSelectedRibbonItem(StepNumber);
+			//setSelectedRibbonItem(StepNumber);
+			var e = jQuery.Event("click");
+			$('div[data-number="' + StepNumber + '"]').trigger(e);
 			return false;
 		});
 		
 			// handler called when user clicks on the > button to right of the ribbon, go to next step
-		jQuery("#rightButton").click(function(){
+		jQuery("#rightButton-CC, #rightButton").click(function(){
 			//need to write if statment to check if the left position is offset more that the ribbonWidth
 			StepNumber++;		// incrmenet Step we are going to set it to next step
 			if (StepNumber > NumberOfSteps) {		// make sure don't go past last step
@@ -114,7 +110,9 @@ $(document).ready(function(){
 				return false;
 			}
 			
-			setSelectedRibbonItem(StepNumber);
+			//setSelectedRibbonItem(StepNumber);
+			var e = jQuery.Event("click");
+			$('div[data-number="' + StepNumber + '"]').trigger(e);
 			return false;
 		});
 		
@@ -126,12 +124,42 @@ $(document).ready(function(){
 	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
 	$('div[data-type="wrapper"]').click(function(event)
 	{
-		var newStep = event.currentTarget.getAttribute('data-number');
-		selectStep(event.currentTarget);
-		StepNumber = newStep;
+		if($('html').hasClass('touch'))
+		{
+			//changingStep = true;
 			
-		StepId = event.currentTarget.getAttribute('data-id');
-		loadStep(StepId,StepNumber);
+			var fullWidth 	= parseInt(jQuery('#ContentScreens').width());
+			if(newStep > StepNumber)
+				fullWidth = -fullWidth;
+				
+			selectStep(event.currentTarget);
+			StepNumber = newStep;
+			
+			if($('html').hasClass('touch'))
+			{
+				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+					StepId = event.currentTarget.getAttribute('data-id');
+					loadStep(StepId,StepNumber);
+				});
+			}
+			else
+			{
+				jQuery('#ContentScreens').fadeOut(200, function(){
+					StepId = event.currentTarget.getAttribute('data-id');
+					loadStep(StepId,StepNumber);
+				});
+			}
+		}
+		else
+		{
+			var newStep = event.currentTarget.getAttribute('data-number');
+			selectStep(event.currentTarget);
+			StepNumber = newStep;
+				
+			StepId = event.currentTarget.getAttribute('data-id');
+			loadStep(StepId,StepNumber);
+		}
 	});
 
 	
@@ -156,7 +184,7 @@ function setSelectedRibbonItem(StepNumber) {
 function loadStep(StepId,StepOrderNumber) {
 	jQuery('#ContentScreensLoader').fadeIn(200);
 	
-	if($('body').hasClass('no-touch'))
+	if($('html').hasClass('no-touch'))
 		jQuery('#ContentScreens').fadeOut(200);
 	//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
 	var urlLoadStep = "LoadStep.php";
@@ -186,7 +214,7 @@ function loadStep(StepId,StepOrderNumber) {
 	
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
 function selectStep(eventTarget) {
-	if($('body').hasClass('no-touch'))
+	if($('html').hasClass('no-touch'))
 	{
 		StepNumber = jQuery(eventTarget).attr('data-number');
 		
