@@ -58,6 +58,8 @@ var stopPoistion = 0;
 
 $(document).ready(function()
 {
+	$('#ContentScreensLoader').hide();
+	
 	if(jQuery("#ribbonButtons").length){
 		
 		NumberOfSteps = document.getElementById("numberSteps").getAttribute("value");
@@ -121,21 +123,20 @@ $(document).ready(function()
 	}
 	
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
-	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
-	$('div[data-type="wrapper"]').click(function(event)
+	$('.singleRibbonBlock').click(function(event)
 	{
-		if($('html').hasClass('touch'))
-		{
-			//changingStep = true;
+		var newStep = event.currentTarget.getAttribute('data-number');
 			
-			var fullWidth 	= parseInt(jQuery('#ContentScreens').width());
+		if(Modernizr.touch)
+		{
+			var fullWidth = parseInt(jQuery('#ContentScreens').width());
 			if(newStep > StepNumber)
 				fullWidth = -fullWidth;
-				
+			
 			selectStep(event.currentTarget);
 			StepNumber = newStep;
 			
-			if($('html').hasClass('touch'))
+			if(Modernizr.touch)
 			{
 				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
 					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
@@ -143,22 +144,16 @@ $(document).ready(function()
 					loadStep(StepId,StepNumber);
 				});
 			}
-			else
-			{
-				jQuery('#ContentScreens').fadeOut(200, function(){
-					StepId = event.currentTarget.getAttribute('data-id');
-					loadStep(StepId,StepNumber);
-				});
-			}
 		}
 		else
 		{
-			var newStep = event.currentTarget.getAttribute('data-number');
 			selectStep(event.currentTarget);
 			StepNumber = newStep;
-				
-			StepId = event.currentTarget.getAttribute('data-id');
-			loadStep(StepId,StepNumber);
+		
+			jQuery('#ContentScreens').fadeOut(200, function(){
+				StepId = event.currentTarget.getAttribute('data-id');
+				loadStep(StepId,StepNumber);
+			});
 		}
 	});
 
@@ -172,21 +167,18 @@ $(document).ready(function()
 //  ///////////////////////////////////////////////////////////////////////
 
 // Ribbon Code To Handle Selecting Ribbon Items & Update Content appropriately 
-
-function setSelectedRibbonItem(StepNumber) {
-	var e = jQuery.Event("click");
-	doLog("selecting ribbon item #: " + StepNumber);
-//	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
-	$('div[data-number="' + StepNumber + '"]').trigger(e);
-}
-
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
-function loadStep(StepId,StepOrderNumber) {
-	jQuery('#ContentScreensLoader').fadeIn(200);
-	
-	if($('html').hasClass('no-touch'))
+function loadStep(StepId,StepOrderNumber) 
+{
+	if(Modernizr.touch)
+	{
+		jQuery('#ContentScreensLoader').fadeIn(200);
+	}
+	else
+	{
 		jQuery('#ContentScreens').fadeOut(200);
-	//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
+	}	
+		
 	var urlLoadStep = "LoadStep.php";
 	if (StepId > -1)
 		urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
@@ -198,17 +190,39 @@ function loadStep(StepId,StepOrderNumber) {
 	}).done(function( html ) {
 			var contentElement = document.getElementById("ContentScreensHolder");
 			contentElement.innerHTML = html;
+			
+			//Special teacher setup - need to add click handlers to the Teacher Notes button
+			jQuery("#TeacherNotes-Info-CC").click(function(){
+				$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+				$('#TeacherNotes-Info-CC').css({'display':'none'});
+				$('#TeacherNotes-Close-CC').css({'display':'block'});
+				return false;
+			});
+		
+			jQuery("#TeacherNotes-Close-CC").click(function(){
+				$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+				$('#TeacherNotes-Info-CC').css({'display':'block'});
+				$('#TeacherNotes-Close-CC').css({'display':'none'});
+				return false;
+			});
+			
+			
 			// if we are on the very first step
 			if (StepOrderNumber == 1) {
 				requestPresentationData(ProjectId);
 			}
+			// Send custom 'HTMLChange' event to inform of update.
+			$('#ContentScreens').trigger('HTMLChange');
 			
-			jQuery('#ContentScreensLoader').fadeOut(200);
-			
-			if(!$('body').hasClass('no-touch'))
+			if(Modernizr.touch)
+			{
 				$('#ContentScreens').animate({'left' : 0}, 200);
+				$('#ContentScreensLoader').fadeOut(200);
+			}
 			else
+			{
 				$('#ContentScreens').fadeIn(200);
+			}
 	});
 };
 	

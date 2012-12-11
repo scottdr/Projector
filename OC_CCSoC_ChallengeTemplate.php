@@ -79,7 +79,7 @@ body {
 <script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
 <script src="_scripts/modernizr.custom.42097.js"></script>
-<script src="_scripts/challengeVideo_CCSoC.js" type="text/javascript"></script>
+<script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
 </head>
