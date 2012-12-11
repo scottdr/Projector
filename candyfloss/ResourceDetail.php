@@ -7,151 +7,6 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-customized-web.css" rel="stylesheet" type="text/css" />
-        <style type="text/css">
-			.shadow {
-				/* Firefox v3.5+ */
-				-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				/* Safari v3.0+ and by Chrome v0.2+ */
-				-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
-				box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
-				-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
-				filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
-				/* IE 9 shadow fix */
-				filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
-			}
-			.navItemUp {
-				text-align: left;
-				padding: 10px;
-				float:left;
-				width:30%;
-				margin:0;
-				color: #FFF;
-				background-color: #03ACEF;
-			}
-			.navItemUp a{
-				color: #FFF;
-				text-decoration:none;
-			}
-			.navItemDown {
-				text-align: left;
-				padding: 10px;
-				float:left;
-				width:30%;
-				margin:0;
-				color: #03ACEF;
-				background-color: #FFF;
-			}
-			.navItemDown a{
-				color: #03ACEF;
-				text-decoration:none;
-			}
-			.backButtonContainer {
-				display:block;
-				border:0px;
-				float:right;
-				color:#FFF;
-			}
-			#TeacherNotes-Info-CC {
-				width: 40px;
-				height: 40px;
-				background-image: url(../_images/challenge/button-info-CC.png);
-				clear: none;
-			}
-			#TeacherNotes-Info-CC:hover {
-				background-image:url(../_images/challenge/button-info-hover-CC.png);
-			}
-			
-			#TeacherNotes-Close-CC {
-				float: right;
-				width:40px;
-				height:40px;
-				background-image:url(../_images/challenge/button-info-close-CC.png);
-				display:none;
-			}
-			#TeacherNotes-Close-CC:hover {
-				background-image:url(../_images/challenge/button-info-close-hover-CC.png);
-			}
-			
-			#TeacherNotes-Shadow-CC {
-				float: right;
-				width:40px;
-				height:40px;
-				position: relative;
-				display: block;
-				z-index: -1;
-				top: -40px;
-				/* Firefox v3.5+ */
-				-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-				/* Safari v3.0+ and by Chrome v0.2+ */
-				-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-				/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
-				box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-				-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
-				filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
-			}
-			#TeacherNotes-Text-CC {
-				position: relative;
-				float: right;
-				background-color: rgba(0,0,0,1);
-				top: -40px;
-				left: -40px;
-				width: 660px;
-				padding-left: 10px;
-				padding-right: 10px;
-				border: 0px;
-				margin: 0px;
-				z-index: 1;
-				overflow: hidden;
-				clear: both;
-				max-height:600px;
-				overflow:scroll;
-			}
-			#headerBackButton {
-				position: relative;
-				float: right;
-				display: block;
-				width: 140px;
-				height: 26px;
-				margin-top: 10px;
-				margin-bottom: 0px;
-				margin-left: 0px;
-				margin-right: 0px;
-				border: 0px;
-				background-image: url(../_images/challenge/backtoproject.png);
-				overflow: hidden;
-				text-align: right;
-				background-repeat: no-repeat;
-				background-size: contain;
-				padding: 0;
-				padding-top: 2px;
-			}
-			#headerBackButton a {
-				font-size: 12px;
-				color: #FFFFFF;
-				margin-right: 10px;
-			}
-			#headerBackButton:hover {
-				background-image: url(../_images/challenge/backtoproject-hover.png);
-				background-repeat: no-repeat;
-			}
-			.descriptionCopyHeading {
-	margin: 0;
-	padding-bottom: 5px;
-	font-weight: 500;
-	line-height: 20px;
-	text-rendering: optimizelegibility;
-	font-size: 16px;
-			}
-			.descriptionCopyBody {
-	margin: 0;
-	padding-bottom: 10px;
-	font-weight: 300;
-	line-height: 16px;
-	text-rendering: optimizelegibility;
-	font-size: 14px;
-			}
-        </style>
         
         <!-- HTML5 shim for IE backwards compatibility -->
             <!--[if lt IE 9]>
@@ -167,7 +22,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
-                 <a class="brand" href="#"><img src="../_images/headerlogo.png">Common Core</a>
+                 <a class="brand" href="#"><img src="img/headerlogo.png">Common Core</a>
                 </div>
             </div>
         </div>
@@ -192,14 +47,14 @@
               </div>
               <div class="span4">
               	<div id="headerBackButton">
-                  <a href="CollectionsPage.html">Back to Collections </a>
+                  <a href="CollectionsPage.php">Back to Collections </a>
                 </div>
               </div>
               
             </section>
             
             <section class="row-fluid" style="background-color:#FFF;">
-       	    <img class="span7" src="images/static-content/powersoften.jpg">
+       	    <img class="span7" src="img/static-content/powersoften.jpg">
             <div class="span5" style="padding-top:20px; padding-right:20px;">
             	<a href="#" class="btn btn-small btn-success" style="float:right; clear:none;"><i class="icon-globe icon-white"></i> Open web link</a>
                 <h4 class="descriptionCopyHeading">Powers of 10</h4>

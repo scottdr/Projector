@@ -8,7 +8,7 @@ body {
  	line-height: 20px;
 	margin: 0;
 	-webkit-text-size-adjust: none;
-	background-image: url(../../_images/proj_gal_bg.gif);
+	background-image: url(../img/proj_gal_bg.gif);
 	background-repeat:repeat-x;
 	background-color:#FFF;
 }
@@ -104,16 +104,14 @@ h6 {
 	z-index: 1;
 }
 .FoxtrotThumbnailImg {
-	position:relative;
+	position: relative;
 	vertical-align: top;
-	clear:none;
-	top: -40px;
+	clear: both;
 }
 .FoxtrotTitleCopy {
 	position: relative;
 	vertical-align: top;
-	clear: none;
-	top: -40px;
+	clear: both;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 16px;
@@ -121,8 +119,7 @@ h6 {
 .FoxtrotBodyCopy {
 	position: relative;
 	vertical-align: top;
-	clear: none;
-	top: -40px;
+	clear: both;
 	padding-left: 10px;
 	padding-right: 10px;
 }
@@ -133,4 +130,86 @@ h6 {
 a:hover {
   color: #005580;
   text-decoration: none;
+}
+.shadow {
+	/* Firefox v3.5+ */
+	-moz-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+	box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.80);
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
+	/* IE 9 shadow fix */
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#3d000000,direction=0,strength=2);
+}
+.navItemUp {
+	text-align: left;
+	padding: 10px;
+	float:left;
+	width:30%;
+	margin:0;
+	color: #FFF;
+	background-color: #03ACEF;
+}
+.navItemUp a{
+	color: #FFF;
+	text-decoration:none;
+}
+.navItemDown {
+	text-align: left;
+	padding: 10px;
+	float:left;
+	width:30%;
+	margin:0;
+	color: #03ACEF;
+	background-color: #FFF;
+}
+.navItemDown a{
+	color: #03ACEF;
+	text-decoration:none;
+}
+#headerBackButton {
+	position: relative;
+	float: right;
+	display: block;
+	width: 140px;
+	height: 26px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	border: 0px;
+	background-image: url(../img/backtoproject.png);
+	overflow: hidden;
+	text-align: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding: 0;
+	padding-top: 2px;
+}
+#headerBackButton a {
+	font-size: 12px;
+	color: #FFFFFF;
+	margin-right: 10px;
+}
+#headerBackButton:hover {
+	background-image: url(../img/backtoproject-hover.png);
+	background-repeat: no-repeat;
+}
+.descriptionCopyHeading {
+	margin: 0;
+	padding-bottom: 5px;
+	font-weight: 500;
+	line-height: 20px;
+	text-rendering: optimizelegibility;
+	font-size: 16px;
+}
+.descriptionCopyBody {
+	margin: 0;
+	padding-bottom: 10px;
+	font-weight: 300;
+	line-height: 16px;
+	text-rendering: optimizelegibility;
+	font-size: 14px;
 }
