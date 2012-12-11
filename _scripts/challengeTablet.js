@@ -22,5 +22,8 @@ function touchEnd(event) {
 	}
 			
 	var e = jQuery.Event("click");
-	$('div[data-number="' + newNumber + '"]').trigger(e);
+	if(newNumber < StepNumber)
+		$("#leftButton").trigger(e);
+	else
+		$("#rightButton").trigger(e);
 }

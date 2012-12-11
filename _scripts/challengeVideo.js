@@ -89,7 +89,7 @@ $(document).ready(function()
 //		console.log("ribbon width: " + jQuery("#ribbonButtons").width());
 		
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
-		jQuery("#leftButton-CC, #leftButton").click(function(){
+		jQuery("#leftButton").click(function(){
 			//need to write if statment to check if the left position is offset more that the ribbonWidth
 			StepNumber--;		// decrement Step we are going to set it to previous step
 			if (StepNumber <= 0 ) {		// don't decrement before the first slide
@@ -104,7 +104,7 @@ $(document).ready(function()
 		});
 		
 			// handler called when user clicks on the > button to right of the ribbon, go to next step
-		jQuery("#rightButton-CC, #rightButton").click(function(){
+		jQuery("#rightButton").click(function(){
 			//need to write if statment to check if the left position is offset more that the ribbonWidth
 			StepNumber++;		// incrmenet Step we are going to set it to next step
 			if (StepNumber > NumberOfSteps) {		// make sure don't go past last step

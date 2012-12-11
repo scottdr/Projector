@@ -17,6 +17,23 @@ body {
 	-webkit-overflow-scrolling: touch;
 } 
 
+#leftButton {
+	background-image: url(../_images/challenge/leftarrow-CC.png);
+}
+
+#leftButton:hover {
+	background-image: url(../_images/challenge/leftarrow-hover-CC.png);
+}
+
+#rightButton {
+	background-image: url(../_images/challenge/rightarrow-CC.png);
+}
+
+#rightButton:hover {
+	background-image: url(../_images/challenge/rightarrow-hover-CC.png);
+}
+
+
 /* Challenge */
 #ribbonChallenge_CC_Opening .ribbonHeader, #ribbonChallenge_CC_Opening .current .ribbonBottom, .no-touch #ribbonChallenge_CC_Opening .current .ribbonBottom:hover, .no-touch #ribbonChallenge_CC_Opening .ribbonBottom:hover {
 	background: #F7AA1A;
