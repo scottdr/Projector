@@ -49,7 +49,7 @@
             <section class="row-fluid" style=" background-color:#FFF;">
             
             	<!-- Filter -->
-            	<div class="navbar navbar-inverse span12" style="background-color:#1B1B1B;">
+            	<!--<div class="navbar navbar-inverse span12" style="background-color:#1B1B1B;">
                     <ul class="nav">
                       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">SORT BY<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -62,7 +62,7 @@
                         </ul>
                       </li>
                     </ul>
-                </div>
+                </div>-->
                                  
 
                 <!-- Left vertical tabs -->
