@@ -57,20 +57,20 @@
                       <tr>
                         <td width="25%" align="right" valign="top"><p>Title</p></td>
                         <td width="75%" valign="top">
-                        <input type="text" class="span10" placeholder="Enter resource title ..." name="textfield2" id="textfield2">
+                        <input type="text" class="span10" placeholder="Enter resource title ..." name="Title" id="Title">
                         </td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Description</p></td>
                         <td valign="top">
-                        <textarea name="textarea" class="span10" placeholder="Enter description ..." rows="10" id="textarea">
+                        <textarea name="Description" class="span10" placeholder="Enter description ..." rows="10" id="Description">
                         </textarea>
                         </td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Resource URL</p></td>
                         <td valign="top">
-                        <input type="text" class="span10" placeholder="http://www" name="textfield" id="textfield">
+                        <input type="text" class="span10" placeholder="http://www" name="ResourceURL" id="ResourceURL">
                         </td>
                       </tr>
                       <tr>
@@ -100,16 +100,16 @@
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Author</p></td>
-                        <td valign="top"><input type="text" placeholder="Title, First name, Last name" name="textfield3" id="textfield3" class="width-auto"></td>
+                        <td valign="top"><input type="text" placeholder="Title, First name, Last name" name="Author" id="Author" class="width-auto"></td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Publisher</p></td>
-                        <td valign="top"><input type="text" placeholder="Publisher name" name="textfield4" id="textfield4" class="width-auto"></td>
+                        <td valign="top"><input type="text" placeholder="Publisher name" name="Publisher" id="Publisher" class="width-auto"></td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Primary language</p></td>
                         <td valign="top">
-                            <select class="width-auto">
+                            <select name="Language" class="width-auto" id="Language">
                                 <option selected>English</option>
                                 <option>Spanish</option>
                                 <option>French</option>
@@ -122,7 +122,7 @@
 					 <tr>
                         <td align="right" valign="top"><p>Media type</p></td>
                         <td valign="top">
-                        	<select class="width-auto">
+                        	<select name="MediaType" class="width-auto" id="MediaType">
                                 <option>Painting</option>
                                 <option>Novel</option>
                                 <option>Image</option>
@@ -131,7 +131,7 @@
                       </tr>                      <tr>
                         <td align="right" valign="top"><p>Interactivity type</p></td>
                         <td valign="top">
-                        	<select class="width-auto">
+                        	<select name="InteractivityType" class="width-auto" id="InteractivityType">
                                 <option>Simulation application</option>
                                 <option>Online simulation</option>
                                 <option>Questionaire</option>
@@ -146,7 +146,7 @@
                       <tr>
                         <td align="right" valign="top"><p>Learning resource type</p></td>
                         <td valign="top">
-                        	<select class="width-auto">
+                        	<select name="ResourceType" class="width-auto" id="ResourceType">
                                 <option>Slide</option>
                                 <option>Exerise</option>
                             </select>
@@ -154,7 +154,7 @@
                       </tr>                      <tr>
                         <td align="right" valign="top"><p>Educational alignment</p></td>
                         <td valign="top">
-                        	<select class="width-auto">
+                        	<select name="Alignment" class="width-auto" id="Alignment">
                                 <option>Common Core</option>
                                 <option>Other</option>
                             </select>
@@ -163,7 +163,7 @@
                       <tr>
                         <td align="right" valign="top"><p>Primary audience</p></td>
                         <td valign="top">
-                        	<select class="width-auto">
+                        	<select name="Audience" class="width-auto" id="Audience">
                                 <option>Learners</option>
                                 <option>Teachers</option>
                             </select>
@@ -172,7 +172,7 @@
                       <tr>
                         <td align="right" valign="top"><p>Educational use</p></td>
                         <td valign="top">
-                        	<select class="width-auto">
+                        	<select name="Use" class="width-auto" id="Use">
                                 <option>Assignment</option>
                                 <option>Group work</option>
                                 <option>Direct instruction</option>
@@ -188,22 +188,22 @@
                       <tr>
                         <td align="right" valign="top"><p>Time required</p></td>
                         <td valign="top">
-                        	<input type="text" placeholder="x hours x min" name="textfield5" id="textfield5" class="width-auto">
+                        	<input type="text" placeholder="x hours x min" name="Time" id="Time" class="width-auto">
                         </td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Age range</p></td>
                         <td valign="top">
                           <p>Min. </p>
-                          <input type="text" placeholder="minimum age" name="textfield5" id="textfield5">
+                          <input type="text" placeholder="minimum age" name="AgeMin" id="AgeMin">
                           <p>Max. </p>
-                          <input type="text" placeholder="maximum age" name="textfield5" id="textfield5">
+                          <input type="text" placeholder="maximum age" name="AgeMax" id="AgeMax">
                         </td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Usage Rights</p></td>
                         <td valign="top">
-							<select class="width-auto">
+							<select name="Rights" class="width-auto" id="Rights">
                                 <option>Creative Commons</option>
                                 <option>Other</option>
                             </select>
@@ -211,7 +211,7 @@
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Based on this URL</p></td>
-                        <td valign="top"><input type="text" class="span10" placeholder="http://www" name="textfield6" id="textfield6"></td>
+                        <td valign="top"><input type="text" class="span10" placeholder="http://www" name="BasedOn" id="BasedOn"></td>
                       </tr>
                       <tr>
                         <td align="right" valign="top">&nbsp;</td>
