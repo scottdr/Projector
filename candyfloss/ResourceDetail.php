@@ -43,7 +43,7 @@
             <section class="row-fluid" style="padding-top:10px;padding-bottom:20px;"> 
               
               <div class="span8">
-                <h3>Common Core Resource Details</h3>
+                <h3>Resource Details</h3>
               </div>
               <div class="span4">
               	<div id="headerBackButton">
@@ -61,8 +61,10 @@
                 <p class="descriptionCopyBody">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.				</p>
                 <h5 class="descriptionCopyHeading">Publisher</h5>
                 <p class="descriptionCopyBody">Publisher name</p>
-                <h5 class="descriptionCopyHeading">Student level</h5>
-                <p class="descriptionCopyBody">Age x</p>
+                <h5 class="descriptionCopyHeading">Grade level</h5>
+                <p class="descriptionCopyBody">10</p>
+                <h5 class="descriptionCopyHeading">Age suitability</h5>
+                <p class="descriptionCopyBody">5-99 years</p>
                 <h5 class="descriptionCopyHeading">Media Type</h5>
                 <p class="descriptionCopyBody">Simulation</p>
             </div>
