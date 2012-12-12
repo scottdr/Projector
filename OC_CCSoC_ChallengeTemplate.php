@@ -95,10 +95,10 @@ body {
   </div>
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
-     	<div id="leftButton"></div>
-        <div id="rightButton"></div>
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
+      <div id="leftButton"></div>
+        <div id="rightButton"></div>
         <div id="ribbonStrip">
           <div id="ribbonButtons">
             <?php require_once("RibbonDynamicContent.php") ?>

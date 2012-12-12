@@ -85,8 +85,8 @@ $(document).ready(function()
 			//Work back through pips
 			if(StepPhaseNumber > 0)
 			{
-				StepPhaseNumber--;
-				currentStep.find('.pip').eq(StepPhaseNumber).trigger(jQuery.Event("click"));
+				//StepPhaseNumber--;
+				currentStep.find('.pip').eq(StepPhaseNumber - 1).trigger(jQuery.Event("click"));
 			}
 			else
 			{
@@ -121,8 +121,8 @@ $(document).ready(function()
 			//Move through pips
 			if(StepPhaseNumber + 1 < phaseCount)
 			{
-				StepPhaseNumber++;
-				currentStep.find('.pip').eq(StepPhaseNumber).trigger(jQuery.Event("click"));
+				//StepPhaseNumber++;
+				currentStep.find('.pip').eq(StepPhaseNumber + 1).trigger(jQuery.Event("click"));
 			}
 			else
 			{
@@ -148,15 +148,31 @@ $(document).ready(function()
 			var phaseNum = pip.parent().children().index(pip);
 			StepId = block.attr('data-id');
 			
+			var fullWidth = parseInt(jQuery('#ContentScreens').width());
+			if(phaseNum > StepPhaseNumber)
+				fullWidth = -fullWidth;
+			
 			if(newStepNum != StepNumber)
 			{
 				StepNumber = newStepNum;
 				selectStep($('div[data-number="' + StepNumber + '"]').get(0));
 			}
+			
 			StepPhaseNumber = phaseNum;
-			loadStep(StepId, StepNumber, StepPhaseNumber);
 			
 			selectPip(pip);
+			
+			if(Modernizr.touch)
+			{
+				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+					loadStep(StepId,StepNumber, StepPhaseNumber);
+				});
+			}
+			else
+			{
+				loadStep(StepId,StepNumber, StepPhaseNumber);
+			}
 		});
 		
 		// TO DO don't hard code these values
@@ -179,14 +195,11 @@ $(document).ready(function()
 			selectStep(event.currentTarget);
 			StepNumber = newStep;
 			
-			if(Modernizr.touch)
-			{
-				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
-					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
-					StepId = event.currentTarget.getAttribute('data-id');
-					loadStep(StepId,StepNumber, StepPhaseNumber);
-				});
-			}
+			jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+				jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+				StepId = event.currentTarget.getAttribute('data-id');
+				loadStep(StepId,StepNumber, StepPhaseNumber);
+			});
 		}
 		else
 		{
