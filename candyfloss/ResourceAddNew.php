@@ -75,7 +75,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <td align="right" valign="top"><p>Thumbnail image</p></td>
+                        <td align="right" valign="top"><p>Small image</p></td>
                         <td valign="top">
                             <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                             <br/><br/>
@@ -152,7 +152,8 @@
                                 <option>Exerise</option>
                             </select>
                         </td>
-                      </tr>                      <tr>
+                      </tr> 
+                     <!-- <tr>
                         <td align="right" valign="top"><p>Educational alignment</p></td>
                         <td valign="top">
                         	<select name="Alignment" class="width-auto" id="Alignment">
@@ -160,7 +161,7 @@
                                 <option>Other</option>
                             </select>
                         </td>
-                      </tr>
+                      </tr>-->
                       <tr>
                         <td align="right" valign="top"><p>Primary audience</p></td>
                         <td valign="top">
@@ -201,7 +202,7 @@
                           <input type="text" placeholder="maximum age" name="AgeMax" id="AgeMax">
                         </td>
                       </tr>
-                      <tr>
+                      <!--<tr>
                         <td align="right" valign="top"><p>Usage Rights</p></td>
                         <td valign="top">
 							<select name="Rights" class="width-auto" id="Rights">
@@ -213,7 +214,7 @@
                       <tr>
                         <td align="right" valign="top"><p>Based on this URL</p></td>
                         <td valign="top"><input type="text" class="span10" placeholder="http://www" name="BasedOn" id="BasedOn"></td>
-                      </tr>
+                      </tr>-->
                       <tr>
                         <td align="right" valign="top">&nbsp;</td>
                         <td valign="top">
