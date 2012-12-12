@@ -1,8 +1,114 @@
+<?php require_once('../Connections/projector.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+$editFormAction = $_SERVER['PHP_SELF'];
+if (isset($_SERVER['QUERY_STRING'])) {
+  $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+}
+
+$action = "Update";
+$actionTitle = "Edit";
+if (isset($_GET["Action"])) {
+	$action = $_GET["Action"];
+	$actionTitle = $_GET["action"];
+}
+
+echo "POST ACTION = " . $_POST["MM_action"];
+
+
+if (isset($_POST["MM_action"])) {
+	if ($_POST["MM_action"] == "Add") {
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, TimeRequired, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                       GetSQLValueString($_POST['Id'], "int"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Description'], "text"),
+                       GetSQLValueString($_POST['Language'], "text"),
+                       GetSQLValueString($_POST['MediaType'], "text"),
+                       GetSQLValueString($_POST['Time'], "int"),
+                       GetSQLValueString($_POST['InteractivityType'], "text"),
+                       GetSQLValueString($_POST['ResourceType'], "text"),
+                       GetSQLValueString($_POST['ResourceURL'], "text"),
+                       GetSQLValueString($_POST['Author'], "text"),
+                       GetSQLValueString($_POST['Publisher'], "text"),
+                       GetSQLValueString($_POST['AgeMin'], "int"),
+                       GetSQLValueString($_POST['AgeMax'], "int"));
+	} else if ($_POST["MM_action"] == "Update") {
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, TimeRequired=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s WHERE Id=%s",
+                       GetSQLValueString($_POST['Id'], "int"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Description'], "text"),
+                       GetSQLValueString($_POST['Language'], "text"),
+                       GetSQLValueString($_POST['MediaType'], "text"),
+                       GetSQLValueString($_POST['Time'], "int"),
+                       GetSQLValueString($_POST['InteractivityType'], "text"),
+                       GetSQLValueString($_POST['ResourceType'], "text"),
+                       GetSQLValueString($_POST['ResourceURL'], "text"),
+                       GetSQLValueString($_POST['Author'], "text"),
+                       GetSQLValueString($_POST['Publisher'], "text"),
+                       GetSQLValueString($_POST['AgeMin'], "int"),
+                       GetSQLValueString($_POST['AgeMax'], "int"),
+											 GetSQLValueString($_POST['Id'], "int"));
+	}
+
+	echo "SQL COMMAND = " . $sqlCommand;
+
+  mysql_select_db($database_projector, $projector);
+  $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+/*
+  $insertGoTo = "ResourcesViewAll.php";
+  if (isset($_SERVER['QUERY_STRING'])) {
+    $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
+    $insertGoTo .= $_SERVER['QUERY_STRING'];
+  }
+  header(sprintf("Location: %s", $insertGoTo));
+	*/
+}
+
+$colname_Resource = "-1";
+if (isset($_GET['Id'])) {
+  $colname_Resource = $_GET['Id'];
+}
+mysql_select_db($database_projector, $projector);
+$query_Resource = sprintf("SELECT * FROM CF_Resources WHERE Id = %s", GetSQLValueString($colname_Resource, "int"));
+$Resource = mysql_query($query_Resource, $projector) or die(mysql_error());
+$row_Resource = mysql_fetch_assoc($Resource);
+$totalRows_Resource = mysql_num_rows($Resource);
+?>
 <!doctype html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Add new Resource</title>
+        <title>Edit Resource</title>
         
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
@@ -54,32 +160,32 @@ function addImage() {
         	<!-- Page title -->
             <section class="row-fluid" style="padding-top:10px;padding-bottom:10px;"> 
               <div class="span12">
-                <h3>Add a new Resource</h3>
+                <h3><?php echo $actionTitle; ?> Resource</h3>
               </div>
             </section>
 
             
           <section class="row-fluid" style=" background-color:#FFF;">
             	<div style="padding:10px;" class="span12">
-              	<form action="" method="post">
+              	<form name="form" action="<?php echo $editFormAction; ?>" method="POST">
+                	<input name="Id" type="hidden" id="Id" value="<?php echo $row_Resource['Id']; ?>">
                 	<table cellpadding="5" width="100%">
                       <tr>
                         <td width="25%" align="right" valign="top"><p>Title</p></td>
                         <td width="75%" valign="top">
-                        <input type="text" class="span10" placeholder="Enter resource title ..." name="Title" id="Title">
+                        <input name="Title" type="text" class="span10" id="Title" placeholder="Enter resource title ..." value="<?php echo $row_Resource['Name']; ?>">
                         </td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Description</p></td>
                         <td valign="top">
-                        <textarea name="Description" class="span10" placeholder="Enter description ..." rows="10" id="Description">
-                        </textarea>
+                        <textarea name="Description" class="span10" placeholder="Enter description ..." rows="10" id="Description"><?php echo $row_Resource['AboutDetail']; ?></textarea>
                         </td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Resource URL</p></td>
                         <td valign="top">
-                        <input type="text" class="span10" placeholder="http://www" name="ResourceURL" id="ResourceURL">
+                        <input name="ResourceURL" type="text" class="span10" id="ResourceURL" placeholder="http://www" value="<?php echo $row_Resource['URL']; ?>">
                         </td>
                       </tr>
                       <tr>
@@ -87,7 +193,7 @@ function addImage() {
                         <td valign="top">
                             <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
                             <br/><br/>
-                            <img src="img/placeholder-square.jpg" class="img-polaroid" width="80">
+                            <img src="<?php echo $row_Resource['ImageThumbnail']; ?>" class="img-polaroid">
                         </td>
                       </tr>
                       <tr>
@@ -95,7 +201,7 @@ function addImage() {
                         <td valign="top">
                             <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
                             <br/><br/>
-                            <img src="img/placeholder-square.jpg" class="img-polaroid" width="200">
+                            <img src="<?php echo $row_Resource['ImageLarge']; ?>" class="img-polaroid">
                         </td>
                       </tr>
                       <tr>
@@ -109,21 +215,21 @@ function addImage() {
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Author</p></td>
-                        <td valign="top"><input type="text" placeholder="Title, First name, Last name" name="Author" id="Author" class="width-auto"></td>
+                        <td valign="top"><input name="Author" type="text" class="width-auto" id="Author" placeholder="Title, First name, Last name" value="<?php echo $row_Resource['Author']; ?>"></td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Publisher</p></td>
-                        <td valign="top"><input type="text" placeholder="Publisher name" name="Publisher" id="Publisher" class="width-auto"></td>
+                        <td valign="top"><input name="Publisher" type="text" class="width-auto" id="Publisher" placeholder="Publisher name" value="<?php echo $row_Resource['Publisher']; ?>"></td>
                       </tr>
                       <tr>
                         <td align="right" valign="top"><p>Primary language</p></td>
                         <td valign="top">
                             <select name="Language" class="width-auto" id="Language">
-                                <option selected>English</option>                                
-                                <option>French</option>
-                                <option>German</option>
-                                <option>Italian</option>
-                                <option>Spanish</option>
+                              <option selected value="En" <?php if (!(strcmp("En", $row_Resource['InLanguage']))) {echo "selected=\"selected\"";} ?>>English</option>
+                              <option value="Fr" <?php if (!(strcmp("Fr", $row_Resource['InLanguage']))) {echo "selected=\"selected\"";} ?>>French</option>
+                              <option value="De" <?php if (!(strcmp("De", $row_Resource['InLanguage']))) {echo "selected=\"selected\"";} ?>>German</option>
+                              <option value="It" <?php if (!(strcmp("It", $row_Resource['InLanguage']))) {echo "selected=\"selected\"";} ?>>Italian</option>
+                              <option value="Es" <?php if (!(strcmp("Es", $row_Resource['InLanguage']))) {echo "selected=\"selected\"";} ?>>Spanish</option>
                             </select>
 					  	</td>
                      </tr>
@@ -131,33 +237,28 @@ function addImage() {
                         <td align="right" valign="top"><p>Media type</p></td>
                         <td valign="top">
                         	<select name="MediaType" class="width-auto" id="MediaType">
-                                <option>Audio</option>
-                                <option>Book</option>
-                                <option>Challenge</option>
-                                <option>Course</option>
-                                <option>Handout</option>
-                                <option>Image</option>
-                                <option>Interactive</option>
-                                <option>Lesson</option>
-                                <option>Project</option>
-                                <option>Slide</option>
-                                <option>Textbook</option>
-                                <option>Video</option>
-                                <option>Website</option>
+                        	  <option value="Audio" <?php if (!(strcmp("Audio", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Audio</option>
+                        	  <option value="Book" <?php if (!(strcmp("Book", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Book</option>
+                        	  <option value="Challenge" <?php if (!(strcmp("Challenge", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Challenge</option>
+                        	  <option value="Course" <?php if (!(strcmp("Course", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Course</option>
+                        	  <option value="Handout" <?php if (!(strcmp("Handout", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Handout</option>
+                        	  <option value="Image" <?php if (!(strcmp("Image", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Image</option>
+                        	  <option value="Interactive" <?php if (!(strcmp("Interactive", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Interactive</option>
+<option value="" <?php if (!(strcmp("", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Lesson</option>
+                        	  <option value="Project" <?php if (!(strcmp("Project", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Project</option>
+                        	  <option value="Slide" <?php if (!(strcmp("Slide", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Slide</option>
+<option value="" <?php if (!(strcmp("", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Textbook</option>
+                        	  <option value="Video" <?php if (!(strcmp("Video", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Video</option>
+                        	  <option value="Website" <?php if (!(strcmp("Website", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Website</option>
                             </select>
                         </td>
                       </tr>                      <tr>
                         <td align="right" valign="top"><p>Interactivity type</p></td>
                         <td valign="top">
                         	<select name="InteractivityType" class="width-auto" id="InteractivityType">
-                                <option>Simulation application</option>
-                                <option>Online simulation</option>
-                                <option>Questionaire</option>
-                                <option>Exercise</option>
-                                <option>Problem statement</option>
-                                <option>Hypertext document</option>
-                                <option>Graphical diagrams or images</option>
-                                <option>Audio recordings</option>
+                                <option>Active</option>
+                                <option>Expositive</option>
+                                <option>Mixed</option>
                             </select>
                         </td>
                       </tr>
@@ -165,26 +266,54 @@ function addImage() {
                         <td align="right" valign="top"><p>Learning resource type</p></td>
                         <td valign="top">
                         	<select name="ResourceType" class="width-auto" id="ResourceType">
-                                <option>Exercise</option>
-                                <option>Slide</option>
+                        	  <option value="Exercise" <?php if (!(strcmp("Exercise", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Exercise</option>
+                        	  <option value="Slide" <?php if (!(strcmp("Slide", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Slide</option>
                           </select>
                         </td>
                       </tr> 
-                     <!-- <tr>
-                        <td align="right" valign="top"><p>Educational alignment</p></td>
-                        <td valign="top">
-                        	<select name="Alignment" class="width-auto" id="Alignment">
-                                <option>Common Core</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                      </tr>-->
                       <tr>
                         <td align="right" valign="top"><p>Primary audience</p></td>
                         <td valign="top">
                         	<select name="Audience" class="width-auto" id="Audience">
                                 <option>Learners</option>
                                 <option>Teachers</option>
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top"><p>Time required</p></td>
+                        <td valign="top">
+                        	<input name="Time" type="text" class="width-auto" id="Time" placeholder="x hours x min" value="<?php echo $row_Resource['TimeRequired']; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top"><p>Age range</p></td>
+                        <td valign="top">
+                          <p>Min. </p>
+                          <input name="AgeMin" type="text" id="AgeMin" placeholder="minimum age" value="<?php echo $row_Resource['AgeStart']; ?>">
+                          <p>Max. </p>
+                          <input name="AgeMax" type="text" id="AgeMax" placeholder="maximum age" value="<?php echo $row_Resource['AgeEnd']; ?>">
+                        </td>
+                      </tr>
+                      <!--<tr>
+                        <td align="right" valign="top"><p>Usage Rights</p></td>
+                        <td valign="top">
+							<select name="Rights" class="width-auto" id="Rights">
+                                <option>Creative Commons</option>
+                                <option>Other</option>
+                            </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top"><p>Based on this URL</p></td>
+                        <td valign="top"><input type="text" class="span10" placeholder="http://www" name="BasedOn" id="BasedOn"></td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top"><p>Educational alignment</p></td>
+                        <td valign="top">
+                        	<select name="Alignment" class="width-auto" id="Alignment">
+                                <option>Common Core</option>
+                                <option>Other</option>
                             </select>
                         </td>
                       </tr>
@@ -204,40 +333,14 @@ function addImage() {
                             </select>
                         </td>
                       </tr>
-                      <tr>
-                        <td align="right" valign="top"><p>Time required</p></td>
-                        <td valign="top">
-                        	<input type="text" placeholder="x hours x min" name="Time" id="Time" class="width-auto">
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="right" valign="top"><p>Age range</p></td>
-                        <td valign="top">
-                          <p>Min. </p>
-                          <input type="text" placeholder="minimum age" name="AgeMin" id="AgeMin">
-                          <p>Max. </p>
-                          <input type="text" placeholder="maximum age" name="AgeMax" id="AgeMax">
-                        </td>
-                      </tr>
-                      <!--<tr>
-                        <td align="right" valign="top"><p>Usage Rights</p></td>
-                        <td valign="top">
-							<select name="Rights" class="width-auto" id="Rights">
-                                <option>Creative Commons</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="right" valign="top"><p>Based on this URL</p></td>
-                        <td valign="top"><input type="text" class="span10" placeholder="http://www" name="BasedOn" id="BasedOn"></td>
-                      </tr>-->
+                      -->
                       <tr>
                         <td align="right" valign="top">&nbsp;</td>
                         <td valign="top">
                         <input class="btn btn-primary" type="submit" name="button" id="button" value="Save Resource"></td>
                       </tr>
                     </table>
+                	<input type="hidden" name="MM_action" value="<?php echo $action; ?>">
               	</form>
               </div>
           </section>
@@ -285,3 +388,6 @@ function addImage() {
         </script>
 </body>
 </html>
+<?php
+mysql_free_result($Resource);
+?>
