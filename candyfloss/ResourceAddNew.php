@@ -36,7 +36,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
-$action = "Update";
+$action = "Edit";
 $actionTitle = "Edit";
 if (isset($_GET["Action"])) {
 	$action = $_GET["Action"];
@@ -63,8 +63,8 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['AgeMin'], "int"),
                        GetSQLValueString($_POST['AgeMax'], "int"),
 											 GetSQLValueString($_POST['Audience'], "text"));
-	} else if ($_POST["MM_action"] == "Update") {
-		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, TimeRequired=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s EndUserRole=%s, WHERE Id=%s",
+	} else if ($_POST["MM_action"] == "Edit") {
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, TimeRequired=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -277,7 +277,7 @@ function addImage() {
                         <td valign="top">
                         	<select name="Audience" class="width-auto" id="Audience">
                         	  <option value="Learners" <?php if (!(strcmp("Learners", $row_Resource['EndUserRole']))) {echo "selected=\"selected\"";} ?>>Learners</option>
-                        	  <option value="" <?php if (!(strcmp("", $row_Resource['EndUserRole']))) {echo "selected=\"selected\"";} ?>>Teachers</option>
+                        	  <option value="Teachers" <?php if (!(strcmp("Teachers", $row_Resource['EndUserRole']))) {echo "selected=\"selected\"";} ?>>Teachers</option>
                             </select>
                         </td>
                       </tr>
