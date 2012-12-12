@@ -197,6 +197,14 @@ a:hover {
 	background-image: url(../img/backtoproject-hover.png);
 	background-repeat: no-repeat;
 }
+.descriptionSectionHeading {
+	margin: 0;
+	padding-bottom: 10px;
+	font-weight: 500;
+	line-height: 20px;
+	text-rendering: optimizelegibility;
+	font-size: 18px;
+}
 .descriptionCopyHeading {
 	margin: 0;
 	padding-bottom: 5px;

@@ -56,39 +56,48 @@
             <section class="row-fluid" style="background-color:#FFF;">
        	    <img class="span7" src="img/static-content/powersoften.jpg">
             <div class="span5" style="padding-top:20px; padding-right:20px;">
-            	<a href="#" class="btn btn-small btn-success" style="float:right; clear:none;"><i class="icon-globe icon-white"></i> Open web link</a>
-                <h4 class="descriptionCopyHeading">Powers of 10</h4>
-                <p class="descriptionCopyBody">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            	<a href="#" target="_blank" class="btn btn-small btn-success" style="float:right; clear:none;"><i class="icon-globe icon-white"></i> Open web link</a>
+                <h4 class="descriptionSectionHeading">Title of the resource</h4>
+                <p class="descriptionCopyBody">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.				</p>
                 <h5 class="descriptionCopyHeading">Publisher</h5>
-                <p class="descriptionCopyBody">The Teaching Channel</p>
-                <h5 class="descriptionCopyHeading">Lessons Used</h5>
-                <p class="descriptionCopyBody">Grade 6, Lesson 1</p>
-                <h5 class="descriptionCopyHeading">Resource Type</h5>
-                <p class="descriptionCopyBody">Video</p>
+                <p class="descriptionCopyBody">Publisher name</p>
+                <h5 class="descriptionCopyHeading">Student level</h5>
+                <p class="descriptionCopyBody">Age x</p>
+                <h5 class="descriptionCopyHeading">Media Type</h5>
+                <p class="descriptionCopyBody">Simulation</p>
             </div>
             </section>
             
             <section class="row-fluid">
-                <div style="padding-top:10px;">
-                    <ul id="myTab" class="nav nav-tabs">
-                      <li class="active"><a href="#notes" data-toggle="tab">NOTES</a></li>
-                      <li><a href="#comments" data-toggle="tab">COMMENTS</a></li>
-                      <li><a href="#details" data-toggle="tab">DETAILS</a></li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                      <div class="tab-pane fade in active" id="notes">
-                        <p>Notes are only displayed for teachers. These notes are for personal use only as reference for teaching the lesson in other sections or in subsequent years.</p>
-                        <p>Within the notes section, we will need a means of sharing notes with the community that would then expose the notes in the comments section.</p>
-                        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-                      </div>
-                      <div class="tab-pane fade" id="comments">
-                        <p>Comments section displays notes from the community. This section is only visible to teachers. The teachers can add comments directly from this section or ‘share’ notes from the notes section. Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-                      </div>
-                      <div class="tab-pane fade" id="details">
-                        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                      </div>
-                    </div>
-                </div>            
+                <div class="span12" style="padding-top:10px;">
+                	<hr/>
+                    <h4 class="descriptionSectionHeading">Further Resource Details</h4>
+                </div>
+            </section>
+            
+            <section class="row-fluid">
+                <div class="span3">
+                    <h5 class="descriptionCopyHeading">Author</h5>
+                    <p class="descriptionCopyBody">Author name</p>
+                    <h5 class="descriptionCopyHeading">Language</h5>
+                    <p class="descriptionCopyBody">Language</p>
+                    <h5 class="descriptionCopyHeading">Date created</h5>
+                    <p class="descriptionCopyBody">date</p>
+                </div>
+                <div class="span3">
+                    <h5 class="descriptionCopyHeading">Educational alignment</h5>
+                    <p class="descriptionCopyBody">Common core</p>
+                    <h5 class="descriptionCopyHeading">Educational use</h5>
+                    <p class="descriptionCopyBody">Assignment</p>
+                    <h5 class="descriptionCopyHeading">Time required</h5>
+                    <p class="descriptionCopyBody">1 hour 30 min</p>
+                </div>
+                <div class="span3">
+                    <h5 class="descriptionCopyHeading">Intended audience</h5>
+                    <p class="descriptionCopyBody">Learner, teacher</p>
+                    <h5 class="descriptionCopyHeading">Copyright</h5>
+                    <p class="descriptionCopyBody"><a href="#" target="_blank">Usage rights</a></p>
+                </div>         
             </section>
             
 		</div>

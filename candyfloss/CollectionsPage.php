@@ -14,10 +14,8 @@
         <![endif]-->
         
     </head>
-    
     <body>
     	
-        
         <!-- Header Starts -->
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
@@ -39,54 +37,44 @@
         
         <!-- Content Starts -->
         <div class="container-fluid">
+        
+        	<!-- Page title -->
             <section class="row-fluid" style="padding-top:10px;padding-bottom:10px;"> 
-              
               <div class="span12">
                 <h3>Common Core Resource Collections</h3>
               </div>
-              <!--<div class="span4">
-              	<div id="headerBackButton">
-                  <a href="ResourceDetail.php">Back to Lesson Details</a>
-                </div>
-              </div>-->
-              
             </section>
 
             
             <section class="row-fluid" style=" background-color:#FFF;">
-                
-                <nav class="navbar navbar-inverse span12">
-                    <div class="navbar-inner">
-                        <div class="nav-collapse">
-                            <ul class="nav">
-                              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">SORT BY<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Unit</a></li>
-                                    <li><a href="#">Date</a></li>
-                                    <li><a href="#">Resource Type</a></li>
-                                </ul>
-                              </li>
-                            </ul>
-                            
-                        </div>
-                     </div>
-<!--                <form class="form-search">
-                  <div class="input-append">
-                    <input type="text" class="span2 search-query">
-                    <button type="submit" class="btn">Search</button>
-                  </div>
-                </form>
--->                    
-                </nav>
-                
+            
+            	<!-- Filter -->
+            	<div class="navbar navbar-inverse span12" style="background-color:#1B1B1B;">
+                    <ul class="nav">
+                      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">SORT BY<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Age range</a></li>
+                            <li><a href="#">Date</a></li>
+                            <li><a href="#">Resource Type</a></li>
+                            <li><a href="#">Educational Use</a></li>
+                            <li><a href="#">Publisher</a></li>
+                            <li><a href="#">Author</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                </div>
+                                 
+
+                <!-- Left vertical tabs -->
                 <div class="tabbable tabs-left" style="padding:20px;">
                 
                   <ul class="nav nav-tabs span3">
-                    <li class="active"><a href="#Level1-A" data-toggle="tab">CURATED LIBRARY</a></li>
-                    <li><a href="#Level1-B" data-toggle="tab">WEB RESOURCES</a></li>
-                    <li><a href="#Level1-C" data-toggle="tab">SHOW ALL</a></li>
+                    <li class="active"><a href="#Level1-A" data-toggle="tab">UNIT 1</a></li>
+                    <li><a href="#Level1-B" data-toggle="tab">UNIT 2</a></li>
+                    <li><a href="#Level1-C" data-toggle="tab">UNIT 3</a></li>
                   </ul>
                   
+                  <!-- Tab content -->
                   <div class="tab-content">
                     <div class="tab-pane active" id="Level1-A">
                     <!-- SECTION A -->
@@ -109,7 +97,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -117,7 +105,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -125,7 +113,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -133,7 +121,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
@@ -158,7 +146,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -166,7 +154,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -174,7 +162,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -182,7 +170,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
@@ -208,7 +196,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -216,7 +204,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -224,7 +212,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -232,7 +220,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
@@ -264,7 +252,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -272,7 +260,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -280,7 +268,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -288,7 +276,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
@@ -313,7 +301,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -321,7 +309,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -329,7 +317,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -337,7 +325,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
@@ -362,7 +350,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -370,7 +358,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -378,7 +366,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -386,7 +374,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
@@ -408,7 +396,7 @@
                                                         <a href="ResourceDetail.php">
                                                             <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                         </a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -416,7 +404,7 @@
                                                         <a href="ResourceDetail.php">   
                                                             <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -424,7 +412,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                             <div class="span3 FoxtrotSpan3">
@@ -432,7 +420,7 @@
                                                         <a href="ResourceDetail.php">    
                                                             <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            <p class="FoxtrotBodyCopy">Short description ... </p>
+                                                            
                                                     	</a>
                                             </div>
                                       </section>
