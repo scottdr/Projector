@@ -53,6 +53,7 @@
             
           <section class="row-fluid" style=" background-color:#FFF;">
             	<div style="padding:10px;" class="span12">
+              	<form action="" method="post">
                 	<table cellpadding="5" width="100%">
                       <tr>
                         <td width="25%" align="right" valign="top"><p>Title</p></td>
@@ -216,10 +217,10 @@
                       <tr>
                         <td align="right" valign="top">&nbsp;</td>
                         <td valign="top">
-                        <a href="#" class="btn btn-primary">Save Resource</a>
-                        </td>
+                        <input class="btn btn-primary" type="submit" name="button" id="button" value="Save Resource"></td>
                       </tr>
                     </table>
+              	</form>
               </div>
           </section>
 		</div>
