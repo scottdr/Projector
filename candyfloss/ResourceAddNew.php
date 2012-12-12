@@ -40,30 +40,15 @@ $action = "Update";
 $actionTitle = "Edit";
 if (isset($_GET["Action"])) {
 	$action = $_GET["Action"];
-	$actionTitle = $_GET["action"];
+	$actionTitle = $_GET["Action"];
 }
 
-echo "POST ACTION = " . $_POST["MM_action"];
+//echo "POST ACTION = " . $_POST["MM_action"];
 
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, TimeRequired, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                       GetSQLValueString($_POST['Id'], "int"),
-                       GetSQLValueString($_POST['Title'], "text"),
-                       GetSQLValueString($_POST['Description'], "text"),
-                       GetSQLValueString($_POST['Language'], "text"),
-                       GetSQLValueString($_POST['MediaType'], "text"),
-                       GetSQLValueString($_POST['Time'], "int"),
-                       GetSQLValueString($_POST['InteractivityType'], "text"),
-                       GetSQLValueString($_POST['ResourceType'], "text"),
-                       GetSQLValueString($_POST['ResourceURL'], "text"),
-                       GetSQLValueString($_POST['Author'], "text"),
-                       GetSQLValueString($_POST['Publisher'], "text"),
-                       GetSQLValueString($_POST['AgeMin'], "int"),
-                       GetSQLValueString($_POST['AgeMax'], "int"));
-	} else if ($_POST["MM_action"] == "Update") {
-		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, TimeRequired=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, TimeRequired, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -77,21 +62,37 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Publisher'], "text"),
                        GetSQLValueString($_POST['AgeMin'], "int"),
                        GetSQLValueString($_POST['AgeMax'], "int"),
+											 GetSQLValueString($_POST['Audience'], "text"));
+	} else if ($_POST["MM_action"] == "Update") {
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, TimeRequired=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s EndUserRole=%s, WHERE Id=%s",
+                       GetSQLValueString($_POST['Id'], "int"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Description'], "text"),
+                       GetSQLValueString($_POST['Language'], "text"),
+                       GetSQLValueString($_POST['MediaType'], "text"),
+                       GetSQLValueString($_POST['Time'], "int"),
+                       GetSQLValueString($_POST['InteractivityType'], "text"),
+                       GetSQLValueString($_POST['ResourceType'], "text"),
+                       GetSQLValueString($_POST['ResourceURL'], "text"),
+                       GetSQLValueString($_POST['Author'], "text"),
+                       GetSQLValueString($_POST['Publisher'], "text"),
+                       GetSQLValueString($_POST['AgeMin'], "int"),
+                       GetSQLValueString($_POST['AgeMax'], "int"),
+											 GetSQLValueString($_POST['Audience'], "text"),
 											 GetSQLValueString($_POST['Id'], "int"));
 	}
 
-	echo "SQL COMMAND = " . $sqlCommand;
+//	echo "SQL COMMAND = " . $sqlCommand;
 
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-/*
+
   $insertGoTo = "ResourcesViewAll.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'];
   }
   header(sprintf("Location: %s", $insertGoTo));
-	*/
 }
 
 $colname_Resource = "-1";
@@ -108,7 +109,7 @@ $totalRows_Resource = mysql_num_rows($Resource);
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Edit Resource</title>
+        <title><?php echo $actionTitle; ?> Resource</title>
         
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
@@ -256,9 +257,9 @@ function addImage() {
                         <td align="right" valign="top"><p>Interactivity type</p></td>
                         <td valign="top">
                         	<select name="InteractivityType" class="width-auto" id="InteractivityType">
-                                <option>Active</option>
-                                <option>Expositive</option>
-                                <option>Mixed</option>
+                        	  <option value="Active" <?php if (!(strcmp("Active", $row_Resource['InteractivityType']))) {echo "selected=\"selected\"";} ?>>Active</option>
+                        	  <option value="Expositive" <?php if (!(strcmp("Expositive", $row_Resource['InteractivityType']))) {echo "selected=\"selected\"";} ?>>Expositive</option>
+                        	  <option value="Mixed" <?php if (!(strcmp("Mixed", $row_Resource['InteractivityType']))) {echo "selected=\"selected\"";} ?>>Mixed</option>
                             </select>
                         </td>
                       </tr>
@@ -275,8 +276,8 @@ function addImage() {
                         <td align="right" valign="top"><p>Primary audience</p></td>
                         <td valign="top">
                         	<select name="Audience" class="width-auto" id="Audience">
-                                <option>Learners</option>
-                                <option>Teachers</option>
+                        	  <option value="Learners" <?php if (!(strcmp("Learners", $row_Resource['EndUserRole']))) {echo "selected=\"selected\"";} ?>>Learners</option>
+                        	  <option value="" <?php if (!(strcmp("", $row_Resource['EndUserRole']))) {echo "selected=\"selected\"";} ?>>Teachers</option>
                             </select>
                         </td>
                       </tr>
