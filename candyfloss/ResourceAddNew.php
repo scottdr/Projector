@@ -13,7 +13,15 @@
             <!--[if lt IE 9]>
               <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        
+<script>
+function addImage() {
+		$("#myModal").modal({                    // finally, wire up the actual modal functionality and show the dialog
+			"backdrop"  : "static",
+			"keyboard"  : true,
+			"show"      : true                     // ensure the modal is shown immediately
+		});
+}
+</script>
     </head>
     
     <body>
@@ -77,7 +85,7 @@
                       <tr>
                         <td align="right" valign="top"><p>Thumbnail image</p></td>
                         <td valign="top">
-                            <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                            <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
                             <br/><br/>
                             <img src="img/placeholder-square.jpg" class="img-polaroid" width="80">
                         </td>
@@ -85,7 +93,7 @@
                       <tr>
                         <td align="right" valign="top"><p>Large image</p></td>
                         <td valign="top">
-                            <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                            <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
                             <br/><br/>
                             <img src="img/placeholder-square.jpg" class="img-polaroid" width="200">
                         </td>
@@ -111,12 +119,11 @@
                         <td align="right" valign="top"><p>Primary language</p></td>
                         <td valign="top">
                             <select name="Language" class="width-auto" id="Language">
-                                <option selected>English</option>
-                                <option>Spanish</option>
+                                <option selected>English</option>                                
                                 <option>French</option>
                                 <option>German</option>
                                 <option>Italian</option>
-                                <option>Chinese</option>
+                                <option>Spanish</option>
                             </select>
 					  	</td>
                      </tr>
@@ -124,9 +131,19 @@
                         <td align="right" valign="top"><p>Media type</p></td>
                         <td valign="top">
                         	<select name="MediaType" class="width-auto" id="MediaType">
-                                <option>Painting</option>
-                                <option>Novel</option>
+                                <option>Audio</option>
+                                <option>Book</option>
+                                <option>Challenge</option>
+                                <option>Course</option>
+                                <option>Handout</option>
                                 <option>Image</option>
+                                <option>Interactive</option>
+                                <option>Lesson</option>
+                                <option>Project</option>
+                                <option>Slide</option>
+                                <option>Textbook</option>
+                                <option>Video</option>
+                                <option>Website</option>
                             </select>
                         </td>
                       </tr>                      <tr>
@@ -148,9 +165,9 @@
                         <td align="right" valign="top"><p>Learning resource type</p></td>
                         <td valign="top">
                         	<select name="ResourceType" class="width-auto" id="ResourceType">
+                                <option>Exercise</option>
                                 <option>Slide</option>
-                                <option>Exerise</option>
-                            </select>
+                          </select>
                         </td>
                       </tr>                      <tr>
                         <td align="right" valign="top"><p>Educational alignment</p></td>
@@ -224,7 +241,14 @@
               </div>
           </section>
 		</div>
-        
+    <!-- set up the modal to start hidden and fade in and out -->
+    <div id="myModal" class="modal hide fade">
+        <!-- dialog contents -->
+        <div class="modal-body">URL:<input name="ImageURL" type="text"></div>
+        <!-- dialog buttons -->
+        <div class="modal-footer"><a href="#" class="btn primary">OK</a></div>
+    </div>
+    
         <!-- JS at the end of the page for faster loading -->
 
       	
@@ -240,6 +264,23 @@
                 });
                 
             });
+						
+						$("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
+								$("#myModal a.btn").on("click", function(e) {
+										console.log("button pressed");   // just as an example...
+										$("#myModal").modal('hide');     // dismiss the dialog
+								});
+						});
+ 
+						$("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
+								$("#myModal a.btn").off("click");
+						});
+						 
+						$("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
+								$("#myModal").remove();
+						});
+						 
+						
         </script>
 </body>
 </html>
