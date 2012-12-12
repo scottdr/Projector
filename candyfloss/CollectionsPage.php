@@ -41,7 +41,7 @@
         	<!-- Page title -->
             <section class="row-fluid" style="padding-top:10px;padding-bottom:10px;"> 
               <div class="span12">
-                <h3>Common Core Resource Collections</h3>
+                <h3>ELA - Grade 10 Resource Collections</h3>
               </div>
             </section>
 
@@ -83,8 +83,7 @@
                             <div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-                                  Unit 1
-                                </a>
+                                  Curated Library</a>
                               </div>
                               <div id="collapseOne" class="accordion-body collapse in">
                                 <div class="accordion-inner">
@@ -132,8 +131,7 @@
                             <div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
-                                  Unit 2
-                                </a>
+                                  Pearson Resources</a>
                               </div>
                               <div id="collapseTwo" class="accordion-body collapse">
                                 <div class="accordion-inner">
@@ -183,8 +181,7 @@
                             <div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
-                                  Unit 3
-                                </a>
+                                  OER Resources</a>
                               </div>
                               <div id="collapseThree" class="accordion-body collapse">
                                 <div class="accordion-inner">
@@ -238,7 +235,7 @@
                             <div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Level1-B-collapseOne">
-                                  Interactive diagrams
+                                  Curated Library
                                 </a>
                               </div>
                               <div id="Level1-B-collapseOne" class="accordion-body collapse in">
@@ -287,7 +284,7 @@
                             <div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Level1-B-collapseTwo">
-                                  Articles
+                                  Pearson Resources
                                 </a>
                               </div>
                               <div id="Level1-B-collapseTwo" class="accordion-body collapse">
@@ -337,7 +334,7 @@
                             <div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Level1-B-collapseThree">
-                                 Video
+                                 OER Resources
                                 </a>
                               </div>
                               <div id="Level1-B-collapseThree" class="accordion-body collapse">
