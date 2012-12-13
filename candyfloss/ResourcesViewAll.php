@@ -104,6 +104,8 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                         <th width="10%">ID</th>
                         <th width="20%">Thumbnail</th>
                         <th width="50%">Title</th>
+                        <th width="50%">Unit</th>
+                        <th width="50%">Collection</th>
                         <th width="10%">&nbsp;</th>
                     </tr>
                 </thead>
@@ -116,6 +118,8 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                       <td><?php echo $row_resourceList['Id']; ?></td>
                       <td><img src="<?php echo $row_resourceList['ImageThumbnail']; ?>" alt="" name="" width="100" class="img-polaroid"/></td>
                       <td><a href="ResourceDetail.php?Id=<?php echo $row_resourceList['Id']; ?>"><?php echo $row_resourceList['Name']; ?></a></td>
+                      <td><?php echo $row_resourceList['Unit']; ?></td>
+                      <td><?php echo $row_resourceList['Collection']; ?></td>
                       <td><a class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
                     </tr>
                     <?php } while ($row_resourceList = mysql_fetch_assoc($resourceList)); ?>
