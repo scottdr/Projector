@@ -58,7 +58,8 @@ $rowNumber = 0;
 $rowsWithPips = array(3,5); //random steps to add pips too
 do {
 	if (isset($row_stepsRecordset)) {
-		$rowStepNumber = $row_stepsRecordset['SortOrder'] - $subtractSlideShowStep;
+		//$rowStepNumber = $row_stepsRecordset['SortOrder'] - $subtractSlideShowStep;
+		$rowStepNumber = $rowNumber + 1;
 		if ($row_stepsRecordset['CSSName'] != $currentRoutineName) {
 			if ($currentRoutineName != '')
 				print "\n</div>\n"; // close off previous div when we need to
