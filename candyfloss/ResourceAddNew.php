@@ -48,7 +48,7 @@ if (isset($_GET["Action"])) {
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, ImageThumbnail, Unit, Collection) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, ImageThumbnail, Unit, Collection, EducationalUse) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -64,9 +64,10 @@ if (isset($_POST["MM_action"])) {
 											 GetSQLValueString($_POST['Audience'], "text"),
 											 GetSQLValueString($_POST['Unit'], "int"),
 											 GetSQLValueString($_POST['Collection'], "text"),
+											 GetSQLValueString($_POST['Use'], "text"),
 											 GetSQLValueString($_POST['ThumbNail'], "text"));
 	} else if ($_POST["MM_action"] == "Edit") {
-		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s, ImageThumbnail=%s, ImageLarge=%s, Unit=%s, Collection=%s WHERE Id=%s",
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s, ImageThumbnail=%s, ImageLarge=%s, Unit=%s, Collection=%s, EducationalUse=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -84,6 +85,7 @@ if (isset($_POST["MM_action"])) {
 											 GetSQLValueString($_POST['DetailImage'], "text"),
 											 GetSQLValueString($_POST['Unit'], "int"),
 											 GetSQLValueString($_POST['Collection'], "text"),
+											 GetSQLValueString($_POST['Use'], "text"),
 											 GetSQLValueString($_POST['Id'], "int"));
 	}
 
@@ -250,6 +252,8 @@ function addImage() {
                         <td align="right" valign="top"><p>Media type</p></td>
                         <td valign="top">
                         	<select name="MediaType" class="width-auto" id="MediaType">
+                          	<option value="None" <?php if (!(strcmp("None", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>None</option>
+                          	<option value="Article" <?php if (!(strcmp("Article", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Article</option>
                         	  <option value="Audio" <?php if (!(strcmp("Audio", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Audio</option>
                         	  <option value="Book" <?php if (!(strcmp("Book", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Book</option>
                         	  <option value="Challenge" <?php if (!(strcmp("Challenge", $row_Resource['MediaType']))) {echo "selected=\"selected\"";} ?>>Challenge</option>
@@ -279,6 +283,7 @@ function addImage() {
                         <td align="right" valign="top"><p>Learning resource type</p></td>
                         <td valign="top">
                         	<select name="ResourceType" class="width-auto" id="ResourceType">
+                          	<option value="None" <?php if (!(strcmp("None", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>None</option>
                         	  <option value="Interactive" <?php if (!(strcmp("Interactive", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Exercise</option>
                         	  <option value="Presentation" <?php if (!(strcmp("Presentation", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Slide</option>
                              <option value="Reading" <?php if (!(strcmp("Reading", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Reading</option>
@@ -307,6 +312,21 @@ function addImage() {
                           <input name="AgeMin" type="text" id="AgeMin" placeholder="minimum age" value="<?php echo $row_Resource['AgeStart']; ?>">
                           <p>Max. </p>
                           <input name="AgeMax" type="text" id="AgeMax" placeholder="maximum age" value="<?php echo $row_Resource['AgeEnd']; ?>">
+                        </td>
+                      </tr>
+                                            <tr>
+                        <td align="right" valign="top"><p>Educational use</p></td>
+                        <td valign="top">
+                        	<select name="Use" class="width-auto" id="Use">
+                        	  <option value="None" selected <?php if (!(strcmp("None", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>None</option>
+                        	  <option value="Assessment" <?php if (!(strcmp("Assessment", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Assessment</option>
+                        	  <option value="Assignment" <?php if (!(strcmp("Assignment", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Assignment</option>
+                        	  <option value="Direct Instruction" <?php if (!(strcmp("Direct Instruction", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Direct Instruction</option>
+                        	  <option value="Group Work" <?php if (!(strcmp("Group Work", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Group Work</option>
+                        	  <option value="Indirect Instruction" <?php if (!(strcmp("Indirect Instruction", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Indirect Instruction</option>
+                        	  <option value="Interactive / Experiential" <?php if (!(strcmp("Interactive / Experiential", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Interactive / Experiential</option>
+                        	  <option value="Suggested Reading" <?php if (!(strcmp("Suggested Reading", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Suggested Reading</option>
+                          </select>
                         </td>
                       </tr>
                       <tr>
@@ -356,23 +376,9 @@ function addImage() {
                             </select>
                         </td>
                       </tr>
-                      <tr>
-                        <td align="right" valign="top"><p>Educational use</p></td>
-                        <td valign="top">
-                        	<select name="Use" class="width-auto" id="Use">
-                                <option>Assignment</option>
-                                <option>Group work</option>
-                                <option>Direct instruction</option>
-                                <option>Indirect instruction</option>
-                                <option>Assessment</option>
-                                <option>Teacher material</option>
-                                <option>Interactive</option>
-                                <option>Experimental</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                      </tr>
                       -->
+
+                      
                       <tr>
                         <td align="right" valign="top">&nbsp;</td>
                         <td valign="top">
