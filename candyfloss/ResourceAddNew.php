@@ -139,8 +139,13 @@ function addImage() {
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
-                 <a class="brand" href="#" style="background-color:pink">Candy Floss</a>
+                 <a class="brand" href="ResourcesViewAll.php" style="background-color:pink">Candy Floss</a>
+                
                 </div>
+                 <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px; right:0; top:0; position:absolute" href="ResourcesViewAll.php">
+	          <i class="icon-eye-open icon-white"></i> 
+	          View
+	          </a>
             </div>
         </div>
         

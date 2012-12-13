@@ -62,9 +62,9 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
-                 <a class="brand" href="#"><img src="img/headerlogo.png">Common Core</a>
+                 <a class="brand" href="#" style="background-color:pink">Candy Floss</a>
                 </div>
-                <div><a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px; right:0; top:0; position:absolute" href="http://ec2-184-169-189-211.us-west-1.compute.amazonaws.com/candyfloss/ResourceAddNew.php?Action=Add">
+                <div><a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px; right:0; top:0; position:absolute" href="ResourceAddNew.php?Action=Add">
 	          <i class="icon-plus icon-white"></i> 
 	          Add new
 	          </a>
