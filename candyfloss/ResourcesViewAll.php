@@ -1,3 +1,42 @@
+<?php require_once('../Connections/projector.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_projector, $projector);
+$query_resourceList = "SELECT * FROM CF_Resources";
+$resourceList = mysql_query($query_resourceList, $projector) or die(mysql_error());
+$row_resourceList = mysql_fetch_assoc($resourceList);
+$totalRows_resourceList = mysql_num_rows($resourceList);
+?>
 <!doctype html>
 <html>
     <head>
@@ -25,6 +64,11 @@
                 <div class="container-fluid">
                  <a class="brand" href="#"><img src="img/headerlogo.png">Common Core</a>
                 </div>
+                <div><a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px; right:0; top:0; position:absolute" href="http://ec2-184-169-189-211.us-west-1.compute.amazonaws.com/candyfloss/ResourceAddNew.php?Action=Add">
+	          <i class="icon-plus icon-white"></i> 
+	          Add new
+	          </a>
+	         </div>
             </div>
         </div>
         
@@ -64,26 +108,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                        <a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a>
-                        </td>
-                        <td>21</td>
-                        <td><img src="img/placeholder-square.jpg" class="img-polaroid" width="100"></td>
-                        <td>Title</td>
-                        <td>
-                        <a class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a>
-                        </td>
-                    </tr>
+                	<?php do { ?>
                     <tr>
                       <td>
-                      <a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a>
+                      <a class="btn btn-mini btn-primary" href="http://ec2-184-169-189-211.us-west-1.compute.amazonaws.com/candyfloss/ResourceAddNew.php<?php echo "?Action=Edit&Id=" . $row_resourceList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a>
                       </td>
-                      <td>22</td>
-                      <td><img src="img/placeholder-square.jpg" alt="" width="100" class="img-polaroid"></td>
-                      <td>Title</td>
+                      <td><?php echo $row_resourceList['Id']; ?></td>
+                      <td><img src="<?php echo $row_resourceList['ImageThumbnail']; ?>" alt="" name="" width="100" class="img-polaroid"/></td>
+                      <td><?php echo $row_resourceList['Name']; ?></td>
                       <td><a class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
                     </tr>
+                    <?php } while ($row_resourceList = mysql_fetch_assoc($resourceList)); ?>
                 </tbody>
             </table>
             	</div>
