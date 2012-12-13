@@ -48,22 +48,7 @@ if (isset($_GET["Action"])) {
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                       GetSQLValueString($_POST['Id'], "int"),
-                       GetSQLValueString($_POST['Title'], "text"),
-                       GetSQLValueString($_POST['Description'], "text"),
-                       GetSQLValueString($_POST['Language'], "text"),
-                       GetSQLValueString($_POST['MediaType'], "text"),
-                       GetSQLValueString($_POST['InteractivityType'], "text"),
-                       GetSQLValueString($_POST['ResourceType'], "text"),
-                       GetSQLValueString($_POST['ResourceURL'], "text"),
-                       GetSQLValueString($_POST['Author'], "text"),
-                       GetSQLValueString($_POST['Publisher'], "text"),
-                       GetSQLValueString($_POST['AgeMin'], "int"),
-                       GetSQLValueString($_POST['AgeMax'], "int"),
-											 GetSQLValueString($_POST['Audience'], "text"));
-	} else if ($_POST["MM_action"] == "Edit") {
-		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, ImageThumbnail) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -77,6 +62,24 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['AgeMin'], "int"),
                        GetSQLValueString($_POST['AgeMax'], "int"),
 											 GetSQLValueString($_POST['Audience'], "text"),
+											 GetSQLValueString($_POST['ThumbNail'], "text"));
+	} else if ($_POST["MM_action"] == "Edit") {
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s, ImageThumbnail=%s, ImageLarge=%s WHERE Id=%s",
+                       GetSQLValueString($_POST['Id'], "int"),
+                       GetSQLValueString($_POST['Title'], "text"),
+                       GetSQLValueString($_POST['Description'], "text"),
+                       GetSQLValueString($_POST['Language'], "text"),
+                       GetSQLValueString($_POST['MediaType'], "text"),
+                       GetSQLValueString($_POST['InteractivityType'], "text"),
+                       GetSQLValueString($_POST['ResourceType'], "text"),
+                       GetSQLValueString($_POST['ResourceURL'], "text"),
+                       GetSQLValueString($_POST['Author'], "text"),
+                       GetSQLValueString($_POST['Publisher'], "text"),
+                       GetSQLValueString($_POST['AgeMin'], "int"),
+                       GetSQLValueString($_POST['AgeMax'], "int"),
+											 GetSQLValueString($_POST['Audience'], "text"),
+											 GetSQLValueString($_POST['ThumbNail'], "text"),
+											 GetSQLValueString($_POST['DetailImage'], "text"),
 											 GetSQLValueString($_POST['Id'], "int"));
 	}
 
@@ -136,7 +139,7 @@ function addImage() {
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
-                 <a class="brand" href="#"><img src="img/headerlogo.png">Common Core</a>
+                 <a class="brand" href="#" style="background-color:pink">Candy Floss</a>
                 </div>
             </div>
         </div>
@@ -191,6 +194,7 @@ function addImage() {
                         <td align="right" valign="top"><p>Small image</p></td>
                         <td valign="top">
                             <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
+                            <input name="ThumbNail" type="text" id="ThumbNail" value="<?php echo $row_Resource['ImageThumbnail']; ?>">
                             <br/><br/>
                             <img src="<?php echo $row_Resource['ImageThumbnail']; ?>" class="img-polaroid">
                         </td>
@@ -199,6 +203,7 @@ function addImage() {
                         <td align="right" valign="top"><p>Large image</p></td>
                         <td valign="top">
                             <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
+                            <input name="DetailImage" type="text" id="DetailImage" value="<?php echo $row_Resource['ImageLarge']; ?>">
                             <br/><br/>
                             <img src="<?php echo $row_Resource['ImageLarge']; ?>" class="img-polaroid">
                         </td>

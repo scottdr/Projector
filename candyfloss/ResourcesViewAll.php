@@ -111,11 +111,11 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                 	<?php do { ?>
                     <tr>
                       <td>
-                      <a class="btn btn-mini btn-primary" href="http://ec2-184-169-189-211.us-west-1.compute.amazonaws.com/candyfloss/ResourceAddNew.php<?php echo "?Action=Edit&Id=" . $row_resourceList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a>
+                      <a class="btn btn-mini btn-primary" href="ResourceAddNew.php<?php echo "?Action=Edit&Id=" . $row_resourceList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a>
                       </td>
                       <td><?php echo $row_resourceList['Id']; ?></td>
                       <td><img src="<?php echo $row_resourceList['ImageThumbnail']; ?>" alt="" name="" width="100" class="img-polaroid"/></td>
-                      <td><?php echo $row_resourceList['Name']; ?></td>
+                      <td><a href="ResourceDetail.php?Id=<?php echo $row_resourceList['Id']; ?>"><?php echo $row_resourceList['Name']; ?></a></td>
                       <td><a class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
                     </tr>
                     <?php } while ($row_resourceList = mysql_fetch_assoc($resourceList)); ?>
