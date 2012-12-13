@@ -48,7 +48,7 @@ if (isset($_GET["Action"])) {
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, ImageThumbnail) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, ImageThumbnail, Unit, Collection) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -62,9 +62,11 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['AgeMin'], "int"),
                        GetSQLValueString($_POST['AgeMax'], "int"),
 											 GetSQLValueString($_POST['Audience'], "text"),
+											 GetSQLValueString($_POST['Unit'], "int"),
+											 GetSQLValueString($_POST['Collection'], "text"),
 											 GetSQLValueString($_POST['ThumbNail'], "text"));
 	} else if ($_POST["MM_action"] == "Edit") {
-		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s, ImageThumbnail=%s, ImageLarge=%s WHERE Id=%s",
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s, ImageThumbnail=%s, ImageLarge=%s, Unit=%s, Collection=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -80,6 +82,8 @@ if (isset($_POST["MM_action"])) {
 											 GetSQLValueString($_POST['Audience'], "text"),
 											 GetSQLValueString($_POST['ThumbNail'], "text"),
 											 GetSQLValueString($_POST['DetailImage'], "text"),
+											 GetSQLValueString($_POST['Unit'], "int"),
+											 GetSQLValueString($_POST['Collection'], "text"),
 											 GetSQLValueString($_POST['Id'], "int"));
 	}
 
@@ -302,6 +306,31 @@ function addImage() {
                           <input name="AgeMin" type="text" id="AgeMin" placeholder="minimum age" value="<?php echo $row_Resource['AgeStart']; ?>">
                           <p>Max. </p>
                           <input name="AgeMax" type="text" id="AgeMax" placeholder="maximum age" value="<?php echo $row_Resource['AgeEnd']; ?>">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top"><p>Unit</p></td>
+                        <td valign="top">
+                        	<select name="Unit" class="width-auto" id="ResourceType">
+                        	  <option value="1" <?php if (!(strcmp("1", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>1</option>
+                        	  <option value="2" <?php if (!(strcmp("2", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>2</option>
+                            <option value="3" <?php if (!(strcmp("3", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>3</option>
+                            <option value="4" <?php if (!(strcmp("4", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>4</option>
+                        	  <option value="5" <?php if (!(strcmp("5", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>5</option>
+                            <option value="6" <?php if (!(strcmp("6", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>6</option>
+                        	  <option value="7" <?php if (!(strcmp("7", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>7</option>
+                        	  <option value="8" <?php if (!(strcmp("8", $row_Resource['Unit']))) {echo "selected=\"selected\"";} ?>>8</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="right" valign="top"><p>Collection</p></td>
+                        <td valign="top">
+                        	<select name="Collection" size="3" multiple class="width-auto" id="ResourceType">
+                        	  <option value="Curated" <?php if (!(strcmp("Curated", $row_Resource['Collection']))) {echo "selected=\"selected\"";} ?>>Curated Library</option>
+                        	  <option value="Pearson" <?php if (!(strcmp("Pearson", $row_Resource['Collection']))) {echo "selected=\"selected\"";} ?>>Pearson Resources</option>
+                        	  <option value="OER" <?php if (!(strcmp("OER", $row_Resource['Collection']))) {echo "selected=\"selected\"";} ?>>Open Educational Resource</option>
+                          </select>
                         </td>
                       </tr>
                       <!--<tr>
