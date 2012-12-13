@@ -318,7 +318,7 @@ function addImage() {
                         <td align="right" valign="top"><p>Educational use</p></td>
                         <td valign="top">
                         	<select name="Use" class="width-auto" id="Use">
-                        	  <option value="None" selected <?php if (!(strcmp("None", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>None</option>
+                        	  <option value="None Specified" selected <?php if (!(strcmp("None Specified", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>None Specified</option>
                         	  <option value="Assessment" <?php if (!(strcmp("Assessment", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Assessment</option>
                         	  <option value="Assignment" <?php if (!(strcmp("Assignment", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Assignment</option>
                         	  <option value="Direct Instruction" <?php if (!(strcmp("Direct Instruction", $row_Resource['EducationalUse']))) {echo "selected=\"selected\"";} ?>>Direct Instruction</option>
