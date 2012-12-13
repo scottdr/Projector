@@ -284,8 +284,8 @@ function addImage() {
                         <td valign="top">
                         	<select name="ResourceType" class="width-auto" id="ResourceType">
                           	<option value="None" <?php if (!(strcmp("None", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>None</option>
-                        	  <option value="Interactive" <?php if (!(strcmp("Interactive", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Exercise</option>
-                        	  <option value="Presentation" <?php if (!(strcmp("Presentation", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Slide</option>
+                        	  <option value="Interactive" <?php if (!(strcmp("Interactive", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Interactive</option>
+                        	  <option value="Presentation" <?php if (!(strcmp("Presentation", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Presentation</option>
                              <option value="Reading" <?php if (!(strcmp("Reading", $row_Resource['LearningResourceType']))) {echo "selected=\"selected\"";} ?>>Reading</option>
                           </select>
                         </td>
