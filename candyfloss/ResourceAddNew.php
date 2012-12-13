@@ -48,13 +48,12 @@ if (isset($_GET["Action"])) {
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, TimeRequired, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
                        GetSQLValueString($_POST['Language'], "text"),
                        GetSQLValueString($_POST['MediaType'], "text"),
-                       GetSQLValueString($_POST['Time'], "int"),
                        GetSQLValueString($_POST['InteractivityType'], "text"),
                        GetSQLValueString($_POST['ResourceType'], "text"),
                        GetSQLValueString($_POST['ResourceURL'], "text"),
@@ -64,13 +63,12 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['AgeMax'], "int"),
 											 GetSQLValueString($_POST['Audience'], "text"));
 	} else if ($_POST["MM_action"] == "Edit") {
-		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, TimeRequired=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s WHERE Id=%s",
+		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
                        GetSQLValueString($_POST['Language'], "text"),
                        GetSQLValueString($_POST['MediaType'], "text"),
-                       GetSQLValueString($_POST['Time'], "int"),
                        GetSQLValueString($_POST['InteractivityType'], "text"),
                        GetSQLValueString($_POST['ResourceType'], "text"),
                        GetSQLValueString($_POST['ResourceURL'], "text"),
@@ -281,12 +279,12 @@ function addImage() {
                             </select>
                         </td>
                       </tr>
-                      <tr>
+      <!--                <tr>
                         <td align="right" valign="top"><p>Time required</p></td>
                         <td valign="top">
                         	<input name="Time" type="text" class="width-auto" id="Time" placeholder="x hours x min" value="<?php echo $row_Resource['TimeRequired']; ?>">
                         </td>
-                      </tr>
+                      </tr>-->
                       <tr>
                         <td align="right" valign="top"><p>Age range</p></td>
                         <td valign="top">
