@@ -77,38 +77,49 @@ if ($ageStart && $ageEnd) {
     	
         
     <!-- Header Starts -->
-        <div class="navbar navbar-inverse navbar-fixed-top">
+    
+    <header class="row-fluid">
+        <div class="navbar navbar-inverse span12" style="margin-bottom:0px;">
             <div class="navbar-inner">
-	            <div class="container-fluid">
-                 <a class="brand" href="ResourcesViewAll.php" style="background-color:pink">Candy Floss</a>
-                </div>
+                 <a class="brand" href="#" style="padding-left:25px;">Candy Floss</a>
+                 <p class="pagination-right" style="padding-top:15px;padding-right:5px;">Welcome, Bob &nbsp; | &nbsp; Sign out</p>
+             </div>
+		</div>
+        
+        <div class="navbar">
+          <div class="navbar-inner">
+            <ul class="nav">
+              <li class="active"><a href="CollectionsPage.php">COLLECTIONS</a></li>
+              <li><a href="#">MY WEB</a></li>
+              <li><a href="#">ABOUT</a></li>
+            </ul>
+            <div class="pagination-right">
+                <a class="btn btn-small" href="ResourceAddNew.php?Action=Add">
+                  <i class="icon-plus"></i> Add new
+                </a>
+                <a class="btn btn-small" href="ResourcesViewAll.php">
+                  <i class="icon-list-alt"></i> View All
+                </a>
             </div>
+          </div>
         </div>
         
-    	<div class="container-fluid">
-            <section class="row-fluid" style="padding-top:50px;">
-              <div class="span12" style="background-color: #02ACF0; height: 40px; overflow: hidden; border: 0; padding: 0; margin: 0;">
-                    <a href="#" class="navItemDown">COLLECTIONS</a>
-                    <a href="#" class="navItemUp">MY WEB</a>
-                    <a href="#" class="navItemUp">ABOUT</a>
-                </div>
-            </section>  
-        </div>
+	</header>
+    
         
-        
-        <!-- Content Starts -->
-        <div class="container-fluid">
-            <section class="row-fluid" style="padding-top:10px;padding-bottom:20px;"> 
+    <div class="container-fluid">
+
+            <section class="row-fluid"> 
               
-              <div class="span8">
+              <div class="span12">
                 <h3>Resource Details</h3>
               </div>
-              <div class="span4">
+              <!--<div class="span4">
               	<div id="headerBackButton">
                   <a href="CollectionsPage.php">Back to Collections </a>
                 </div>
               </div>
-              
+              -->
             </section>
             
             <section class="row-fluid" style="background-color:#FFF;">

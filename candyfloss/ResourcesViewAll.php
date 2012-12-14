@@ -59,36 +59,40 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
     	
         
     <!-- Header Starts -->
-        <div class="navbar navbar-inverse navbar-fixed-top">
+    
+    <header class="row-fluid">
+        <div class="navbar navbar-inverse span12" style="margin-bottom:0px;">
             <div class="navbar-inner">
-                <div class="container-fluid">
-                 <a class="brand" href="#" style="background-color:pink">Candy Floss</a>
-                </div>
-                <div><a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px; right:0; top:0; position:absolute" href="ResourceAddNew.php?Action=Add">
-	          <i class="icon-plus icon-white"></i> 
-	          Add new
-	          </a>
-	         </div>
+                 <a class="brand" href="#" style="padding-left:25px;">Candy Floss</a>
+                 <p class="pagination-right" style="padding-top:15px;padding-right:5px;">Welcome, Bob &nbsp; | &nbsp; Sign out</p>
+             </div>
+		</div>
+        
+        <div class="navbar">
+          <div class="navbar-inner">
+            <ul class="nav">
+              <li class="active"><a href="CollectionsPage.php">COLLECTIONS</a></li>
+              <li><a href="#">MY WEB</a></li>
+              <li><a href="#">ABOUT</a></li>
+            </ul>
+            <div class="pagination-right">
+                <a class="btn btn-small" href="ResourceAddNew.php?Action=Add">
+                  <i class="icon-plus"></i> Add new
+                </a>
+                <a class="btn btn-small" href="ResourcesViewAll.php">
+                  <i class="icon-list-alt"></i> View All
+                </a>
             </div>
+          </div>
         </div>
         
-    	<div class="container-fluid">
-            <section class="row-fluid" style="padding-top:50px;">
-              <div class="span12" style="background-color: #02ACF0; height: 40px; overflow: hidden; border: 0; padding: 0; margin: 0;">
-                    <a href="#" class="navItemDown">COLLECTIONS</a>
-                    <a href="#" class="navItemUp">MY WEB</a>
-                    <a href="#" class="navItemUp">ABOUT</a>
-                </div>
-            </section>  
-        </div>
+	</header>
+    
         
-        
-        <!-- Content Starts -->
-       <!-- Content Starts -->
-        <div class="container-fluid">
+    <div class="container-fluid">
         
         	<!-- Page title -->
-            <section class="row-fluid" style="padding-top:10px;padding-bottom:10px;"> 
+            <section class="row-fluid"> 
               <div class="span12">
                 <h3>All Resources</h3>
               </div>
@@ -101,11 +105,11 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                 <thead>
                     <tr>
                         <th width="10%">&nbsp;</th>
-                        <th width="10%">ID</th>
-                        <th width="20%">Thumbnail</th>
-                        <th width="50%">Title</th>
-                        <th width="50%">Unit</th>
-                        <th width="50%">Collection</th>
+                        <th width="5%">ID</th>
+                        <th width="10%">Thumbnail</th>
+                        <th width="40%">Title</th>
+                        <th width="10%">Unit</th>
+                        <th width="15%">Collection</th>
                         <th width="10%">&nbsp;</th>
                     </tr>
                 </thead>
