@@ -48,7 +48,7 @@ if (isset($_GET["Action"])) {
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, Unit, Collection, EducationalUse, ImageThumbnail) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+  	$sqlCommand = sprintf("INSERT INTO CF_Resources (Id, Name, AboutDetail, InLanguage, MediaType, InteractivityType, LearningResourceType, URL, Author, Publisher, AgeStart, AgeEnd, EndUserRole, Unit, Collection, EducationalUse, ImageThumbnail, ImageLarge) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Id'], "int"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Description'], "text"),
@@ -65,7 +65,8 @@ if (isset($_POST["MM_action"])) {
 											 GetSQLValueString($_POST['Unit'], "int"),
 											 GetSQLValueString($_POST['Collection'], "text"),
 											 GetSQLValueString($_POST['Use'], "text"),
-											 GetSQLValueString($_POST['ThumbNail'], "text"));
+											 GetSQLValueString($_POST['ThumbNail'], "text"),
+											 GetSQLValueString($_POST['DetailImage'], "text"));
 	} else if ($_POST["MM_action"] == "Edit") {
 		$sqlCommand = sprintf("UPDATE CF_Resources Set Id=%s, Name=%s, AboutDetail=%s, InLanguage=%s, MediaType=%s, InteractivityType=%s, LearningResourceType=%s, URL=%s, Author=%s, Publisher=%s, AgeStart=%s, AgeEnd=%s, EndUserRole=%s, ImageThumbnail=%s, ImageLarge=%s, Unit=%s, Collection=%s, EducationalUse=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Id'], "int"),
