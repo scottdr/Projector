@@ -1,3 +1,42 @@
+<?php require_once('../Connections/projector.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_projector, $projector);
+$query_UnitQuery = "SELECT DISTINCT Unit FROM CF_Resources ORDER BY Unit";
+$UnitQuery = mysql_query($query_UnitQuery, $projector) or die(mysql_error());
+$row_UnitQuery = mysql_fetch_assoc($UnitQuery);
+$totalRows_UnitQuery = mysql_num_rows($UnitQuery);
+?>
 <!doctype html>
 <html>
     <head>
@@ -82,10 +121,16 @@
                 <div class="tabbable tabs-left" style="padding:20px;">
                 
                   <ul class="nav nav-tabs span3">
-                    <li class="active"><a href="#Level1-A" data-toggle="tab">UNIT 1</a></li>
-                    <li><a href="#Level1-B" data-toggle="tab">UNIT 2</a></li>
-                    <li><a href="#Level1-C" data-toggle="tab">UNIT 3</a></li>
-                  </ul>
+                   <?php 
+										
+										do { ?>
+                  	<li><a href="#Level1-A" data-toggle="tab">UNIT <?php echo $row_UnitQuery['Unit'];?></a></li>
+										
+									<?php
+										} while ($row_UnitQuery = mysql_fetch_assoc($UnitQuery));
+									?>
+
+									</ul>
                   
                   <!-- Tab content -->
                   <div class="tab-content">
@@ -459,3 +504,6 @@
     <script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script> 
 	</body>
 </html>
+<?php
+mysql_free_result($UnitQuery);
+?>
