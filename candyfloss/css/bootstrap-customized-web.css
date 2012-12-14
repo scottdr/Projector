@@ -169,13 +169,7 @@ a:hover {
 	color: #03ACEF;
 	text-decoration:none;
 }
-.navBarSpacing{
-	padding-top: 50px;
-	 width: 100%;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
+
 #headerBackButton {
 	position: relative;
 	float: right;
