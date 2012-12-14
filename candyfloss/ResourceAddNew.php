@@ -129,13 +129,7 @@ $totalRows_Resource = mysql_num_rows($Resource);
               <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 <script>
-function addImage() {
-		$("#myModal").modal({                    // finally, wire up the actual modal functionality and show the dialog
-			"backdrop"  : "static",
-			"keyboard"  : true,
-			"show"      : true                     // ensure the modal is shown immediately
-		});
-}
+
 </script>
     </head>
     
@@ -387,7 +381,9 @@ function addImage() {
                       <tr>
                         <td align="right" valign="top">&nbsp;</td>
                         <td valign="top">
-                        <input class="btn btn-primary" type="submit" name="button" id="button" value="Save Resource"></td>
+                        <input class="btn btn-primary" type="submit" name="button" id="button" value="Save Resource">
+                        <input onClick="confirmDelete()" class="btn btn-secondary btn-danger" type="button" name="deleteButton" id="deleteButton" value="Delete">
+                        </td>
                       </tr>
                     </table>
                 	<input type="hidden" name="MM_action" value="<?php echo $action; ?>">
@@ -396,11 +392,19 @@ function addImage() {
           </section>
 		</div>
     <!-- set up the modal to start hidden and fade in and out -->
-    <div id="myModal" class="modal hide fade">
+    <div id="urlDialog" class="modal hide fade">
         <!-- dialog contents -->
         <div class="modal-body">URL:<input name="ImageURL" type="text"></div>
         <!-- dialog buttons -->
         <div class="modal-footer"><a href="#" class="btn primary">OK</a></div>
+    </div>
+    
+    <!-- set up the modal to start hidden and fade in and out -->
+    <div id="confirmDelete" class="modal hide fade">
+        <!-- dialog contents -->
+        <div class="modal-body">Are you sure you want to delete the resource, <?php echo $row_Resource['Name']; ?></div>
+        <!-- dialog buttons -->
+        <div class="modal-footer"><a href="#" class="btn secondary" onClick="CloseConfirmDialog()">Cancel</a><a href="ResourceDelete.php?Id=<?php echo $row_Resource['Id']; ?>" class="btn primary">OK</a></div>
     </div>
     
         <!-- JS at the end of the page for faster loading -->
@@ -408,7 +412,7 @@ function addImage() {
       	
       <script src="http://code.jquery.com/jquery-latest.js"></script>
       <script src="js/bootstrap.min.js"></script>
-      <script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script>
+
       <script src="js/bootstrap-datepicker.js"></script> 
 	  <script>
             $(function(){
@@ -419,22 +423,36 @@ function addImage() {
                 
             });
 						
-						$("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
-								$("#myModal a.btn").on("click", function(e) {
+						$("#urlDialog").on("show", function() {    // wire up the OK button to dismiss the modal when shown
+								$("#urlDialog a.btn").on("click", function(e) {
 										console.log("button pressed");   // just as an example...
-										$("#myModal").modal('hide');     // dismiss the dialog
+										$("#urlDialog").modal('hide');     // dismiss the dialog
 								});
 						});
  
-						$("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
-								$("#myModal a.btn").off("click");
+						$("#urlDialog").on("hide", function() {    // remove the event listeners when the dialog is dismissed
+								$("#urlDialog a.btn").off("click");
 						});
 						 
-						$("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
-								$("#myModal").remove();
-						});
-						 
+						function addImage() {
+							$("#urlDialog").modal({                    // finally, wire up the actual modal functionality and show the dialog
+								"backdrop"  : "static",
+								"keyboard"  : true,
+								"show"      : true                     // ensure the modal is shown immediately
+							});
+						}
 						
+						function confirmDelete() {
+							$("#confirmDelete").modal({                    // finally, wire up the actual modal functionality and show the dialog
+								"backdrop"  : "static",
+								"keyboard"  : true,
+								"show"      : true                     // ensure the modal is shown immediately
+							});
+						}
+						
+						function CloseConfirmDialog() {
+							$("#confirmDelete").modal('hide');
+						}
         </script>
 </body>
 </html>
