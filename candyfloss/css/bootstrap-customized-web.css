@@ -26,6 +26,35 @@ h6 {
 	  color: inherit;
 	  text-rendering: optimizelegibility;
 }
+.btn-primary {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #03ACEE;
+  *background-color: #0E74AF;
+	background-image: -moz-linear-gradient(top, #03ACEE, #0E74AF);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#03ACEE), to(#0E74AF));
+	background-image: -webkit-linear-gradient(top, #03ACEE, #0E74AF);
+	background-image: -o-linear-gradient(top, #03ACEE, #0E74AF);
+	background-image: linear-gradient(to bottom, #03ACEE, #0E74AF);
+	background-repeat: repeat-x;
+	border-color: #0E74AF #0E74AF #002a80;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff03ACEE', endColorstr='#ff0E74AF', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  color: #ffffff;
+  background-color: #0E74AF;
+}
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #03ACEE;
+}
 .navbar .brand {
 	display: block;
 	float: left;
@@ -61,6 +90,55 @@ h6 {
 .nav-pills > .active > a:hover {
 	color: #ffffff;
 	background-color: #0088cc;
+}
+
+.navbar-inner-blue {
+	min-height: 40px;
+	padding-right: 20px;
+	padding-left: 20px;
+	background-color: #03ACEE;
+	background-image: -moz-linear-gradient(top, #15A9FF, #03ACEE);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#15A9FF), to(#03ACEE));
+	background-image: -webkit-linear-gradient(top, #15A9FF, #03ACEE);
+	background-image: -o-linear-gradient(top, #15A9FF, #03ACEE);
+	background-image: linear-gradient(to bottom, #15A9FF, #03ACEE);
+	background-repeat: repeat-x;
+	border: 0;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff15A9FF', endColorstr='#ff03ACEE', GradientType=0);
+  *zoom: 1;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+.navbar .nav > li > a {
+	float: none;
+	padding: 10px 15px 10px;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: transparent;
+	text-shadow: 0 0px 0 rgba(0, 0, 0, 0);
+}
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+  color: #03ACEF;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+     -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+          box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
 }
 
 .row-fluid .controls-row [class*="span"] + [class*="span"] {

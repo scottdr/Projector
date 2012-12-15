@@ -74,18 +74,18 @@ $collections = array("Curated", "Pearson", "OER", null);
 		</div>
         
         <div class="navbar">
-          <div class="navbar-inner">
+          <div class="navbar-inner navbar-inner-blue">
             <ul class="nav">
               <li class="active"><a href="CollectionsPage.php">COLLECTIONS</a></li>
               <li><a href="#">MY WEB</a></li>
               <li><a href="#">ABOUT</a></li>
             </ul>
             <div class="pagination-right">
-                <a class="btn btn-small" href="ResourceAddNew.php?Action=Add">
-                  <i class="icon-plus"></i> Add new
+                <a class="btn btn-small btn-primary" href="ResourceAddNew.php?Action=Add">
+                  <i class="icon-plus icon-white"></i> Add new
                 </a>
-                <a class="btn btn-small" href="ResourcesViewAll.php">
-                  <i class="icon-list-alt"></i> View All
+                <a class="btn btn-small btn-primary" href="ResourcesViewAll.php">
+                  <i class="icon-list-alt icon-white"></i> View All
                 </a>
             </div>
           </div>
