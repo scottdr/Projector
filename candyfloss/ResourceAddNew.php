@@ -204,7 +204,7 @@ $totalRows_Resource = mysql_num_rows($Resource);
                         <td align="right" valign="top"><p>Small image</p></td>
                         <td valign="top">
                             <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
-                            <input name="ThumbNail" type="text" id="ThumbNail" value="<?php echo $row_Resource['ImageThumbnail']; ?>">
+                            <input name="ThumbNail" type="text" class="span10" id="ThumbNail" value="<?php echo $row_Resource['ImageThumbnail']; ?>">
                             <br/><br/>
                             <img src="<?php echo $row_Resource['ImageThumbnail']; ?>" class="img-polaroid">
                         </td>
@@ -213,7 +213,7 @@ $totalRows_Resource = mysql_num_rows($Resource);
                         <td align="right" valign="top"><p>Large image</p></td>
                         <td valign="top">
                             <a class="btn btn-small" href="#" onClick="addImage(this)"><i class="icon-arrow-up"></i> Add image</a>
-                            <input name="DetailImage" type="text" id="DetailImage" value="<?php echo $row_Resource['ImageLarge']; ?>">
+                            <input name="DetailImage" type="text" class="span10" id="DetailImage" value="<?php echo $row_Resource['ImageLarge']; ?>">
                             <br/><br/>
                             <img src="<?php echo $row_Resource['ImageLarge']; ?>" class="img-polaroid">
                         </td>
