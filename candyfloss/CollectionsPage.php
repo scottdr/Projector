@@ -167,7 +167,7 @@ $collections = array("Curated", "Pearson", "OER", null);
                   			<div class="accordion-group">
                               <div class="accordion-heading">
                                 <a class="accordion-toggle<?php echo $AccordionHeaderStyleSuffix;$AccordionHeaderStyleSuffix=' collapsed';?>" data-toggle="collapse" data-parent="#accordion<?php echo $i+1;?>" href="#collapse<?php echo $UnitCollectionName;?>">
-                                  <?php echo $collectionName?></a>
+                                  <?php echo $collectionName==null?"Other":$collectionName?></a>
                               </div>
                               <div id="collapse<?php echo $UnitCollectionName;?>" class="accordion-body collapse<?php echo $AccordionStyleSuffix;$AccordionStyleSuffix=' ';?>">
                                 <div class="accordion-inner">
