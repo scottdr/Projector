@@ -1,4 +1,4 @@
-<?php require_once('../Connections/projector.php'); ?>
+<?php require_once('../Connections/projector.php'); require_once('Util.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -152,7 +152,7 @@ if ($ageStart && $ageEnd) {
                     <h5 class="descriptionCopyHeading">Author</h5>
                     <p class="descriptionCopyBody"><?php echo $row_Resource['Author']?$row_Resource['Author']:'--'; ?></p>
                     <h5 class="descriptionCopyHeading">Language</h5>
-                    <p class="descriptionCopyBody"><?php echo $row_Resource['InLanguage']?$row_Resource['InLanguage']:'--'; ?></p>
+                    <p class="descriptionCopyBody"><?php echo $row_Resource['InLanguage']?getLanguageString($row_Resource['InLanguage']):'--'; ?></p>
                     <h5 class="descriptionCopyHeading">Date created</h5>
                     <p class="descriptionCopyBody"><?php echo $row_Resource['DateCreated']?$row_Resource['DateCreated']:'--'; ?></p>
                 </div>
