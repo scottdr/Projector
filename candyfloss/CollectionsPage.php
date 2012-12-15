@@ -145,27 +145,28 @@ $collections = array("Curated", "Pearson", "OER", null);
                   <div class="tab-content">
                   
                   <?php 
+                  	$tabPaneClassSuffix=' active';
                   	for ($i=0;$i<$totalRows_UnitQuery;$i++) {
                   		// Unit iteration.
                   	?>
-                    <div class="tab-pane active" id="Level<?php echo $i+1;?>-A">
+                    <div class="tab-pane<?php echo $tabPaneClassSuffix;$tabPaneClassSuffix='';?>" id="Level<?php echo $i+1;?>-A">
                       
             			<div class="accordion" id="accordion<?php echo $i+1;?>">
             			
             				 <?php 
-            				 
+            				 $AccordionHeaderStyleSuffix = '';
+            				 $AccordionStyleSuffix = ' in';
             				 
             				 // Collections iteration with a given Unit.
             				//mysql_data_seek ( $UnitsCollectionsQuery, 0 );
             				 foreach($collections as $collectionName) {
-            				 	$AccordionStyleSuffix = ' in';
             				 	$UnitCollectionName = '' . ($i+1) . $collectionName;
                   			// Category iteration with given Unit. ?>
                   			<!-- fill in with accordions -->
                   			
                   			<div class="accordion-group">
                               <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion<?php echo $i+1;?>" href="#collapse<?php echo $UnitCollectionName;?>">
+                                <a class="accordion-toggle<?php echo $AccordionHeaderStyleSuffix;$AccordionHeaderStyleSuffix=' collapsed';?>" data-toggle="collapse" data-parent="#accordion<?php echo $i+1;?>" href="#collapse<?php echo $UnitCollectionName;?>">
                                   <?php echo $collectionName?></a>
                               </div>
                               <div id="collapse<?php echo $UnitCollectionName;?>" class="accordion-body collapse<?php echo $AccordionStyleSuffix;$AccordionStyleSuffix=' ';?>">
