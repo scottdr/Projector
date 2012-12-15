@@ -124,7 +124,7 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                       <td><a href="ResourceDetail.php?Id=<?php echo $row_resourceList['Id']; ?>"><?php echo $row_resourceList['Name']; ?></a></td>
                       <td><?php echo $row_resourceList['Unit']; ?></td>
                       <td><?php echo $row_resourceList['Collection']; ?></td>
-                      <td><a class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
+                      <td><a data-controls-modal="ConfirmDelete" class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
                     </tr>
                     <?php } while ($row_resourceList = mysql_fetch_assoc($resourceList)); ?>
                 </tbody>
