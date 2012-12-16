@@ -179,7 +179,7 @@ $collections = array("Curated", "Pearson", "OER", null);
 										
 										do {
 											if ( ($row_UnitsCollectionsQuery['Unit']==($i+1)) && ($row_UnitsCollectionsQuery['Collection']==$collectionName) ) { ?>
-													<div class="span3 FoxtrotSpan3">
+													<div class="span3 FoxtrotSpan3" style="height:200px;">
                                             <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
                                                         <a href="ResourceDetail.php?Id=<?php echo $row_UnitsCollectionsQuery['Id'];?>">
                                                             <img src="<?php echo $row_UnitsCollectionsQuery['ImageThumbnail'];?>" alt="<?php echo $row_UnitsCollectionsQuery['Name'];?>" class="FoxtrotThumbnailImg">
