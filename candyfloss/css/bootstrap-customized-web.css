@@ -158,7 +158,10 @@ h6 {
 .FoxtrotSpan3 {
 	padding-top: 15px;
 	padding-bottom: 0px;
+	padding-left:0px;
+	padding-right:0px;
   	color: #000;
+	height:200px;
 }
 .FoxtrotSpan3 a {
 	padding-top: 15px;
@@ -172,6 +175,10 @@ h6 {
 .FoxtrotSpan3:hover a {
 	background-color: #FEA800;
 	color:#FFF;
+}
+.accordion-inner {
+  padding: 10px;
+  border-top: 1px solid #e5e5e5;
 }
 
 .InfoButton {

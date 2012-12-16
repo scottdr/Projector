@@ -175,24 +175,23 @@ $collections = array("Curated", "Pearson", "OER", null);
                                   
                                   <section class="row-fluid">
                                   
+                                  
                                    <?php 
 										
 										do {
 											if ( ($row_UnitsCollectionsQuery['Unit']==($i+1)) && ($row_UnitsCollectionsQuery['Collection']==$collectionName) ) { ?>
 													<div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
                                                         <a href="ResourceDetail.php?Id=<?php echo $row_UnitsCollectionsQuery['Id'];?>">
                                                             <img src="<?php echo $row_UnitsCollectionsQuery['ImageThumbnail'];?>" alt="<?php echo $row_UnitsCollectionsQuery['Name'];?>" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy"><?php echo $row_UnitsCollectionsQuery['Name'];?></h2>
-                                                            
                                                         </a>
-                                            </div>
+                                            		</div>
 									<?php  }
 										
 										} while ($row_UnitsCollectionsQuery = mysql_fetch_assoc($UnitsCollectionsQuery));
 									?>
                                       
-                                      </section>
+                                   </section>
                                   
                                 </div>
                               </div>
