@@ -51,6 +51,7 @@ $totalRows_ProjectInfo = mysql_num_rows($ProjectInfo);
 if ($totalRows_ProjectInfo > 0)
 	$projectName = $row_ProjectInfo['Name']; 
 
+$projectId = 1;
 if (isset($_GET['Id']))
 	$projectId = $_GET['Id'];
 
@@ -139,6 +140,8 @@ if (isset($_POST["MM_action"])) {
 <script type="text/javascript">
 var editor;
 var editorInstance;
+var stepId;
+var projectId;
 
 function populateOrderMenu(numItems) {
 	var dropdown = document.getElementById("SortOrder");
@@ -163,6 +166,7 @@ function addOption(selectbox, text, value) {
 
 function loadStepData(ProjectId, StepNumber, StepId) {
 	//alert ('user clicked on Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
+	stepId = StepId;	// set global
 	populateOrderMenu(StepNumber);
 	urlLoadStep = "_php/LoadStepData.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
 	
@@ -194,6 +198,7 @@ function updateData(jsonStepData) {
 /* When we add a step clear out all the fields, and set the Order to the StepNumber, and select the appropriate routine Id  */
 function addStep(ProjectId, StepNumber, RoutineId) {
 //	alert('adding step # ' + StepNumber + " id = " + RoutineId);
+	
 	populateOrderMenu(StepNumber+1);
 	document.getElementById('MM_action').value = "Add";		// set this hidden value so we know to do an insert instead of update
 	document.getElementById('Name').value = "";
@@ -224,7 +229,7 @@ function attachMedia(projectId,type)
   	url: urlValue,
   	cache: false
 	}).done(function( html ) {
-		$("#MediaDialog").append(html);
+		$("#ModalBody").append(html);
 		$("#MediaDialog").modal({                    // finally, wire up the actual modal functionality and show the dialog
 								"backdrop"  : "static",
 								"keyboard"  : true,
@@ -241,7 +246,7 @@ function attachMedia(projectId,type)
 	});
 }
 
-function CloseConfirmDialog() {
+function CloseDialog() {
 	$("#MediaDialog").modal('hide');
 }
 						
@@ -358,7 +363,7 @@ function CloseConfirmDialog() {
                 <tr>
                   <td width="140">Template media</td>
                   <td>
-                  	<a class="btn btn-small" href="#" onclick="attachMedia(<?php echo $projectId; ?>)"><i class="icon-folder-open"></i> Select media from library</a>
+                  	<a class="btn btn-small" href="#" onclick="attachMedia(<?php echo $projectId; ?>,'image')"><i class="icon-folder-open"></i> Select media from library</a>
                     &nbsp;
                     <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add new media</a>
                   </td>
@@ -388,7 +393,15 @@ function CloseConfirmDialog() {
 </div>
 
 <div id="MediaDialog" class="modal hide fade">
-Select the media to be attached:
+	<div class="modal-header">
+  	<a href="#" class="close" data-dismiss="modal">&times;</a>
+  	<h3>Select the media to be attached</h3>
+  </div>
+  <div id="ModalBody" class="modal-body">
+  	<div class="divDialogElements">
+    </div>
+  </div>
+  <div class="modal-footer"> <a href="#" class="btn" onClick="CloseDialog();">Cancel</a> <a href="#" class="btn btn-primary" onClick="okClicked();">Attach</a> </div>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
