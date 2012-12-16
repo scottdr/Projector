@@ -141,7 +141,7 @@ else
                <h1><?php echo $row_foundRecord['Name']; ?></h1>
             </div>
             <div id="titleNav" class="floatRight" style="padding-bottom:20px;">
-              <form action="EditProject.php" method="get">
+              <form action="editor/Projector_EditSteps.php" method="get">
                   <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
 									<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
                   	<input class="button" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="submit" value="Edit" />

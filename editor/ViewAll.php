@@ -109,8 +109,8 @@ $totalRows_projectList = mysql_num_rows($projectList);
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="Projector_EditChallenge.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
                         <td><?php echo $row_projectList['Id']; ?></td>
-                        <td><a href="Projector_EditChallenge.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
-                        <td><a href="Projector_EditChallenge.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></td>
+                        <td><a href="/ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
+                        <td><a href="/ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></td>
                         <td><?php echo getGrade($row_projectList); ?></td>
                         <td><?php echo $row_projectList['Subject']; ?></td>
                         <td><?php echo $row_projectList['Status']; ?></td>

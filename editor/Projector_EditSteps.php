@@ -215,6 +215,36 @@ function deleteStep()
 	window.location = "_php/DeleteStep.php?Id=" + stepId + "&ProjectId=" + projectId + "&RoutineId=" + routineId;
 }
 
+function attachMedia(projectId,type)
+{
+	var urlValue = "MediaData.php?ProjectId=" + projectId;
+	if (type == "video")
+		urlValue += "&type=video";
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		$("#MediaDialog").append(html);
+		$("#MediaDialog").modal({                    // finally, wire up the actual modal functionality and show the dialog
+								"backdrop"  : "static",
+								"keyboard"  : true,
+								"show"      : true                     // ensure the modal is shown immediately
+							});
+/*		$("#Dialog").removeClass("hideMe");
+  	$("#Dialog").append(html);
+		$( "#Dialog" ).dialog({
+			height: 800,
+			width: 500,
+			modal: true
+		});
+	*/
+	});
+}
+
+function CloseConfirmDialog() {
+	$("#MediaDialog").modal('hide');
+}
+						
 </script>
 </head>
 
@@ -232,7 +262,7 @@ function deleteStep()
           <li><a href="Projector_EditChallenge.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
           <li class="active"><a href="#"><i class="icon-edit"></i> Steps</a></li>
           <li><a href="Projector_ViewMedia.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="/ChallengeTemplate_CCSoC.php?ProjectId=<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="/ChallengeTemplate.php?ProjectId=<?php if (isset($_GET['Id'])) echo $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -328,7 +358,7 @@ function deleteStep()
                 <tr>
                   <td width="140">Template media</td>
                   <td>
-                  	<a class="btn btn-small" href="#"><i class="icon-folder-open"></i> Select media from library</a>
+                  	<a class="btn btn-small" href="#" onclick="attachMedia(<?php echo $projectId; ?>)"><i class="icon-folder-open"></i> Select media from library</a>
                     &nbsp;
                     <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add new media</a>
                   </td>
@@ -355,6 +385,10 @@ function deleteStep()
     <!-- CONTENT ENDS -->
     
     <?php include("EditorFooter.php"); ?>
+</div>
+
+<div id="MediaDialog" class="modal hide fade">
+Select the media to be attached:
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
