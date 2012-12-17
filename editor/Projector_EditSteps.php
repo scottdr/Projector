@@ -143,6 +143,9 @@ var editorInstance;
 var stepId;
 var projectId;
 
+thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'TextOnly.php' : '3-TextOnly.png', 'MediaLeft.php' : '4-MediaLeft.png','MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
+
+
 function populateOrderMenu(numItems) {
 	var dropdown = document.getElementById("SortOrder");
 	var currentCount = dropdown.options.length;
@@ -192,6 +195,7 @@ function updateData(jsonStepData) {
 	document.getElementById('OriginalSortOrder').value = stepData.SortOrder;
 	document.getElementById('RoutineId').value = stepData.RoutineId;
 	document.getElementById('Template').value = stepData.TemplateName;
+	updateThumbnailImage(stepData.TemplateName);
 	document.getElementById('Id').value = stepData.Id;
 	displayAttachedMedia(stepData.Id);		// update the display of attached media
 }
@@ -261,6 +265,17 @@ function CloseDialog() {
 
 function okClicked() {
 	$("#MediaDialog").modal('hide');
+}
+
+function updateThumbnailImage(templateName)
+{
+	var newThumbnailSrc = "/lessonTemplates/images/thumbnails/" + thumbnailMap[templateName];
+	document.getElementById('thumbnailImage').src = newThumbnailSrc;
+}
+
+function doTemplateChange(combobox) {
+	var newThumbnailSrc = "/lessonTemplates/images/thumbnails/" + thumbnailMap[combobox.value];
+	document.getElementById('thumbnailImage').src = newThumbnailSrc;
 }
 						
 </script>
@@ -351,20 +366,20 @@ function okClicked() {
                 </tr> -->
                 <tr>
                   <td width="140">Template</td>
-                  <td>
-                      <select name="Template" size="1" id="Template">
-                        <option value="Intro.php" selected="SELECTED">Intro</option>
-                        <option value="Splash.php">Splash</option>
-                        <option value="TextOnly.php">Text only</option>
-                        <option value="MediaLeft.php">Media left</option>
-                        <option value="MediaRight.php">Media right</option>
-                        <option value="IconLeft.php">Icon left</option>
-                        <option value="Plan.php">Plan</option>
-                        <option value="Research.php">Research</option>
-                        <option value="Create.php">Create</option>
-                        <option value="Revise.php">Revise</option>
-                        <option value="Present.php">Present</option>
-                      </select>
+                  <td><select name="Template" size="1" id="Template" onChange="doTemplateChange(this)">
+                    <option value="Intro.php" selected="SELECTED">Intro</option>
+                    <option value="Splash.php">Splash</option>
+                    <option value="TextOnly.php">Text only</option>
+                    <option value="MediaLeft.php">Media left</option>
+                    <option value="MediaRight.php">Media right</option>
+                    <option value="IconLeft.php">Icon left</option>
+                    <option value="Plan.php">Plan</option>
+                    <option value="Research.php">Research</option>
+                    <option value="Create.php">Create</option>
+                    <option value="Revise.php">Revise</option>
+                    <option value="Present.php">Present</option>
+                    </select>
+                    <div id="TemplateThumbnail"><img src="../lessonTemplates/images/thumbnails/1-Intro.png" name="thumbnailImage" id="thumbnailImage"></div>
                   </td>
                 </tr>
                 <tr>
