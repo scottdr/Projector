@@ -3,7 +3,7 @@
 
 
 body {
-	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	background-color: #313131;
 	color: #FFF;
 	background-image: url(../_images/challenge/challenge_bg.png);
@@ -390,5 +390,3 @@ background-color:#FFFFFF}
 background-color:#808080}
 
 }
-
-</div>

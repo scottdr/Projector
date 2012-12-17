@@ -55,6 +55,7 @@ $totalRows_stepsRecordset = mysql_num_rows($stepsRecordset);
 $currentRoutineName = "";
 $stepsArray = array();
 $rowNumber = 0;
+$rowLoopNumber = 1;
 $rowsWithPips = array(3,5); //random steps to add pips too
 do {
 	if (isset($row_stepsRecordset)) {
@@ -63,11 +64,15 @@ do {
 		if ($row_stepsRecordset['CSSName'] != $currentRoutineName) {
 			if ($currentRoutineName != '')
 				print "\n</div>\n"; // close off previous div when we need to
-			print "\n" . '<div class="ribbonBlock" id="ribbon' . $row_stepsRecordset['CSSName'] . '">';							// <div id="ribbonChallenge">
+			print "\n" . '<div class="ribbonBlock ribbonBlock-' . $rowLoopNumber . '" id="ribbon' . $row_stepsRecordset['CSSName'] . '">';							// <div id="ribbonChallenge">
 			print "\n  " . '<div class="ribbonHeader" id="ribbon' . $row_stepsRecordset['CSSName'] . 'Top">'; 	//   <div id="ribbonChallengeTop">
 			print "\n    " . '<h2>' . $row_stepsRecordset['RoutineName'] . '</h2>'; 				//   <h2>YOUR CHALLENGE</h2>
 			print "\n  </div>";
 			$currentRoutineName = $row_stepsRecordset['CSSName'];
+			$rowLoopNumber++;
+			if ($rowLoopNumber % 5 == 0) {
+			   $rowLoopNumber = 1;
+			}
 		}
 		
 		$extra = ''; //Extra classes to add, such as 'current'
@@ -103,6 +108,7 @@ do {
 		$stepsArray[] = $row_stepsRecordset;
 		$rowNumber++;
 	}
+	
 } while ($row_stepsRecordset = mysql_fetch_assoc($stepsRecordset));
 print "\n</div>"; // close off previous div when we need to
 

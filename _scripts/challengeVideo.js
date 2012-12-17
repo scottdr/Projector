@@ -75,7 +75,7 @@ $(document).ready(function()
 			wid += parseInt(obj.width());
 		});
 			
-		jQuery("#ribbonButtons").width(ribbonWidth);
+		jQuery("#ribbonButtons").width((ribbonWidth + 10));
 		
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
 		jQuery("#leftButton").click(function()
@@ -223,14 +223,21 @@ $(document).ready(function()
 // Ribbon Code To Handle Selecting Ribbon Items & Update Content appropriately 
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
 function loadStep(StepId,StepOrderNumber, StepPhaseNumber) 
-{
+{	
 	if(Modernizr.touch)
 	{
 		jQuery('#ContentScreensLoader').fadeIn(200);
 	}
 	else
 	{
-		jQuery('#ContentScreens').fadeOut(200);
+		//last thing i did
+		//jQuery('#ContentScreens').fadeOut(200);
+	}
+	
+	var stepDiv = 'step-id-' + StepOrderNumber + '-' + StepPhaseNumber;
+	
+	if($('#' + stepDiv).length > 0){
+		return false;	
 	}
 		
 	//NOTE: Do something with StepPhaseNumber here
@@ -245,7 +252,11 @@ function loadStep(StepId,StepOrderNumber, StepPhaseNumber)
 		cache: false
 	}).done(function( html ) {
 			var contentElement = document.getElementById("ContentScreensHolder");
-			contentElement.innerHTML = html;
+			var newDiv = $('<div class="new-div" id="' + stepDiv + '"/>');
+			
+			$(contentElement).append(newDiv);
+			
+			newDiv.html(html);
 			
 			//Special teacher setup - need to add click handlers to the Teacher Notes button
 			jQuery("#TeacherNotes-Info-CC").click(function(){

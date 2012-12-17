@@ -25,84 +25,72 @@
 
 
 /* Challenge */
-#ribbonChallenge_CC_Opening .ribbonHeader, #ribbonChallenge_CC_Opening .current .ribbonBottom, .no-touch #ribbonChallenge_CC_Opening .current .ribbonBottom:hover, .no-touch #ribbonChallenge_CC_Opening .ribbonBottom:hover {
+.ribbonBlock-1 .ribbonHeader, .ribbonBlock-1 .current .ribbonBottom, .no-touch .ribbonBlock-1 .current .ribbonBottom:hover, .no-touch .ribbonBlock-1 .ribbonBottom:hover {
 	background: #F7AA1A;
 	border-top-color: #F7AA1A;
 }
 
-#ribbonChallenge_CC_Opening .ribbonBottom {
+.ribbonBlock-1 .ribbonBottom {
 	color: #F7AA1A;
 }
-#ribbonChallenge_CC_Opening .ribbonSelector {
+.ribbonBlock-1 .ribbonSelector {
 	background: url(../_images/challenge/selected-challenge-CC.png) no-repeat center;
 }
 
+.ribbonBlock-1 .pip {
+	background-position: 0 -60px;
+}
+
 /* Start */
-#ribbonStart_CC_Writing .ribbonHeader, #ribbonStart_CC_Writing .current .ribbonBottom, .no-touch #ribbonStart_CC_Writing .current .ribbonBottom:hover, .no-touch #ribbonStart_CC_Writing .ribbonBottom:hover {
+.ribbonBlock-2 .ribbonHeader, .ribbonBlock-2 .current .ribbonBottom, .no-touch .ribbonBlock-2 .current .ribbonBottom:hover, .no-touch .ribbonBlock-2 .ribbonBottom:hover {
 	background: #F9921F;
 	border-top: 1px solid #F9921F; 
 }
 
-#ribbonStart_CC_Writing .ribbonBottom {
+.ribbonBlock-2 .ribbonBottom {
 	color: #F9921F;
 }
 
-#ribbonStart_CC_Writing .ribbonSelector {
+.ribbonBlock-2 .ribbonSelector {
 	background: url(../_images/challenge/selected-start-CC.png) no-repeat center;
 }
 
+.ribbonBlock-2 .pip {
+	background-position: 0 -75px;
+}
+
 /* Plan */
-#ribbonPlan_CC_GroupWork .ribbonHeader, #ribbonPlan_CC_GroupWork .current .ribbonBottom, .no-touch #ribbonPlan_CC_GroupWork .current .ribbonBottom:hover, .no-touch #ribbonPlan_CC_GroupWork .ribbonBottom:hover {
+.ribbonBlock-3 .ribbonHeader, .ribbonBlock-3 .current .ribbonBottom, .no-touch .ribbonBlock-3 .current .ribbonBottom:hover, .no-touch .ribbonBlock-3 .ribbonBottom:hover {
 	background: #FA7A24;
 	border-top-color: #FA7A24;
 }
 
-#ribbonPlan_CC_GroupWork .ribbonBottom {
+.ribbonBlock-3 .ribbonBottom {
 	color: #FA7A24;
 }
 
-#ribbonPlan_CC_GroupWork .ribbonSelector {
+.ribbonBlock-3 .ribbonSelector {
 	background: url(../_images/challenge/selected-plan-CC.png) no-repeat center;
 }
 
+.ribbonBlock-3 .pip {
+	background-position: 0 -90px;
+}
+
 /* Create */
-#ribbonCreate_CC_CommonRead .ribbonHeader, #ribbonCreate_CC_CommonRead .current .ribbonBottom, .no-touch #ribbonCreate_CC_CommonRead .current .ribbonBottom:hover, .no-touch #ribbonCreate_CC_CommonRead .ribbonBottom:hover {
+.ribbonBlock-4 .ribbonHeader, .ribbonBlock-4 .current .ribbonBottom, .no-touch .ribbonBlock-4 .current .ribbonBottom:hover, .no-touch .ribbonBlock-4 .ribbonBottom:hover {
 	background: #FC6329;
 	border-top-color: #FC6329;
 }
 
-#ribbonCreate_CC_CommonRead .ribbonBottom {
+.ribbonBlock-4 .ribbonBottom {
 	color: #FC6329;
 }
 
-#ribbonCreate_CC_CommonRead .ribbonSelector {
+.ribbonBlock-4 .ribbonSelector {
 	background: url(../_images/challenge/selected-create-CC.png) no-repeat center;
 }
 
-/* Revise */
-#ribbonRevise_CC_Revise .ribbonHeader, #ribbonRevise_CC_Revise .current .ribbonBottom, .no-touch #ribbonRevise_CC_Revise .current .ribbonBottom:hover, .no-touch #ribbonRevise_CC_Revise .ribbonBottom:hover {
-	background: #F7AA1A;
-	border-top-color: #F7AA1A;
-}
-
-#ribbonRevise_CC_Revise .ribbonBottom {
-	color: #F7AA1A;
-}
-
-#ribbonRevise_CC_Revise .ribbonSelector {
-	background: url(../_images/challenge/selected-revise-CC.png) no-repeat center;
-}
-
-/* Present */
-#ribbonPresent_CC_Homework .ribbonHeader, #ribbonPresent_CC_Homework .current .ribbonBottom, .no-touch #ribbonPresent_CC_Homework .current .ribbonBottom:hover, .no-touch #ribbonPresent_CC_Homework .ribbonBottom:hover {
-	background: #F9921F;
-	border-top-color: #F9921F;
-}
-
-#ribbonPresent_CC_Homework .ribbonBottom {
-	color: #F9921F;
-}
-
-#ribbonPresent_CC_Homework .ribbonSelector {
-	background: url(../_images/challenge/selected-present-CC.png) no-repeat center;
+.ribbonBlock-4 .pip {
+	background-position: 0 -105px;
 }
