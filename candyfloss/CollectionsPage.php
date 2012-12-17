@@ -41,7 +41,10 @@ $query_UnitsCollectionsQuery = "SELECT * FROM CF_Resources ORDER BY Unit, Collec
 $UnitsCollectionsQuery = mysql_query($query_UnitsCollectionsQuery, $projector) or die(mysql_error());
 $row_UnitsCollectionsQuery = mysql_fetch_assoc($UnitsCollectionsQuery);
 
-$collections = array("Curated", "Pearson", "OER", null);
+// Option used to display Resources without a Collection.
+//$collections = array("Curated", "Pearson", "OER", null);
+// Option to only display Resources with defined Collections.
+$collections = array("Curated", "Pearson", "OER");
 
 // Calculate 
 ?>
@@ -130,15 +133,16 @@ $collections = array("Curated", "Pearson", "OER", null);
                 
                   <ul class="nav nav-tabs span3">
                    <?php 
-										
-										do { ?>
-                  	<li><a href="#Level<?php echo $row_UnitQuery['Unit'];?>-A" data-toggle="tab">UNIT <?php echo $row_UnitQuery['Unit'];?></a></li>
-										
-									<?php
-										} while ($row_UnitQuery = mysql_fetch_assoc($UnitQuery));
+                   		$listElementStyle = ' class="active"';
+						do { 
 									?>
+                  	<li<?php echo $listElementStyle;$listElementStyle='';?>><a href="#Level<?php echo $row_UnitQuery['Unit'];?>-A" data-toggle="tab">UNIT <?php echo $row_UnitQuery['Unit'];?></a></li>
+										
+					<?php
+						} while ($row_UnitQuery = mysql_fetch_assoc($UnitQuery));
+					?>
 
-									</ul>
+					</ul>
                   
                   <!-- Tab content -->
                   
@@ -177,21 +181,29 @@ $collections = array("Curated", "Pearson", "OER", null);
                                   
                                   
                                    <?php 
-										
+										$itemCount = 0;
 										do {
-											if ( ($row_UnitsCollectionsQuery['Unit']==($i+1)) && ($row_UnitsCollectionsQuery['Collection']==$collectionName) ) { ?>
+											if ( ($row_UnitsCollectionsQuery['Unit']==($i+1)) && ($row_UnitsCollectionsQuery['Collection']==$collectionName) ) {
+												$itemCount++;
+											?>
 													<div class="span3 FoxtrotSpan3">
                                                         <a href="ResourceDetail.php?Id=<?php echo $row_UnitsCollectionsQuery['Id'];?>">
                                                             <img src="<?php echo $row_UnitsCollectionsQuery['ImageThumbnail'];?>" alt="<?php echo $row_UnitsCollectionsQuery['Name'];?>" class="FoxtrotThumbnailImg">
                                                             <h2 class="FoxtrotTitleCopy"><?php echo $row_UnitsCollectionsQuery['Name'];?></h2>
                                                         </a>
                                             		</div>
-									<?php  }
+									<?php  
+												if ($itemCount%4==0) {
+													echo '</section>
+<section class="row-fluid">';
+												}
+											}
 										
 										} while ($row_UnitsCollectionsQuery = mysql_fetch_assoc($UnitsCollectionsQuery));
 									?>
                                       
                                    </section>
+                                   
                                   
                                 </div>
                               </div>
