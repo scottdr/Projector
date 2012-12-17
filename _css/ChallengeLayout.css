@@ -69,6 +69,58 @@ img, object, embed, video {
 	padding-right: 2.5%;
 /*background-color : lightyellow; */     	/* for debugging display light yellow when using tablet rules */
 }
+#LayoutDivHeader {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#RibbonNavigation {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	height:100px;
+}
+#ContentScreens {
+	position:relative;
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+
+.touch #ContentScreens {
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+#ContentScreensHolder {
+	width:100%;
+	position: relative;
+	top: 0;
+	left: 0;	
+}
+
+.touch #ContentScreensHolder {
+	padding-right:1px;
+}
+
+* {
+	-webkit-transform: translate3d(0,0,0));
+}
+
+
+#Footer {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
 
 }
 

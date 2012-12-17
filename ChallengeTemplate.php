@@ -68,6 +68,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
+
+
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -83,26 +85,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
-
-<!--<script type="text/javascript">
-	$(document).ready(function(){ 
-	
-		jQuery("#TeacherNotes-Info-CC").click(function(){
-			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
-			$('#TeacherNotes-Info-CC').css({'display':'none'});
-			$('#TeacherNotes-Close-CC').css({'display':'block'});
-			return false;
-		});
-	
-		jQuery("#TeacherNotes-Close-CC").click(function(){
-			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
-			$('#TeacherNotes-Info-CC').css({'display':'block'});
-			$('#TeacherNotes-Close-CC').css({'display':'none'});
-			return false;
-		});
-	
-	});
-</script>-->
 
 </head>
 <body style="overflow-x:hidden">
@@ -125,16 +107,15 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
   
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
-     
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton"></div>
+      <div id="leftButton"></div>
         <div id="rightButton"></div>
-        <div id="ribbonStrip" class="noscroll">
-          <div id="ribbonButtons" ontouchend="touchEnd(event);">
+        <div id="ribbonStrip">
+          <div id="ribbonButtons">
             <?php require_once("RibbonDynamicContent.php") ?>
           </div>
-        </div> 
+        </div>
         <!-- NavRibbon Ends --> 
       </div>
     </div>

@@ -6,6 +6,7 @@ var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
 var StepPhaseNumber = 0;
 var disableSlideShow = true;	// disable the slide show until we polish it
+var loadingIn = false;
 
 if (disableSlideShow) {
 	//if (StepNumber == 1)
@@ -75,7 +76,7 @@ $(document).ready(function()
 			wid += parseInt(obj.width());
 		});
 
-		jQuery("#ribbonButtons").width(ribbonWidth);
+		jQuery("#ribbonButtons").width(ribbonWidth +1);
 
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
 		jQuery("#leftButton").click(function()
@@ -141,6 +142,10 @@ $(document).ready(function()
 
 		jQuery(".pip").click(function(event)
 		{
+			if(loadingIn){
+			 return false;	
+			}
+			
 			var pip = $(event.currentTarget);
 			var block = pip.parentsUntil('.singleRibbonBlock').parent();
 
@@ -171,7 +176,9 @@ $(document).ready(function()
 			}
 			else
 			{
-				loadStep(StepId,StepNumber, StepPhaseNumber);
+				jQuery('#ContentScreens').fadeOut(200, function(){
+					loadStep(StepId,StepNumber, StepPhaseNumber);
+				});
 			}
 		});
 
@@ -182,6 +189,10 @@ $(document).ready(function()
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
 	$('.singleRibbonBlock').click(function(event)
 	{
+		if(loadingIn){
+		 return false;	
+		}
+		
 		var newStep = event.currentTarget.getAttribute('data-number');
 		if(StepNumber == newStep)
 			return false;
@@ -224,62 +235,78 @@ $(document).ready(function()
 /* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
 function loadStep(StepId,StepOrderNumber, StepPhaseNumber) 
 {
-	if(Modernizr.touch)
-	{
+	var stepDiv = 'step-id-' + StepOrderNumber + '-' + StepPhaseNumber;
+	
+	if($('#' + stepDiv).length > 0){
+		//return false;
+		$('#ContentScreensHolder .showing').removeClass('showing');
+		$('#' + stepDiv).addClass('showing');
+		if(Modernizr.touch)
+		{
+			$('#ContentScreens').animate({'left' : 0}, 200);
+			$('#ContentScreensLoader').fadeOut(200);
+		}
+		else
+		{
+			$('#ContentScreens').fadeIn(200);
+		}
+	} else {		
 		jQuery('#ContentScreensLoader').fadeIn(200);
-	}
-	else
-	{
-		jQuery('#ContentScreens').fadeOut(200);
-	}
-
-	//NOTE: Do something with StepPhaseNumber here
-	var urlLoadStep = "LoadStep.php";
-	if (StepId > -1)
-		urlLoadStep += "?StepId=" + StepId + '&ProjectId=' + ProjectId;
-	else
-		urlLoadStep +=  "?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
-
-	$.ajax({
-		url: urlLoadStep,
-		cache: false
-	}).done(function( html ) {
-			var contentElement = document.getElementById("ContentScreensHolder");
-			contentElement.innerHTML = html;
-
-			//Special teacher setup - need to add click handlers to the Teacher Notes button
-			jQuery("#TeacherNotes-Info-CC").click(function(){
-				$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
-				$('#TeacherNotes-Info-CC').css({'display':'none'});
-				$('#TeacherNotes-Close-CC').css({'display':'block'});
-				return false;
-			});
-
-			jQuery("#TeacherNotes-Close-CC").click(function(){
-				$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
-				$('#TeacherNotes-Info-CC').css({'display':'block'});
-				$('#TeacherNotes-Close-CC').css({'display':'none'});
-				return false;
-			});
-
-
-			// if we are on the very first step
-			if (StepOrderNumber == 1) {
-				requestPresentationData(ProjectId);
-			}
-			// Send custom 'HTMLChange' event to inform of update.
-			$('#ContentScreens').trigger('HTMLChange');
-
-			if(Modernizr.touch)
-			{
-				$('#ContentScreens').animate({'left' : 0}, 200);
+		loadingIn = true;
+		var urlLoadStep = "LoadStep.php";
+		if (StepId > -1)
+			urlLoadStep += "?StepId=" + StepId + '&ProjectId=' + ProjectId;
+		else
+			urlLoadStep +=  "?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
+			
+		$.ajax({
+			url: urlLoadStep,
+			cache: false
+		}).done(function( html ) {
+				$('#ContentScreensHolder .showing').removeClass('showing');
+				var contentElement = document.getElementById("ContentScreensHolder");
+				var newDiv = $('<div class="new-div showing" id="' + stepDiv + '"/>');
+				
+				$(contentElement).append(newDiv);
+				
+				newDiv.html(html);
+				
+				//Special teacher setup - need to add click handlers to the Teacher Notes button
+				jQuery("#TeacherNotes-Info-CC").click(function(){
+					$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+					$('#TeacherNotes-Info-CC').css({'display':'none'});
+					$('#TeacherNotes-Close-CC').css({'display':'block'});
+					return false;
+				});
+			
+				jQuery("#TeacherNotes-Close-CC").click(function(){
+					$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+					$('#TeacherNotes-Info-CC').css({'display':'block'});
+					$('#TeacherNotes-Close-CC').css({'display':'none'});
+					return false;
+				});
+				
+				
+				// if we are on the very first step
+				if (StepOrderNumber == 1) {
+					requestPresentationData(ProjectId);
+				}
+				// Send custom 'HTMLChange' event to inform of update.
+				$('#ContentScreens').trigger('HTMLChange');
+				
 				$('#ContentScreensLoader').fadeOut(200);
-			}
-			else
-			{
-				$('#ContentScreens').fadeIn(200);
-			}
-	});
+				loadingIn = false;
+				
+				if(Modernizr.touch)
+				{
+					$('#ContentScreens').animate({'left' : 0}, 200);
+				}
+				else
+				{
+					$('#ContentScreens').fadeIn(200);
+				}
+		});
+	};
 };
 
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
@@ -322,6 +349,7 @@ function selectStep(eventTarget)
 	}
 	else
 	{	
+	
 		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
 		var wid = parseInt(jQuery(eventTarget).width());
 		var sWid = parseInt(jQuery('#ribbonContainer').width());

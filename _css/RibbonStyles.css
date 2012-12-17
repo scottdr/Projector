@@ -314,3 +314,6 @@
 .ribbonBlock-4 .pip {
 	background-position: 0 -45px;
 }
+
+#ContentScreensHolder > div { display: none; }
+	#ContentScreensHolder > div.showing { display: block; }

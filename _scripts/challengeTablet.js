@@ -10,20 +10,26 @@ function touchEnd(event) {
 	
 	if(holder.scrollLeft >= minLength)
 	{
+		console.log(holder.scrollLeft, minLength);
 		newNumber++;
 		if (newNumber > NumberOfSteps)
 			newNumber = NumberOfSteps;
+		triggerIt();
 	}
 	else if(holder.scrollLeft <= -minLength)
 	{
+		console.log(holder.scrollLeft, minLength);
 		newNumber--;
 		if (newNumber <= 0)
-			newNumber = 1;
+			newNumber = 0;
+		triggerIt();
 	}
-			
-	var e = jQuery.Event("click");
-	if(newNumber < StepNumber)
-		$("#leftButton").trigger(e);
-	else
-		$("#rightButton").trigger(e);
+	
+	function triggerIt(){		
+		var e = jQuery.Event("click");
+		if(newNumber < StepNumber)
+			$("#leftButton").trigger(e);
+		else
+			$("#rightButton").trigger(e);
+	};
 }
