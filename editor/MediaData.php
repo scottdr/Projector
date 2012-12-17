@@ -35,6 +35,10 @@ $colname_MediaQuery = "-1";
 if (isset($_GET['ProjectId'])) {
   $colname_MediaQuery = $_GET['ProjectId'];
 }
+if (isset($_GET['StepId'])) {
+  $stepId = $_GET['StepId'];
+}
+
 $width = 0;
 $height = 0;
 if (isset($_GET['Size'])) {

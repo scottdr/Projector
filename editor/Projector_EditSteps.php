@@ -56,7 +56,7 @@ if (isset($_GET['Id']))
 	$projectId = $_GET['Id'];
 
 // Default to performing an upate unless we posted a action on the url then use that
-$action = "Update";
+$action = "Edit";
 if (isset($_GET["action"])) {
 	$action = $_GET["action"];
 }
@@ -193,6 +193,7 @@ function updateData(jsonStepData) {
 	document.getElementById('RoutineId').value = stepData.RoutineId;
 	document.getElementById('Template').value = stepData.TemplateName;
 	document.getElementById('Id').value = stepData.Id;
+	displayAttachedMedia(stepData.Id);		// update the display of attached media
 }
 
 /* When we add a step clear out all the fields, and set the Order to the StepNumber, and select the appropriate routine Id  */
@@ -204,6 +205,9 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 	document.getElementById('Name').value = "";
 	// SCOTT To Do figure out why wysiwyg editor is not working
 	document.getElementById('Text').value = "";	
+	if (editorInstance) {		// clear out wysiwyg editor contents
+		editorInstance.setValue(stepData.Text,true);
+	}
 	document.getElementById('Title').value = "";
 	document.getElementById('SortOrder').value = StepNumber + 1;
 	document.getElementById('OriginalSortOrder').value = StepNumber + 1;
@@ -223,30 +227,39 @@ function deleteStep()
 function attachMedia(projectId,type)
 {
 	var urlValue = "MediaData.php?ProjectId=" + projectId;
+	urlValue += "&StepId=" + document.getElementById('Id').value;
 	if (type == "video")
 		urlValue += "&type=video";
 	$.ajax({
   	url: urlValue,
   	cache: false
 	}).done(function( html ) {
-		$("#ModalBody").append(html);
+		$("#ModalBody").html(html);		// replace the html body with resulting html 
 		$("#MediaDialog").modal({                    // finally, wire up the actual modal functionality and show the dialog
 								"backdrop"  : "static",
 								"keyboard"  : true,
 								"show"      : true                     // ensure the modal is shown immediately
 							});
-/*		$("#Dialog").removeClass("hideMe");
-  	$("#Dialog").append(html);
-		$( "#Dialog" ).dialog({
-			height: 800,
-			width: 500,
-			modal: true
-		});
-	*/
+	});
+}
+
+function displayAttachedMedia(stepId)
+{
+	var urlValue = "AttachedMediaQuery.php";
+	urlValue += "?StepId=" + stepId;
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		$("#MediaAttach").html(html);
 	});
 }
 
 function CloseDialog() {
+	$("#MediaDialog").modal('hide');
+}
+
+function okClicked() {
 	$("#MediaDialog").modal('hide');
 }
 						
@@ -361,7 +374,7 @@ function CloseDialog() {
                   </td>
                 </tr>
                 <tr>
-                  <td width="140">Template media</td>
+                  <td width="140">Media</td>
                   <td>
                   	<a class="btn btn-small" href="#" onclick="attachMedia(<?php echo $projectId; ?>,'image')"><i class="icon-folder-open"></i> Select media from library</a>
                     &nbsp;
@@ -375,6 +388,10 @@ function CloseDialog() {
                       <textarea name="textarea" placeholder="Enter teacher notes ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
                   </td>
                 </tr>-->
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><div id="MediaAttach"></div></td>
+                </tr>
                 <tr>
                   <td width="140"><input type="hidden" name="MM_action" id="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
