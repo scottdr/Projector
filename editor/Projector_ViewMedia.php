@@ -112,14 +112,14 @@ if ($projectId > -1) {
                 		<?php do { ?>
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a>
-                        <form id="stepForm" name="form1" method="get" action="EditMedia.php">
+                        <!--<form id="stepForm" name="form1" method="get" action="EditMedia.php">
         <input class="btn btn-mini btn-primary" style="width:50px" type="submit" name="button" id="button" value="Edit" />
         <br />
         <input name="Id" type="hidden" id="Id" value="<?php echo $row_MediaQuery['Id']; ?>" />
-      									</form>
+      									</form>-->
                   			</td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
-                        <td width="140"><img src="/<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
+                        <td width="140"><img src="<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
                         <td><?php echo $row_MediaQuery['Caption']; ?></td>
                         <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
                     </tr>
