@@ -84,27 +84,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
-
-<script type="text/javascript">
-	$(document).ready(function(){ 
-	
-		jQuery("#TeacherNotes-Info-CC").click(function(){
-			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
-			$('#TeacherNotes-Info-CC').css({'display':'none'});
-			$('#TeacherNotes-Close-CC').css({'display':'block'}); 
-			return false;
-		});
-	
-		jQuery("#TeacherNotes-Close-CC").click(function(){
-			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
-			$('#TeacherNotes-Info-CC').css({'display':'block'});
-			$('#TeacherNotes-Close-CC').css({'display':'none'});
-			return false;
-		});
-	
-	});
-</script>
-
 </head>
 <body style="overflow-x:hidden">
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
@@ -126,13 +105,12 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
   
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
-     
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton"></div>
+      <div id="leftButton"></div>
         <div id="rightButton"></div>
         <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchend="touchEnd(event);">
+          <div id="ribbonButtons">
             <?php require_once("RibbonDynamicContent.php") ?>
           </div>
         </div>
@@ -142,8 +120,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  <div id="ContentScreens" ontouchend="touchEnd(event);" >
-    <div id="ContentScreensHolder" style="padding-right:0px;"> 
+  <div id="ContentScreens" ontouchend="touchEnd(event);">
+    <div id="ContentScreensHolder"> 
       <!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php --> 
     </div>
   </div>

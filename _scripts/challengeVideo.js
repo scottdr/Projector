@@ -206,8 +206,8 @@ $(document).ready(function()
 			selectStep(event.currentTarget);
 			StepNumber = newStep;
 
-			jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
-				jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+			jQuery('#ContentScreens').animate({left: fullWidth + 30}, 200, function(){
+				jQuery('#ContentScreens').animate({left: -fullWidth + 30}, 0);
 				StepId = event.currentTarget.getAttribute('data-id');
 				loadStep(StepId,StepNumber, StepPhaseNumber);
 			});
