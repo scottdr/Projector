@@ -55,7 +55,7 @@ $numElements = count($mediaArray);
 echo "# of array elements " . $numElements . "/n";
 for ($i=0;$i< count($mediaArray);$i++) {
 	$sqlCommand = sprintf("INSERT INTO MediaAttach SET MediaId = %s, ProjectId = %s, StepId = %s",
-										 GetSQLValueString($_GET['MediaId'], "int"),
+										 GetSQLValueString($mediaArray[$i], "int"),
 										 GetSQLValueString($_GET['ProjectId'], "int"),
 										 GetSQLValueString($_GET['StepId'], "int"));
 

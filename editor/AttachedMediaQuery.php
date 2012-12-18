@@ -18,7 +18,7 @@ $media_steps = mysql_fetch_assoc($media);
 <?php if ($media_steps > 0): ?>
 <?php do { ?><div style="display:block; float:left;"> <img name="Id=<?php echo $media_steps['Id']; ?>" src="<?php echo $media_steps['Url']; ?>" width="100" alt="<?php echo $media_steps['Caption']; ?>" class="img-polaroid">
 <div style="text-align:center; margin-top:5px;">
-<a class="smallRedButton" href="DetachMedia.php?MediaAttachId=<?php echo $media_steps['MediaAttachId']; ?>&StepId=<?php echo $_SESSION['StepId']; ?>">Detach</a>
+<a class="smallRedButton" onclick="detachMedia('<?php echo $media_steps['MediaAttachId']; ?>')">Detach</a>
 </div>
 </div>
 <?php } while ($media_steps = mysql_fetch_assoc($media)); ?>
@@ -39,7 +39,7 @@ $video_steps = mysql_fetch_assoc($video);
 <?php if ($video_steps > 0): ?>
 <?php do { ?><div style="display:block; float:left;"> <img name="Id=<?php echo $video_steps['Id']; ?>" src="<?php echo $video_steps['PosterUrl']; ?>" width="100" alt="<?php echo $video_steps['Caption']; ?>">
 <div style="text-align:center; margin-top:5px;">
-<a class="smallRedButton" href="DetachMedia.php?MediaAttachId=<?php echo $video_steps['MediaAttachId']; ?>&StepId=<?php echo $_SESSION['StepId']; ?>">Detach</a>
+<a class="smallRedButton" onclick="detachMedia('<?php echo $video_steps['MediaAttachId']; ?>')">Detach</a>
 </div>
 </div>
 <?php } while ($video_steps = mysql_fetch_assoc($video)); ?>

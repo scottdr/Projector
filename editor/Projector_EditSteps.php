@@ -288,6 +288,18 @@ function okClicked() {
 	});
 }
 
+function detachMedia(mediaAttachId)
+{
+	var urlValue = "_php/DetachMedia.php";
+	urlValue += "?MediaAttachId=" + mediaAttachId;
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		displayAttachedMedia(stepId);		// update the list of attached images
+	});
+}
+
 function updateThumbnailImage(templateName)
 {
 	var newThumbnailSrc = "/lessonTemplates/images/thumbnails/" + thumbnailMap[templateName];
