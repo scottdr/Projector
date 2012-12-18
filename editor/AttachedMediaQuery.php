@@ -1,6 +1,9 @@
 <?php require_once('../Connections/projector.php'); ?>
 <?php
 
+/* This php file creates the html for the images that are attached to a particular step
+*/
+
 // this is the query to do a JOIN of the Medias attached to the current step get their url, Caption
 $stepId = -1;
 if (isset($_GET['StepId']))

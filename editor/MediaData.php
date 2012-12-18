@@ -1,5 +1,9 @@
 <?php require_once('../Connections/projector.php'); ?>
 <?php
+
+/* This php file returns the html code to populate the Attach Media dialog it is a table with thumbnail of images and checkbox to select them */
+
+
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -82,14 +86,14 @@ session_start();
 
 // PHP Code to call to Attach media either to a Slide or to A Step defaults to AttachMedia.php = Attach to Step
 // but if $_SESSION['attachTo'] = "slide" then use AttachSlideMedia to attach it to a Slide
-$attachURL = "AttachMedia.php";
+$attachURL = "_php/AttachMedia.php";
 
 // SCOTT TO DO COMMENT THIS BACK IN PASS Step ID
 
-//if (isset($_GET['attachTo']) && $_GET['attachTo'] == "slide")
-//	$attachURL = "AttachSlideMedia.php?SlideId=" . $_SESSION['SlideId'] /*. "&SortOrder=" . $_SESSION['SortOrder']*/;
-//else
-//	$attachURL = "AttachMedia.php?ProjectId=" . $_GET['ProjectId'] . "&StepId=" . $_GET['StepId'] . "&type=" . $type;
+if (isset($_GET['attachTo']) && $_GET['attachTo'] == "slide")
+	$attachURL = "_php/AttachSlideMedia.php?SlideId=" . $_SESSION['SlideId'] /*. "&SortOrder=" . $_SESSION['SortOrder']*/;
+else
+	$attachURL = "_php/AttachMedia.php?ProjectId=" . $_GET['ProjectId'] . "&StepId=" . $_GET['StepId'] . "&type=" . $type;
 
 ?>
 <div style="text-align:center">
@@ -103,7 +107,8 @@ $attachURL = "AttachMedia.php";
                     </tr>
   </thead>
   <tbody>
-		<?php do {
+		<?php $rowNum = 0;
+					do {
             // set the thumbnail url 
             switch ($type) {
               case "image" : 	$thumbnailUrl = $row_MediaQuery['Url'];
@@ -114,12 +119,12 @@ $attachURL = "AttachMedia.php";
     ?>
     
     <tr class="rowItem">
-        <td width="10"><input type="checkbox" value="checked"></td>
+        <td width="10"><input type="checkbox" value="checked" id="<?php echo $row_MediaQuery['Id']; ?>"></td>
         <td width="100"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><img src="<?php echo $thumbnailUrl; ?>" class="img-polaroid" width="100" height="100" /></a></td>
         <td width="200" nowrap="nowrap"><div class="captionDiv"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></div></td>
         <td width="100" nowrap="nowrap"><?php if (isset($row_MediaQuery['Width']) && isset($row_MediaQuery['Height'])) echo $row_MediaQuery['Width'] . "x" . $row_MediaQuery['Height']; ?></td>
       </tr>
-     <?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
+     <?php $rowNum++; } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
    </tbody>
 </table>
 </div>

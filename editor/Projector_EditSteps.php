@@ -143,6 +143,8 @@ var editorInstance;
 var stepId;
 var projectId;
 
+ 
+
 thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'TextOnly.php' : '3-TextOnly.png', 'MediaLeft.php' : '4-MediaLeft.png','MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
 
 
@@ -263,8 +265,27 @@ function CloseDialog() {
 	$("#MediaDialog").modal('hide');
 }
 
+/* Clicked the Ok button to attach selected items to the selected step */
 function okClicked() {
+
 	$("#MediaDialog").modal('hide');
+	var checked = $('#MediaTable input:checked');
+	var addString = "";
+	$(checked).each(function(index){
+    //do stuff here with this
+		if (index > 0)
+			addString += ",";
+		var id = $(this).attr("id");
+		addString += id;
+	});
+	var urlValue = "_php/AttachMedia.php";
+	urlValue += "?StepId=" + stepId + "&ProjectId=" + projectId + "&MediaId=" + addString;
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		displayAttachedMedia(stepId);		// update the list of attached images
+	});
 }
 
 function updateThumbnailImage(templateName)
@@ -455,6 +476,9 @@ function doTemplateChange(combobox) {
 <script type="text/javascript">
 
 	$(document).ready(function() {
+		// set the projectId global variable when document is loaded from the hidden element, could also pull this off of the url
+		projectId = document.getElementById('ProjectId').value;
+		
 		editor = $('.wysiwyg-editor').wysihtml5();
 		editorInstance = editor.data('wysihtml5').editor;
 		
