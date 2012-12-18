@@ -40,7 +40,7 @@ if (isset($_GET['ProjectId'])) {
 }
 
 mysql_select_db($database_projector, $projector);
-$query_projectName = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($ProjectId, "int"));
+$query_projectName = sprintf("SELECT Name FROM Projects WHERE Id = %s", GetSQLValueString($ProjectId, "int"));
 $projectNameResults = mysql_query($query_projectName, $projector) or die(mysql_error());
 $row_projectName = mysql_fetch_assoc($projectNameResults);
 $projectName = "";

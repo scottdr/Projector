@@ -46,7 +46,7 @@ $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
 
 $projectName = "All Projects";
 if ($projectId > -1) {
-	$query_ProjectQuery = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
+	$query_ProjectQuery = sprintf("SELECT Name FROM Projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
 	$ProjectQuery = mysql_query($query_ProjectQuery, $projector) or die(mysql_error());
 	$row_ProjectQuery = mysql_fetch_assoc($ProjectQuery);
 	$totalRows_ProjectQuery = mysql_num_rows($ProjectQuery);

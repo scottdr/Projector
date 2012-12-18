@@ -133,7 +133,7 @@ function reorderAllProjects() {
 	echo "<pre>\n";
 	
 	// find all the projects that are still available
-	if ($result = mysqli_query($projectorConnection, "SELECT Id FROM projects")) {
+	if ($result = mysqli_query($projectorConnection, "SELECT Id FROM Projects")) {
 			$result->data_seek(0);
 			
 			while ($row = $result->fetch_assoc()) {

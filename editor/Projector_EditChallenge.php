@@ -72,8 +72,8 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-/*		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", */
-		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+/*		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", */
+		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
@@ -92,8 +92,8 @@ if (isset($_POST["MM_action"])) {
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-/*  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s", */
-	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
+/*  	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s", */
+	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
   /*                     GetSQLValueString($_POST['ImgSmall'], "text"),
@@ -150,7 +150,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT * FROM projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT * FROM Projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);

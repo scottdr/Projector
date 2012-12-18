@@ -43,7 +43,7 @@ if (isset($_GET['RoutineId'])) {
 }
 
 mysql_select_db($database_projector, $projector);
-$query_ProjectInfo = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($colname_ProjectInfo, "int"));
+$query_ProjectInfo = sprintf("SELECT Name FROM Projects WHERE Id = %s", GetSQLValueString($colname_ProjectInfo, "int"));
 $ProjectInfo = mysql_query($query_ProjectInfo, $projector) or die(mysql_error());
 $row_ProjectInfo = mysql_fetch_assoc($ProjectInfo);
 $totalRows_ProjectInfo = mysql_num_rows($ProjectInfo);
