@@ -125,11 +125,10 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
       <div class="navbar-inner">
       <h2 class="brand"><?php echo $projectName; ?></h2>
         <ul class="nav">
-          <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Details</a></li>
-          <li><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
-          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Tasks  &amp; steps</a></li>
-          <li class="active"><a href="CCSoC_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="CCSoC_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="Projector_EditChallenge.php?Id=<?php echo $projectId; ?>"><i class="icon-edit"></i> Details</a></li>
+          <li><a href="Projector_EditSteps.php?Id=<?php echo $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
+          <li class="active"><a href="Projector_ViewMedia.php?Id=<?php echo $projectId; ?>&ProjectName=<?php echo $projectName; ?>"><i class="icon-eye-open"></i>Media</a></li>
+          <li><a href="ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
