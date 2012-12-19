@@ -72,8 +72,7 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-/*		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", */
-		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
@@ -81,9 +80,9 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Duration'], "int"),
                        GetSQLValueString($_POST['Description'], "text"),
 											 GetSQLValueString($_POST['Author'], "text"),
-/*											 GetSQLValueString($_POST['ImgSmall'], "text"),
+											 GetSQLValueString($_POST['ImgSmall'], "text"),
 											 GetSQLValueString($_POST['ImgMedium'], "text"),
-											 GetSQLValueString($_POST['ImgLarge'], "text"), */
+											 GetSQLValueString($_POST['ImgLarge'], "text"), 
 											 GetSQLValueString($_POST['Status'], "text"),
 											 GetSQLValueString($_POST['Topic'], "int"));
 	/*	
@@ -92,13 +91,12 @@ if (isset($_POST["MM_action"])) {
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-/*  	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s", */
-	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
+	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
-  /*                     GetSQLValueString($_POST['ImgSmall'], "text"),
+                       GetSQLValueString($_POST['ImgSmall'], "text"),
 											 GetSQLValueString($_POST['ImgMedium'], "text"),
-											 GetSQLValueString($_POST['ImgLarge'], "text"), */
+											 GetSQLValueString($_POST['ImgLarge'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
                        GetSQLValueString($_POST['MaxGrade'], "int"),
                        GetSQLValueString($_POST['Duration'], "int"),
@@ -310,6 +308,8 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
+                 <input name="ImgSmall" type="text" class="span10" id="ImgSmall" value="<?php echo $row_foundRecord['ImgSmall']; ?>">
+                 <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgSmall']; ?>" class="img-polaroid" width="100" height="100">
                  </td>
                 </tr>
@@ -318,6 +318,8 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
+                 <input name="ImgMedium" type="text" class="span10" id="ImgMedium" value="<?php echo $row_foundRecord['ImgMedium']; ?>">
+                 <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" class="img-polaroid" width="200" height="200">
                   </td>
                 </tr>
@@ -325,6 +327,8 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>Large image</td>
                   <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
+                 <br/><br/>
+                 <input name="ImgLarge" type="text" class="span10" id="ImgLarge" value="<?php echo $row_foundRecord['ImgLarge']; ?>">
                  <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" class="img-polaroid" width="300" height="300">
                   </td>
