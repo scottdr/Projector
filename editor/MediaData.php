@@ -121,7 +121,7 @@ else
     <tr class="rowItem">
         <td width="10"><input type="checkbox" value="checked" id="<?php echo $row_MediaQuery['Id']; ?>"></td>
         <td width="100"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><img src="<?php echo $thumbnailUrl; ?>" class="img-polaroid" width="100" height="100" /></a></td>
-        <td width="200" nowrap="nowrap"><div class="captionDiv"><a href="<?php echo $attachURL; ?>&MediaId=<?php echo $row_MediaQuery['Id']; ?>"><?php echo $row_MediaQuery['Caption']; ?></a></div></td>
+        <td width="200" nowrap="nowrap"><div class="captionDiv"><?php echo $row_MediaQuery['Caption']; ?></div></td>
         <td width="100" nowrap="nowrap"><?php if (isset($row_MediaQuery['Width']) && isset($row_MediaQuery['Height'])) echo $row_MediaQuery['Width'] . "x" . $row_MediaQuery['Height']; ?></td>
       </tr>
      <?php $rowNum++; } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
