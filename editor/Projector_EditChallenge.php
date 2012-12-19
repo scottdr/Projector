@@ -308,9 +308,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <input name="ImgSmall" type="text" class="span10" id="ImgSmall" value="<?php echo $row_foundRecord['ImgSmall']; ?>">
+                 <input name="ImgSmall" type="text" class="span10" id="ImgSmall" value="<?php echo $row_foundRecord['ImgSmall']; ?>" onblur="updateThumbnailImage(this,'ImgSmallPreview')">
                  <br/><br/>
-                 <img src="<?php echo $row_foundRecord['ImgSmall']; ?>" class="img-polaroid" width="100" height="100">
+                 <img src="<?php echo $row_foundRecord['ImgSmall']; ?>" name="ImgSmallPreview" width="100" height="100" class="img-polaroid" id="ImgSmallPreview">
                  </td>
                 </tr>
                 <tr>
@@ -318,9 +318,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <input name="ImgMedium" type="text" class="span10" id="ImgMedium" value="<?php echo $row_foundRecord['ImgMedium']; ?>">
+                 <input name="ImgMedium" type="text" class="span10" id="ImgMedium" value="<?php echo $row_foundRecord['ImgMedium']; ?>" onblur="updateThumbnailImage(this,'ImgMediumPreview')">
                  <br/><br/>
-                 <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" class="img-polaroid" width="200" height="200">
+                 <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" name="ImgMediumPreview" width="200" height="200" class="img-polaroid" id="ImgMediumPreview">
                   </td>
                 </tr>
                 <tr>
@@ -328,9 +328,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <input name="ImgLarge" type="text" class="span10" id="ImgLarge" value="<?php echo $row_foundRecord['ImgLarge']; ?>">
+                 <input name="ImgLarge" type="text" class="span10" id="ImgLarge" value="<?php echo $row_foundRecord['ImgLarge']; ?>" onblur="updateThumbnailImage(this,'ImgLargePreview')">
                  <br/><br/>
-                 <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" class="img-polaroid" width="300" height="300">
+                 <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" name="ImgLargePreview" width="300" height="300" class="img-polaroid" id="ImgLargePreview">
                   </td>
                 </tr>
                 <tr>
@@ -364,6 +364,13 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 
 <script type="text/javascript" charset="utf-8">
 	$(prettyPrint);
+	
+/* when exiting the edit field update the image preview with the previewId id */	
+function updateThumbnailImage(object,previewId)
+{
+	var thumbnailURL = object.value;
+	document.getElementById(previewId).src = thumbnailURL;
+}
 </script>
 
 </body>
