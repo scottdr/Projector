@@ -24,7 +24,7 @@
       <div class="navbar-inner">
       <h2 class="brand" >&lt;Challenge name&gt;</h2>
         <ul class="nav">
-          <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditChallenge.php"><i class="icon-edit"></i>Details</a></li>
           <li><a href="Projector_EditSteps.php"><i class="icon-edit"></i> Steps</a></li>
           <li><a href="Projector_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
           <li class="active"><a href="Projector_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>

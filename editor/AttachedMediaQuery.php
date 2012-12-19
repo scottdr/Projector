@@ -18,7 +18,7 @@ $media_steps = mysql_fetch_assoc($media);
 <?php if ($media_steps > 0): ?>
 <?php do { ?><div style="display:block; float:left;"> <img name="Id=<?php echo $media_steps['Id']; ?>" src="<?php echo $media_steps['Url']; ?>" width="100" alt="<?php echo $media_steps['Caption']; ?>" class="img-polaroid">
 <div style="text-align:center; margin-top:5px;">
-<a class="smallRedButton" onclick="detachMedia('<?php echo $media_steps['MediaAttachId']; ?>')">Detach</a>
+<a class="btn btn-mini btn-danger" onclick="detachMedia('<?php echo $media_steps['MediaAttachId']; ?>')">Detach</a>
 </div>
 </div>
 <?php } while ($media_steps = mysql_fetch_assoc($media)); ?>
