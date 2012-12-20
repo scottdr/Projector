@@ -41,8 +41,8 @@ if (isset($_GET['ProjectId']))
 	$projectId = $_GET['ProjectId'];
 
 $projectName = "";
-if (isset($_GET['projectName'])) 
-	$projectId = $_GET['projectName'];
+if (isset($_GET['ProjectName'])) 
+	$projectName = $_GET['ProjectName'];
 
 	
 // Default to performing an upate unless we posted a action on the url then use that
