@@ -170,7 +170,11 @@ $(document).ready(function()
 			if(Modernizr.touch)
 			{
 				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
-					jQuery('#ContentScreens').animate({left: -fullWidth}, 0);
+					if(fullWidth > 0){
+						jQuery('#ContentScreens').animate({left: -fullWidth - 30}, 0);
+					} else {
+						jQuery('#ContentScreens').animate({left: -fullWidth + 30}, 0);
+					}
 					loadStep(StepId,StepNumber, StepPhaseNumber);
 				});
 			}
@@ -206,8 +210,12 @@ $(document).ready(function()
 			selectStep(event.currentTarget);
 			StepNumber = newStep;
 
-			jQuery('#ContentScreens').animate({left: fullWidth + 30}, 200, function(){
-				jQuery('#ContentScreens').animate({left: -fullWidth + 30}, 0);
+			jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+				if(fullWidth > 0){
+						jQuery('#ContentScreens').animate({left: -fullWidth - 30}, 0);
+					} else {
+						jQuery('#ContentScreens').animate({left: -fullWidth + 30}, 0);
+					}
 				StepId = event.currentTarget.getAttribute('data-id');
 				loadStep(StepId,StepNumber, StepPhaseNumber);
 			});
