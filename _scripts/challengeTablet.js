@@ -10,7 +10,6 @@ function touchEnd(event) {
 	
 	if(holder.scrollLeft >= minLength)
 	{
-		console.log(holder.scrollLeft, minLength);
 		newNumber++;
 		if (newNumber > NumberOfSteps)
 			newNumber = NumberOfSteps;
@@ -18,7 +17,6 @@ function touchEnd(event) {
 	}
 	else if(holder.scrollLeft <= -minLength)
 	{
-		console.log(holder.scrollLeft, minLength);
 		newNumber--;
 		if (newNumber <= 0)
 			newNumber = 0;

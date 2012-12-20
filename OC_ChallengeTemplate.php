@@ -132,6 +132,17 @@ body {
     <p></p>
   </div>
 </div>
+<script>	
+	var ContentScreens = jQuery("#ContentScreens");
+	ContentScreens.on('touchend', function(e){
+		touchEnd(e);
+	});
+	window.addEventListener("orientationchange", function() {
+		// orientationchange bug fix
+	  	ContentScreens.css("-webkit-overflow-scrolling", "auto");
+		window.setTimeout(function () { ContentScreens.css("-webkit-overflow-scrolling", "touch") }, 1);
+	}, false);
+</script>
 </body>
 </html>
 <?php

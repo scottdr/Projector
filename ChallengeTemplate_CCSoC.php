@@ -120,7 +120,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  <div id="ContentScreens" ontouchend="touchEnd(event);">
+  <div id="ContentScreens">
     <div id="ContentScreensHolder"> 
       <!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php --> 
     </div>
@@ -141,6 +141,17 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <p></p>
   </div>
 </div>
+<script>	
+	var ContentScreens = jQuery("#ContentScreens");
+	ContentScreens.on('touchend', function(e){
+		touchEnd(e);
+	});
+	window.addEventListener("orientationchange", function() {
+		// orientationchange bug fix
+	  	ContentScreens.css("-webkit-overflow-scrolling", "auto");
+		window.setTimeout(function () { ContentScreens.css("-webkit-overflow-scrolling", "touch") }, 1);
+	}, false);
+</script>
 </body>
 </html>
 <?php
