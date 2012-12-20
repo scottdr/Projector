@@ -41,8 +41,8 @@ if (isset($_GET['ProjectId']))
 	$projectId = $_GET['ProjectId'];
 
 $projectName = "";
-if (isset($_GET['projectName'])) 
-	$projectId = $_GET['projectName'];
+if (isset($_GET['ProjectName'])) 
+	$projectId = $_GET['ProjectName'];
 
 	
 // Default to performing an upate unless we posted a action on the url then use that
@@ -137,9 +137,11 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Edit Lesson media:</h3>
+        <h3 class="span11 offset1">Edit Lesson <?php echo $projectName; ?>media:</h3>
 	</section>
     <section class="row-fluid">
+    	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
+      	<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
         <table class="table table-condensed unborderedTable span10 offset1">
               <tbody>
               	<tr>
@@ -158,7 +160,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                 </tr>
                 <tr>
                   <td>Caption</td>
-                  <td><textarea name="Caption" placeholder="Enter caption..." rows="10" id="Caption" class="wysiwyg-editor width-auto"></textarea></td>
+                  <td><textarea name="Caption" placeholder="Enter caption..." rows="10" id="Caption" class="wysiwyg-editor width-auto"><?php echo $row_foundRecord['Caption']; ?></textarea></td>
                 </tr>
                 <tr>
                   <td>Width<span class="muted"> (pixels)</span></td>
@@ -176,12 +178,14 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                 <tr>
                   <td>&nbsp;</td>
                   <td>
-                  <a href="#" class="btn btn-primary">Save</a>
+                  <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
                   <a href="#" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
               </tbody>
             </table>
+  		<input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
+    </form>
 	</section>
     
     <!-- CONTENT ENDS -->

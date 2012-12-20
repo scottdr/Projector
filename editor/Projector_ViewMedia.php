@@ -111,7 +111,7 @@ if ($projectId > -1) {
                 <tbody>
                 		<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="MediaEdit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; ?>"><i class="icon-edit icon-white"></i> Edit</a>
+                        <td><a class="btn btn-mini btn-primary" href="Projector_MediaEdit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($projectId)) echo "&ProjectId=" . $projectId;?>"><i class="icon-edit icon-white"></i> Edit</a>
                   			</td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
                         <td width="140"><img src="<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
