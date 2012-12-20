@@ -128,7 +128,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
           <li><a href="Projector_EditChallenge.php?Id=<?php echo $projectId; ?>"><i class="icon-edit"></i> Details</a></li>
           <li><a href="Projector_EditSteps.php?Id=<?php echo $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
           <li class="active"><a href="Projector_ViewMedia.php?Id=<?php echo $projectId; ?>&ProjectName=<?php echo $projectName; ?>"><i class="icon-eye-open"></i>Media</a></li>
-          <li><a href="ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="../ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -137,7 +137,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Edit Lesson <?php echo $projectName; ?>media:</h3>
+        <h3 class="span11 offset1">Edit Lesson <?php echo $projectName; ?> media:</h3>
 	</section>
     <section class="row-fluid">
     	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
