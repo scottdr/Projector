@@ -43,14 +43,16 @@ if (isset($_GET['ProjectId']))
 $projectName = "";
 if (isset($_GET['ProjectName'])) 
 	$projectName = $_GET['ProjectName'];
+	
+$mediaId = "";
+if (isset($_GET['Id'])) 
+	$mediaId = $_GET['Id'];
 
 	
 // Default to performing an upate unless we posted a action on the url then use that
-$action = "Update";
-$actionTitle = "Edit";
+$action = "Edit";
 if (isset($_GET["action"])) {
 	$action = $_GET["action"];
-	$actionTitle = $_GET["action"];
 }
 
 /* We are either adding or editing a Project */
@@ -71,17 +73,19 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Caption'], "text"),
 											 GetSQLValueString($_POST['Description'], "text"),
 											 GetSQLValueString($_POST['Width'], "int"),
-                       GetSQLValueString($_POST['Height'], "int"));
-
+                       GetSQLValueString($_POST['Height'], "int"),
+											 GetSQLValueString($mediaId, "int")
+											 );
+//	echo "sql: " . $sqlCommand;
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 
 	$updateGoTo = "Projector_ViewMedia.php";
-	if (isset($_SERVER['QUERY_STRING'])) {
-		$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
-		$updateGoTo .= $_SERVER['QUERY_STRING'];
+	if (isset($projectId)) {
+		$updateGoTo .= '?Id=' . $projectId;
 	} 
 	header(sprintf("Location: %s", $updateGoTo));
+
 } 
 
 
@@ -137,7 +141,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1">Edit Lesson <?php echo $projectName; ?> media:</h3>
+        <h3 class="span11 offset1"><?php echo $action; ?> media:</h3>
 	</section>
     <section class="row-fluid">
     	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">

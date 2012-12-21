@@ -426,7 +426,7 @@ function doTemplateChange(combobox) {
                   <td>
                   	<a class="btn btn-small" href="#" onclick="attachMedia(<?php echo $projectId; ?>,'image')"><i class="icon-folder-open"></i> Select media from library</a>
                     &nbsp;
-                    <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add new media</a>
+                    <a class="btn btn-small" href="Projector_MediaEdit.php?action=Add&ProjectId=<?php echo $projectId; ?>"><i class="icon-arrow-up"></i> Add new media</a>
                   </td>
                 </tr>
                 <!-- Teacher notes in the Projector exist at the project details level
