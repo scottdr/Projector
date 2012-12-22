@@ -4,7 +4,7 @@
 var ProjectId = getQueryVariable("ProjectId", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
-var disableSlideShow = true;	// disable the slide show until we polish it
+var disableSlideShow = false;	// Scott 12/21 I removed all of the Intro Slideshow steps so we no longer need to disable the slide show until we polish it
 
 if (disableSlideShow) {
 	if (StepNumber == 1)
