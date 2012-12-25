@@ -148,24 +148,30 @@ var projectId;
 thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'TextOnly.php' : '3-TextOnly.png', 'MediaLeft.php' : '4-MediaLeft.png','MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
 
 
-function populateOrderMenu(numItems) {
+function populateOrderMenu(numItems,selectedItem) {
 	var dropdown = document.getElementById("SortOrder");
 	var currentCount = dropdown.options.length;
 	if (numItems != currentCount) {
 		  var lastItem = Math.max(numItems,currentCount)
 			for (var i=0; i < lastItem;++i){
+					if (selectedItem == i + 1)
+						selected = true;
+					else
+						selected = false;
 					if (i >= currentCount)    
-						addOption(dropdown, String(i+1), i+1);
+						addOption(dropdown, String(i+1), i+1,selected);
 					else if (i >= numItems)
 						dropdown.remove(numItems);
 			}
 	}
 }
 
-function addOption(selectbox, text, value) {
+function addOption(selectbox, text, value, selected) {
     var optn = document.createElement("OPTION");
     optn.text = text;
     optn.value = value;
+		if (selected)
+			optn.selected = true;
     selectbox.options.add(optn);  
 }
 
@@ -206,13 +212,13 @@ function updateData(jsonStepData) {
 function addStep(ProjectId, StepNumber, RoutineId) {
 //	alert('adding step # ' + StepNumber + " id = " + RoutineId);
 	
-	populateOrderMenu(StepNumber+1);
+	populateOrderMenu(StepNumber+1,StepNumber+1);
 	document.getElementById('MM_action').value = "Add";		// set this hidden value so we know to do an insert instead of update
 	document.getElementById('Name').value = "";
 	// SCOTT To Do figure out why wysiwyg editor is not working
 	document.getElementById('Text').value = "";	
 	if (editorInstance) {		// clear out wysiwyg editor contents
-		editorInstance.setValue(stepData.Text,true);
+		editorInstance.setValue("",true);
 	}
 	document.getElementById('Title').value = "";
 	document.getElementById('SortOrder').value = StepNumber + 1;

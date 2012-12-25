@@ -174,7 +174,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                 
                 <tr>
                   <td>Height<span class="muted"> (pixels)</span></td>
-                  <td><input type="text" name="Height" id="Height"></td>
+                  <td><input name="Height" type="text" id="Height" value="<?php echo $row_foundRecord['Height']; ?>"></td>
                 </tr>
                 <tr>
                   <td colspan="2"><hr /></td>
