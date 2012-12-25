@@ -224,7 +224,8 @@ function addStep(ProjectId, StepNumber, RoutineId) {
 	document.getElementById('SortOrder').value = StepNumber + 1;
 	document.getElementById('OriginalSortOrder').value = StepNumber + 1;
 	document.getElementById('RoutineId').value = RoutineId;
-	document.getElementById('Template').value = "";	
+	document.getElementById('Template').value = "MediaLeft.php";
+	updateThumbnailImage("MediaLeft.php");	
 	document.getElementById('Id').value = "";
 }
 
