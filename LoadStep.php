@@ -68,7 +68,7 @@ require($templateName);
 
 mysql_free_result($StepQuery);
 
-
+$totalRows_NotesQuery = 0;
 // if we are in common core then look for TeacherNotes
 if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true) {
 	mysql_select_db($database_projector, $projector);
