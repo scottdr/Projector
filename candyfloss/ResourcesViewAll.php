@@ -124,7 +124,7 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                       <td><a href="ResourceDetail.php?Id=<?php echo $row_resourceList['Id']; ?>"><?php echo $row_resourceList['Name']; ?></a></td>
                       <td><?php echo $row_resourceList['Unit']; ?></td>
                       <td><?php echo $row_resourceList['Collection']; ?></td>
-                      <td><a data-controls-modal="ConfirmDelete" class="btn btn-mini btn-danger" href="#"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
+                      <td><a class="btn btn-mini btn-danger" onClick="confirmDelete(<?php echo $row_resourceList['Id']; ?>,<?php echo $row_resourceList['Name']; ?>)"><i class="icon-minus-sign icon-white"></i> Delete</a></td>
                     </tr>
                     <?php } while ($row_resourceList = mysql_fetch_assoc($resourceList)); ?>
                 </tbody>
@@ -132,6 +132,14 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
             	</div>
           </section>
 		</div>
+       
+       <!-- set up the modal to start hidden and fade in and out -->
+    <div id="confirmDelete" class="modal hide fade">
+        <!-- dialog contents -->
+        <div class="modal-body">Are you sure you want to delete the resource <span id=""></span>?</div>
+        <!-- dialog buttons -->
+        <div class="modal-footer"><a href="#" class="btn secondary" onClick="CloseConfirmDialog()">Cancel</a><a href="ResourceDelete.php?Id=<?php echo $row_Resource['Id']; ?>" class="btn primary">OK</a></div>
+    </div>
         
         <!-- JS at the end of the page for faster loading -->
 
@@ -148,6 +156,21 @@ $totalRows_resourceList = mysql_num_rows($resourceList);
                 });
                 
             });
+						
+						function confirmDelete(id,name) {
+							var resName = document.getElementById("resourceNameToDelete");
+							resName.innerHTML = "name";
+							$("#confirmDelete").modal({                    // finally, wire up the actual modal functionality and show the dialog
+								"backdrop"  : "static",
+								"keyboard"  : true,
+								"show"      : true                     // ensure the modal is shown immediately
+							});
+						}
+						
+						// close the Confirm Delete dialog
+						function CloseConfirmDialog() {
+							$("#confirmDelete").modal('hide');
+						}
         </script>
 </body>
 </html>
