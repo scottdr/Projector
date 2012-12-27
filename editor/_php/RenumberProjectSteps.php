@@ -63,7 +63,7 @@ function runCommands(){
 
 // Database Code - Reorder steps 
 
-$projector = mysqli_connect($hostname_projector, $username_projector, $password_projector, $database_projector);
+$projectorConnection = mysqli_connect($hostname_projector, $username_projector, $password_projector, $database_projector);
 
 /* check connection */
 if (mysqli_connect_errno()) {
@@ -72,31 +72,51 @@ if (mysqli_connect_errno()) {
 }
 
 function reorderProject($projectId) {
-	global $projector;
+	global $projectorConnection;
 	
 	/* Select queries return a resultset */
-	if ($result = mysqli_query($projector, sprintf("SELECT * FROM Steps WHERE ProjectId = %s ORDER BY RoutineId, SortOrder",$projectId))) {
+	if ($result = mysqli_query($projectorConnection, sprintf("SELECT * FROM Steps WHERE ProjectId = %s ORDER BY RoutineId, SortOrder",$projectId))) {
 			$numSteps = mysqli_num_rows($result);
 			printf("Select returned %d rows.\n", $numSteps);
 			$result->data_seek(0);
-			$routineId = 1;
+			$routineId = -1;
 			$stepOrder = 1;
+			$routineOrder = 1;
 			while ($row = $result->fetch_assoc()) {
 				print "Id: " . $row['Id'] . " RoutineId: " . $row['RoutineId'] . " SortOrder: " . $row['SortOrder'] . " Name: " . $row['Name'] . " Template: " . $row['TemplateName'] . "\n";
 				// delete all the Challenge Intro steps 
 				if ($routineId != $row['RoutineId']) {
 					$stepOrder = 1;
 					$routineId = $row['RoutineId'];
+					$sqlCommand = sprintf("INSERT INTO RoutineAttach SET ProjectId=%s, RoutineId=%s, SortOrder=%s",
+                       GetSQLValueString($projectId, "int"),
+											 GetSQLValueString($routineId, "int"),
+											 GetSQLValueString($routineId, "int"));
+					pushCommand($sqlCommand);	
+					$routineOrder++;
 				}
 				if ($row['TemplateName'] == "Intro.php") {
 						$deleteSQL = sprintf("DELETE FROM Steps WHERE Id=%s",
 												 GetSQLValueString($row['Id'], "int"));
-						print "$deleteSQL\n";
+//						pushCommand($deleteSQL);						 
+//						print "$deleteSQL\n";
 				} else {
-					$sqlCommand = sprintf("UPDATE Steps SET SortOrder=%s WHERE Id=%s",
+					// move 6 -> 5, 7 -> 6
+					switch ($row['RoutineId']) {
+						case "6" : 	$newRoutineId = "5";
+												break; 
+						case "7" : 	$newRoutineId = "6";
+												break; 
+						default : $newRoutineId = $row['RoutineId'];
+	
+					}
+					
+					$sqlCommand = sprintf("UPDATE Steps SET SortOrder=%s, RoutineId=%s WHERE Id=%s",
                        GetSQLValueString($stepOrder, "int"),
+											 GetSQLValueString($newRoutineId, "int"),
 											 GetSQLValueString($row['Id'], "int"));
-					print "$sqlCommand\n";
+//					pushCommand($sqlCommand);						 
+//					print "$sqlCommand\n";
 					$stepOrder++;
 				}
 			}
@@ -107,13 +127,13 @@ function reorderProject($projectId) {
 }
 
 function reorderAllProjects() {
-	global $projector;
+	global $projectorConnection;
 	$availableProjects = array();
 	
 	echo "<pre>\n";
 	
 	// find all the projects that are still available
-	if ($result = mysqli_query($projector, "SELECT Id FROM projects")) {
+	if ($result = mysqli_query($projectorConnection, "SELECT Id FROM Projects")) {
 			$result->data_seek(0);
 			
 			while ($row = $result->fetch_assoc()) {
@@ -144,6 +164,7 @@ function reorderAllProjects() {
 			// free result set 
 			mysqli_free_result($result);
 	} */
+	runCommands();
 	echo "</pre>\n";
 }
 

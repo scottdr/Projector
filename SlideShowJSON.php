@@ -43,7 +43,7 @@ $row_AudioQuery = mysql_fetch_assoc($AudioQuery);
 $totalRows_AudioQuery = mysql_num_rows($AudioQuery);
 
 mysql_select_db($database_projector, $projector);
-$query_ProjectRecordset = sprintf("SELECT Name, Author FROM projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
+$query_ProjectRecordset = sprintf("SELECT Name, Author FROM Projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
 $ProjectRecordset = mysql_query($query_ProjectRecordset, $projector) or die(mysql_error());
 $row_ProjectRecordset = mysql_fetch_assoc($ProjectRecordset);
 $totalRows_ProjectRecordset = mysql_num_rows($ProjectRecordset);

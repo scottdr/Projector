@@ -43,7 +43,7 @@ if (isset($_GET['RoutineId'])) {
 }
 
 mysql_select_db($database_projector, $projector);
-$query_ProjectInfo = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($colname_ProjectInfo, "int"));
+$query_ProjectInfo = sprintf("SELECT Name FROM Projects WHERE Id = %s", GetSQLValueString($colname_ProjectInfo, "int"));
 $ProjectInfo = mysql_query($query_ProjectInfo, $projector) or die(mysql_error());
 $row_ProjectInfo = mysql_fetch_assoc($ProjectInfo);
 $totalRows_ProjectInfo = mysql_num_rows($ProjectInfo);
@@ -51,11 +51,12 @@ $totalRows_ProjectInfo = mysql_num_rows($ProjectInfo);
 if ($totalRows_ProjectInfo > 0)
 	$projectName = $row_ProjectInfo['Name']; 
 
+$projectId = 1;
 if (isset($_GET['Id']))
 	$projectId = $_GET['Id'];
 
 // Default to performing an upate unless we posted a action on the url then use that
-$action = "Update";
+$action = "Edit";
 if (isset($_GET["action"])) {
 	$action = $_GET["action"];
 }
@@ -139,30 +140,44 @@ if (isset($_POST["MM_action"])) {
 <script type="text/javascript">
 var editor;
 var editorInstance;
+var stepId;
+var projectId;
 
-function populateOrderMenu(numItems) {
+ 
+
+thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'TextOnly.php' : '3-TextOnly.png', 'MediaLeft.php' : '4-MediaLeft.png','MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
+
+
+function populateOrderMenu(numItems,selectedItem) {
 	var dropdown = document.getElementById("SortOrder");
 	var currentCount = dropdown.options.length;
 	if (numItems != currentCount) {
 		  var lastItem = Math.max(numItems,currentCount)
 			for (var i=0; i < lastItem;++i){
+					if (selectedItem == i + 1)
+						selected = true;
+					else
+						selected = false;
 					if (i >= currentCount)    
-						addOption(dropdown, String(i+1), i+1);
+						addOption(dropdown, String(i+1), i+1,selected);
 					else if (i >= numItems)
 						dropdown.remove(numItems);
 			}
 	}
 }
 
-function addOption(selectbox, text, value) {
+function addOption(selectbox, text, value, selected) {
     var optn = document.createElement("OPTION");
     optn.text = text;
     optn.value = value;
+		if (selected)
+			optn.selected = true;
     selectbox.options.add(optn);  
 }
 
 function loadStepData(ProjectId, StepNumber, StepId) {
 	//alert ('user clicked on Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
+	stepId = StepId;	// set global
 	populateOrderMenu(StepNumber);
 	urlLoadStep = "_php/LoadStepData.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
 	
@@ -188,22 +203,29 @@ function updateData(jsonStepData) {
 	document.getElementById('OriginalSortOrder').value = stepData.SortOrder;
 	document.getElementById('RoutineId').value = stepData.RoutineId;
 	document.getElementById('Template').value = stepData.TemplateName;
+	updateThumbnailImage(stepData.TemplateName);
 	document.getElementById('Id').value = stepData.Id;
+	displayAttachedMedia(stepData.Id);		// update the display of attached media
 }
 
 /* When we add a step clear out all the fields, and set the Order to the StepNumber, and select the appropriate routine Id  */
 function addStep(ProjectId, StepNumber, RoutineId) {
 //	alert('adding step # ' + StepNumber + " id = " + RoutineId);
-	populateOrderMenu(StepNumber+1);
+	
+	populateOrderMenu(StepNumber+1,StepNumber+1);
 	document.getElementById('MM_action').value = "Add";		// set this hidden value so we know to do an insert instead of update
 	document.getElementById('Name').value = "";
 	// SCOTT To Do figure out why wysiwyg editor is not working
 	document.getElementById('Text').value = "";	
+	if (editorInstance) {		// clear out wysiwyg editor contents
+		editorInstance.setValue("",true);
+	}
 	document.getElementById('Title').value = "";
 	document.getElementById('SortOrder').value = StepNumber + 1;
 	document.getElementById('OriginalSortOrder').value = StepNumber + 1;
 	document.getElementById('RoutineId').value = RoutineId;
-	document.getElementById('Template').value = "";	
+	document.getElementById('Template').value = "MediaLeft.php";
+	updateThumbnailImage("MediaLeft.php");	
 	document.getElementById('Id').value = "";
 }
 
@@ -215,6 +237,87 @@ function deleteStep()
 	window.location = "_php/DeleteStep.php?Id=" + stepId + "&ProjectId=" + projectId + "&RoutineId=" + routineId;
 }
 
+function attachMedia(projectId,type)
+{
+	var urlValue = "MediaData.php?ProjectId=" + projectId;
+	urlValue += "&StepId=" + document.getElementById('Id').value;
+	if (type == "video")
+		urlValue += "&type=video";
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		$("#ModalBody").html(html);		// replace the html body with resulting html 
+		$("#MediaDialog").modal({                    // finally, wire up the actual modal functionality and show the dialog
+								"backdrop"  : "static",
+								"keyboard"  : true,
+								"show"      : true                     // ensure the modal is shown immediately
+							});
+	});
+}
+
+function displayAttachedMedia(stepId)
+{
+	var urlValue = "AttachedMediaQuery.php";
+	urlValue += "?StepId=" + stepId;
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		$("#MediaAttach").html(html);
+	});
+}
+
+function CloseDialog() {
+	$("#MediaDialog").modal('hide');
+}
+
+/* Clicked the Ok button to attach selected items to the selected step */
+function okClicked() {
+
+	$("#MediaDialog").modal('hide');
+	var checked = $('#MediaTable input:checked');
+	var addString = "";
+	$(checked).each(function(index){
+    //do stuff here with this
+		if (index > 0)
+			addString += ",";
+		var id = $(this).attr("id");
+		addString += id;
+	});
+	var urlValue = "_php/AttachMedia.php";
+	urlValue += "?StepId=" + stepId + "&ProjectId=" + projectId + "&MediaId=" + addString;
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		displayAttachedMedia(stepId);		// update the list of attached images
+	});
+}
+
+function detachMedia(mediaAttachId)
+{
+	var urlValue = "_php/DetachMedia.php";
+	urlValue += "?MediaAttachId=" + mediaAttachId;
+	$.ajax({
+  	url: urlValue,
+  	cache: false
+	}).done(function( html ) {
+		displayAttachedMedia(stepId);		// update the list of attached images
+	});
+}
+
+function updateThumbnailImage(templateName)
+{
+	var newThumbnailSrc = "/lessonTemplates/images/thumbnails/" + thumbnailMap[templateName];
+	document.getElementById('thumbnailImage').src = newThumbnailSrc;
+}
+
+function doTemplateChange(combobox) {
+	var newThumbnailSrc = "/lessonTemplates/images/thumbnails/" + thumbnailMap[combobox.value];
+	document.getElementById('thumbnailImage').src = newThumbnailSrc;
+}
+						
 </script>
 </head>
 
@@ -229,10 +332,10 @@ function deleteStep()
       <div class="navbar-inner">
       <h2 class="brand"><?php if (isset($projectName)) echo $projectName ?></h2>
         <ul class="nav">
-          <li><a href="Projector_EditChallenge.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditChallenge.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i> Details</a></li>
           <li class="active"><a href="#"><i class="icon-edit"></i> Steps</a></li>
           <li><a href="Projector_ViewMedia.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="/ChallengeTemplate_CCSoC.php?ProjectId=<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="/ChallengeTemplate.php?ProjectId=<?php if (isset($_GET['Id'])) echo $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -303,20 +406,20 @@ function deleteStep()
                 </tr> -->
                 <tr>
                   <td width="140">Template</td>
-                  <td>
-                      <select name="Template" size="1" id="Template">
-                        <option value="Intro.php" selected="SELECTED">Intro</option>
-                        <option value="Splash.php">Splash</option>
-                        <option value="TextOnly.php">Text only</option>
-                        <option value="MediaLeft.php">Media left</option>
-                        <option value="MediaRight.php">Media right</option>
-                        <option value="IconLeft.php">Icon left</option>
-                        <option value="Plan.php">Plan</option>
-                        <option value="Research.php">Research</option>
-                        <option value="Create.php">Create</option>
-                        <option value="Revise.php">Revise</option>
-                        <option value="Present.php">Present</option>
-                      </select>
+                  <td><select name="Template" size="1" id="Template" onChange="doTemplateChange(this)">
+                    <option value="Intro.php" selected="SELECTED">Intro</option>
+                    <option value="Splash.php">Splash</option>
+                    <option value="TextOnly.php">Text only</option>
+                    <option value="MediaLeft.php">Media left</option>
+                    <option value="MediaRight.php">Media right</option>
+                    <option value="IconLeft.php">Icon left</option>
+                    <option value="Plan.php">Plan</option>
+                    <option value="Research.php">Research</option>
+                    <option value="Create.php">Create</option>
+                    <option value="Revise.php">Revise</option>
+                    <option value="Present.php">Present</option>
+                    </select>
+                    <div id="TemplateThumbnail"><img src="../lessonTemplates/images/thumbnails/1-Intro.png" name="thumbnailImage" id="thumbnailImage"></div>
                   </td>
                 </tr>
                 <tr>
@@ -326,11 +429,11 @@ function deleteStep()
                   </td>
                 </tr>
                 <tr>
-                  <td width="140">Template media</td>
+                  <td width="140">Media</td>
                   <td>
-                  	<a class="btn btn-small" href="#"><i class="icon-folder-open"></i> Select media from library</a>
+                  	<a class="btn btn-small" href="#" onclick="attachMedia(<?php echo $projectId; ?>,'image')"><i class="icon-folder-open"></i> Select media from library</a>
                     &nbsp;
-                    <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add new media</a>
+                    <a class="btn btn-small" href="Projector_MediaEdit.php?action=Add&ProjectId=<?php echo $projectId; ?>"><i class="icon-arrow-up"></i> Add new media</a>
                   </td>
                 </tr>
                 <!-- Teacher notes in the Projector exist at the project details level
@@ -340,6 +443,10 @@ function deleteStep()
                       <textarea name="textarea" placeholder="Enter teacher notes ..." rows="10" id="textarea" class="wysiwyg-editor width-auto"></textarea>
                   </td>
                 </tr>-->
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><div id="MediaAttach"></div></td>
+                </tr>
                 <tr>
                   <td width="140"><input type="hidden" name="MM_action" id="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
@@ -355,6 +462,18 @@ function deleteStep()
     <!-- CONTENT ENDS -->
     
     <?php include("EditorFooter.php"); ?>
+</div>
+
+<div id="MediaDialog" class="modal hide fade">
+	<div class="modal-header">
+  	<a href="#" class="close" data-dismiss="modal">&times;</a>
+  	<h3>Select the media to be attached</h3>
+  </div>
+  <div id="ModalBody" class="modal-body">
+  	<div class="divDialogElements">
+    </div>
+  </div>
+  <div class="modal-footer"> <a href="#" class="btn" onClick="CloseDialog();">Cancel</a> <a href="#" class="btn btn-primary" onClick="okClicked();">Attach</a> </div>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -376,6 +495,9 @@ function deleteStep()
 <script type="text/javascript">
 
 	$(document).ready(function() {
+		// set the projectId global variable when document is loaded from the hidden element, could also pull this off of the url
+		projectId = document.getElementById('ProjectId').value;
+		
 		editor = $('.wysiwyg-editor').wysihtml5();
 		editorInstance = editor.data('wysihtml5').editor;
 		

@@ -36,12 +36,23 @@ $query_UnitQuery = "SELECT DISTINCT Unit FROM CF_Resources ORDER BY Unit";
 $UnitQuery = mysql_query($query_UnitQuery, $projector) or die(mysql_error());
 $row_UnitQuery = mysql_fetch_assoc($UnitQuery);
 $totalRows_UnitQuery = mysql_num_rows($UnitQuery);
+
+$query_UnitsCollectionsQuery = "SELECT * FROM CF_Resources ORDER BY Unit, Collection";
+$UnitsCollectionsQuery = mysql_query($query_UnitsCollectionsQuery, $projector) or die(mysql_error());
+$row_UnitsCollectionsQuery = mysql_fetch_assoc($UnitsCollectionsQuery);
+
+// Option used to display Resources without a Collection.
+//$collections = array("Curated", "Pearson", "OER", null);
+// Option to only display Resources with defined Collections.
+$collections = array("Curated", "Pearson", "OER");
+
+// Calculate 
 ?>
 <!doctype html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Resource Detail Page</title>
+        <title>Resource Collections</title>
         
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
@@ -66,18 +77,18 @@ $totalRows_UnitQuery = mysql_num_rows($UnitQuery);
 		</div>
         
         <div class="navbar">
-          <div class="navbar-inner">
+          <div class="navbar-inner navbar-inner-blue">
             <ul class="nav">
               <li class="active"><a href="CollectionsPage.php">COLLECTIONS</a></li>
               <li><a href="#">MY WEB</a></li>
               <li><a href="#">ABOUT</a></li>
             </ul>
             <div class="pagination-right">
-                <a class="btn btn-small" href="ResourceAddNew.php?Action=Add">
-                  <i class="icon-plus"></i> Add new
+                <a class="btn btn-small btn-primary" href="ResourceAddNew.php?Action=Add">
+                  <i class="icon-plus icon-white"></i> Add new
                 </a>
-                <a class="btn btn-small" href="ResourcesViewAll.php">
-                  <i class="icon-list-alt"></i> View All
+                <a class="btn btn-small btn-primary" href="ResourcesViewAll.php">
+                  <i class="icon-list-alt icon-white"></i> View All
                 </a>
             </div>
           </div>
@@ -122,367 +133,100 @@ $totalRows_UnitQuery = mysql_num_rows($UnitQuery);
                 
                   <ul class="nav nav-tabs span3">
                    <?php 
-										
-										do { ?>
-                  	<li><a href="#Level1-A" data-toggle="tab">UNIT <?php echo $row_UnitQuery['Unit'];?></a></li>
-										
-									<?php
-										} while ($row_UnitQuery = mysql_fetch_assoc($UnitQuery));
+                   		$listElementStyle = ' class="active"';
+						do { 
 									?>
+                  	<li<?php echo $listElementStyle;$listElementStyle='';?>><a href="#Level<?php echo $row_UnitQuery['Unit'];?>-A" data-toggle="tab">UNIT <?php echo $row_UnitQuery['Unit'];?></a></li>
+										
+					<?php
+						} while ($row_UnitQuery = mysql_fetch_assoc($UnitQuery));
+					?>
 
-									</ul>
+					</ul>
                   
                   <!-- Tab content -->
+                  
                   <div class="tab-content">
-                    <div class="tab-pane active" id="Level1-A">
-                    <!-- SECTION A -->
+                  
+                  <?php 
+                  	$tabPaneClassSuffix=' active';
+                  	for ($i=0;$i<$totalRows_UnitQuery;$i++) {
+                  		// Unit iteration.
+                  	?>
+                    <div class="tab-pane<?php echo $tabPaneClassSuffix;$tabPaneClassSuffix='';?>" id="Level<?php echo $i+1;?>-A">
                       
-            			<div class="accordion" id="accordion1">
-                            <div class="accordion-group">
+            			<div class="accordion" id="accordion<?php echo $i+1;?>">
+            			
+            				 <?php 
+            				 $AccordionHeaderStyleSuffix = '';
+            				 $AccordionStyleSuffix = ' in';
+            				 
+            				 // Collections iteration with a given Unit.
+            				//mysql_data_seek ( $UnitsCollectionsQuery, 0 );
+            				 foreach($collections as $collectionName) {
+            				 	$UnitCollectionName = '' . ($i+1) . $collectionName;
+                  			// Category iteration with given Unit. ?>
+                  			<!-- fill in with accordions -->
+                  			
+                  			<div class="accordion-group">
                               <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-                                  Curated Library</a>
+                                <a class="accordion-toggle<?php echo $AccordionHeaderStyleSuffix;$AccordionHeaderStyleSuffix=' collapsed';?>" data-toggle="collapse" data-parent="#accordion<?php echo $i+1;?>" href="#collapse<?php echo $UnitCollectionName;?>">
+                                  <?php echo $collectionName==null?"Other":$collectionName?></a>
                               </div>
-                              <div id="collapseOne" class="accordion-body collapse in">
+                              <div id="collapse<?php echo $UnitCollectionName;?>" class="accordion-body collapse<?php echo $AccordionStyleSuffix;$AccordionStyleSuffix=' ';?>">
                                 <div class="accordion-inner">
                                   
                                   
-                                  <section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
+                                  <section class="row-fluid">
+                                  
+                                  
+                                   <?php 
+										$itemCount = 0;
+										do {
+											if ( ($row_UnitsCollectionsQuery['Unit']==($i+1)) && ($row_UnitsCollectionsQuery['Collection']==$collectionName) ) {
+												$itemCount++;
+											?>
+													<div class="span3 FoxtrotSpan3">
+                                                        <a href="ResourceDetail.php?Id=<?php echo $row_UnitsCollectionsQuery['Id'];?>">
+                                                            <img src="<?php echo $row_UnitsCollectionsQuery['ImageThumbnail'];?>" alt="<?php echo $row_UnitsCollectionsQuery['Name'];?>" class="FoxtrotThumbnailImg">
+                                                            <h2 class="FoxtrotTitleCopy"><?php echo $row_UnitsCollectionsQuery['Name'];?></h2>
                                                         </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-                                  
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-group">
-                              <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
-                                  Pearson Resources</a>
-                              </div>
-                              <div id="collapseTwo" class="accordion-body collapse">
-                                <div class="accordion-inner">
-
+                                            		</div>
+									<?php  
+												if ($itemCount%4==0) {
+													echo '</section>
+<section class="row-fluid">';
+												}
+											}
+										
+										} while ($row_UnitsCollectionsQuery = mysql_fetch_assoc($UnitsCollectionsQuery));
+									?>
                                       
-                                                                        <section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
-                                                        </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-                                      
-
+                                   </section>
+                                   
+                                  
                                 </div>
                               </div>
-                            </div>
-                            
-                            <div class="accordion-group">
-                              <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
-                                  OER Resources</a>
-                              </div>
-                              <div id="collapseThree" class="accordion-body collapse">
-                                <div class="accordion-inner">
 
-                                    <section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
-                                                        </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-
-                                </div>
-                              </div>
-                            </div>
+                  			</div>
+                  				
+                  			
+                  			<?php
+                  			mysql_data_seek ( $UnitsCollectionsQuery, 0 );
+                  			$row_UnitsCollectionsQuery = mysql_fetch_assoc($UnitsCollectionsQuery);
+	                  		};
+	                  		?>
+                  			
+                  			
+                                                     
                           </div>
                                              
                     </div>
-                    <div class="tab-pane" id="Level1-B">
-                    <!-- SECTION B -->
-                      
-						<div class="accordion" id="accordion2">
-                            <div class="accordion-group">
-                              <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Level1-B-collapseOne">
-                                  Curated Library
-                                </a>
-                              </div>
-                              <div id="Level1-B-collapseOne" class="accordion-body collapse in">
-                                <div class="accordion-inner">
-                                  
-                                  
-                                                                   <section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
-                                                        </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-                                  
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-group">
-                              <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Level1-B-collapseTwo">
-                                  Pearson Resources
-                                </a>
-                              </div>
-                              <div id="Level1-B-collapseTwo" class="accordion-body collapse">
-                                <div class="accordion-inner">
-
-                                      
-                                                                        <section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
-                                                        </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-                                      
-
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-group">
-                              <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Level1-B-collapseThree">
-                                 OER Resources
-                                </a>
-                              </div>
-                              <div id="Level1-B-collapseThree" class="accordion-body collapse">
-                                <div class="accordion-inner">
-
-                                                                       <section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
-                                                        </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                                                
-                    </div>
-                    
-                    <div class="tab-pane" id="Level1-C">
-                    <!-- SECTION C -->
-                    	<section class="row-fluid">     
-                                        <!-- row 1 -->
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 1 -->	<!--<a href="http://powersof10.com/film" target="_blank">-->
-                                                        <a href="ResourceDetail.php">
-                                                            <img src="img/static-content/powersoften.jpg" alt="Powers of Ten" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Powers of Ten</h2>
-                                                            
-                                                        </a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 2 -->  <!--a href="http://www.learner.org/courses/learningmath/number/session9/part_a/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">   
-                                                            <img src="img/static-content/fractions.jpg" alt="Multiply and Divide Fractions" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Multiply and Divide Fractions</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 3 -->  <!--a href="http://smithsonianeducation.org/idealabs/universe/index.html" target="_blank">-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/smithsonian_universe.jpg" alt="Sizing up the Universe" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Sizing up the Universe</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                            <div class="span3 FoxtrotSpan3">
-                                            <!-- 4 -->  <!--a href="http://vitalnj.pbslearningmedia.org/content/vtl07.math.measure.polg.calcrectar/" target="_blank"-->
-                                                        <a href="ResourceDetail.php">    
-                                                            <img src="img/static-content/calculating_rectangles.jpg" alt="Calculating rectangular area" class="FoxtrotThumbnailImg">
-                                                            <h2 class="FoxtrotTitleCopy">Calculating rectangular area</h2>
-                                                            
-                                                    	</a>
-                                            </div>
-                                      </section>
-                    </div>
-                    
-                    
-                  </div>
+                                        
+                    <?php
+						}
+					?>
+                  </div>  <!-- Tab content END -->
                 </div>
 
             </section>
@@ -506,4 +250,5 @@ $totalRows_UnitQuery = mysql_num_rows($UnitQuery);
 </html>
 <?php
 mysql_free_result($UnitQuery);
+mysql_free_result($UnitsCollectionsQuery);
 ?>

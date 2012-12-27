@@ -1,4 +1,4 @@
-<?php require_once('../Connections/projector.php'); ?>
+<?php require_once('../Connections/projector.php'); require_once('Util.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -87,18 +87,18 @@ if ($ageStart && $ageEnd) {
 		</div>
         
         <div class="navbar">
-          <div class="navbar-inner">
+          <div class="navbar-inner navbar-inner-blue">
             <ul class="nav">
               <li class="active"><a href="CollectionsPage.php">COLLECTIONS</a></li>
               <li><a href="#">MY WEB</a></li>
               <li><a href="#">ABOUT</a></li>
             </ul>
             <div class="pagination-right">
-                <a class="btn btn-small" href="ResourceAddNew.php?Action=Add">
-                  <i class="icon-plus"></i> Add new
+                <a class="btn btn-small btn-primary" href="ResourceAddNew.php?Action=Add">
+                  <i class="icon-plus icon-white"></i> Add new
                 </a>
-                <a class="btn btn-small" href="ResourcesViewAll.php">
-                  <i class="icon-list-alt"></i> View All
+                <a class="btn btn-small btn-primary" href="ResourcesViewAll.php">
+                  <i class="icon-list-alt icon-white"></i> View All
                 </a>
             </div>
           </div>
@@ -152,7 +152,7 @@ if ($ageStart && $ageEnd) {
                     <h5 class="descriptionCopyHeading">Author</h5>
                     <p class="descriptionCopyBody"><?php echo $row_Resource['Author']?$row_Resource['Author']:'--'; ?></p>
                     <h5 class="descriptionCopyHeading">Language</h5>
-                    <p class="descriptionCopyBody"><?php echo $row_Resource['InLanguage']?$row_Resource['InLanguage']:'--'; ?></p>
+                    <p class="descriptionCopyBody"><?php echo $row_Resource['InLanguage']?getLanguageString($row_Resource['InLanguage']):'--'; ?></p>
                     <h5 class="descriptionCopyHeading">Date created</h5>
                     <p class="descriptionCopyBody"><?php echo $row_Resource['DateCreated']?$row_Resource['DateCreated']:'--'; ?></p>
                 </div>

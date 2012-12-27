@@ -65,7 +65,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT projects.Id, Name, Description, Duration, Subject, GradeMin, GradeMax, ImgSmall, Brief, Detail, Status, ProjectDetails.ProjectId FROM projects, ProjectDetails WHERE projects.Id = ProjectDetails.ProjectId and projects.Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT Projects.Id, Name, Description, Duration, Subject, GradeMin, GradeMax, ImgSmall, Brief, Detail, Status, ProjectDetails.ProjectId FROM Projects, ProjectDetails WHERE Projects.Id = ProjectDetails.ProjectId and Projects.Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = "0";
@@ -74,7 +74,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT * FROM projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT * FROM Projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
@@ -141,7 +141,7 @@ else
                <h1><?php echo $row_foundRecord['Name']; ?></h1>
             </div>
             <div id="titleNav" class="floatRight" style="padding-bottom:20px;">
-              <form action="EditProject.php" method="get">
+              <form action="editor/Projector_EditSteps.php" method="get">
                   <input name="Id" type="hidden" id="Id" value="<?php echo $row_foundRecord['Id']; ?>" size="5" readonly="readonly" />   <a href="Gallery.php"><img src="_images/back_to_gallery.gif" id="backToGallery" width="120" height="26" alt="Back to Gallery" /></a>
 									<?php if (isset($PROJECTOR['editMode']) && $PROJECTOR['editMode']): ?>
                   	<input class="button" style="background-image: url(_images/icons/Pencil26x26.gif);" name="action" type="submit" value="Edit" />

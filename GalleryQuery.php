@@ -51,7 +51,7 @@ if (isset($_GET['filterStatus']))
 	$filterBy = $_GET['filterStatus'];
 
 $addedWhere = false;
-$query_Recordset1 = "SELECT * FROM projects";
+$query_Recordset1 = "SELECT * FROM Projects";
 if ($topic != "All") {
 	$addedWhere = true;
 	$query_Recordset1 .= " WHERE " . $topicSQL;

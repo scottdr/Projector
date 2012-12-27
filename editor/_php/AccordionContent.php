@@ -35,7 +35,7 @@ mysql_select_db($database_projector, $projector);
 
 if (isset($projectId)) {
 //	echo "Project ID: $projectId\n<br />";
-	$sqlQuery = sprintf("SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.Name AS Name, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId AND Steps.ProjectId = %s AND RoutineAttach.ProjectId = %s ORDER BY RoutineAttach.SortOrder, Steps.SortOrder",$projectId, $projectId);
+	$sqlQuery = sprintf("SELECT Routines.Id AS RoutineId, RoutineName, Steps.Name AS Name, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId AND Steps.ProjectId = %s AND RoutineAttach.ProjectId = %s ORDER BY RoutineAttach.SortOrder, Steps.SortOrder",$projectId, $projectId);
 } else {
 	$projectId = -1;
 	$sqlQuery = "SELECT DISTINCT Routines.Id AS RoutineId, RoutineName, Steps.Name, Steps.Id AS StepId FROM Routines INNER JOIN RoutineAttach, Steps WHERE Steps.RoutineId = RoutineAttach.RoutineId AND Routines.Id = Steps.RoutineId ORDER BY RoutineAttach.SortOrder, Steps.SortOrder";

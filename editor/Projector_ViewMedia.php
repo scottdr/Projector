@@ -46,7 +46,7 @@ $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
 
 $projectName = "All Projects";
 if ($projectId > -1) {
-	$query_ProjectQuery = sprintf("SELECT Name FROM projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
+	$query_ProjectQuery = sprintf("SELECT Name FROM Projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
 	$ProjectQuery = mysql_query($query_ProjectQuery, $projector) or die(mysql_error());
 	$row_ProjectQuery = mysql_fetch_assoc($ProjectQuery);
 	$totalRows_ProjectQuery = mysql_num_rows($ProjectQuery);
@@ -82,10 +82,10 @@ if ($projectId > -1) {
       <div class="navbar-inner">
       <h2 class="brand"><?php echo $projectName; ?></h2>
         <ul class="nav">
-          <li><a href="Projector_EditChallenge.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Challenge details</a></li>
+          <li><a href="Projector_EditChallenge.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Details</a></li>
           <li><a href="Projector_EditSteps.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
           <li class="active"><a href="#"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="Projector_Preview.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="/ChallengeTemplate.php<?php if ($projectId > 0) echo "?ProjectId=" . $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -111,15 +111,10 @@ if ($projectId > -1) {
                 <tbody>
                 		<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="#"><i class="icon-edit icon-white"></i> Edit</a>
-                        <form id="stepForm" name="form1" method="get" action="EditMedia.php">
-        <input class="btn btn-mini btn-primary" style="width:50px" type="submit" name="button" id="button" value="Edit" />
-        <br />
-        <input name="Id" type="hidden" id="Id" value="<?php echo $row_MediaQuery['Id']; ?>" />
-      									</form>
+                        <td><a class="btn btn-mini btn-primary" href="Projector_MediaEdit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($projectId)) echo "&ProjectId=" . $projectId;?>"><i class="icon-edit icon-white"></i> Edit</a>
                   			</td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
-                        <td width="140"><img src="/<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
+                        <td width="140"><img src="<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
                         <td><?php echo $row_MediaQuery['Caption']; ?></td>
                         <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
                     </tr>

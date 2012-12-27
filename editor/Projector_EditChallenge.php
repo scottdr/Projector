@@ -72,8 +72,7 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-/*		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", */
-		$sqlCommand = sprintf("INSERT INTO projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, ImgSmall, ImgMedium, ImgLarge, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
@@ -81,9 +80,9 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Duration'], "int"),
                        GetSQLValueString($_POST['Description'], "text"),
 											 GetSQLValueString($_POST['Author'], "text"),
-/*											 GetSQLValueString($_POST['ImgSmall'], "text"),
+											 GetSQLValueString($_POST['ImgSmall'], "text"),
 											 GetSQLValueString($_POST['ImgMedium'], "text"),
-											 GetSQLValueString($_POST['ImgLarge'], "text"), */
+											 GetSQLValueString($_POST['ImgLarge'], "text"), 
 											 GetSQLValueString($_POST['Status'], "text"),
 											 GetSQLValueString($_POST['Topic'], "int"));
 	/*	
@@ -92,13 +91,12 @@ if (isset($_POST["MM_action"])) {
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-/*  	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s", */
-	$sqlCommand = sprintf("UPDATE projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
+	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, ImgSmall=%s, ImgMedium=%s, ImgLarge=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
-  /*                     GetSQLValueString($_POST['ImgSmall'], "text"),
+                       GetSQLValueString($_POST['ImgSmall'], "text"),
 											 GetSQLValueString($_POST['ImgMedium'], "text"),
-											 GetSQLValueString($_POST['ImgLarge'], "text"), */
+											 GetSQLValueString($_POST['ImgLarge'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
                        GetSQLValueString($_POST['MaxGrade'], "int"),
                        GetSQLValueString($_POST['Duration'], "int"),
@@ -150,7 +148,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT * FROM projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT * FROM Projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
@@ -195,12 +193,12 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
     <div class="navbar">
       <div class="navbar-inner">
       
-<h2 class="brand" >#<?php echo $row_foundRecord['Id']; ?> <?php echo $row_foundRecord['Name']; ?></h2>
+<h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
         <ul class="nav">
-          <li class="active"><a href="Projector_EditChallenge.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Challenge details</a></li>
+          <li class="active"><a href="Projector_EditChallenge.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i>Details</a></li>
           <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
           <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="/ChallengeTemplate_CCSoC.php?ProjectId=<?php if (isset($row_foundRecord['Id'])) echo $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="/ChallengeTemplate.php?ProjectId=<?php if (isset($row_foundRecord['Id'])) echo $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
         </ul>
       </div>
     </div>
@@ -209,8 +207,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1"> Challenge details:
-        </h3>
+        <h3 class="span11 offset1">Details:</h3>
 	</section>
     <section class="row-fluid">
     	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
@@ -310,7 +307,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                  <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <img src="<?php echo $row_foundRecord['ImgSmall']; ?>" class="img-polaroid" width="100" height="100">
+                 <input name="ImgSmall" type="text" class="span10" id="ImgSmall" value="<?php echo $row_foundRecord['ImgSmall']; ?>" onblur="updateThumbnailImage(this,'ImgSmallPreview')">
+                 <br/><br/>
+                 <img src="<?php echo $row_foundRecord['ImgSmall']; ?>" name="ImgSmallPreview" width="100" height="100" class="img-polaroid" id="ImgSmallPreview">
                  </td>
                 </tr>
                 <tr>
@@ -318,7 +317,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" class="img-polaroid" width="200" height="200">
+                 <input name="ImgMedium" type="text" class="span10" id="ImgMedium" value="<?php echo $row_foundRecord['ImgMedium']; ?>" onblur="updateThumbnailImage(this,'ImgMediumPreview')">
+                 <br/><br/>
+                 <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" name="ImgMediumPreview" width="200" height="200" class="img-polaroid" id="ImgMediumPreview">
                   </td>
                 </tr>
                 <tr>
@@ -326,7 +327,9 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td>
                   <a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>
                  <br/><br/>
-                 <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" class="img-polaroid" width="300" height="300">
+                 <input name="ImgLarge" type="text" class="span10" id="ImgLarge" value="<?php echo $row_foundRecord['ImgLarge']; ?>" onblur="updateThumbnailImage(this,'ImgLargePreview')">
+                 <br/><br/>
+                 <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" name="ImgLargePreview" width="300" height="300" class="img-polaroid" id="ImgLargePreview">
                   </td>
                 </tr>
                 <tr>
@@ -360,6 +363,13 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 
 <script type="text/javascript" charset="utf-8">
 	$(prettyPrint);
+	
+/* when exiting the edit field update the image preview with the previewId id */	
+function updateThumbnailImage(object,previewId)
+{
+	var thumbnailURL = object.value;
+	document.getElementById(previewId).src = thumbnailURL;
+}
 </script>
 
 </body>
