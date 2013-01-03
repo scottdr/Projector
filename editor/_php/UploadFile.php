@@ -1,4 +1,5 @@
 <?php
+require_once('../../Connections/projector.php');
 require_once '../../_AWSSDKforPHP/sdk.class.php';
 
 define("MAX_FILE_SIZE",  1024*1024);
@@ -10,14 +11,46 @@ $bucket = 'ProjectorAssets';
 //Here you can add valid file extensions. 
 $valid_formats = array("jpg", "png", "gif","jpeg","PNG","JPG","JPEG","GIF");
 
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
 
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
 
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+/* print out a debug message with carriage return */
 function logMessage($message)
 {
-	if (true)
+	if (false)	// set to true to debug
 		echo $message . "\n<br />";
 }
 
+/* returns an associative array containing the root of the file name and the file extension
+   For example $str = "image.png" returns array ( "root" => "image", "extension" => "png") */
 function getExtension($str) 
 {
 	$i = strrpos($str,".");
@@ -33,6 +66,7 @@ function getExtension($str)
 	return $returnArray;
 }
 
+/* checks to see if the object exists in the S3 bucket */
 function objectExists($objectName) {
 	global $bucket, $s3;
 	
@@ -112,13 +146,24 @@ function uploadFile($tmpFile,$filePath,$fileName,$fileSize)
 	$response = $s3->create_object($bucket,$objectName,$opt);
 //	print_r($response->header["_info"]["url"]);
 	if ($response->isOK()) 
-		return result(true,"The file $objectName, was successfully uploaded\n<br />",$objectName,$response->header["_info"]["url"]);
+		return result(true,"The file $objectName, was successfully uploaded\n<br />",$response->header["_info"]["url"],$objectName);
 	else
 		return result(false,"There was an error uploading, $objectName\n<br />");
 }
 
-function updateMediaURL()
+/* this function will update the url to point to the url returned from amazon */
+function updateMediaURL($url)
 {
+	global $database_projector, $projector;
+
+	mysql_select_db($database_projector, $projector);
+	if (isset($_GET['Id'])) // if we have the media id we need to update otherwise we are doing an insert
+		$sqlCommand = sprintf("UPDATE Media SET Url=%s WHERE Id=%s",
+												 GetSQLValueString($url, "text"),
+												 GetSQLValueString($_GET['Id'], "int"));
+		
+	logMessage("sql: " . $sqlCommand);
+	$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 }
 
 // Okay this is supposedly hacky that I am doing a Get and Post to this UploadFile.php but it works just fine
@@ -129,5 +174,5 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 logMessage($goToURL);
 
-header(sprintf("Location: %s", $goToURL));
+//header(sprintf("Location: %s", $goToURL));
 ?>
