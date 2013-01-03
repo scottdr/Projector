@@ -31,9 +31,16 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+// put url parameters back on the url we pass when you click the save button to re-post form data to this same page
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
+}
+
+// put url parameters back on the url we pass when you click the save button to upload he image
+$uploadImageAction = "_php/UploadFile.php";
+if (isset($_SERVER['QUERY_STRING'])) {
+  $uploadImageAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
 $projectId = "";
@@ -151,12 +158,13 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                 	
                   <td class="width-narrow">Media</td>
                   <td>
-                  	<form action="_php/UploadFile.php" method='post' enctype="multipart/form-data" id="uploadImageForm">
+                  	<form action="<?php echo $uploadImageAction; ?>" method='post' enctype="multipart/form-data" id="uploadImageForm">
                   		<input type='file' name='file'/>
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                  			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">
+                      <!--<a class="btn btn-small" onClick="uploadImage()"><i class="icon-arrow-up"></i> Upload image</a>-->
                     </form>
-<!--<a class="btn btn-small" onClick="uploadImage()"><i class="icon-arrow-up"></i> Add image</a>--> <br/><br/>
+									 	<br/><br/>
                     <img src="<?php echo $row_foundRecord['Url']; ?>" alt="" class="img-polaroid"></td>
                 </tr>
                 <form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">

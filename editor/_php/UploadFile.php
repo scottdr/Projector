@@ -54,8 +54,9 @@ if(isset($_POST['UploadImage'])){
 		logMessage("FileSize: $fileSize");
 		if (strlen($fileName) > 0)
 			$response = uploadFile($fileTempName,$filePath,$fileName,$fileSize);
-		echo json_encode($response); 
-    //we'll continue our script from here in the next step!
+		if ($response["success"]) 
+			updateMediaURL($response["url"]);
+//		echo json_encode($response);  This would be how we would return the string as a json response (this technique didn't work out)
 }
 
 function result($success,$msg,$url,$fileName,$errorNumber = 0)
@@ -116,5 +117,17 @@ function uploadFile($tmpFile,$filePath,$fileName,$fileSize)
 		return result(false,"There was an error uploading, $objectName\n<br />");
 }
 
+function updateMediaURL()
+{
+}
 
+// Okay this is supposedly hacky that I am doing a Get and Post to this UploadFile.php but it works just fine
+$goToURL = "../Projector_MediaEdit.php";
+if (isset($_SERVER['QUERY_STRING'])) {
+  $goToURL .= "?" . $_SERVER['QUERY_STRING'];		// put url parameters back on the url we pass when you click the save button to re-post form data to this same page
+}
+
+logMessage($goToURL);
+
+header(sprintf("Location: %s", $goToURL));
 ?>
