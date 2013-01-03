@@ -144,16 +144,23 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
         <h3 class="span11 offset1"><?php echo $action; ?> media:</h3>
 	</section>
     <section class="row-fluid">
-    	<form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
-      	<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
+
         <table class="table table-condensed unborderedTable span10 offset1">
               <tbody>
               	<tr>
+                	
                   <td class="width-narrow">Media</td>
-                  <td><a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a> <br/>
-                    <br/>
+                  <td>
+                  	<form action="_php/UploadFile.php" method='post' enctype="multipart/form-data" id="uploadImageForm">
+                  		<input type='file' name='file'/>
+                      <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">
+                    </form>
+<!--<a class="btn btn-small" onClick="uploadImage()"><i class="icon-arrow-up"></i> Add image</a>--> <br/><br/>
                     <img src="<?php echo $row_foundRecord['Url']; ?>" alt="" class="img-polaroid"></td>
                 </tr>
+                <form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
+      					<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                 <tr>
                   <td>URL</td>
                   <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>"></td>
@@ -186,10 +193,11 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                   <a href="#" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
+                <input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
+    						</form>
               </tbody>
             </table>
-  		<input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
-    </form>
+  		
 	</section>
     
     <!-- CONTENT ENDS -->
@@ -210,6 +218,21 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
 <script type="text/javascript" charset="utf-8">
 	$(prettyPrint);
+	
+function uploadImage()
+{
+	 var myform = $('#uploadImageForm');
+	 alert(myform.serialize());
+	 $.ajax( {
+      type: "POST",
+      url: "_php/UploadFile.php",
+      data: myform.serialize(),
+      success: function( response ) {
+        console.log( response );
+      }
+    } );
+}
+
 </script>
 
 </body>
