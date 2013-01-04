@@ -200,7 +200,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                   <td>&nbsp;</td>
                   <td>
                   <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
-                  <a href="#" class="btn btn-primary btn-danger">Delete</a>
+                  <a href="_php/DeleteMedia.php?Id=<?php echo $colname_foundRecord; ?>&ProjectId=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
                 <input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
