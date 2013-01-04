@@ -45,7 +45,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 /* print out a debug message with carriage return */
 function logMessage($message)
 {
-	if (true)	// set to true to debug
+	if (false)	// set to true to debug
 		echo $message . "\n<br />";
 }
 
@@ -195,5 +195,5 @@ if (isset($_POST['ProjectName']))
 
 logMessage($goToURL);
 
-//header(sprintf("Location: %s", $goToURL));
+header(sprintf("Location: %s", $goToURL));
 ?>
