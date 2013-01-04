@@ -171,7 +171,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
       					<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                 <tr>
                   <td>URL</td>
-                  <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>"></td>
+                  <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>" readonly></td>
                 </tr>
                 <tr>
                   <td>Description</td>
