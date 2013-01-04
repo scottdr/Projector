@@ -160,13 +160,11 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                   <td class="width-narrow">Media</td>
                   <td>
                   	<form action="<?php echo $uploadImageAction; ?>" method='post' enctype="multipart/form-data" id="uploadImageForm">
-                  		<input type='file' name='file'/>
-                      
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">
                       <input type="hidden" name="Id" value="<?php echo $colname_foundRecord; ?>" />
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                       <input type="hidden" name="ProjectName" value="<?php echo $projectName; ?>" />
-                      <!--<a class="btn btn-small" onClick="uploadImage()"><i class="icon-arrow-up"></i> Upload image</a>-->
+                  		<!--<input type='file' name='file'/>-->           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
                     </form>
 									 	<br/><br/>
                     <img src="<?php echo $row_foundRecord['Url']; ?>" alt="" class="img-polaroid"></td>
