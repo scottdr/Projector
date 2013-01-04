@@ -163,7 +163,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                       <input type="hidden" name="Id" value="<?php echo $colname_foundRecord; ?>" />
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                       <input type="hidden" name="ProjectName" value="<?php echo $projectName; ?>" />
-                  		<!--<input type='file' name='file'/>-->           
+                  		<input type='file' name='file'/>           
                  			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
                     </form>
 									 	<br/><br/>
