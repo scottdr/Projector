@@ -74,24 +74,6 @@ function objectExists($objectName) {
 	return($response->isOK());
 }
 
-logMessage("processing upload");
-//check whether a form was submitted
-if(isset($_POST['UploadImage'])){
-		global $s3, $bucket;
-		
-    //retreive post variables
-    $fileName = $_FILES['file']['name'];
-    $fileTempName = $_FILES['file']['tmp_name'];
-		$fileSize = $_FILES['file']['size'];
-		$projectId = $_POST["ProjectId"];
-		$filePath = "_images/projects/" . $projectId . "/";
-		logMessage("FileSize: $fileSize");
-		if (strlen($fileName) > 0)
-			$response = uploadFile($fileTempName,$filePath,$fileName,$fileSize);
-		if ($response["success"]) 
-			updateMediaURL($response["url"]);
-//		echo json_encode($response);  This would be how we would return the string as a json response (this technique didn't work out)
-}
 
 function result($success,$msg,$url,$fileName,$errorNumber = 0)
 {
@@ -155,24 +137,59 @@ function uploadFile($tmpFile,$filePath,$fileName,$fileSize)
 function updateMediaURL($url)
 {
 	global $database_projector, $projector;
-
+	
+	$insertedRecordId = -1;
+	$insertRecord = !(isset($_GET['Id']));	// if we have the media id we need to update otherwise we are doing an insert
+	
 	mysql_select_db($database_projector, $projector);
-	if (isset($_GET['Id'])) // if we have the media id we need to update otherwise we are doing an insert
+	if ($insertRecord) 
+		$sqlCommand = sprintf("INSERT INTO Media SET Url = %s",
+												 GetSQLValueString($url, "text"));
+	else
 		$sqlCommand = sprintf("UPDATE Media SET Url=%s WHERE Id=%s",
 												 GetSQLValueString($url, "text"),
 												 GetSQLValueString($_GET['Id'], "int"));
-		
+												 
 	logMessage("sql: " . $sqlCommand);
 	$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+	if ($insertRecord) {
+		$insertedRecordId = mysql_insert_id();
+	}
+	return $insertedRecordId;
 }
 
-// Okay this is supposedly hacky that I am doing a Get and Post to this UploadFile.php but it works just fine
+logMessage("processing upload");
+
+$insertedRecordId = -1;
+if(isset($_POST['UploadImage'])){		//check whether a form was submitted by checking if the submit button was pressed
+		global $s3, $bucket;	
+    //retreive post variables
+    $fileName = $_FILES['file']['name'];
+    $fileTempName = $_FILES['file']['tmp_name'];
+		$fileSize = $_FILES['file']['size'];
+		$projectId = $_POST["ProjectId"];
+		$filePath = "_images/projects/" . $projectId . "/";
+		logMessage("FileSize: $fileSize");
+		if (strlen($fileName) > 0)
+			$response = uploadFile($fileTempName,$filePath,$fileName,$fileSize);
+		if ($response["success"]) 
+			$insertedRecordId = updateMediaURL($response["url"]);
+//		echo json_encode($response);  This would be how we would return the string as a json response (this technique didn't work out)
+}
+
 $goToURL = "../Projector_MediaEdit.php";
-if (isset($_SERVER['QUERY_STRING'])) {
-  $goToURL .= "?" . $_SERVER['QUERY_STRING'];		// put url parameters back on the url we pass when you click the save button to re-post form data to this same page
+if ($insertedRecordId == -1) {
+	// Okay this is a litle hacky that I am doing a Get and Post to this UploadFile.php but it works just fine
+	if (isset($_SERVER['QUERY_STRING'])) {
+		$goToURL .= "?" . $_SERVER['QUERY_STRING'];		// put url parameters back on the url we pass when you click the save button to re-post form data to this same page
+	}
+} else {
+	$goToURL .= "?Id=" . $insertedRecordId;
+	if (isset($_GET['ProjectId']))
+		$goToURL .= "&ProjectId=" . $_GET['ProjectId'];
 }
 
 logMessage($goToURL);
 
-//header(sprintf("Location: %s", $goToURL));
+header(sprintf("Location: %s", $goToURL));
 ?>
