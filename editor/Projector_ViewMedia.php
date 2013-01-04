@@ -83,6 +83,7 @@ if ($projectId > -1) {
       <h2 class="brand"><?php echo $projectName; ?></h2>
         <ul class="nav">
           <li><a href="Projector_EditChallenge.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Details</a></li>
+          <li><a href="Projector_EditImages.php<?php if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i>Images</a></li>
           <li><a href="Projector_EditSteps.php<?php if ($projectId > 0) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
           <li class="active"><a href="#"><i class="icon-eye-open"></i> Media</a></li>
           <li><a href="/ChallengeTemplate.php<?php if ($projectId > 0) echo "?ProjectId=" . $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
