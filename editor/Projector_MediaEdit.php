@@ -39,9 +39,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 // put url parameters back on the url we pass when you click the save button to upload he image
 $uploadImageAction = "_php/UploadFile.php";
-if (isset($_SERVER['QUERY_STRING'])) {
+/*if (isset($_SERVER['QUERY_STRING'])) {
   $uploadImageAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
+*/
 
 $projectId = "";
 if (isset($_GET['ProjectId'])) 
@@ -160,8 +161,11 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                   <td>
                   	<form action="<?php echo $uploadImageAction; ?>" method='post' enctype="multipart/form-data" id="uploadImageForm">
                   		<input type='file' name='file'/>
-                      <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
+                      
                  			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">
+                      <input type="hidden" name="Id" value="<?php echo $colname_foundRecord; ?>" />
+                      <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
+                      <input type="hidden" name="ProjectName" value="<?php echo $projectName; ?>" />
                       <!--<a class="btn btn-small" onClick="uploadImage()"><i class="icon-arrow-up"></i> Upload image</a>-->
                     </form>
 									 	<br/><br/>

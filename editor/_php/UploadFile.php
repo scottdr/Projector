@@ -139,7 +139,10 @@ function updateMediaURL($url)
 	global $database_projector, $projector;
 	
 	$insertedRecordId = -1;
-	$insertRecord = !(isset($_GET['Id']));	// if we have the media id we need to update otherwise we are doing an insert
+	if (isset($_POST['Id']) && $_POST['Id'] > -1)		// if the media id is specified update otherwise we are doing an insert
+		$insertRecord = false;
+	else
+		$insertRecord = true;	
 	
 	mysql_select_db($database_projector, $projector);
 	if ($insertRecord) 
@@ -148,7 +151,7 @@ function updateMediaURL($url)
 	else
 		$sqlCommand = sprintf("UPDATE Media SET Url=%s WHERE Id=%s",
 												 GetSQLValueString($url, "text"),
-												 GetSQLValueString($_GET['Id'], "int"));
+												 GetSQLValueString($_POST['Id'], "int"));
 												 
 	logMessage("sql: " . $sqlCommand);
 	$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
@@ -178,16 +181,17 @@ if(isset($_POST['UploadImage'])){		//check whether a form was submitted by check
 }
 
 $goToURL = "../Projector_MediaEdit.php";
+// if we are not adding the record get the Media ID from the POST
 if ($insertedRecordId == -1) {
-	// Okay this is a litle hacky that I am doing a Get and Post to this UploadFile.php but it works just fine
-	if (isset($_SERVER['QUERY_STRING'])) {
-		$goToURL .= "?" . $_SERVER['QUERY_STRING'];		// put url parameters back on the url we pass when you click the save button to re-post form data to this same page
-	}
-} else {
+	if (isset($_POST['Id']))
+		$goToURL .= "?Id=" . $_POST['Id'];
+} else {	// we are inserting the Media for the first time so get the Media ID from the record we just created
 	$goToURL .= "?Id=" . $insertedRecordId;
-	if (isset($_GET['ProjectId']))
-		$goToURL .= "&ProjectId=" . $_GET['ProjectId'];
 }
+if (isset($_POST['ProjectId']))
+		$goToURL .= "&ProjectId=" . $_POST['ProjectId'];
+if (isset($_POST['ProjectName']))
+		$goToURL .= "&ProjectName=" . $_POST['ProjectName'];
 
 logMessage($goToURL);
 
