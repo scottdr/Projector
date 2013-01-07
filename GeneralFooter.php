@@ -3,7 +3,7 @@
  
             <div id="GeneralFooterDiv">
                 <hr/>
-                <p>&copy; Pearson Foundation 2012 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a>
+                <p>&copy; Pearson Foundation 2013 | <a href="mailto:labs@pearsonfoundation.org">Contact</a> | <a href="TermsConditions.php">Terms and Conditions</a>
                 <?php if (!$PROJECTOR['editMode']) echo "<!-- "; ?> 
 								<?php echo "&nbsp;Release: #" . $PROJECTOR['versionNumber']; ?>
                 <?php if (!$PROJECTOR['editMode']) echo "--> " ?> 
