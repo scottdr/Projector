@@ -95,12 +95,19 @@ if ($projectId > -1) {
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid" style="margin-top: 44px;">
-        <h3 class="span11 offset1">Media:</h3>
-        <div style="float:right; margin-right:20px;"> <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="Projector_MediaEdit.php?action=Add<?php if ($projectId > 0) echo "&ProjectId=" . $projectId; if (isset($projectName)) echo "&ProjectName=" . $projectName; ?>">
-          <i class="icon-plus"></i> 
-          Add media
-      </a></div>
-    </section>
+
+        <h3 class="span11 offset1">
+        	Media:
+            <br/><br/>
+            
+            <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="Projector_MediaEdit.php?action=Add<?php if ($projectId > 0) echo "&ProjectId=" . $projectId; if (isset($projectName)) echo "&ProjectName=" . $projectName; ?>">
+            <i class="icon-plus"></i> 
+            Add new media
+            </a>
+        
+        </h3>
+
+  </section>
     <section class="row-fluid">
     	<div class="span10 offset1">
             <table class="table table-striped table-hover" style="min-width:400px">
