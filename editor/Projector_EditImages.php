@@ -175,13 +175,13 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  <input name="ImgLarge" type="text" class="width-auto" id="ImgLarge" value="<?php echo $row_foundRecord['ImgLarge']; ?>" onblur="updateThumbnailImage(this,'ImgLargePreview')">
                   </td>
                 </tr>
-                <tr>
+               <!-- <tr>
                   <td width="154"></td>
                   <td>
                   <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
                   <a href="_php/DeleteProject.php?Id=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
                   </td>
-                </tr>
+                </tr>-->
               </tbody>
             </table>
 	</section>
@@ -217,5 +217,4 @@ function updateThumbnailImage(object,previewId)
 </html>
 <?php
 mysql_free_result($foundRecord);
-mysql_free_result($TopicsMenu);
 ?>
