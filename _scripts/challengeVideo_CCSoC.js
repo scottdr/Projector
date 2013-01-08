@@ -178,12 +178,12 @@ function loadStep(StepId,StepOrderNumber) {
 /* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
 function selectStep(eventTarget) {
 			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
-		jQuery('.ribbonChallenge_CC_OpeningBottomCurrent').removeClass('ribbonChallenge_CC_OpeningBottomCurrent').addClass('ribbonChallenge_CC_OpeningBottom');
-		jQuery('.ribbonStart_CC_WritingBottomCurrent').removeClass('ribbonStart_CC_WritingBottomCurrent').addClass('ribbonStart_CC_WritingBottom');
-		jQuery('.ribbonPlan_CC_GroupWorkBottomCurrent').removeClass('ribbonPlan_CC_GroupWorkBottomCurrent').addClass('ribbonPlan_CC_GroupWorkBottom');
-		jQuery('.ribbonCreate_CC_CommonReadBottomCurrent').removeClass('ribbonCreate_CC_CommonReadBottomCurrent').addClass('ribbonCreate_CC_CommonReadBottom');
-		jQuery('.ribbonRevise_CC_ReviseBottomCurrent').removeClass('ribbonRevise_CC_ReviseBottomCurrent').addClass('ribbonRevise_CC_ReviseBottom');
-		jQuery('.ribbonPresent_CC_HomeworkBottomCurrent').removeClass('ribbonPresent_CC_HomeworkBottomCurrent').addClass('ribbonPresent_CC_HomeworkBottom');
+		jQuery('.ribbon_CC_Routine1BottomCurrent').removeClass('ribbon_CC_Routine1BottomCurrent').addClass('ribbon_CC_Routine1Bottom');
+		jQuery('.ribbon_CC_Routine2BottomCurrent').removeClass('ribbon_CC_Routine2BottomCurrent').addClass('ribbon_CC_Routine2Bottom');
+		jQuery('.ribbon_CC_Routine3BottomCurrent').removeClass('ribbon_CC_Routine3BottomCurrent').addClass('ribbon_CC_Routine3Bottom');
+		jQuery('.ribbon_CC_Routine4BottomCurrent').removeClass('ribbon_CC_Routine4BottomCurrent').addClass('ribbon_CC_Routine4Bottom');
+		jQuery('.ribbon_CC_Routine5BottomCurrent').removeClass('ribbon_CC_Routine5BottomCurrent').addClass('ribbon_CC_Routine5Bottom');
+		jQuery('.ribbon_CC_Routine6BottomCurrent').removeClass('ribbon_CC_Routine6BottomCurrent').addClass('ribbon_CC_Routine6Bottom');
 		
 		
 		// remove all visible selected step call outs (arrow pointing down below the step) and hide them
@@ -191,12 +191,12 @@ function selectStep(eventTarget) {
 			// Add the visible style to the selected lower div to display the arrow pointing down, div class=ribbonChallengeSelector
 		jQuery('div[data-type="selector"]',eventTarget).addClass("visibleStyle");
 		// Add Current to class for the step so that it stays highlighted in appropriate color
-		jQuery(".ribbonChallenge_CC_OpeningBottom",eventTarget).removeClass("ribbonChallenge_CC_OpeningBottom").addClass("ribbonChallenge_CC_OpeningBottomCurrent");
-		jQuery(".ribbonStart_CC_WritingBottom",eventTarget).removeClass("ribbonStart_CC_WritingBottom").addClass("ribbonStart_CC_WritingBottomCurrent");	
-		jQuery(".ribbonPlan_CC_GroupWorkBottom",eventTarget).removeClass("ribbonPlan_CC_GroupWorkBottom").addClass("ribbonPlan_CC_GroupWorkBottomCurrent");
-		jQuery(".ribbonCreate_CC_CommonReadBottom",eventTarget).removeClass("ribbonCreate_CC_CommonReadBottom").addClass("ribbonCreate_CC_CommonReadBottomCurrent");	
-		jQuery(".ribbonRevise_CC_ReviseBottom",eventTarget).removeClass("ribbonRevise_CC_ReviseBottom").addClass("ribbonRevise_CC_ReviseBottomCurrent");	
-		jQuery(".ribbonPresent_CC_HomeworkBottom",eventTarget).removeClass("ribbonPresent_CC_HomeworkBottom").addClass("ribbonPresent_CC_HomeworkBottomCurrent");	
+		jQuery(".ribbon_CC_Routine1Bottom",eventTarget).removeClass("ribbon_CC_Routine1Bottom").addClass("ribbon_CC_Routine1BottomCurrent");
+		jQuery(".ribbon_CC_Routine2Bottom",eventTarget).removeClass("ribbon_CC_Routine2Bottom").addClass("ribbon_CC_Routine2BottomCurrent");	
+		jQuery(".ribbon_CC_Routine3Bottom",eventTarget).removeClass("ribbon_CC_Routine3Bottom").addClass("ribbon_CC_Routine3BottomCurrent");
+		jQuery(".ribbon_CC_Routine4Bottom",eventTarget).removeClass("ribbon_CC_Routine4Bottom").addClass("ribbon_CC_Routine4BottomCurrent");	
+		jQuery(".ribbon_CC_Routine5Bottom",eventTarget).removeClass("ribbon_CC_Routine5Bottom").addClass("ribbon_CC_Routine5BottomCurrent");	
+		jQuery(".ribbon_CC_Routine6Bottom",eventTarget).removeClass("ribbon_CC_Routine6Bottom").addClass("ribbon_CC_Routine6BottomCurrent");	
 }	
 		
 //  ///////////////////////////////////////////////////////////////////////
