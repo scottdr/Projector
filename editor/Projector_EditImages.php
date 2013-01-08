@@ -74,7 +74,7 @@ $projectId = $row_foundRecord['Id'];
 session_start();
 $_SESSION['ProjectName'] = $row_foundRecord['Name'];
 $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
-
+$_SESSION['ActiveNav'] = "images";
 ?>
 <!doctype html>
 <html>
@@ -104,15 +104,8 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      
-<h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
-        <ul class="nav">
-          <li><a href="Projector_EditChallenge.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i>Details</a></li>
-          <li class="active"><a href="Projector_EditImages.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i>Images</a></li>
-          <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
-          <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="/ChallengeTemplate.php?ProjectId=<?php if (isset($row_foundRecord['Id'])) echo $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
-        </ul>
+				<h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
+				<?php require("SubNav.php"); ?>
       </div>
     </div>
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->

@@ -33,6 +33,9 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+session_start(); 
+$_SESSION['ActiveNav'] = "steps";
+
 $colname_ProjectInfo = "-1";
 if (isset($_GET['Id'])) {
   $colname_ProjectInfo = $_GET['Id'];
@@ -330,14 +333,8 @@ function doTemplateChange(combobox) {
 	<!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand"><?php if (isset($projectName)) echo $projectName ?></h2>
-        <ul class="nav">
-          <li><a href="Projector_EditChallenge.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i> Details</a></li>
-          <li><a href="Projector_EditImages.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-edit"></i>Images</a></li>
-          <li class="active"><a href="#"><i class="icon-edit"></i> Steps</a></li>
-          <li><a href="Projector_ViewMedia.php<?php if (isset($_GET['Id'])) echo "?Id=" . $_GET['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="/ChallengeTemplate.php?ProjectId=<?php if (isset($_GET['Id'])) echo $_GET['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
-        </ul>
+        <h2 class="brand"><?php if (isset($projectName)) echo $projectName ?></h2>
+        <?php require("SubNav.php"); ?>        
       </div>
     </div>
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->

@@ -31,6 +31,9 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+session_start(); 
+$_SESSION['ActiveNav'] = "media";
+
 // put url parameters back on the url we pass when you click the save button to re-post form data to this same page
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
@@ -137,12 +140,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
     <div class="navbar">
       <div class="navbar-inner">
       <h2 class="brand"><?php echo $projectName; ?></h2>
-        <ul class="nav">
-          <li><a href="Projector_EditChallenge.php?Id=<?php echo $projectId; ?>"><i class="icon-edit"></i> Details</a></li>
-          <li><a href="Projector_EditSteps.php?Id=<?php echo $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
-          <li class="active"><a href="Projector_ViewMedia.php?Id=<?php echo $projectId; ?>&ProjectName=<?php echo $projectName; ?>"><i class="icon-eye-open"></i>Media</a></li>
-          <li><a href="../ChallengeTemplate.php?ProjectId=<?php echo $projectId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
-        </ul>
+      	<?php require("SubNav.php"); ?>
       </div>
     </div>
     <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS END -->

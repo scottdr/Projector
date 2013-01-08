@@ -1,4 +1,5 @@
-	<!--<nav class="navbar" style="border:0; margin:0;">
+	<?php require("../Globals.php") ?>
+  <!--<nav class="navbar" style="border:0; margin:0;">
     	<div class="navbar-inner">
             <ul class="nav">
                 <li><a href="Login.php">Login</a></li>
@@ -30,5 +31,11 @@
           <i class="icon-eye-open icon-white"></i> 
           View projects
       </a>
+      <?php if ($PROJECTOR['cc']) : ?>
+       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="CCSoC_EditRoutines.php">
+          <i class="icon-edit icon-white"></i> 
+          Routines
+      </a>
+      <?php endif; ?>
     </p>
 </div>
