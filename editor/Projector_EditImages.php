@@ -135,8 +135,8 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  <form action="_php/UploadProjectImage.php" method='post' enctype="multipart/form-data" id="uploadImageForm">
                  			<input type="hidden" name="FieldName" value="ImgSmall" />
                       <input type="hidden" name="Id" value="<?php echo $projectId; ?>" />
-                  		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
+                  		<input type='file' name='file' />           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  </form> 
                  <!--<a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>-->
                  <br/><br/>
@@ -152,7 +152,7 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  			<input type="hidden" name="FieldName" value="ImgMedium" />
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                   		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  	</form> 
                  <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" name="ImgMediumPreview" width="200" height="200" class="img-polaroid" id="ImgMediumPreview">
@@ -167,7 +167,7 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  			<input type="hidden" name="FieldName" value="ImgLarge" />
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                   		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  	</form>
                  <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" name="ImgLargePreview" width="300" height="300" class="img-polaroid" id="ImgLargePreview">
