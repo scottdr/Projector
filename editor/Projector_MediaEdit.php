@@ -119,6 +119,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
 <link rel="stylesheet" type="text/css" href="css/prettify.css"/>
 <link rel="stylesheet" type="text/css" href="css/bootstrap-wysihtml5.css"/>
+<script src="../js/utility.js"></script>
 
 <!-- HTML5 shim for IE backwards compatibility -->
     <!--[if lt IE 9]>
@@ -152,8 +153,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
         <h3 class="span11 offset1"><?php echo $action; ?> media:</h3>
 	</section>
     <section class="row-fluid">
-
-        <table class="table table-condensed unborderedTable span10 offset1">
+				<table class="table table-condensed unborderedTable span10 offset1">
               <tbody>
               	<tr>
                 	
@@ -169,15 +169,22 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 									 	<br/><br/>
                     <img src="<?php echo $row_foundRecord['Url']; ?>" alt="" class="img-polaroid"></td>
                 </tr>
-                <form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
-      					<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                 <tr>
                   <td>URL</td>
                   <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>" readonly></td>
                 </tr>
+         </tbody>
+         </table>
+        <table id="mediaForm" class="table table-condensed unborderedTable span10 offset1 hidden">
+              <tbody>
+
+                <form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
+      					<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
+
+             		
                 <tr>
                   <td>Description</td>
-                  <td><textarea name="Description" class="width-auto" id="Description"><?php echo $row_foundRecord['Description']; ?></textarea></td>
+                  <td><textarea name="Description!" class="width-auto" id="Description"><?php echo $row_foundRecord['Description']; ?></textarea></td>
                 </tr>
                 <tr>
                   <td>Caption</td>
@@ -205,6 +212,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                 </tr>
                 <input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
     						</form>
+                
               </tbody>
             </table>
   		
@@ -238,10 +246,18 @@ function uploadImage()
       url: "_php/UploadFile.php",
       data: myform.serialize(),
       success: function( response ) {
+				$('#mediaForm').removeClass("hidden");
         console.log( response );
       }
     } );
 }
+
+/* when the document is loaded if we aren't adding media than show the extra fields */
+$(document).ready(function() {
+  // Handler for .ready() called.
+	if (getQueryVariable("action") != "Add")
+		$('#mediaForm').removeClass("hidden");
+});
 
 </script>
 
