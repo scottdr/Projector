@@ -6,7 +6,10 @@ define("MAX_FILE_SIZE",  1024*1024);
 
 $s3 = new AmazonS3();
 
-$bucket = 'ProjectorAssets';
+if ($PROJECTOR['cc'])
+	$bucket = 'CommonCoreAssets';
+else
+	$bucket = 'ProjectorAssets';
  
 //Here you can add valid file extensions. 
 $valid_formats = array("jpg", "png", "gif","jpeg","PNG","JPG","JPEG","GIF");
