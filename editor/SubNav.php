@@ -8,7 +8,7 @@
  if ($PROJECTOR['cc'])
  	$EditURL = "CCSoC_EditLesson.php";
  else
- 	$EditURL = "Projector_EditChalleng.php";	
+ 	$EditURL = "Projector_EditChallenge.php";	
 ?>
  <ul class="nav">
           <li <?php if (isset($_SESSION['ActiveNav']) && $_SESSION['ActiveNav'] == 'details') echo 'class="active" '; ?>><a href="<?php echo $EditURL; if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i>Details</a></li>
