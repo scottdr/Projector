@@ -104,7 +104,7 @@ $_SESSION['ActiveNav'] = "routines";
     </div>
     <section class="row-fluid">
         <div class="span3 offset1">
-            <SELECT size="15"  multiple="multiple" style="width:100%;">
+            <SELECT size="15" id="routineSelection" name="routineSelection"  multiple="multiple" style="width:100%;">
               <?php
 do {  
 ?>
@@ -121,20 +121,20 @@ do {
         </div>
         <div class="span1">
             <input type="button" onClick="addRoutine()" value="&gt;" class="btn" style="width:100%; margin-bottom:10px; margin-top:60px;">
-            <input type="button" value="&lt;" class="btn" style="width:100%;">
+            <input type="button" onClick="removeSelectedRoutine()" value="&lt;" class="btn" style="width:100%;">
         </div>
         <div class="span3">
-            <SELECT size="15"  multiple="multiple" style="width:100%;">
+            <SELECT id="lessonRoutines" name="lessonRoutines" size="15" style="width:100%;">
             </SELECT>
         </div>
         <div class="span2">
-            <input type="button" value="Move Up"  class="btn" style="width:100%; margin-bottom:10px; margin-top:60px;">
-            <input type="button" value="Move Down"  class="btn" style="width:100%;">
+            <input type="button" value="Move Up" onClick="moveItemUp()"  class="btn" style="width:100%; margin-bottom:10px; margin-top:60px;">
+            <input type="button" value="Move Down" onClick="moveItemDown()" class="btn" style="width:100%;">
         </div>
     </section>
     <section class="row-fluid">
     		<!-- Hide and show this div when routines are being removed from a lesson -->
-            <div class="span7 offset1 alert alert-block alert-error">
+            <div class="span7 offset1 alert alert-block alert-error hidden">
             <button type="button" class="close" data-dismiss="alert">×</button>
             <h4>Alert!</h4>
             Removing a routine from your lesson will result in the associated content being appended to the preceeding routine.
@@ -154,8 +154,51 @@ do {
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
 function addRoutine() {
-	
+	$("#routineSelection option:selected").each(function() {
+		appendRoutine($(this).val(),$(this).text());
+	});
+}
+
+function appendRoutine(value,label) {
+	$('#lessonRoutines').append($("<option></option>").attr("value",value).text(label));
+}
+
+function removeSelectedRoutine() {
+	var optionIndex = $("#lessonRoutines option:selected").prevAll().size();
+	$("#lessonRoutines option:eq(" + optionIndex + ")").remove();
+}
+
+function moveItemUp() {
+	var optionIndex = $("#lessonRoutines option:selected").prevAll().size();
+//	alert("remove item #: " + optionIndex);
+	var selectedValue = $("#lessonRoutines option:eq(" + optionIndex + ")").val();
+	var selectedLabel = $("#lessonRoutines option:eq(" + optionIndex + ")").text();
+	if (optionIndex > 0) {
+		var previousIndex = optionIndex - 1;
+		var previousValue = $("#lessonRoutines option:eq(" + previousIndex + ")").val();
+		var previousLabel = $("#lessonRoutines option:eq(" + previousIndex + ")").text();
+		$("#lessonRoutines option:eq(" + optionIndex + ")").replaceWith($("<option></option>").attr("value",previousValue).text(previousLabel));
+		$("#lessonRoutines option:eq(" + previousIndex + ")").replaceWith($("<option></option>").attr("value",selectedValue).text(selectedLabel));
+		$("#lessonRoutines").val(selectedValue);
+	}
+}
+
+function moveItemDown() {
+	var optionIndex = $("#lessonRoutines option:selected").prevAll().size();
+//	alert("remove item #: " + optionIndex);
+	var selectedValue = $("#lessonRoutines option:eq(" + optionIndex + ")").val();
+	var selectedLabel = $("#lessonRoutines option:eq(" + optionIndex + ")").text();
+	var numberOptions = $("#lessonRoutines option").size();
+	if (optionIndex < numberOptions - 1) {
+		var nextIndex = optionIndex + 1;
+		var nextValue = $("#lessonRoutines option:eq(" + nextIndex + ")").val();
+		var nextLabel = $("#lessonRoutines option:eq(" + nextIndex + ")").text();
+		$("#lessonRoutines option:eq(" + optionIndex + ")").replaceWith($("<option></option>").attr("value",nextValue).text(nextLabel));
+		$("#lessonRoutines option:eq(" + nextIndex + ")").replaceWith($("<option></option>").attr("value",selectedValue).text(selectedLabel));
+		$("#lessonRoutines").val(selectedValue);
+	}
 }
 </script>
 </body>
