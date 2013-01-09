@@ -61,7 +61,7 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+		$sqlCommand = sprintf("INSERT INTO Projects (Name, Subject, GradeMin, GradeMax, Duration, `Description`, Author, Status, Topic, Unit, Number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
@@ -70,14 +70,16 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Description'], "text"),
 											 GetSQLValueString($_POST['Author'], "text"),
 											 GetSQLValueString($_POST['Status'], "text"),
-											 GetSQLValueString($_POST['Topic'], "int"));
+											 GetSQLValueString($_POST['Topic'], "int"),
+											 GetSQLValueString($_POST['Unit'], "int"),
+											 GetSQLValueString($_POST['Number'], "int"));
 	/*	
 	  TO DO get row of last inserted record
 		$insertId = last_insert_id( );
 		print "Insert Id: $insertId\n";
 		*/
 	} else
-	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s WHERE Id=%s",
+	$sqlCommand = sprintf("UPDATE Projects SET Name=%s, Subject=%s, GradeMin=%s, GradeMax=%s, Duration=%s, Author=%s, `Description`=%s, Status=%s, Topic=%s, Unit=%s, Number=%s WHERE Id=%s",
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Subject'], "text"),
                        GetSQLValueString($_POST['MinGrade'], "int"),
@@ -87,6 +89,8 @@ if (isset($_POST["MM_action"])) {
                        GetSQLValueString($_POST['Description'], "text"),
 											 GetSQLValueString($_POST['Status'], "text"),
 											 GetSQLValueString($_POST['Topic'], "int"),
+											 GetSQLValueString($_POST['Unit'], "int"),
+											 GetSQLValueString($_POST['Number'], "int"),
                        GetSQLValueString($_POST['Id'], "int"));
 
   mysql_select_db($database_projector, $projector);

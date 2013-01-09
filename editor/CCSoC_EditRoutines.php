@@ -52,7 +52,7 @@ if (isset($_GET['Id'])) {
   $colname_lessonRoutinesQuery = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector); 
-$query_lessonRoutinesQuery = sprintf("SELECT RoutineAttach.Id, Routines.RoutineName, RoutineAttach.ProjectId, RoutineAttach.RoutineId, RoutineAttach.SortOrder FROM RoutineAttach, Routines WHERE ProjectId = 1 AND Routines.Id = RoutineAttach.RoutineId ORDER BY SortOrder ASC", GetSQLValueString($colname_lessonRoutinesQuery, "int"));
+$query_lessonRoutinesQuery = sprintf("SELECT RoutineAttach.Id, Routines.RoutineName, RoutineAttach.ProjectId, RoutineAttach.RoutineId, RoutineAttach.SortOrder FROM RoutineAttach, Routines WHERE ProjectId = %s AND Routines.Id = RoutineAttach.RoutineId ORDER BY SortOrder ASC", GetSQLValueString($colname_lessonRoutinesQuery, "int"));
 $lessonRoutinesQuery = mysql_query($query_lessonRoutinesQuery, $projector) or die(mysql_error());
 $row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery);
 $totalRows_lessonRoutinesQuery = mysql_num_rows($lessonRoutinesQuery);
@@ -64,6 +64,13 @@ if (isset($_POST['SaveRoutines'])) {
 	if (isset($_POST['ProjectId']))
 		$projectId = $_POST['ProjectId'];
 	if (isset($_POST['lessonRoutines']) && $projectId > -1) {
+		if ($totalRows_lessonRoutinesQuery > 0) {
+//			echo "FOUND EXISTING ATTACHED ROUTINES TO DELETE\n<br />";
+			$sqlCommand = sprintf("DELETE FROM RoutineAttach WHERE ProjectId = %s",
+													 GetSQLValueString($projectId, "int"));
+//			echo "$sqlCommand\n<br />";
+			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());	
+		}
 		$routinesArray = $_POST['lessonRoutines'];
 //		echo "PROJECT ID: " . $projectId . "\n";
 		$i = 1;
@@ -74,11 +81,13 @@ if (isset($_POST['SaveRoutines'])) {
 													 GetSQLValueString($projectId, "int"), $value, $i);
 //			echo "$sqlCommand\n<br />";
 			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
-			
-			$sqlCommand = sprintf("INSERT INTO Steps (ProjectId, RoutineId, SortOrder, Name, TemplateName) VALUES (%s, %s, %s, %s, %s)",
-													 GetSQLValueString($projectId, "int"), $value, 1, GetSQLValueString("Step " . $i, "text"), GetSQLValueString("MediaLeft.php", "text"));
-//			echo "$sqlCommand\n<br />";
-			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());										 
+			// if we are adding for the first time then insert steps 
+			if ($totalRows_lessonRoutinesQuery == 0) { 
+				$sqlCommand = sprintf("INSERT INTO Steps (ProjectId, RoutineId, SortOrder, Name, TemplateName) VALUES (%s, %s, %s, %s, %s)",
+														 GetSQLValueString($projectId, "int"), $value, 1, GetSQLValueString("Step", "text"), GetSQLValueString("MediaLeft.php", "text"));
+//				echo "$sqlCommand\n<br />";
+				$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+			}
 			$i++;
 		} 
 	}
@@ -147,17 +156,15 @@ $_SESSION['ActiveNav'] = "routines";
         <div class="span3 offset1">
             <SELECT size="15" id="routineSelection" name="routineSelection"  multiple="multiple" style="width:100%;">
               <?php
-do {  
-?>
-              <option value="<?php echo $row_routinesQuery['Id']?>"><?php echo $row_routinesQuery['RoutineName']?></option>
-              <?php
-} while ($row_routinesQuery = mysql_fetch_assoc($routinesQuery));
-  $rows = mysql_num_rows($routinesQuery);
-  if($rows > 0) {
-      mysql_data_seek($routinesQuery, 0);
-	  $row_routinesQuery = mysql_fetch_assoc($routinesQuery);
-  }
-?>
+									do {  
+										echo '<option value="' .  $row_routinesQuery['Id'] . '">' . $row_routinesQuery['RoutineName'] . "</option>";
+									} while ($row_routinesQuery = mysql_fetch_assoc($routinesQuery));
+										$rows = mysql_num_rows($routinesQuery);
+										if($rows > 0) {
+												mysql_data_seek($routinesQuery, 0);
+											$row_routinesQuery = mysql_fetch_assoc($routinesQuery);
+										}
+							?>
             </SELECT>
         </div>
         <div class="span1">
@@ -167,17 +174,17 @@ do {
         <div class="span3">
             <SELECT id="lessonRoutines" name="lessonRoutines[]" size="15" style="width:100%;">
             <?php
-do {  
-?>
-              <option value="<?php echo $row_lessonRoutinesQuery['Id']?>"><?php echo $row_lessonRoutinesQuery['RoutineName']?></option>
-              <?php
-} while ($row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery));
-  $rows = mysql_num_rows($lessonRoutinesQuery);
-  if($rows > 0) {
-      mysql_data_seek($lessonRoutinesQuery, 0);
-	  $row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery);
-  }
-?>
+						if ($totalRows_lessonRoutinesQuery > 0 ) {
+							do {  
+								echo '<option value="' .  $row_lessonRoutinesQuery['RoutineId'] . '">' . $row_lessonRoutinesQuery['RoutineName'] . "</option>";
+							} while ($row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery));
+						}
+						$rows = mysql_num_rows($lessonRoutinesQuery);
+						if($rows > 0) {
+								mysql_data_seek($lessonRoutinesQuery, 0);
+							$row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery);
+						}
+						?>
             </SELECT>
         </div>
         <div class="span2">
@@ -195,8 +202,8 @@ do {
     </section>
     <section class="row-fluid">
     	<input class="btn btn-primary span3 offset5" type="button" onClick="selectAllAndSubmit()" name="SaveRoutineButton" id="SaveRoutineButton" value="Save Routines" />
-      <input name="SaveRoutines" type="hidden" value="SaveRoutines">
     </section>
+    <input name="SaveRoutines" type="hidden" value="SaveRoutines">
     </form>
     <section class="row-fluid">
         <hr class="span10 offset1" />
