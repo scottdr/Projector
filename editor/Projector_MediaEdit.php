@@ -167,10 +167,6 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 									 	<br/><br/>
                     <img src="<?php echo $row_foundRecord['Url']; ?>" alt="" class="img-polaroid"></td>
                 </tr>
-                <tr>
-                  <td>URL</td>
-                  <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>" readonly></td>
-                </tr>
          </tbody>
          </table>
         <table id="mediaForm" class="table table-condensed unborderedTable span10 offset1 hidden">
@@ -178,11 +174,13 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
                 <form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
       					<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
-
-             		
+								<tr>
+                  <td>URL</td>
+                  <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>" readonly></td>
+                </tr>
                 <tr>
                   <td>Description</td>
-                  <td><textarea name="Description!" class="width-auto" id="Description"><?php echo $row_foundRecord['Description']; ?></textarea></td>
+                  <td><textarea name="Description" class="width-auto" id="Description"><?php echo $row_foundRecord['Description']; ?></textarea></td>
                 </tr>
                 <tr>
                   <td>Caption</td>
