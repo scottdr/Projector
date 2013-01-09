@@ -46,6 +46,10 @@ $query_foundRecord = sprintf("SELECT * FROM Projects WHERE Id = %s", GetSQLValue
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
+
+if (isset($_POST['SaveRoutines'])) {
+//	echo "SAVING ROUTINES";
+}
 ?>
 <!doctype html>
 <html>
@@ -79,13 +83,6 @@ $_SESSION['ActiveNav'] = "routines";
     <div class="navbar">
       <div class="navbar-inner">
       <h2 class="brand"><?php echo $row_foundRecord['Name']; ?></h2>
-     <!--   <ul class="nav">
-          <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
-          <li class="active"><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
-          <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Tasks  &amp; steps</a></li>
-          <li><a href="CCSoC_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="CCSoC_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
-        </ul>-->
         <?php require("SubNav.php"); ?>
       </div>
     </div>
@@ -112,6 +109,7 @@ $_SESSION['ActiveNav'] = "routines";
         	Routines in this lesson:
         </p>
     </div>
+    <form method="post" enctype="multipart/form-data">
     <section class="row-fluid">
         <div class="span3 offset1">
             <SELECT size="15" id="routineSelection" name="routineSelection"  multiple="multiple" style="width:100%;">
@@ -142,17 +140,18 @@ do {
             <input type="button" value="Move Down" onClick="moveItemDown()" class="btn" style="width:100%;">
         </div>
     </section>
-    <section class="row-fluid">
+    <section class="row-fluid hidden">
     		<!-- Hide and show this div when routines are being removed from a lesson -->
-            <div class="span7 offset1 alert alert-block alert-error hidden">
+            <div class="span7 offset1 alert alert-block alert-error">
             <button type="button" class="close" data-dismiss="alert">×</button>
             <h4>Alert!</h4>
             Removing a routine from your lesson will result in the associated content being appended to the preceeding routine.
             </div>
     </section>
     <section class="row-fluid">
-    	<a href="CCSoC_EditTasksSteps.php" class="span3 offset5 btn btn-primary">Save Routines</a>
+    	<input class="btn btn-primary span3 offset5" type="submit" name="SaveRoutines" id="SaveRoutines" value="Save Routines" />
     </section>
+    </form>
     <section class="row-fluid">
         <hr class="span10 offset1" />
     </section>

@@ -13,17 +13,6 @@ class StepInfo {
 	}
 }
 
-$projectorSteps[] = new StepInfo(1,1,"In Detail","MediaLeft.php");
-$projectorSteps[] = new StepInfo(1,2,"Driving Questions","MediaLeft.php");
-$projectorSteps[] = new StepInfo(2,1,"Opening Experience","MediaLeft.php");
-$projectorSteps[] = new StepInfo(2,2,"Gathering Knowledge","MediaLeft.php");
-$projectorSteps[] = new StepInfo(2,3,"The Assignment","MediaLeft.php");
-$projectorSteps[] = new StepInfo(3,1,"Researching","Research.php");
-$projectorSteps[] = new StepInfo(3,2,"The Plan","Plan.php");
-$projectorSteps[] = new StepInfo(4,1,"Building Your Project","Create.php");
-$projectorSteps[] = new StepInfo(5,1,"Improving Your Project","Revise.php");
-$projectorSteps[] = new StepInfo(6,1,"Sharing Your Project","Present.php");
-
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
