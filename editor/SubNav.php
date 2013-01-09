@@ -4,9 +4,14 @@
  	$ChallengeURL = "/ChallengeTemplate_CCSoC.php";
  else
  	$ChallengeURL = "/ChallengeTemplate.php";
+	
+ if ($PROJECTOR['cc'])
+ 	$EditURL = "CCSoC_EditLesson.php";
+ else
+ 	$EditURL = "Projector_EditChalleng.php";	
 ?>
  <ul class="nav">
-          <li <?php if (isset($_SESSION['ActiveNav']) && $_SESSION['ActiveNav'] == 'details') echo 'class="active" '; ?>><a href="Projector_EditChallenge.php<?php if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i>Details</a></li>
+          <li <?php if (isset($_SESSION['ActiveNav']) && $_SESSION['ActiveNav'] == 'details') echo 'class="active" '; ?>><a href="<?php echo $EditURL; if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i>Details</a></li>
           <?php if ($PROJECTOR['cc']) : ?>
           <li <?php if (isset($_SESSION['ActiveNav']) && $_SESSION['ActiveNav'] == 'routines') echo 'class="active" '; ?>><a href="CCSoC_EditRoutines.php<?php if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Routines</a></li>
           <?php endif; ?>

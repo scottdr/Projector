@@ -36,13 +36,23 @@ $query_routinesQuery = "SELECT * FROM Routines";
 $routinesQuery = mysql_query($query_routinesQuery, $projector) or die(mysql_error());
 $row_routinesQuery = mysql_fetch_assoc($routinesQuery);
 $totalRows_routinesQuery = mysql_num_rows($routinesQuery);
+
+$colname_foundRecord = "-1";
+if (isset($_GET['Id'])) {
+  $colname_foundRecord = $_GET['Id'];
+}
+mysql_select_db($database_projector, $projector);
+$query_foundRecord = sprintf("SELECT * FROM Projects WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
+$row_foundRecord = mysql_fetch_assoc($foundRecord);
+$totalRows_foundRecord = mysql_num_rows($foundRecord);
 ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Define CCSoC Routines</title>
+<title>Define Common Core Routines</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 <link href="css/editor-customization.css" rel="stylesheet" type="text/css" />
@@ -68,7 +78,7 @@ $_SESSION['ActiveNav'] = "routines";
 	<!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      <h2 class="brand">&lt;Lesson name&gt;</h2>
+      <h2 class="brand"><?php echo $row_foundRecord['Name']; ?></h2>
      <!--   <ul class="nav">
           <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
           <li class="active"><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
