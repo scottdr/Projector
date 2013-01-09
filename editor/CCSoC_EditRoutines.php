@@ -12,7 +12,14 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
+<?php 
+$projectId = -1;
+if (isset($_GET['Id']))
+	$projectId = $_GET['Id'];
 
+session_start(); 
+$_SESSION['ActiveNav'] = "routines";
+?>
 <body>
 
 <div class="container-fluid">
@@ -23,13 +30,14 @@
     <div class="navbar">
       <div class="navbar-inner">
       <h2 class="brand">&lt;Lesson name&gt;</h2>
-        <ul class="nav">
+     <!--   <ul class="nav">
           <li><a href="CCSoC_EditLesson.php"><i class="icon-edit"></i> Lesson details</a></li>
           <li class="active"><a href="CCSoC_EditRoutines.php"><i class="icon-edit"></i> Routines</a></li>
           <li><a href="CCSoC_EditTasksSteps.php"><i class="icon-edit"></i> Tasks  &amp; steps</a></li>
           <li><a href="CCSoC_ViewMedia.php"><i class="icon-eye-open"></i> Media</a></li>
           <li><a href="CCSoC_Preview.php"><i class="icon-eye-open"></i> Preview</a></li>
-        </ul>
+        </ul>-->
+        <?php require("SubNav.php"); ?>
       </div>
     </div>
     <!-- CCSoC CONTEXT SENSITIVE NAV BUTTONS END -->
