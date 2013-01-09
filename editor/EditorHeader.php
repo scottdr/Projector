@@ -32,7 +32,7 @@
           View projects
       </a>
       <?php if ($PROJECTOR['cc']) : ?>
-       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="CCSoC_EditRoutines.php">
+       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="CCSoC_ViewRoutines.php">
           <i class="icon-edit icon-white"></i> 
           Routines
       </a>

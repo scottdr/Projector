@@ -1,3 +1,42 @@
+<?php require_once('../Connections/projector.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_projector, $projector);
+$query_routinesQuery = "SELECT * FROM Routines";
+$routinesQuery = mysql_query($query_routinesQuery, $projector) or die(mysql_error());
+$row_routinesQuery = mysql_fetch_assoc($routinesQuery);
+$totalRows_routinesQuery = mysql_num_rows($routinesQuery);
+?>
 <!doctype html>
 <html>
 <head>
@@ -66,22 +105,22 @@ $_SESSION['ActiveNav'] = "routines";
     <section class="row-fluid">
         <div class="span3 offset1">
             <SELECT size="15"  multiple="multiple" style="width:100%;">
-                <OPTION  value="Opening">Opening</OPTION>
-                <OPTION  value="Work Time">Work Time</OPTION>
-                <OPTION  value="Ways of Thinking">Ways of Thinking</OPTION>
-                <OPTION  value="Summary of the Mathematics ">Summary of the Mathematics </OPTION>
-                <OPTION  value="Reflection (including Wonderings)">Reflection (including Wonderings)</OPTION>
-                <OPTION  value="Exercises">Exercises</OPTION>
-                <OPTION  value="Critique">Critique</OPTION>
-                <OPTION  value="Putting Mathematics to Work">Putting Mathematics to Work</OPTION>
-                <OPTION  value="Guided Math Groups">Guided Math Groups</OPTION>
-                <OPTION  value="Conferences">Conferences</OPTION>
-                <OPTION  value="Quizzes and Unit Examinations">Quizzes and Unit Examinations</OPTION>
-                <OPTION  value="Projects">Projects</OPTION>
+              <?php
+do {  
+?>
+              <option value="<?php echo $row_routinesQuery['Id']?>"><?php echo $row_routinesQuery['RoutineName']?></option>
+              <?php
+} while ($row_routinesQuery = mysql_fetch_assoc($routinesQuery));
+  $rows = mysql_num_rows($routinesQuery);
+  if($rows > 0) {
+      mysql_data_seek($routinesQuery, 0);
+	  $row_routinesQuery = mysql_fetch_assoc($routinesQuery);
+  }
+?>
             </SELECT>
         </div>
         <div class="span1">
-            <input type="button" value="&gt;" class="btn" style="width:100%; margin-bottom:10px; margin-top:60px;">
+            <input type="button" onClick="addRoutine()" value="&gt;" class="btn" style="width:100%; margin-bottom:10px; margin-top:60px;">
             <input type="button" value="&lt;" class="btn" style="width:100%;">
         </div>
         <div class="span3">
@@ -114,5 +153,13 @@ $_SESSION['ActiveNav'] = "routines";
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function addRoutine() {
+	
+}
+</script>
 </body>
 </html>
+<?php
+mysql_free_result($routinesQuery);
+?>
