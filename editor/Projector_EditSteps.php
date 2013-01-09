@@ -70,6 +70,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
+$query_lessonRoutinesQuery = sprintf("SELECT RoutineAttach.Id, Routines.RoutineName, RoutineAttach.ProjectId, RoutineAttach.RoutineId, RoutineAttach.SortOrder FROM RoutineAttach, Routines WHERE ProjectId = %s AND Routines.Id = RoutineAttach.RoutineId ORDER BY SortOrder ASC", GetSQLValueString($projectId, "int"));
+$lessonRoutinesQuery = mysql_query($query_lessonRoutinesQuery, $projector) or die(mysql_error());
+$row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery);
+$totalRows_lessonRoutinesQuery = mysql_num_rows($lessonRoutinesQuery);
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
@@ -367,14 +371,15 @@ function doTemplateChange(combobox) {
                 <tr>
                   <td width="140">Routine                  </td>
                   <td>
-                      <select name="RoutineId" size="1" id="RoutineId">
-                        <option value="1" selected="SELECTED">Your Challenge</option>
-                        <option value="2">Start</option>
-                        <option value="3">Plan</option>
-                        <option value="4">Create</option>
-                        <option value="5">Revise</option>
-                        <option value="6">Present</option>
-                      </select>
+                  	<select name="RoutineId" size="1" id="RoutineId">
+											<?php
+												if ($totalRows_lessonRoutinesQuery > 0 ) {
+													do {  
+														echo '<option value="' .  $row_lessonRoutinesQuery['RoutineId'] . '">' . $row_lessonRoutinesQuery['RoutineName'] . "</option>";
+													} while ($row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery));
+												}
+											?>        
+            				</select>
                   </td>
                 </tr>
                 <tr>
