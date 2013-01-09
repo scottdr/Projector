@@ -47,6 +47,16 @@ $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error())
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
+$colname_lessonRoutinesQuery = "-1";
+if (isset($_GET['Id'])) {
+  $colname_lessonRoutinesQuery = $_GET['Id'];
+}
+mysql_select_db($database_projector, $projector); 
+$query_lessonRoutinesQuery = sprintf("SELECT RoutineAttach.Id, Routines.RoutineName, RoutineAttach.ProjectId, RoutineAttach.RoutineId, RoutineAttach.SortOrder FROM RoutineAttach, Routines WHERE ProjectId = 1 AND Routines.Id = RoutineAttach.RoutineId ORDER BY SortOrder ASC", GetSQLValueString($colname_lessonRoutinesQuery, "int"));
+$lessonRoutinesQuery = mysql_query($query_lessonRoutinesQuery, $projector) or die(mysql_error());
+$row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery);
+$totalRows_lessonRoutinesQuery = mysql_num_rows($lessonRoutinesQuery);
+
 
 if (isset($_POST['SaveRoutines'])) {
 //	echo "SAVING ROUTINES\n";
@@ -156,6 +166,18 @@ do {
         </div>
         <div class="span3">
             <SELECT id="lessonRoutines" name="lessonRoutines[]" size="15" style="width:100%;">
+            <?php
+do {  
+?>
+              <option value="<?php echo $row_lessonRoutinesQuery['Id']?>"><?php echo $row_lessonRoutinesQuery['RoutineName']?></option>
+              <?php
+} while ($row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery));
+  $rows = mysql_num_rows($lessonRoutinesQuery);
+  if($rows > 0) {
+      mysql_data_seek($lessonRoutinesQuery, 0);
+	  $row_lessonRoutinesQuery = mysql_fetch_assoc($lessonRoutinesQuery);
+  }
+?>
             </SELECT>
         </div>
         <div class="span2">
@@ -245,4 +267,6 @@ function selectAllAndSubmit()
 </html>
 <?php
 mysql_free_result($routinesQuery);
+
+mysql_free_result($lessonRoutinesQuery);
 ?>
