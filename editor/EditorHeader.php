@@ -23,7 +23,7 @@
         </a>
     </h1>
     <p class="span6">
-      <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="Projector_EditChallenge.php?action=Add">
+      <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="<?php if ($PROJECTOR['cc']) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?action=Add"; ?> ">
           <i class="icon-plus icon-white"></i> 
           Add project
       </a>

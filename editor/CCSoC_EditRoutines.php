@@ -47,8 +47,31 @@ $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error())
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
+
 if (isset($_POST['SaveRoutines'])) {
-//	echo "SAVING ROUTINES";
+//	echo "SAVING ROUTINES\n";
+	$projectId = -1;
+	if (isset($_POST['ProjectId']))
+		$projectId = $_POST['ProjectId'];
+	if (isset($_POST['lessonRoutines']) && $projectId > -1) {
+		$routinesArray = $_POST['lessonRoutines'];
+//		echo "PROJECT ID: " . $projectId . "\n";
+		$i = 1;
+		// iterate through the routine items
+		foreach ($routinesArray as $value) {
+//			echo $value . ", ";
+			$sqlCommand = sprintf("INSERT INTO RoutineAttach (ProjectId, RoutineId, SortOrder) VALUES (%s, %s, %s)",
+													 GetSQLValueString($projectId, "int"), $value, $i);
+//			echo "$sqlCommand\n<br />";
+			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
+			
+			$sqlCommand = sprintf("INSERT INTO Steps (ProjectId, RoutineId, SortOrder, Name, TemplateName) VALUES (%s, %s, %s, %s, %s)",
+													 GetSQLValueString($projectId, "int"), $value, 1, GetSQLValueString("Step " . $i, "text"), GetSQLValueString("MediaLeft.php", "text"));
+//			echo "$sqlCommand\n<br />";
+			$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());										 
+			$i++;
+		} 
+	}
 }
 ?>
 <!doctype html>
@@ -74,7 +97,6 @@ session_start();
 $_SESSION['ActiveNav'] = "routines";
 ?>
 <body>
-
 <div class="container-fluid">
 	
     <?php include("EditorHeader.php"); ?>
@@ -109,8 +131,9 @@ $_SESSION['ActiveNav'] = "routines";
         	Routines in this lesson:
         </p>
     </div>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="UpdateRoutines">
     <section class="row-fluid">
+    		<input name="ProjectId" type="hidden" value="<?php echo $colname_foundRecord; ?>">
         <div class="span3 offset1">
             <SELECT size="15" id="routineSelection" name="routineSelection"  multiple="multiple" style="width:100%;">
               <?php
@@ -132,7 +155,7 @@ do {
             <input type="button" onClick="removeSelectedRoutine()" value="&lt;" class="btn" style="width:100%;">
         </div>
         <div class="span3">
-            <SELECT id="lessonRoutines" name="lessonRoutines" size="15" style="width:100%;">
+            <SELECT id="lessonRoutines" name="lessonRoutines[]" size="15" style="width:100%;">
             </SELECT>
         </div>
         <div class="span2">
@@ -149,7 +172,8 @@ do {
             </div>
     </section>
     <section class="row-fluid">
-    	<input class="btn btn-primary span3 offset5" type="submit" name="SaveRoutines" id="SaveRoutines" value="Save Routines" />
+    	<input class="btn btn-primary span3 offset5" type="button" onClick="selectAllAndSubmit()" name="SaveRoutineButton" id="SaveRoutineButton" value="Save Routines" />
+      <input name="SaveRoutines" type="hidden" value="SaveRoutines">
     </section>
     </form>
     <section class="row-fluid">
@@ -208,6 +232,13 @@ function moveItemDown() {
 		$("#lessonRoutines option:eq(" + nextIndex + ")").replaceWith($("<option></option>").attr("value",selectedValue).text(selectedLabel));
 		$("#lessonRoutines").val(selectedValue);
 	}
+}
+
+function selectAllAndSubmit()
+{
+	$("#lessonRoutines").attr("multiple","multiple");
+	$("#lessonRoutines option").prop("selected",true);
+	document.forms[0].submit();
 }
 </script>
 </body>
