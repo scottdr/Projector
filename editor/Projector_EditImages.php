@@ -127,7 +127,7 @@ $_SESSION['ActiveNav'] = "images";
                   <td>
                  <form action="_php/UploadProjectImage.php" method='post' enctype="multipart/form-data" id="uploadImageForm">
                  			<input type="hidden" name="FieldName" value="ImgSmall" />
-                      <input type="hidden" name="Id" value="<?php echo $projectId; ?>" />
+                      <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                   		<input type='file' name='file' />           
                  			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  </form> 
