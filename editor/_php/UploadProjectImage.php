@@ -6,7 +6,10 @@ define("MAX_FILE_SIZE",  1024*1024);
 
 $s3 = new AmazonS3();
 
-$bucket = 'ProjectorAssets';
+if ($PROJECTOR['cc'])
+	$bucket = 'CommonCoreAssets';
+else
+	$bucket = 'ProjectorAssets';
  
 //Here you can add valid file extensions. 
 $valid_formats = array("jpg", "png", "gif","jpeg","PNG","JPG","JPEG","GIF");
@@ -45,7 +48,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 /* print out a debug message with carriage return */
 function logMessage($message)
 {
-	if (true)	// set to true to debug
+	if (false)	// set to true to debug
 		echo $message . "\n<br />";
 }
 
@@ -193,5 +196,5 @@ if ($insertedRecordId == -1) {
 
 logMessage($goToURL);
 
-//header(sprintf("Location: %s", $goToURL));
+header(sprintf("Location: %s", $goToURL));
 ?>

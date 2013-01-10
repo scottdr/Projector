@@ -1,4 +1,5 @@
-	<!--<nav class="navbar" style="border:0; margin:0;">
+	<?php require("../Globals.php") ?>
+  <!--<nav class="navbar" style="border:0; margin:0;">
     	<div class="navbar-inner">
             <ul class="nav">
                 <li><a href="Login.php">Login</a></li>
@@ -22,13 +23,19 @@
         </a>
     </h1>
     <p class="span6">
-      <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="Projector_EditChallenge.php?action=Add">
+      <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="<?php if ($PROJECTOR['cc']) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?action=Add"; ?> ">
           <i class="icon-plus icon-white"></i> 
-          Add new
+          Add project
       </a>
       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="ViewAll.php">
           <i class="icon-eye-open icon-white"></i> 
-          View all
+          View projects
       </a>
+      <?php if ($PROJECTOR['cc']) : ?>
+       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="CCSoC_ViewRoutines.php">
+          <i class="icon-edit icon-white"></i> 
+          Routines
+      </a>
+      <?php endif; ?>
     </p>
 </div>

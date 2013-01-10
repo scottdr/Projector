@@ -74,7 +74,7 @@ $projectId = $row_foundRecord['Id'];
 session_start();
 $_SESSION['ProjectName'] = $row_foundRecord['Name'];
 $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
-
+$_SESSION['ActiveNav'] = "images";
 ?>
 <!doctype html>
 <html>
@@ -104,15 +104,8 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      
-<h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
-        <ul class="nav">
-          <li><a href="Projector_EditChallenge.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i>Details</a></li>
-          <li class="active"><a href="Projector_EditImages.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i>Images</a></li>
-          <li><a href="Projector_EditSteps.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-edit"></i> Steps</a></li>
-          <li><a href="Projector_ViewMedia.php<?php if (isset($row_foundRecord['Id'])) echo "?Id=" . $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Media</a></li>
-          <li><a href="/ChallengeTemplate.php?ProjectId=<?php if (isset($row_foundRecord['Id'])) echo $row_foundRecord['Id']; ?>"><i class="icon-eye-open"></i> Preview</a></li>
-        </ul>
+				<h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
+				<?php require("SubNav.php"); ?>
       </div>
     </div>
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->
@@ -134,9 +127,9 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                   <td>
                  <form action="_php/UploadProjectImage.php" method='post' enctype="multipart/form-data" id="uploadImageForm">
                  			<input type="hidden" name="FieldName" value="ImgSmall" />
-                      <input type="hidden" name="Id" value="<?php echo $projectId; ?>" />
-                  		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
+                      <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
+                  		<input type='file' name='file' />           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  </form> 
                  <!--<a class="btn btn-small" href="#"><i class="icon-arrow-up"></i> Add image</a>-->
                  <br/><br/>
@@ -152,7 +145,7 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  			<input type="hidden" name="FieldName" value="ImgMedium" />
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                   		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  	</form> 
                  <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgMedium']; ?>" name="ImgMediumPreview" width="200" height="200" class="img-polaroid" id="ImgMediumPreview">
@@ -167,7 +160,7 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  			<input type="hidden" name="FieldName" value="ImgLarge" />
                       <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
                   		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
+                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image" class="btn">           
                  	</form>
                  <br/><br/>
                  <img src="<?php echo $row_foundRecord['ImgLarge']; ?>" name="ImgLargePreview" width="300" height="300" class="img-polaroid" id="ImgLargePreview">
@@ -175,13 +168,13 @@ $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
                  <input name="ImgLarge" type="text" class="width-auto" id="ImgLarge" value="<?php echo $row_foundRecord['ImgLarge']; ?>" onblur="updateThumbnailImage(this,'ImgLargePreview')">
                   </td>
                 </tr>
-                <tr>
+               <!-- <tr>
                   <td width="154"></td>
                   <td>
                   <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
                   <a href="_php/DeleteProject.php?Id=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
                   </td>
-                </tr>
+                </tr>-->
               </tbody>
             </table>
 	</section>
@@ -217,5 +210,4 @@ function updateThumbnailImage(object,previewId)
 </html>
 <?php
 mysql_free_result($foundRecord);
-mysql_free_result($TopicsMenu);
 ?>

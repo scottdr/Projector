@@ -32,30 +32,19 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 session_start();
-$_SESSION['ActiveNav'] = "media";
+$_SESSION['ActiveNav'] = "routines";
 
 $projectId = "-1";
 if (isset($_GET['Id'])) {
   $projectId = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-if ($projectId == -1)
-	$query_MediaQuery = "SELECT * FROM Media ORDER BY ProjectId";
-else
-	$query_MediaQuery = sprintf("SELECT * FROM Media WHERE ProjectId = %s", GetSQLValueString($projectId, "int"));
+
+$query_MediaQuery = "SELECT * FROM Routines ORDER BY Id";
+
 $MediaQuery = mysql_query($query_MediaQuery, $projector) or die(mysql_error());
 $row_MediaQuery = mysql_fetch_assoc($MediaQuery);
 $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
-
-$projectName = "All Projects";
-if ($projectId > -1) {
-	$query_ProjectQuery = sprintf("SELECT Name FROM Projects WHERE Id = %s", GetSQLValueString($projectId, "int"));
-	$ProjectQuery = mysql_query($query_ProjectQuery, $projector) or die(mysql_error());
-	$row_ProjectQuery = mysql_fetch_assoc($ProjectQuery);
-	$totalRows_ProjectQuery = mysql_num_rows($ProjectQuery);
-	if ($totalRows_ProjectQuery > 0 )	
-		$projectName = $row_ProjectQuery['Name'];
-}
 
 
 ?>
@@ -64,7 +53,7 @@ if ($projectId > -1) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add New Content</title>
+<title>View Routines</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 <link href="css/editor-customization.css" rel="stylesheet" type="text/css" />
@@ -83,7 +72,7 @@ if ($projectId > -1) {
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      	<h2 class="brand"><?php echo $projectName; ?></h2>
+      	<h2 class="brand"></h2>
       	<?php require("SubNav.php"); ?>
       </div>
     </div>
@@ -94,12 +83,12 @@ if ($projectId > -1) {
 	<section class="row-fluid" style="margin-top: 44px;">
 
         <h3 class="span11 offset1">
-        	Media:
+        	Routines:
             <br/><br/>
             
-            <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="Projector_MediaEdit.php?action=Add<?php if ($projectId > 0) echo "&ProjectId=" . $projectId; if (isset($projectName)) echo "&ProjectName=" . $projectName; ?>">
+            <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="CCSoC_EditRoutine.php?action=Add<?php if ($projectId > 0) echo "&ProjectId=" . $projectId; if (isset($projectName)) echo "&ProjectName=" . $projectName; ?>">
             <i class="icon-plus"></i> 
-            Add new media
+            Add Routine
             </a>
         
         </h3>
@@ -112,20 +101,18 @@ if ($projectId > -1) {
                     <tr>
                         <th width="10%">&nbsp;</th>
                       	<!--<th width="5%">ID</th> -->
-                        <th width="20%">Thumbnail</th>
-                        <th width="70%">Caption</th>
+                        <th width="70%">Routine</th>
                         <!--<th width="10%">Project ID</th>-->
                     </tr>
                 </thead>
                 <tbody>
                 		<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="Projector_MediaEdit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($projectId)) echo "&ProjectId=" . $projectId;?>"><i class="icon-edit icon-white"></i> Edit</a>
+                        <td><a class="btn btn-mini btn-primary" href="CCSoC_EditRoutine.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($projectId)) echo "&ProjectId=" . $projectId;?>"><i class="icon-edit icon-white"></i> Edit</a>
                   			</td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
-                        <td width="140"><img src="<?php echo $row_MediaQuery['Url']; ?>" class="img-polaroid" width="100"></td>
-                        <td><?php echo $row_MediaQuery['Caption']; ?></td>
-                        <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
+                        <td><?php echo $row_MediaQuery['RoutineName']; ?></td>
+                        
                     </tr>
                   	<?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
                 </tbody>

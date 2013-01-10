@@ -32,20 +32,13 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 session_start(); 
-$_SESSION['ActiveNav'] = "media";
+$_SESSION['ActiveNav'] = "routines";
 
 // put url parameters back on the url we pass when you click the save button to re-post form data to this same page
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
-
-// put url parameters back on the url we pass when you click the save button to upload he image
-$uploadImageAction = "_php/UploadFile.php";
-/*if (isset($_SERVER['QUERY_STRING'])) {
-  $uploadImageAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
-}
-*/
 
 $projectId = "";
 if (isset($_GET['ProjectId'])) 
@@ -70,28 +63,18 @@ if (isset($_GET["action"])) {
 if (isset($_POST["MM_action"])) {
 	
 	if ($_POST["MM_action"] == "Add") {
-		$sqlCommand = sprintf("INSERT INTO Media (ProjectId, Url, Caption,`Description`, Width, Height) VALUES (%s, %s, %s, %s, %s, %s)",
-                       GetSQLValueString($_POST['ProjectId'], "text"),
-                       GetSQLValueString($_POST['Url'], "text"),
-                       GetSQLValueString($_POST['Caption'], "text"),
-                       GetSQLValueString($_POST['Description'], "text"),
-                       GetSQLValueString($_POST['Width'], "int"),
-                       GetSQLValueString($_POST['Height'], "int"));
+		$sqlCommand = sprintf("INSERT INTO Routines (RoutineName) VALUES (%s)",
+                       GetSQLValueString($_POST['RoutineName'], "text"));
 	} else
-	$sqlCommand = sprintf("UPDATE Media SET ProjectId=%s, Url=%s, Caption=%s, Description=%s, Width=%s, Height=%s WHERE Id=%s",
-                       GetSQLValueString($_POST['ProjectId'], "text"),
-                       GetSQLValueString($_POST['Url'], "text"),
-                       GetSQLValueString($_POST['Caption'], "text"),
-											 GetSQLValueString($_POST['Description'], "text"),
-											 GetSQLValueString($_POST['Width'], "int"),
-                       GetSQLValueString($_POST['Height'], "int"),
+	$sqlCommand = sprintf("UPDATE Routines SET RoutineName=%s WHERE Id=%s",
+                       GetSQLValueString($_POST['RoutineName'], "text"),
 											 GetSQLValueString($mediaId, "int")
 											 );
 //	echo "sql: " . $sqlCommand;
   mysql_select_db($database_projector, $projector);
   $Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 
-	$updateGoTo = "Projector_ViewMedia.php";
+	$updateGoTo = "CCSoC_ViewRoutines.php";
 	if (isset($projectId)) {
 		$updateGoTo .= '?Id=' . $projectId;
 	} 
@@ -105,7 +88,7 @@ if (isset($_GET['Id'])) {
   $colname_foundRecord = $_GET['Id'];
 }
 mysql_select_db($database_projector, $projector);
-$query_foundRecord = sprintf("SELECT * FROM Media WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
+$query_foundRecord = sprintf("SELECT * FROM Routines WHERE Id = %s", GetSQLValueString($colname_foundRecord, "int"));
 $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error());
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
@@ -115,7 +98,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Lesson media</title>
+<title>Edit Routine</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 <link href="css/editor-customization.css" rel="stylesheet" type="text/css" />
@@ -148,53 +131,17 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid">
-        <h3 class="span11 offset1"><?php echo $action; ?> media:</h3>
+        <h3 class="span11 offset1"><?php echo $action; ?> routine:</h3>
 	</section>
     <section class="row-fluid">
-				<table class="table table-condensed unborderedTable span10 offset1">
-              <tbody>
-              	<tr>
-                	
-                  <td class="width-narrow">Media</td>
-                  <td>
-                  	<form action="<?php echo $uploadImageAction; ?>" method='post' enctype="multipart/form-data" id="uploadImageForm">
-                      <input type="hidden" name="Id" value="<?php echo $colname_foundRecord; ?>" />
-                      <input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
-                      <input type="hidden" name="ProjectName" value="<?php echo $projectName; ?>" />
-                  		<input type='file' name='file'/>           
-                 			<input type="submit" name="UploadImage" id="UploadImage" value="Upload Image">           
-                    </form>
-									 	<br/><br/>
-                    <img src="<?php echo $row_foundRecord['Url']; ?>" alt="" class="img-polaroid"></td>
-                </tr>
-         </tbody>
-         </table>
-        <table id="mediaForm" class="table table-condensed unborderedTable span10 offset1 hidden">
+        <table id="mediaForm" class="table table-condensed unborderedTable span10 offset1">
               <tbody>
 
                 <form action="<?php echo $editFormAction; ?>" id="updateForm" name="updateForm" method="POST">
       					<input type="hidden" name="ProjectId" value="<?php echo $projectId; ?>" />
 								<tr>
-                  <td>URL</td>
-                  <td><input name="Url" type="text" class="width-auto" id="Url" value="<?php echo $row_foundRecord['Url']; ?>" readonly></td>
-                </tr>
-                <tr>
-                  <td>Description</td>
-                  <td><textarea name="Description" class="width-auto" id="Description"><?php echo $row_foundRecord['Description']; ?></textarea></td>
-                </tr>
-                <tr>
-                  <td>Caption</td>
-                  <td><textarea name="Caption" placeholder="Enter caption..." rows="10" id="Caption" class="wysiwyg-editor width-auto"><?php echo $row_foundRecord['Caption']; ?></textarea></td>
-                </tr>
-                <tr>
-                  <td>Width<span class="muted"> (pixels)</span></td>
-                  <td><input name="Width" type="text" id="Width" value="<?php echo $row_foundRecord['Width']; ?>"></td>
-                </tr>
-                
-                
-                <tr>
-                  <td>Height<span class="muted"> (pixels)</span></td>
-                  <td><input name="Height" type="text" id="Height" value="<?php echo $row_foundRecord['Height']; ?>"></td>
+                  <td>Name</td>
+                  <td><input name="RoutineName" type="text" class="width-auto" id="RoutineName" value="<?php echo $row_foundRecord['RoutineName']; ?>"></td>
                 </tr>
                 <tr>
                   <td colspan="2"><hr /></td>
@@ -203,7 +150,7 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
                   <td>&nbsp;</td>
                   <td>
                   <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
-                  <a href="_php/DeleteMedia.php?Id=<?php echo $colname_foundRecord; ?>&ProjectId=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
+                  <a href="_php/DeleteRoutine.php?Id=<?php echo $colname_foundRecord; ?>&ProjectId=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
                   </td>
                 </tr>
                 <input type="hidden" name="MM_action" value="<?php echo $action; ?>" />
@@ -232,29 +179,6 @@ $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
 <script type="text/javascript" charset="utf-8">
 	$(prettyPrint);
-	
-function uploadImage()
-{
-	 var myform = $('#uploadImageForm');
-	 alert(myform.serialize());
-	 $.ajax( {
-      type: "POST",
-      url: "_php/UploadFile.php",
-      data: myform.serialize(),
-      success: function( response ) {
-				$('#mediaForm').removeClass("hidden");
-        console.log( response );
-      }
-    } );
-}
-
-/* when the document is loaded if we aren't adding media than show the extra fields */
-$(document).ready(function() {
-  // Handler for .ready() called.
-	if (getQueryVariable("action") != "Add")
-		$('#mediaForm').removeClass("hidden");
-});
-
 </script>
 
 </body>
