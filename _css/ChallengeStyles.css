@@ -221,17 +221,14 @@ hr {
 #floatingCirclesG
 {
 	margin:300px auto 0;
-}
-
-#floatingCirclesG{
-position:relative;
-width:64px;
-height:64px;
--moz-transform:scale(0.6);
--webkit-transform:scale(0.6);
--o-transform:scale(0.6);
--ms-transform:scale(0.6);
-transform:scale(0.6);
+	position:relative;
+	width:64px;
+	height:64px;
+	-moz-transform:scale(0.6);
+	-webkit-transform:scale(0.6);
+	-o-transform:scale(0.6);
+	-ms-transform:scale(0.6);
+	transform:scale(0.6);
 }
 
 .f_circleG{
