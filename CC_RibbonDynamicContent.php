@@ -104,7 +104,7 @@ if ($totalRows_routinesRecordset > 0)
 				print "\n  " . '<div class="' . $extra . ' singleRibbonBlock ribbon' . $cssName . 'ColumnWrap" data-type="wrapper" data-number="' . $rowStepNumber . '" data-id="' . $row_stepsRecordset['Id'] . '" data-count="' . $count . '" >'; 			
 				print "\n    " . '<div class="ribbonBottom clearfix ribbon' . $cssName . 'Bottom" data-type="bottom">'; 	//   <div class="ribbonChallengeBottomCurrent">		
 				print "\n      " . '<p class="ribbonOpeningNumber ' . $cssName . 'Number">' . $rowStepNumber . '</p>'; // <p class="ChallengeNumber">1</p>
-				print "\n      " . '<h2>' . $cssName . '</h2>';  // <h2>Challenge Video</h2>
+				print "\n      " . '<h2>' . $row_stepsRecordset['Name'] . '</h2>';  // <h2>Challenge Video</h2>
 				
 				
 				print "\n    " . '</div>';
