@@ -289,7 +289,21 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                 </tr>
                 <tr>
                   <td width="154">Topic</td>
-                  <td><input name="Topic" type="text" id="Topic" value="<?php echo $row_foundRecord['Topic']; ?>"></td>
+                  <td><select name="Topic" id="Topic">
+                    <option value="-1" <?php if (!(strcmp(-1, $row_foundRecord['Topic']))) {echo "selected=\"selected\"";} ?>>No Topic</option>
+                    <?php
+do {  
+?>
+                    <option value="<?php echo $row_TopicsMenu['Id']?>"<?php if (!(strcmp($row_TopicsMenu['Id'], $row_foundRecord['Topic']))) {echo "selected=\"selected\"";} ?>><?php echo $row_TopicsMenu['Name']?></option>
+                    <?php
+} while ($row_TopicsMenu = mysql_fetch_assoc($TopicsMenu));
+  $rows = mysql_num_rows($TopicsMenu);
+  if($rows > 0) {
+      mysql_data_seek($TopicsMenu, 0);
+	  $row_TopicsMenu = mysql_fetch_assoc($TopicsMenu);
+  }
+?>
+                  </select></td>
                 </tr>
                 <tr>
                   <td width="154"></td>
