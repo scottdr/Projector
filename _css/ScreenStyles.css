@@ -3,7 +3,7 @@
 
 
 body {
-	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	-webkit-text-size-adjust: none;
 	color:rgba(255,255,255,1);
 	border: 0px;
@@ -30,12 +30,13 @@ a:active {
 	width: 96%;
 	padding-left: 2%;
 	padding-right: 2%;
-	min-height: 1000px;
+	min-height: 700px;
 	margin-top: 40px;
 }
 #ZeroBorderWidthWrapper {
 	width:100%;
-	min-height:1000px;
+	min-height:700px;
+	overflow-x:hidden;
 }
 
 

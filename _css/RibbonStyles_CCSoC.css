@@ -1,667 +1,96 @@
 @charset "UTF-8";
 /* CSS Document for Common Core ORANGE Ribbon*/
 
-body {
-	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-.typekit-badge {
-	display:none !important;
-}
-#ribbonContainer {
-	height: 120px;
-	margin:0;
-	padding:0;
-	border:0;
-}
-#ribbonStrip {
-	height: 120px;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	overflow: hidden;
-}
-#ribbonButtons {
-	position:relative;
-	margin:0;
-	padding:0;
-	border:0;
-	width: 2200px;
-	height: 100px;
-	overflow:hidden;
-}
-#leftButton-CC {
-	width: 60px;
-	float: left;
-	height: 80px;
-	margin: 0;
-	padding: 0;
-	border: 0;
+.touch #ribbonStrip {
+	height: 140px;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+} 
+
+#leftButton {
 	background-image: url(../_images/challenge/leftarrow-CC.png);
-	overflow: hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
 }
-#leftButton-CC:hover {
+
+#leftButton:hover {
 	background-image: url(../_images/challenge/leftarrow-hover-CC.png);
-	overflow: hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
 }
-#rightButton-CC {
-	width: 60px;
-	left: -60px;
-	float: right;
-	height: 80px;
-	margin:0;
-	padding:0;
-	border:0;
+
+#rightButton {
 	background-image: url(../_images/challenge/rightarrow-CC.png);
-	overflow:hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
 }
-#rightButton-CC:hover {
+
+#rightButton:hover {
 	background-image: url(../_images/challenge/rightarrow-hover-CC.png);
-	overflow: hidden;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-.hiddenStyle {
-	visibility : hidden;
-}
-
-.visibleStyle {
-	visibility : visible;
 }
 
 
-/* _CC_Routine1_ */
-#ribbon_CC_Routine1 {
-	float:left;
-	min-width: 200px;
-	height: 100px;
-	position: relative;
-}
-#ribbon_CC_Routine1 h2 {
-	margin:0;
-	padding-left:10px;
-	border:0;
-	font-size:14px;
-	color:#FFF;
-	font-weight:300;
-}
-#ribbon_CC_Routine1Top {
-	width: 100%;
-	height: 22px;
-	line-height: 22px;
-	background-color: #F7AA1A;
+/* Challenge */
+.ribbonBlock-1 .ribbonHeader, .ribbonBlock-1 .current .ribbonBottom, .no-touch .ribbonBlock-1 .current .ribbonBottom:hover, .no-touch .ribbonBlock-1 .ribbonBottom:hover {
+	background: #F7AA1A;
 	border-top-color: #F7AA1A;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-bottom-color: #323232;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
 }
-.ribbon_CC_Routine1ColumnWrap {
-	float: left;
-	min-width: 200px;
-}
-.ribbon_CC_Routine1BottomCurrent {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #F7AA1A;
-	border-top-color: #FEA016;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #FDCEA7;
-}
-.ribbon_CC_Routine1Bottom {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #181818;
-	border-top-color: #181818;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
+
+.ribbonBlock-1 .ribbonBottom {
 	color: #F7AA1A;
 }
-/*.ribbon_CC_Routine1Bottom:hover {
-	background-color: #F7AA1A;
-	border-top-color: #F7AA1A;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #FFF;
-}*/
-._CC_Routine1Number {
-	float: left;
-	display: block;
-	font-size: 32px;
-	margin-left: 5px;
-	margin-right: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	font-weight: 300;
-	line-height: 54px;
+.ribbonBlock-1 .ribbonSelector {
+	background: url(../_images/challenge/selected-challenge-CC.png) no-repeat center;
 }
-.ribbon_CC_Routine1Selector {
-	width: 100%;
-	height: 10px;
-	background-image: url(../_images/challenge/selected-challenge-CC.png);
-	background-repeat: no-repeat;
-	background-position:center;
-	margin-bottom: 10px;
+
+.ribbonBlock-1 .pip {
+	background-position: 0 -60px;
 }
-/* _CC_Routine2 */
-#ribbon_CC_Routine2 {
-	float:left;
-	min-width: 200px;
-	height: 100px;
-	position: relative;
+
+/* Start */
+.ribbonBlock-2 .ribbonHeader, .ribbonBlock-2 .current .ribbonBottom, .no-touch .ribbonBlock-2 .current .ribbonBottom:hover, .no-touch .ribbonBlock-2 .ribbonBottom:hover {
+	background: #F9921F;
+	border-top: 1px solid #F9921F; 
 }
-#ribbon_CC_Routine2 h2 {
-	margin:0;
-	padding-left:10px;
-	border:0;
-	font-size:14px;
-	color:#FFF;
-	font-weight:300;
-}
-#ribbon_CC_Routine2Top {
-	width: 100%;
-	height: 22px;
-	line-height: 22px;
-	background-color: #F9921F;
-	border-top-color: #F9921F;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-bottom-color: #323232;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-}
-.ribbon_CC_Routine2ColumnWrap {
-	float: left;
-	min-width : 200px;
-}
-.ribbon_CC_Routine2BottomCurrent {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #F9921F;
-	border-top-color: #F9921F;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #F9BE7B;
-}
-.ribbon_CC_Routine2Bottom {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #181818;
-	border-top-color: #181818;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
+
+.ribbonBlock-2 .ribbonBottom {
 	color: #F9921F;
 }
-/*.ribbon_CC_Routine2Bottom:hover {
-	background-color: #F9921F;
-	border-top-color: #F9921F;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #FFF;
+
+.ribbonBlock-2 .ribbonSelector {
+	background: url(../_images/challenge/selected-start-CC.png) no-repeat center;
 }
-*/
-._CC_Routine2Number {
-	float: left;
-	display: block;
-	font-size: 30px;
-	margin-left: 5px;
-	margin-right: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	font-weight: 300;
-	line-height: 54px;
+
+.ribbonBlock-2 .pip {
+	background-position: 0 -75px;
 }
-.ribbon_CC_Routine2Selector {
-	width: 100%;
-	height: 10px;
-	background-image: url(../_images/challenge/selected-start-CC.png);
-	background-repeat: no-repeat;
-	background-position:center;
-	margin-bottom: 10px;
-}
-/* _CC_Routine3 */
-#ribbon_CC_Routine3 {
-	float:left;
-	min-width: 200px;
-	height: 100px;
-	position: relative;
-}
-#ribbon_CC_Routine3 h2 {
-	margin:0;
-	padding-left:10px;
-	border:0;
-	font-size:14px;
-	color:#FFF;
-	font-weight:300;
-}
-#ribbon_CC_Routine3Top {
-	width: 100%;
-	height: 22px;
-	line-height: 22px;
-	background-color: #FA7A24;
+
+/* Plan */
+.ribbonBlock-3 .ribbonHeader, .ribbonBlock-3 .current .ribbonBottom, .no-touch .ribbonBlock-3 .current .ribbonBottom:hover, .no-touch .ribbonBlock-3 .ribbonBottom:hover {
+	background: #FA7A24;
 	border-top-color: #FA7A24;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-bottom-color: #323232;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
 }
-.ribbon_CC_Routine3ColumnWrap {
-	float: left;
-	min-width: 200px;
-}
-.ribbon_CC_Routine3BottomCurrent {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #FA7A24;
-	border-top-color: #FA7A24;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #FAAE7B;
-}
-.ribbon_CC_Routine3Bottom {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #181818;
-	border-top-color: #181818;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
+
+.ribbonBlock-3 .ribbonBottom {
 	color: #FA7A24;
 }
-/*.ribbon_CC_Routine3Bottom:hover {
-	background-color: #FA7A24;
-	border-top-color: #FA7A24;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #FFF;
-}*/
-._CC_Routine3Number {
-	float: left;
-	display: block;
-	font-size: 30px;
-	margin-left: 5px;
-	margin-right: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	font-weight: 300;
-	line-height: 54px;
-}
-.ribbon_CC_Routine3Selector {
-	width: 100%;
-	height: 10px;
-	background-image: url(../_images/challenge/selected-plan-CC.png);
-	background-repeat: no-repeat;
-	background-position:center;
-	margin-bottom: 10px;
+
+.ribbonBlock-3 .ribbonSelector {
+	background: url(../_images/challenge/selected-plan-CC.png) no-repeat center;
 }
 
-/* _CC_Routine4 */
-#ribbon_CC_Routine4 {
-	float:left;
-	min-width: 200px;
-	height: 100px;
-	position: relative;
+.ribbonBlock-3 .pip {
+	background-position: 0 -90px;
 }
-#ribbon_CC_Routine4 h2 {
-	margin:0;
-	padding-left:10px;
-	border:0;
-	font-size:14px;
-	color:#FFF;
-	font-weight:300;
-}
-#ribbon_CC_Routine4Top {
-	width: 100%;
-	height: 22px;
-	line-height: 22px;
-	background-color: #FC6329;
+
+/* Create */
+.ribbonBlock-4 .ribbonHeader, .ribbonBlock-4 .current .ribbonBottom, .no-touch .ribbonBlock-4 .current .ribbonBottom:hover, .no-touch .ribbonBlock-4 .ribbonBottom:hover {
+	background: #FC6329;
 	border-top-color: #FC6329;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-bottom-color: #323232;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
 }
-.ribbon_CC_Routine4ColumnWrap {
-	float: left;
-	min-width: 200px;
-}
-.ribbon_CC_Routine4BottomCurrent {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #FC6329;
-	border-top-color: #FC6329;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #FC9E7A;
-}
-.ribbon_CC_Routine4Bottom {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #181818;
-	border-top-color: #181818;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
+
+.ribbonBlock-4 .ribbonBottom {
 	color: #FC6329;
 }
-/*.ribbon_CC_Routine4Bottom:hover {
-	background-color: #FC6329;
-	border-top-color: #FC6329;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #FFF;
-}*/
-._CC_Routine4Number {
-	float: left;
-	display: block;
-	font-size: 30px;
-	margin-left: 5px;
-	margin-right: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;	
-	font-weight: 300;
-	line-height: 54px;
-}
-.ribbon_CC_Routine4Selector {
-	width: 100%;
-	height: 10px;
-	background-image: url(../_images/challenge/selected-create-CC.png);
-	background-repeat: no-repeat;
-	background-position:center;
-	margin-bottom: 10px;
+
+.ribbonBlock-4 .ribbonSelector {
+	background: url(../_images/challenge/selected-create-CC.png) no-repeat center;
 }
 
-/* _CC_Routine5 */
-#ribbon_CC_Routine5 {
-	float:left;
-	min-width: 200px;
-	height: 100px;
-	position: relative;
-}
-#ribbon_CC_Routine5 h2 {
-	margin:0;
-	padding-left:10px;
-	border:0;
-	font-size:14px;
-	color:#FFF;
-	font-weight:300;
-}
-#ribbon_CC_Routine5Top {
-	width: 100%;
-	height: 22px;
-	line-height: 22px;
-	background-color: #F7AA1A;
-	border-top-color: #F7AA1A;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-bottom-color: #323232;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-}
-.ribbon_CC_Routine5ColumnWrap {
-	float: left;
-	min-width: 200px;
-}
-.ribbon_CC_Routine5BottomCurrent {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #F7AA1A;
-	border-top-color: #F7AA1A;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #F7CB7A;
-}
-.ribbon_CC_Routine5Bottom {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #181818;
-	border-top-color: #181818;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #F7AA1A;
-}
-/*.ribbon_CC_Routine5Bottom:hover {
-	background-color: #F7AA1A;
-	border-top-color: #F7AA1A;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #FFF;
-}*/
-._CC_Routine5Number {
-	float: left;
-	display: block;
-	font-size: 30px;
-	margin-left: 5px;
-	margin-right: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;	
-	font-weight: 300;
-	line-height: 54px;
-}
-.ribbon_CC_Routine5Selector {
-	width: 100%;
-	height: 10px;
-	background-image: url(../_images/challenge/selected-revise-CC.png);
-	background-repeat: no-repeat;
-	background-position:center;
-	margin-bottom: 10px;
-}
-
-/* _CC_Routine6 */
-#ribbon_CC_Routine6 {
-	float:left;
-	min-width: 200px;
-	height: 100px;
-	position: relative;
-}
-#ribbon_CC_Routine6 h2 {
-	margin:0;
-	padding-left:10px;
-	border:0;
-	font-size:14px;
-	color:#FFF;
-	font-weight:300;
-}
-#ribbon_CC_Routine6Top {
-	width: 100%;
-	height: 22px;
-	line-height: 22px;
-	background-color: #F9921F;
-	border-top-color: #F9921F;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-bottom-color: #323232;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-}
-.ribbon_CC_Routine6ColumnWrap {
-	float: left;
-	min-width: 200px;
-}
-.ribbon_CC_Routine6BottomCurrent {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #F9921F;
-	border-top-color: #F9921F;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #F9BE7D;
-}
-.ribbon_CC_Routine6Bottom {
-	width: 100%;
-	height: 54px;
-	line-height: 54px;
-	left: -1px;
-	background-color: #181818;
-	border-top-color: #181818;
-	border-top-style: solid;
-	border-top-width: 1px;
-	border-right-color: #323232;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-left-color: #323232;
-	border-left-style: solid;
-	border-left-width: 1px;
-	color: #F9921F;
-}
-/*.ribbon_CC_Routine6Bottom:hover {
-	background-color: #F9921F;
-	border-top-color: #F9921F;
-	border-top-style: solid;
-	border-top-width: 1px;
-	color: #FFFFFF;
-}*/
-._CC_Routine6Number {
-	float: left;
-	display: block;
-	font-size: 30px;
-	margin-left: 5px;
-	margin-right: 2px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	font-weight: 300;
-	line-height: 54px;
-}
-.ribbon_CC_Routine6Selector {
-	width: 100%;
-	height: 10px;
-	background-image: url(../_images/challenge/selected-present-CC.png);
-	background-repeat: no-repeat;
-	background-position:center;
-	margin-bottom: 10px;
+.ribbonBlock-4 .pip {
+	background-position: 0 -105px;
 }

@@ -79,11 +79,11 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
 <script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
+<script src="_scripts/modernizr.custom.42097.js"></script>
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
-
-<!--<script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function(){ 
 	
 		jQuery("#TeacherNotes-Info-CC").click(function(){
@@ -101,8 +101,7 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 		});
 	
 	});
-</script>-->
-
+</script>
 </head>
 <body>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
@@ -130,8 +129,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
         <div id="leftButton"></div>
         <div id="rightButton"></div>
         <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-            <?php require_once("RibbonDynamicContent.php") ?>
+          <div id="ribbonButtons">
+            <?php require_once("CC_RibbonDynamicContent.php") ?>
           </div>
         </div>
         <!-- NavRibbon Ends --> 
@@ -139,29 +138,39 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     </div>
     <div id="NavShadowDiv"></div>
   </div>
-  <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  
-  <!-- TeacherNotes Starts -->
-  <!--<div id="TeacherNotes">
-	  <div id="TeacherNotes-Info-CC">
-      </div>
-      <div id="TeacherNotes-Close-CC">
-      </div>
-      <div id="TeacherNotesShadow-CC">
-      </div>
-      <div id="TeacherNotes-Text-CC">
-      <h1>Notes here ... </h1>
-      </div>
-  </div>-->
-<!-- TeacherNotes Ends -->
-  
-  <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-  	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
+  <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />  
+  <div id="ContentScreens">
+  	<div id="ContentScreensHolder"> 
+      <!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php --> 
+    </div>
+  </div>
+  <div id="ContentScreensLoader">
+    <div id="floatingCirclesG">
+      <div class="f_circleG" id="frotateG_01"> </div>
+      <div class="f_circleG" id="frotateG_02"> </div>
+      <div class="f_circleG" id="frotateG_03"> </div>
+      <div class="f_circleG" id="frotateG_04"> </div>
+      <div class="f_circleG" id="frotateG_05"> </div>
+      <div class="f_circleG" id="frotateG_06"> </div>
+      <div class="f_circleG" id="frotateG_07"> </div>
+      <div class="f_circleG" id="frotateG_08"> </div>
+    </div>
   </div>
   <div id="Footer">
     <p></p>
   </div>
 </div>
+<script>	
+	var ContentScreens = jQuery("#ContentScreens");
+	ContentScreens.on('touchend', function(e){
+		touchEnd(e);
+	});
+	window.addEventListener("orientationchange", function() {
+		// orientationchange bug fix
+	  	ContentScreens.css("-webkit-overflow-scrolling", "auto");
+		window.setTimeout(function () { ContentScreens.css("-webkit-overflow-scrolling", "touch") }, 1);
+	}, false);
+</script>
 </body>
 </html>
 <?php

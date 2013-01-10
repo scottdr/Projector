@@ -16,7 +16,7 @@
 	padding:20px;
 	height:460px;
 	width:40%;
-	background-color:rgba(0,0,0,.6);
+	background: url(../_images/bg.png) repeat;
 }
 #FullWidthBgImg {
 	style="z-index:-10;

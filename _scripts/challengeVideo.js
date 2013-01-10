@@ -4,11 +4,13 @@
 var ProjectId = getQueryVariable("ProjectId", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1);
-var disableSlideShow = false;	// Scott 12/21 I removed all of the Intro Slideshow steps so we no longer need to disable the slide show until we polish it
+var StepPhaseNumber = 0;
+var disableSlideShow = true;	// disable the slide show until we polish it
+var loadingIn = false;
 
 if (disableSlideShow) {
-	if (StepNumber == 1)
-		StepNumber = 2;
+	//if (StepNumber == 1)
+		//StepNumber = 2;
 }
 
 // animationDuration: Duration of animations in milliseconds. In future, could be set in Presentation data.
@@ -19,8 +21,6 @@ var animationDuration = 1000;
 var animationStartDelay = 1000;
 // slideDuration: Length of time in milliseconds that a slide is shown.
 var slideDuration = 20000;
-// Width of each step in the ribbon
-var StepWidth = 200;
 
 // Challenge Video content data. cvd == challenge video data.
 //
@@ -52,81 +52,187 @@ var pauseBtnImg = "assets/images/challengeintro_pause.png";
 var playBtnImg = "assets/images/challengeintro_arrow.png";
 var replayBtnImg = "assets/images/challengeintro_replay.png";
 var NumberOfSteps = 0;
-var visibleWidth = 0;
-var ribbonWidth = 0;
-var stopPoistion = 0;
+var numberOfPhasesInStep = 1;
 
-$(document).ready(function(){ 
+$(document).ready(function()
+{
+	$('#ContentScreensLoader').hide();
 
 	if(jQuery("#ribbonButtons").length){
-		
+
 		NumberOfSteps = document.getElementById("numberSteps").getAttribute("value");
-		
-//		console.log("# steps: " + NumberOfSteps);
-			
-		// Declare variables
-		visibleWidth = jQuery("#ribbonStrip").outerWidth(true);
-		ribbonWidth = NumberOfSteps * StepWidth;
-		stopPosition = (visibleWidth - ribbonWidth);
-			
-		jQuery("#ribbonButtons").width(ribbonWidth);
-		
-//		console.log("ribbon width: " + jQuery("#ribbonButtons").width());
-		
+		NumberOfPhasesInStep = $('div[data-number="' + StepNumber + '"]').attr('data-count');
+
+		ribbonWidth = 0;
+		jQuery.each(jQuery("#ribbonStrip .ribbonBlock"), function(index, elem){
+			var obj = jQuery(elem);
+			ribbonWidth += parseInt(obj.width());
+		});
+
+		var wid = 0;
+		jQuery.each(jQuery("#ribbonStrip .singleRibbonBlock"), function(index, elem){
+			var obj = jQuery(elem);
+			obj.attr('data-position', wid);
+			wid += parseInt(obj.width()) + 1;
+		});
+
+		jQuery("#ribbonButtons").width(ribbonWidth +1);
+
 		// handler called when user clicks on the < button to left of the ribbon, go to previous step
-		jQuery("#leftButton").click(function(){
-			//need to write if statment to check if the left position is offset more that the ribbonWidth
-			StepNumber--;		// decrement Step we are going to set it to previous step
-			if (StepNumber <= 0 ) {		// don't decrement before the first slide
-				StepNumber = 1;
-				return false;
+		jQuery("#leftButton").click(function()
+		{
+			var currentStep = $('div[data-number="' + StepNumber + '"]');
+
+			//Work back through pips
+			if(StepPhaseNumber > 0)
+			{
+				//StepPhaseNumber--;
+				currentStep.find('.pip').eq(StepPhaseNumber - 1).trigger(jQuery.Event("click"));
 			}
-			if(jQuery("#ribbonButtons").position().left < 0 && !jQuery("#ribbonButtons").is(":animated")){
-				jQuery("#ribbonButtons").animate({left : "+=" + StepWidth + "px"});
+			else
+			{
+				//or back through steps
+				var newNum = parseInt(StepNumber) - 1;
+				if (newNum <= 0 ) {
+					return false;
+				}
+
+				StepPhaseNumber = parseInt($('div[data-number="' + newNum + '"]').attr('data-count')) - 1;
+
+				//If going back to step with pips, start on last pip
+				if(StepPhaseNumber > 0)
+				{
+					var pip = $('div[data-number="' + newNum + '"] .pip').last();
+					pip.trigger(jQuery.Event("click"));
+				}
+				else
+				{
+					$('div[data-number="' + newNum + '"]').trigger(jQuery.Event("click"));
+				}
 			}
-			setSelectedRibbonItem(StepNumber);
 			return false;
 		});
-		
-			// handler called when user clicks on the > button to right of the ribbon, go to next step
-		jQuery("#rightButton").click(function(){
-			//need to write if statment to check if the left position is offset more that the ribbonWidth
-			StepNumber++;		// incrmenet Step we are going to set it to next step
-			if (StepNumber > NumberOfSteps) {		// make sure don't go past last step
-				StepNumber = NumberOfSteps;
-				return false;
+
+		// handler called when user clicks on the > button to right of the ribbon, go to next step
+		jQuery("#rightButton").click(function()
+		{	
+			var currentStep = $('div[data-number="' + StepNumber + '"]');
+			var phaseCount = currentStep.attr('data-count');
+
+			//Move through pips
+			if(StepPhaseNumber + 1 < phaseCount)
+			{
+				//StepPhaseNumber++;
+				currentStep.find('.pip').eq(StepPhaseNumber + 1).trigger(jQuery.Event("click"));
 			}
-			if(jQuery("#ribbonButtons").position().left > stopPosition && !jQuery("#ribbonButtons").is(":animated")){
-				jQuery("#ribbonButtons").animate({left : "-=" + StepWidth + "px"});
+			else
+			{
+				//Then on to next step
+				var newNum = parseInt(StepNumber) + 1;
+				if (newNum > NumberOfSteps) {
+					return false;
+				}
+
+				StepPhaseNumber = 0;
+
+				$('div[data-number="' + newNum + '"]').trigger(jQuery.Event("click"));
 			}
-			setSelectedRibbonItem(StepNumber);
 			return false;
 		});
-		
+
+		jQuery(".pip").click(function(event)
+		{
+			if(loadingIn){
+			 return false;	
+			}
+			
+			var pip = $(event.currentTarget);
+			var block = pip.parentsUntil('.singleRibbonBlock').parent();
+
+			var newStepNum = block.attr('data-number');
+			var phaseNum = pip.parent().children().index(pip);
+			StepId = block.attr('data-id');
+
+			var fullWidth = parseInt(jQuery('#ContentScreens').width());
+			if(phaseNum > StepPhaseNumber)
+				fullWidth = -fullWidth;
+
+			if(newStepNum != StepNumber)
+			{
+				StepNumber = newStepNum;
+				selectStep($('div[data-number="' + StepNumber + '"]').get(0));
+			}
+
+			StepPhaseNumber = phaseNum;
+
+			selectPip(pip);
+
+			if(Modernizr.touch)
+			{
+				jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+					if(fullWidth > 0){
+						jQuery('#ContentScreens').animate({left: -fullWidth - 30}, 0);
+					} else {
+						jQuery('#ContentScreens').animate({left: -fullWidth + 30}, 0);
+					}
+					loadStep(StepId,StepNumber, StepPhaseNumber);
+				});
+			}
+			else
+			{
+				jQuery('#ContentScreens').fadeOut(200, function(){
+					loadStep(StepId,StepNumber, StepPhaseNumber);
+				});
+			}
+		});
+
 		// TO DO don't hard code these values
-		loadStep(StepId,StepNumber);
+		loadStep(StepId,StepNumber,StepPhaseNumber);
 	}
-	
+
 	// call when you click on any of the steps in the ribbon, clear current selected step and select the step user clicked on 
-	// TO DO for performance may want to make this be a class selector vs. attribute selector... 
-	$('div[data-type="wrapper"]').click(function(event){
-			selectStep(event.currentTarget);
-	});
-
-	$('div[data-type="wrapper"]').click(function(event)
+	$('.singleRibbonBlock').click(function(event)
 	{
-		if (triggerElementID != null)	{	// if we are handling any touch gestures do not handle click 
-//			console.log("IGNORE click on data-type = wrapper");
-			return;
+		if(loadingIn){
+		 return false;	
 		}
-		StepNumber = event.currentTarget.getAttribute('data-number');
-		StepId = event.currentTarget.getAttribute('data-id');
-		loadStep(StepId,StepNumber);
-	});
+		
+		var newStep = event.currentTarget.getAttribute('data-number');
+		if(StepNumber == newStep)
+			return false;
 
-	
-	
-	
+		if(Modernizr.touch)
+		{
+			var fullWidth = parseInt(jQuery('#ContentScreens').width());
+			if(newStep > StepNumber)
+				fullWidth = -fullWidth;
+
+			selectStep(event.currentTarget);
+			StepNumber = newStep;
+
+			jQuery('#ContentScreens').animate({left: fullWidth}, 200, function(){
+				if(fullWidth > 0){
+						jQuery('#ContentScreens').animate({left: -fullWidth - 30}, 0);
+					} else {
+						jQuery('#ContentScreens').animate({left: -fullWidth + 30}, 0);
+					}
+				StepId = event.currentTarget.getAttribute('data-id');
+				loadStep(StepId,StepNumber, StepPhaseNumber);
+			});
+		}
+		else
+		{
+			selectStep(event.currentTarget);
+			StepNumber = newStep;
+
+			jQuery('#ContentScreens').fadeOut(200, function(){
+				StepId = event.currentTarget.getAttribute('data-id');
+				loadStep(StepId,StepNumber,StepPhaseNumber);
+			});
+		}
+
+		return false;
+	});
 
 }); <!-- end document ready -->
 
@@ -134,59 +240,145 @@ $(document).ready(function(){
 //  ///////////////////////////////////////////////////////////////////////
 
 // Ribbon Code To Handle Selecting Ribbon Items & Update Content appropriately 
+/* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
+function loadStep(StepId,StepOrderNumber, StepPhaseNumber) 
+{
+	var stepDiv = 'step-id-' + StepOrderNumber + '-' + StepPhaseNumber;
+	
+	if($('#' + stepDiv).length > 0){
+		//return false;
+		$('#ContentScreensHolder .showing').removeClass('showing');
+		$('#' + stepDiv).addClass('showing');
+		if(Modernizr.touch)
+		{
+			$('#ContentScreens').animate({'left' : 0}, 200);
+			$('#ContentScreensLoader').fadeOut(200);
+		}
+		else
+		{
+			$('#ContentScreens').fadeIn(200);
+		}
+	} else {		
+		jQuery('#ContentScreensLoader').fadeIn(200);
+		loadingIn = true;
+		var urlLoadStep = "LoadStep.php";
+		if (StepId > -1)
+			urlLoadStep += "?StepId=" + StepId + '&ProjectId=' + ProjectId;
+		else
+			urlLoadStep +=  "?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
+			
+		$.ajax({
+			url: urlLoadStep,
+			cache: false
+		}).done(function( html ) {
+				$('#ContentScreensHolder .showing').removeClass('showing');
+				var contentElement = document.getElementById("ContentScreensHolder");
+				var newDiv = $('<div class="new-div showing" id="' + stepDiv + '"/>');
+				
+				$(contentElement).append(newDiv);
+				
+				newDiv.html(html);
+				
+				//Special teacher setup - need to add click handlers to the Teacher Notes button
+				jQuery("#TeacherNotes-Info-CC").click(function(){
+					$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+					$('#TeacherNotes-Info-CC').css({'display':'none'});
+					$('#TeacherNotes-Close-CC').css({'display':'block'});
+					return false;
+				});
+			
+				jQuery("#TeacherNotes-Close-CC").click(function(){
+					$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+					$('#TeacherNotes-Info-CC').css({'display':'block'});
+					$('#TeacherNotes-Close-CC').css({'display':'none'});
+					return false;
+				});
+				
+				
+				// if we are on the very first step
+				if (StepOrderNumber == 1) {
+					requestPresentationData(ProjectId);
+				}
+				// Send custom 'HTMLChange' event to inform of update.
+				$('#ContentScreens').trigger('HTMLChange');
+				
+				$('#ContentScreensLoader').fadeOut(200);
+				loadingIn = false;
+				
+				if(Modernizr.touch)
+				{
+					$('#ContentScreens').animate({'left' : 0}, 200);
+				}
+				else
+				{
+					$('#ContentScreens').fadeIn(200);
+				}
+		});
+	};
+};
 
-function setSelectedRibbonItem(StepNumber) {
-	var e = jQuery.Event("click");
-	doLog("selecting ribbon item #: " + StepNumber);
-//	console.log("div # " + $('div[data-number="' + StepNumber + '"]').attr("data-number"));
-	$('div[data-number="' + StepNumber + '"]').trigger(e);
+/* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
+function selectStep(eventTarget) 
+{
+	StepNumber = jQuery(eventTarget).attr('data-number');
+	StepPhaseNumber = 0;
+	NumberOfPhasesInStep = $('div[data-number="' + StepNumber + '"]').attr('data-count');
+
+	jQuery('.singleRibbonBlock').removeClass('current');
+	jQuery(eventTarget).addClass('current');
+
+	var pip = $('div[data-number="' + StepNumber + '"] .pip').eq(0);
+	if(pip) selectPip(pip);
+
+	if($('html').hasClass('no-touch'))
+	{
+		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
+		var wid = parseInt(jQuery(eventTarget).width());
+		var sWid = parseInt(jQuery('#ribbonStrip').width());
+		var left = parseInt(jQuery('#ribbonButtons').css('left'));
+
+		if(isNaN(left)) 
+			left = 0; 
+
+		if(xPos + wid > (sWid - left)) {
+			left = (xPos + wid) - sWid;
+		}
+		else if(xPos < -left) {
+			left = xPos + 1; 
+
+			if(left == 1)
+				left = 0;
+		}
+		else {
+			return;
+		}
+
+		jQuery('#ribbonButtons').clearQueue().animate({'left': (-left)}, 200);
+	}
+	else
+	{	
+	
+		var xPos = parseInt(jQuery(eventTarget).attr('data-position'));
+		var wid = parseInt(jQuery(eventTarget).width());
+		var sWid = parseInt(jQuery('#ribbonContainer').width());
+		var left = document.getElementById('ribbonStrip').scrollLeft;
+
+		if(xPos + wid > (sWid + left))
+			left = (xPos + wid) - sWid;
+		else if(xPos < left)
+			left = xPos;
+
+		//jQuery('#ribbonStrip').get(0).scrollLeft = left;
+		jQuery('#ribbonStrip').clearQueue().animate({'scrollLeft': left}, 200);
+	}
+}	
+
+function selectPip(eventTarget)
+{
+	$('.pip').removeClass('active');
+	$(eventTarget).addClass('active');
 }
 
-/* load Data for the Content area below the ribbon, call LoadStep.php with Project Id, StepId or Step Number to load the contents */
-function loadStep(StepId,StepOrderNumber) {
-	//alert ('user clicked on Step #: ' + StepOrderNumber + ' Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
-	var urlLoadStep = "LoadStep.php";
-	if (StepId > -1)
-		urlLoadStep = "LoadStep.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
-	else
-		urlLoadStep =  "LoadStep.php?StepNumber=" + StepOrderNumber + '&ProjectId=' + ProjectId;
-	$.ajax({
-		url: urlLoadStep,
-		cache: false
-	}).done(function( html ) {
-			var contentElement = document.getElementById("ContentScreens");
-			contentElement.innerHTML = html;
-			// if we are on the very first step
-			if (StepOrderNumber == 1) {
-				requestPresentationData(ProjectId);
-			}
-	});
-};
-	
-/* select the step need to call this function when you want to programmatically add the style with the arrow pointing down to indicate a step is selected */	
-function selectStep(eventTarget) {
-			// remove all steps that are currently selected, have class set to ribbonChallengeBottomCurrent by changing the class to "ribbonChallengeBottom"
-		jQuery('.ribbonChallengeBottomCurrent').removeClass('ribbonChallengeBottomCurrent').addClass('ribbonChallengeBottom');
-		jQuery('.ribbonStartBottomCurrent').removeClass('ribbonStartBottomCurrent').addClass('ribbonStartBottom');
-		jQuery('.ribbonPlanBottomCurrent').removeClass('ribbonPlanBottomCurrent').addClass('ribbonPlanBottom');
-		jQuery('.ribbonCreateBottomCurrent').removeClass('ribbonCreateBottomCurrent').addClass('ribbonCreateBottom');
-		jQuery('.ribbonReviseBottomCurrent').removeClass('ribbonReviseBottomCurrent').addClass('ribbonReviseBottom');
-		jQuery('.ribbonPresentBottomCurrent').removeClass('ribbonPresentBottomCurrent').addClass('ribbonPresentBottom');
-		
-		
-		// remove all visible selected step call outs (arrow pointing down below the step) and hide them
-		jQuery('div[data-type="selector"]').removeClass('visibleStyle').addClass('hiddenStyle');
-			// Add the visible style to the selected lower div to display the arrow pointing down, div class=ribbonChallengeSelector
-		jQuery('div[data-type="selector"]',eventTarget).addClass("visibleStyle");
-		// Add Current to class for the step so that it stays highlighted in appropriate color
-		jQuery(".ribbonChallengeBottom",eventTarget).removeClass("ribbonChallengeBottom").addClass("ribbonChallengeBottomCurrent");
-		jQuery(".ribbonStartBottom",eventTarget).removeClass("ribbonStartBottom").addClass("ribbonStartBottomCurrent");	
-		jQuery(".ribbonPlanBottom",eventTarget).removeClass("ribbonPlanBottom").addClass("ribbonPlanBottomCurrent");
-		jQuery(".ribbonCreateBottom",eventTarget).removeClass("ribbonCreateBottom").addClass("ribbonCreateBottomCurrent");	
-		jQuery(".ribbonReviseBottom",eventTarget).removeClass("ribbonReviseBottom").addClass("ribbonReviseBottomCurrent");	
-		jQuery(".ribbonPresentBottom",eventTarget).removeClass("ribbonPresentBottom").addClass("ribbonPresentBottomCurrent");	
-}	
-		
 //  ///////////////////////////////////////////////////////////////////////
 
 // Challenge Slide Show Presentation functionality.
@@ -197,10 +389,10 @@ function selectStep(eventTarget) {
 function requestPresentationData(projectId) {
 	// ::todo::
 	//   Success >> callback setPresentationData( JSONResultStr )
-	
+
 	// the following url returns a json data feed of the info for the slide show
 	var jsonUrl = "SlideShowJSON.php?ProjectId=" + projectId;
-	
+
 	$.ajax({
 		url: jsonUrl,
 		cache: false
@@ -271,7 +463,7 @@ function initPresentation() {
 			resetPauseBtn();
 		}
 	});
-	
+
 	// Establish text groupings and timings.
 	var timeOffset = 0;
 	/* Deprecated.
@@ -283,14 +475,14 @@ function initPresentation() {
 		textTimeIntervals.push( key - timeOffset );
 		timeOffset = key;
 	} */
-	
+
 	resetPresentation();
-	
+
 	// Initialize and display title.
 	jQuery("#ChallengeTitleAuthor").text(cvd.author);
 	jQuery("#ChallengeTitleProject").text(cvd.title);
 	jQuery("#ChallengeTitle").fadeIn(animationDuration);
-	
+
 	// Initialize audio player.
 	 // ::kludge:: Cruft an mp3 path, using the m4a path.
 	 var mp3Path;
@@ -338,7 +530,7 @@ function resetPresentation() {
 	//presentationGroupNext.addClass( groupImagesNext.layout );
 	presentationGroupNext.addClass( cvd.slides[nextIndex].layout );
 	presentationGroupNext.hide();
-	
+
 	// Set image attributes for members of each group.
 	// Old data method.
 	/*var images = getPresentationImages( presentationGroup );
@@ -371,7 +563,7 @@ function resetPresentation() {
 	images.image3.attr("src", groupImagesNext[2].url);
 	images.image3.attr("title", groupImagesNext[2].title);
 	images.image3.attr("alt", groupImagesNext[2].caption);
-	
+
 	// Set first text block.
 	// Deprecated: Independent text track method.
 	//jQuery("#ChallengeText").html(textGroups[textTrackIndex]);
@@ -518,7 +710,7 @@ function startSlides() {
 	images.image3.animate({opacity:0}, startOffset+animationDuration+animationDuration, function() {
 		fadeMeIn(images.image3, animationDuration);
 	});
-	
+
 	// Slide 2 delay animations. Remain invisible for length of slide 1.
 	var images2 = getPresentationImages( presentationGroupNext );
 	presentationGroupNext.show();
@@ -542,7 +734,7 @@ function startSlides() {
 	images2.image3.animate({opacity:0}, slideDuration+animationDuration+animationDuration, function() {
 		fadeMeInAndFinishSlide(images2.image3, animationDuration);
 	});
-	
+
 	// Start text track animation.
 	// Deprecated: Independent text track method:
 	if (useTextTrack == true) {
@@ -680,7 +872,7 @@ function resumePresentation() {
 		images2.image3.resume();
 		jQuery("#ChallengeText").resume();
 		jQuery("#ChallengePaused").fadeOut(200);
-	  pfPlayAudio();
+	  pfPlayAudio();
 	}
 }
 
@@ -723,14 +915,14 @@ function finishSlide() {
 		}
 		//var groupImagesNext = cvd.images[presentationIndex];
 		var groupImagesNext = cvd.slides[presentationIndexNext].images;
-		
+
 		 // ::kludge:: Should determine what classes exist, then remove them. Instead, removal of all known (hard-coded) classes.
 		presentationGroupNext.removeClass("landscapex3");
 		presentationGroupNext.removeClass("landscapex2");
 		presentationGroupNext.removeClass("portrait");
 		//presentationGroupNext.addClass( groupImagesNext.layout );
 		presentationGroupNext.addClass( cvd.slides[presentationIndexNext].layout );
-		
+
 		// Set image source for members of each group.
 		var images = getPresentationImages( presentationGroupNext );
 		/* images.image1.attr("src", groupImagesNext.image1);
@@ -745,7 +937,7 @@ function finishSlide() {
 		images.image3.attr("src", groupImagesNext[2].url);
 		images.image3.attr("title", groupImagesNext[2].title);
 		images.image3.attr("alt", groupImagesNext[2].caption);
-				
+
 		// Trigger next slide set animation.
 		presentationGroupNext.show();
 		images.image1.show();
@@ -767,7 +959,7 @@ function finishSlide() {
 		images.image3.animate({opacity:0}, slideDuration+animationDuration+animationDuration, function() {
 			fadeMeInAndFinishSlide(images.image3, animationDuration);
 		});
-		
+
 	}
 }
 
