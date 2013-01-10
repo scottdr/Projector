@@ -88,22 +88,42 @@ body {
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){ 
+	
+		jQuery("#TeacherNotes-Info-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+			$('#TeacherNotes-Info-CC').css({'display':'none'});
+			$('#TeacherNotes-Close-CC').css({'display':'block'});
+			return false;
+		});
+	
+		jQuery("#TeacherNotes-Close-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+			$('#TeacherNotes-Info-CC').css({'display':'block'});
+			$('#TeacherNotes-Close-CC').css({'display':'none'});
+			return false;
+		});
+	
+	});
+</script>
 </head>
-<body style="overflow-x:hidden;">
+<body style="overflow-x:hidden">
 <?php include("Globals.php") ?>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
   <div id="Header" style="height:40px; padding-left:10px;">
     <div id="headerLogo">
     <img src="_images/headerlogo@2x.png" alt="The Projector" width="48" height="24" />
-      <p>The Projector</p>
+      <p>ELA Unit 2</p>
     </div>
   </div>
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
-     
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
+      <div id="leftButton"></div>
+        <div id="rightButton"></div>
         <div id="ribbonStrip">
           <div id="ribbonButtons">
             <?php require_once("CC_RibbonDynamicContent.php") ?>
