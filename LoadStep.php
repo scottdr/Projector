@@ -70,8 +70,6 @@ mysql_free_result($StepQuery);
 
 $totalRows_NotesQuery = 0;
 // if we are in common core then look for TeacherNotes
-// error been returned: Table 'projector.TeacherNotes' doesn't exist
-/*
 	if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true) {
 		mysql_select_db($database_projector, $projector);
 		$query_NotesQuery = sprintf("SELECT * FROM TeacherNotes WHERE StepId = %s", $StepId);
@@ -82,7 +80,6 @@ $totalRows_NotesQuery = 0;
 		mysql_free_result($NotesQuery);
 	
 	}
-*/
 ?>
 <?php if ($totalRows_NotesQuery > 0) : ?>
  <!-- TeacherNotes Starts -->
