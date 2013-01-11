@@ -17,7 +17,7 @@
     
 	<div id="header" class="row-fluid">
     <h1 class="span6">
-        <a href="Home.php" style="font-size:22px; text-decoration:none;">
+        <a href="/Gallery.php" style="font-size:22px; text-decoration:none;">
             <img src="img/headerlogo.png" style="padding-bottom:6px;" />
             Project Mermaid Editor
         </a>
