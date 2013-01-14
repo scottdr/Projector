@@ -54,13 +54,6 @@
 			overflow: hidden;
 			background-color:#CCC;
 		}
-		carousel-content {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			top:90px;
-		}
 		.carousel img {
 			width: 100%;
 			overflow:hidden;
@@ -71,18 +64,50 @@
 			   -o-transition: 0.9s ease-in-out left;
 				  transition: 0.9s ease-in-out left;
 		}
+		.carousel-content {
+			position: relative;
+			float: left;
+			height: 300px;
+			padding: 0px;
+			background-color: #E3E3E3;
+			margin: 0px;
+			width: 100%;
+			height: 400px;
+			margin:0px;
+		}
+		.carousel-content p {
+			margin-left: 30px;
+			margin-right: 30px;
+			margin-top: 20px;
+			padding: 0px;
+			font-size:20px;
+			line-height:26px;
+			padding-top:10px;
+			font-weight:100;
+		}
+		.cc-start-btn {
+			margin-top:30px;
+			border-color:#FFF;
+			border-style:solid;
+			border-width: 3px;
+			font-size:14px;
+			font-weight:600;
+			letter-spacing: 2px;
+			width: 200px;
+			height: 55px;
+			-webkit-border-radius: 15px;
+			-moz-border-radius: 15px;
+			border-radius: 15px;
+		}
 		.carousel-caption {
-			position: absolute;
-			right: 0;
-			top: 0;
-			left: 0;
+			position: relative;
+			float:left;
+			width:100%;
 			height: 60px;
 			padding:30px;
 			background: #333333;
 			background-color:#FFFFFF;
-			margin-left: 60px;
-			margin-right: 60px;
-
+			margin: 0px;
 		}
 		.carousel-caption p {
 			color: #000;
@@ -92,7 +117,6 @@
 			padding-top:10px;
 			font-weight:100;
 		}
-		
 		.carousel-control {
 			position:fixed;
 			top: 100px;
@@ -223,42 +247,43 @@
         <div class="carousel-inner">
               <div class="item active">
               	<div class="item-inner">
-                    <div class="carousel-content">
-                    <a href="http://pearsonfoundation.org">
-                        <img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
-                    </a>
-                    </div>
                     <div class="carousel-caption">
-                      <p>UNIT 1:</p>
-                      <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
+                        <p>UNIT 1:</p>
+                        <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
+                    </div>
+                    <div class="carousel-content">
+                        <p>One way to understand America is to read its literature. In this unit, you will read many stories and begin to see their connection to American life, experience, and history. In Episode 1, you will recall what you know about the genre of short stories. After reading “Orange” by Neil Gaiman, a story that uses an unusual format, you will continue to explore and define short stories. Steven Millhauser’s essay, “The Ambition of the Short Story,” makes some interesting claims about short stories as the writer compares them to novels. First and foremost, you will read the essay to comprehend Millhauser’s ideas, but you will also examine his writing style and organization in preparation for writing a comparison/contrast essay later in the unit.</p>
+                    	<div class=" pagination-centered">
+                        <button class="btn btn-large btn-primary cc-start-btn" type="button">START</button>
+                        </div>
                     </div>
               	</div>
               </div>
               <div class="item">
               	<div class="item-inner">
-                    <div class="carousel-content">
-                    <a href="http://pearsonfoundation.org">
-                        <img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
-                    </a>
-                    </div>
                     <div class="carousel-caption">
                       <p>UNIT 2:</p>
                       <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
+                    </div>
+					<div class="carousel-content">
+                    <a href="http://pearsonfoundation.org">
+                        <img src="img/cc_mockups/285.jpg" alt="" />
+                    </a>
                     </div>
                 </div>
               </div>
               <div class="item">
               	<div class="item-inner">
-                	<div class="carousel-content">
-                    <a href="http://pearsonfoundation.org">
-                        <img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
-                    </a>
-                    </div>
                     <div class="carousel-caption">
                       <p>UNIT 3:</p>
                       <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
                     </div>
-                 </div>
+					<div class="carousel-content">
+                    <a href="http://pearsonfoundation.org">
+                        <img src="img/cc_mockups/285.jpg" alt="" />
+                    </a>
+                    </div>
+                </div>
               </div>
               
         </div><!-- .carousel-inner -->
