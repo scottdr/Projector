@@ -50,9 +50,9 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 500px;
+			height: 600px;
 			overflow: hidden;
-			background-color:#CCC;
+			background-color: #E3E3E3;
 		}
 		.carousel img {
 			width: 100%;
@@ -67,9 +67,8 @@
 		.carousel-content {
 			position: relative;
 			float: left;
-			height: 300px;
+			height: 400px;
 			padding: 0px;
-			background-color: #E3E3E3;
 			margin: 0px;
 			width: 100%;
 			height: 400px;
@@ -105,7 +104,6 @@
 			width:100%;
 			height: 60px;
 			padding:30px;
-			background: #333333;
 			background-color:#FFFFFF;
 			margin: 0px;
 		}
@@ -122,7 +120,7 @@
 			top: 100px;
 			left: 0px;
 			width: 30px;
-			height:500px;
+			height:600px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;
