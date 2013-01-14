@@ -185,7 +185,7 @@ if(isset($_POST['UploadImage'])){		//check whether a form was submitted by check
 //		echo json_encode($response);  This would be how we would return the string as a json response (this technique didn't work out)
 }
 
-$goToURL = "../Projector_EditChallenge.php";
+$goToURL = "../Projector_EditImages.php";
 // if we are not adding the record get the Media ID from the POST
 if ($insertedRecordId == -1) {
 	if (isset($_POST['ProjectId']))

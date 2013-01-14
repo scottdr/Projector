@@ -91,6 +91,14 @@ if (isset($_POST['SaveRoutines'])) {
 			$i++;
 		} 
 	}
+	
+	// after updating routines go to Editing steps.
+	$updateGoTo = "Projector_EditSteps.php";
+	if (isset($_SERVER['QUERY_STRING'])) {
+		$updateGoTo .= (strpos($updateGoTo, '?')) ? "&" : "?";
+		$updateGoTo .= $_SERVER['QUERY_STRING'];
+	} 
+	header(sprintf("Location: %s", $updateGoTo));
 }
 ?>
 <!doctype html>
