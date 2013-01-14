@@ -67,9 +67,7 @@
 		.carousel-content {
 			position: relative;
 			float: left;
-			height: 400px;
 			padding: 0px;
-			margin: 0px;
 			width: 100%;
 			height: 400px;
 			margin:0px;
@@ -120,7 +118,7 @@
 			top: 100px;
 			left: 0px;
 			width: 30px;
-			height:600px;
+			height:500px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;
