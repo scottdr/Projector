@@ -50,7 +50,7 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 600px;
+			height: 500px;
 			overflow: hidden;
 			background-color: #E3E3E3;
 		}
