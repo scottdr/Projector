@@ -24,9 +24,16 @@
 			background-repeat:no-repeat;
 			background-size:contain;
 		}
+		.backgroundGradient {
+			background-image:url(_images/CC_UI/spotlightBackground.gif);
+			background-position:center;
+			background-repeat:no-repeat;
+			background-clip:border-box;
+			background-size:cover;	
+		}
 		.carousel {
 			position: fixed;
-			top: 120px;
+			top: 100px;
 			left: 0px;
 			width: auto;
 			margin-top: 0px;
@@ -38,7 +45,7 @@
 			border-left-style:solid;
 			border-right:#CCC;
 			border-right-width: 30px;
-			border-right-style:solid;		
+			border-right-style:solid;	
 		}
 		.item-inner {
 			margin-left: 60px;
@@ -47,8 +54,15 @@
 			overflow: hidden;
 			background-color:#CCC;
 		}
+		carousel-content {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			top:90px;
+		}
 		.carousel img {
-			width:100%;
+			width: 100%;
 			overflow:hidden;
 		}
 		.carousel .item {
@@ -81,7 +95,7 @@
 		
 		.carousel-control {
 			position:fixed;
-			top: 120px;
+			top: 100px;
 			left: 0px;
 			width: 30px;
 			height:500px;
@@ -201,7 +215,7 @@
       </div><!-- /.navbar-inner -->
     </div><!-- /.navbar -->
 
-    <div class="container">
+    <div class="container backgroundGradient">
 
       <!--  Carousel -->
       <!--  consult Bootstrap docs at http://twitter.github.com/bootstrap/javascript.html#carousel -->
@@ -209,9 +223,11 @@
         <div class="carousel-inner">
               <div class="item active">
               	<div class="item-inner">
+                    <div class="carousel-content">
                     <a href="http://pearsonfoundation.org">
-                    	<img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
+                        <img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
                     </a>
+                    </div>
                     <div class="carousel-caption">
                       <p>UNIT 1:</p>
                       <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
@@ -220,9 +236,11 @@
               </div>
               <div class="item">
               	<div class="item-inner">
+                    <div class="carousel-content">
                     <a href="http://pearsonfoundation.org">
                         <img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
                     </a>
+                    </div>
                     <div class="carousel-caption">
                       <p>UNIT 2:</p>
                       <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
@@ -231,9 +249,11 @@
               </div>
               <div class="item">
               	<div class="item-inner">
+                	<div class="carousel-content">
                     <a href="http://pearsonfoundation.org">
                         <img src="img/cc_mockups/285.jpg" alt="Antennae Galaxies" />
                     </a>
+                    </div>
                     <div class="carousel-caption">
                       <p>UNIT 3:</p>
                       <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
@@ -262,7 +282,7 @@
     <script>
 		$(document).ready(function(){
 			$('.carousel').carousel({
-			  interval: 10000
+			  interval: 50000
 			});
 		});
 		
