@@ -60,13 +60,16 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson :<?php echo $projectName; ?></title>
-<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
+<!--<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">-->
 <link href="_css/ChallengeLayout_CCSoC.css" rel="stylesheet" type="text/css">
-<link href="_css/ChallengeStyles_CCSoC.css" rel="stylesheet" type="text/css">
 <link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
+
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeStyles_CCSoC.css" rel="stylesheet" type="text/css">
+
 <link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
+
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->

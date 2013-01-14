@@ -9,6 +9,7 @@ body {
 	background-image: url(../_images/challenge/challenge_bg.png);
 	background-repeat: repeat-x;
 	-webkit-text-size-adjust: none;
+	line-height: 180%;
 }
 .typekit-badge {
 	display:none !important;
@@ -70,17 +71,17 @@ h6 {
 	font-weight: 500;
 }
 ul {
-	font-size: 14px;
+	font-size: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 ol {
-	font-size: 14px;
+	font-size: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 blockquote {
-	font-size: 14px;
+	font-size: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-weight: 500;
@@ -143,6 +144,7 @@ hr {
 	background-size: contain;
 	padding: 0;
 	padding-top: 5px;
+	line-height: 90%;
 }
 #headerBackButton-CC a {
 	font-size: 12px;
