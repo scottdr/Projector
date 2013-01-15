@@ -351,21 +351,7 @@
                                     </a>
                                     </li>
                                     <li class="span4">
-                                    <!-- Modal -->
-                                        <div id="lessonModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                          <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <p>Episode 1: Title</p>
-                                            <h3 id="myModalLabel">Lesson 1</h3>
-                                          </div>
-                                          <div class="modal-body">
-                                            <p>Lesson Description</p>
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                                            <button class="btn btn-primary">Save changes</button>
-                                          </div>
-                                        </div>
+                                    
                                     <a href="#lessonModal" role="button" data-toggle="modal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
@@ -562,6 +548,19 @@
         
     </div><!-- end Unit Info -->
 
+
+<!-- Modals -->
+        <div id="lessonModal" class="modal hide fade" tabindex="10" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <p>Episode 1: Title</p>
+            <h3 id="myModalLabel">Lesson 1</h3>
+          </div>
+          <div class="modal-body">
+            <p>Lesson Description</p>
+            <button class="btn btn-primary">START</button>
+          </div>
+        </div>
     </div> <!-- /container -->
     
  
