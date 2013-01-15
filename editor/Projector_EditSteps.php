@@ -149,8 +149,8 @@ var editor;
 var editorInstance;
 var stepId;
 var projectId;
-
- 
+var formChanged = false;  // set to true to indicate a form element has changed
+var goingToStep;
 
 thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'TextOnly.php' : '3-TextOnly.png', 'MediaLeft.php' : '4-MediaLeft.png','MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
 
@@ -182,18 +182,30 @@ function addOption(selectbox, text, value, selected) {
     selectbox.options.add(optn);  
 }
 
+function StepInfo(ProjectId, StepNumber, StepId) {
+	this.projectId = ProjectId;
+	this.stepNumber = StepNumber;
+	this.stepId = StepId;
+}
+
 function loadStepData(ProjectId, StepNumber, StepId) {
 	//alert ('user clicked on Step Id: ' + StepId + ' ProjectId = ' + ProjectId);
-	stepId = StepId;	// set global
-	populateOrderMenu(StepNumber);
-	urlLoadStep = "_php/LoadStepData.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
-	
-	$.ajax({
-		url: urlLoadStep,
-		cache: false
-	}).done(function( jsonStepData ) {
-			updateData(jsonStepData );
-	});
+	if (formChanged) {
+		goingToStep = new StepInfo(ProjectId,StepNumber,StepId);
+		displayPromptToSave();
+		formChanged = false;
+	} else {
+		stepId = StepId;	// set global
+		populateOrderMenu(StepNumber);
+		urlLoadStep = "_php/LoadStepData.php?StepId=" + StepId + '&ProjectId=' + ProjectId;
+		
+		$.ajax({
+			url: urlLoadStep,
+			cache: false
+		}).done(function( jsonStepData ) {
+				updateData(jsonStepData );
+		});
+	}
 }
 
 /* set the values of the html form elements based on the JSON data returned from querying for the step data */
@@ -279,6 +291,13 @@ function CloseDialog() {
 	$("#MediaDialog").modal('hide');
 }
 
+function ClosePromptDialog() {
+	$("#PromptToSave").modal('hide');	// hide the dialog
+	formChanged = false;	// clear out the form changed value
+	// now navigate to new step
+	loadStepData(goingToStep.projectId, goingToStep.stepNumber, goingToStep.stepId );
+}
+
 /* Clicked the Ok button to attach selected items to the selected step */
 function okClicked() {
 
@@ -301,6 +320,23 @@ function okClicked() {
 		displayAttachedMedia(stepId);		// update the list of attached images
 	});
 }
+
+
+function displayPromptToSave() {
+	$("#PromptToSave").modal({                    // finally, wire up the actual modal functionality and show the dialog
+								"backdrop"  : "static",
+								"keyboard"  : true,
+								"show"      : true                     // ensure the modal is shown immediately
+							});
+}
+/* Clicked the Ok button to attach selected items to the selected step */
+function saveChanges() {
+	$("#PromptToSave").modal('hide');
+	$("#updateForm").submit();
+	formChanged = false;
+	loadStepData(goingToStep.projectId, goingToStep.stepNumber, goingToStep.stepId );
+}
+
 
 function detachMedia(mediaAttachId)
 {
@@ -453,8 +489,7 @@ function doTemplateChange(combobox) {
                 <tr>
                   <td width="140"><input type="hidden" name="MM_action" id="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
-                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step"> <a onClick="deleteStep()" class="btn btn-primary btn-danger">Delete</a>
-                  </td>
+                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step"> <a onClick="deleteStep()" class="btn btn-primary btn-danger">Delete</a></td>
                 </tr>
               </tbody>
           </table>
@@ -478,7 +513,19 @@ function doTemplateChange(combobox) {
   </div>
   <div class="modal-footer"> <a href="#" class="btn" onClick="CloseDialog();">Cancel</a> <a href="#" class="btn btn-primary" onClick="okClicked();">Attach</a> </div>
 </div>
-
+<div id="PromptToSave" class="modal hide fade">
+	<div class="modal-header">
+  	<a href="#" class="close" data-dismiss="modal">&times;</a>
+  	<h3>Save Changes</h3>
+    
+  </div>
+  <div id="ModalBody" class="modal-body">
+  	<div class="divDialogElements">
+    	Do you want to save your changes?
+    </div>
+  </div>
+  <div class="modal-footer"> <a href="#" class="btn" onClick="ClosePromptDialog();">Cancel</a> <a href="#" class="btn btn-primary" onClick="saveChanges();">Save</a> </div>
+</div>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -497,6 +544,7 @@ function doTemplateChange(combobox) {
 
 <script type="text/javascript">
 
+	
 	$(document).ready(function() {
 		// set the projectId global variable when document is loaded from the hidden element, could also pull this off of the url
 		projectId = document.getElementById('ProjectId').value;
@@ -523,6 +571,11 @@ function doTemplateChange(combobox) {
 	$(".closeStep").click(function () {
 		$("#editStep").hide("slow");
     });
+		
+	$('form :input').change(function(){
+   	formChanged = true;
+//		console.log("form changed");
+		});
 </script>
 </body>
 </html>

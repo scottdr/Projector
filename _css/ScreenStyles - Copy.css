@@ -1,0 +1,693 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+	-webkit-text-size-adjust: none;
+	color:rgba(255,255,255,1);
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-weight:200;
+}
+
+a:link {
+	text-decoration: none;
+	color:#0099CC;
+}
+a:visited {
+	color: #0099CC;
+}
+a:hover {
+	color: #0099CC;
+}
+a:active {
+	color: #0099CC;
+}
+
+#FullWidthWrapper {
+	width: 96%;
+	padding-left: 2%;
+	padding-right: 2%;
+	min-height: 1000px;
+	margin-top: 40px;
+}
+#ZeroBorderWidthWrapper {
+	width:100%;
+	min-height:1000px;
+}
+
+
+
+/* 00 Opening Experience 05 Opening Activity */
+.center {
+	text-align:center;
+}
+.ProjectorLogo {
+	margin-top: 50px;
+	margin-bottom: 0px;
+	border: 0px;
+}
+.ProjectorTitle {
+	font-size: 25px;
+	font-weight: 200;
+	margin: 0px;
+	border: 0px;
+}
+.ProjectTitle {
+	font-size: 40px;
+	font-weight: 300;
+	color: #03ACEF;
+	margin-top: 50px;
+	margin-bottom: 10px;
+	border: 0px;
+}
+.ProjectAuthor {
+	font-size: 25px;
+	font-weight: 300;
+	color: #02ACF0;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	border: 0px;
+}
+
+/* 04 Opening Experience 05 Opening Activity */
+
+#ImageLeft {
+	float:left;
+	width:40%;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+#ImageLeft img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#ImageLeft .caption{
+	color: #333;
+	background-color: #FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+	font-size: 12px;
+}
+
+
+
+/* 01 Challenge Screen */
+
+#ChallengeWrapper {
+	position: relative;
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	height:500px;
+}
+
+.challengeImage1 {
+	position:absolute;
+	top: 0;
+	left: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.challengeImage1 img {
+	height: 248px;
+	width: 448px;
+	border:solid;
+	border-width: 1px;
+	border-color:#666;
+}
+
+.challengeImage2 {
+	position:absolute;
+	top: 0;
+	right: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.challengeImage2 img {
+	height: 248px;
+	width: 449px;
+	border:solid;
+	border-color:#666;
+	border-left-width: 0px;
+	border-right-width: 1px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+}
+
+.challengeImage3 {
+	position:absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0px;
+	padding: 0px;
+}
+
+.challengeImage3 img {
+	height: 249px;
+	width: 448px;
+	border:solid;
+	border-color:#666;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+}
+
+#ChallengeText {
+  display: table-cell;
+  color: #ffffff;
+  vertical-align: middle;
+  padding: 10px;
+  font-family: nimbus-sans, Helvetica, Arial, &#39;Lucida Grande&#39, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-text-size-adjust: none;
+  background-color: #313131;
+  /* Make text non-selectable. */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor:default;
+	-webkit-touch-callout: none;
+	-ms-user-select: none;	
+}
+
+/* Wrapper for text element sizes and places bounding box, provides table to perfectly center content. */ 
+	/*#ChallengeTextWrapper {
+		display: table;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		height: 50%;
+		width: 50%;
+		margin: 0;
+	}*/
+	#ChallengeTextWrapper {
+	display: table;
+	position: absolute;
+	bottom: 0;
+	height: 50%;
+	width: 50%;
+	margin: 0;
+	left: 448px;
+	top: 248px;
+}
+
+#ChallengeGroupA {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index:2;
+}
+
+#ChallengeGroupB {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index:3;
+}
+
+#ChallengeTitle {
+	display: none;
+	text-align: center;
+  /* Make text non-selectable. */
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	cursor:default;
+	z-index: 10;
+}
+
+#ChallengePaused {
+	position:absolute;
+	top:50%;
+	left:50%;
+	height: 60px;
+	width: 60px;
+	z-index:50;
+	display:none;
+}
+
+#ChallengePausedImg {
+  position:absolute;
+  top:-30px;
+  left:-30px;
+  height: 60px;
+  width: 60px;
+}
+
+
+/* Provision for text positioning for slide layout variants. Currently all layouts same. */
+.landscapex3 #ChallengeTextWrapper {
+  right: 0;
+  bottom: 0;
+}
+.landscapex2 #ChallengeTextWrapper {
+  right: 0;
+  bottom: 0;
+}
+.portrait #ChallengeTextWrapper {
+  right: 0;
+  bottom: 0;
+}
+
+#ChallengeText ol {
+	margin: 1em 0px;
+	padding: 0px 0px 0x 40px;
+}
+
+#Challenge Text ul li {
+	font-weight: 200;
+	margin-bottom: 5px;
+}
+
+/* landscapex3 = 3x landscape DEFAULT*/
+.landscapex3 #ChallengeImageA1 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageA2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageA3 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageB1 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageB2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex3 #ChallengeImageB3 {
+	height: 50%;
+	width: 50%;
+}
+
+/* landscapex2 = 1x extended landscape, 1x landscape*/
+.landscapex2.ChallengeImageA1 {
+	height: 50%;
+	width: 100%;
+}
+.landscapex2.ChallengeImageA2 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+.landscapex2.ChallengeImageA3 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex2.ChallengeImageB1 {
+	height: 50%;
+	width: 100%;
+}
+.landscapex2.ChallengeImageB2 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+.landscapex2.ChallengeImageB3 {
+	height: 50%;
+	width: 50%;
+}
+
+/* portrait = 1 portrait, 1 landscape */
+.landscapex2 #ChallengeImageA1 {
+	height: 100%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageA2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageA3 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageB1 {
+	height: 100%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageB2 {
+	height: 50%;
+	width: 50%;
+}
+.landscapex2 #ChallengeImageB3 {
+	display: none;
+	height: 50%;
+	width: 50%;
+}
+
+
+/* Challenge Video Screen */
+
+#ChallengeVideoScreen {
+	float: left;
+	margin-top: 20px;
+	width:640px;
+	padding: 0px;
+	border: 0px;
+}
+#ChallengeInfo {
+	float: right;
+	padding: 0px;
+	border: 0px;
+	margin-top: 20px;
+	background-color: #0099CC;
+	height: 40px;
+	width: 40px;
+	overflow:hidden;
+}
+#ChallengeInfo img{
+	margin: 8px;
+	border: 0px;
+}
+#ChallengeInfoClose {
+	float: right;
+	padding: 0px;
+	border: 0px;
+	margin-top: 20px;
+	background-color: #0099CC;
+	height: 40px;
+	width: 40px;
+	overflow:hidden;
+	display:none;
+}
+#ChallengeInfoClose img{
+	margin: 8px;
+	border: 0px;
+}
+#ChallengeInfoDetails {
+	visibility:hidden;
+	position:relative;
+	float:right;
+	background-color:rgba(255,255,255,1);
+	top: -480px;
+	left: -40px;
+	width: 200px;
+	height: 480px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 0px;
+	margin: 0px;
+	z-index: 1;
+	overflow:scroll;
+	/* Firefox v3.5+ */
+	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	/* Firefox v4.0+ , Safari v5.1+ , Chrome v10.0+, IE v10+ and by Opera v10.5+ */
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	-ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true)";
+	filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0,OffY=0,Color=#3d000000,Positive=true);
+}
+#ChallengeInfoDetails .infoHeading{
+	color:rgba(51,51,51,1);
+	font-size: 14px;
+	font-weight:500;
+	line-height: 14px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#ChallengeInfoDetails .infoParagraph{
+	color:rgba(51,51,51,1);
+	font-size: 14px;
+	font-weight:200;
+	line-height: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* 02 InDetail Screen */
+
+#DetailsTwoColumnLeft {
+	float:left;
+	width:58%;
+	padding-right: 2%;
+	margin-top: 5%;
+}
+#DetailsTwoColumnLeft h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+
+#DetailsTwoColumnRight {
+	float:right;
+	width:40%;
+	margin-top: 5%;
+}
+#DetailsTwoColumnRight img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#DetailsTwoColumnRight .caption{
+	color: #333;
+	background-color: #FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+	font-size: 12px;
+}
+#DetailsTwoColumnRight .objectives{
+	color:#FFF;
+	background-color:rgb(0,153,203);
+	padding: 5%;
+	width: 90%;
+	margin-top: 5%;
+	border: 0px;
+	line-height:100%;
+}
+#DetailsTwoColumnRight li{
+	font-size:15px;
+}
+/* 03 Driving Questions */
+
+#QuestionsTwoColumnLeft {
+	float:left;
+	width:40%;
+	margin-top: 5%;
+}
+#QuestionsTwoColumnLeft img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#QuestionsTwoColumnLeft .caption{
+	color: #333;
+	background-color: #FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+	font-size: 12px;
+}
+
+#QuestionsTwoColumnRight {
+	float:right;
+	width:58%;
+	padding-left: 2%;
+	margin-top: 5%;
+}
+#QuestionsTwoColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+#QuestionsTwoColumnRight ol{
+	list-style-position:inside;
+	padding-left: 0px;
+}
+#QuestionsTwoColumnRight li{
+	background-image:url(../_images/challenge/blue_square.png);
+	line-height: 28px;
+	background-repeat: no-repeat;
+	line-height: 28px;
+	padding-left: 10px;
+}
+/* 04 Opening Experience 05 Opening Activity */
+
+#OpeningTwoColumnLeft {
+	float: left;
+	width: 40%;
+	margin-top: 0px;
+}
+#OpeningTwoColumnLeft img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+#OpeningTwoColumnLeft .caption{
+	color: #333;
+	background-color: #FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+	font-size: 12px;
+}
+
+#OpeningTwoColumnRight {
+	float: right;
+	width: 58%;
+	padding-left: 2%;
+	margin-top: 0px;
+}
+
+#OpeningTwoColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+
+/* 04 Media Right */
+
+#MediaRightColumnLeft {
+	float: left;
+	width: 58%;
+	margin-top: 0px;
+}
+#MediaRightColumnLeft h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+#MediaRightColumnRight img {
+	background-color:#FFF;
+	padding: 5%;
+	width: 90%;
+	margin: 0px;
+	border:none;
+}
+
+#MediaRightColumnRight .caption{
+	color: #333;
+	background-color: #FFF;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	padding-top: 0%;
+	width: 90%;
+	margin: 0px;
+	border: 0px;
+	font-size: 12px;
+}
+
+#MediaRightColumnRight {
+	float: right;
+	width: 40%;
+	padding-left: 2%;
+	margin-top: 0px;
+}
+
+#MediaRightColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
+
+
+
+
+/* 06 07 08 Plan 09 Create 10 Revise 11 Present */
+#PCRPTwoColumnLeft {
+	float: left;
+	width: 40%;
+	margin-top: 0px;
+	min-height: 400px;
+}
+#PCRPTwoColumnLeft img {
+	padding: 0px;
+	width: 99%;
+	margin: 0px;
+	border:none;
+}
+#PCRPTwoColumnRight {
+	float: right;
+	width: 57%;
+	padding-left: 2%;
+	border-left-style: dotted;
+	border-left-width: 1px;
+	border-left-color: #666;
+	margin-top: 0px;
+}
+#PCRPTwoColumnRight h2 {
+	font-size:20px;
+	line-height:100%;
+	color:rgb(255,255,255);
+	text-align:left;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	font-weight:200;
+}
