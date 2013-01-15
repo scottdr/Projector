@@ -324,7 +324,7 @@
     </div><!-- /.navbar -->
 
     <div class="container">
-
+    
       <!--  Carousel -->
       <!--  consult Bootstrap docs at http://twitter.github.com/bootstrap/javascript.html#carousel -->
       <div id="episode-carousel-id" class="carousel slide">
@@ -342,6 +342,7 @@
                         
                             <ul class="thumbnails">
                                     <li class="span4">
+                                    
                                     <a href="#">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
@@ -350,7 +351,22 @@
                                     </a>
                                     </li>
                                     <li class="span4">
-                                    <a href="#">
+                                    <!-- Modal -->
+                                        <div id="lessonModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <p>Episode 1: Title</p>
+                                            <h3 id="myModalLabel">Lesson 1</h3>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>Lesson Description</p>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                            <button class="btn btn-primary">Save changes</button>
+                                          </div>
+                                        </div>
+                                    <a href="#lessonModal" role="button" data-toggle="modal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 1</h3>
@@ -462,6 +478,9 @@
                     </div>
                     <div class="carousel-content">
 						<hr/>
+                        
+                        
+                        
                         <div class="row-fluid">
                         
                             <ul class="thumbnails">
@@ -474,7 +493,7 @@
                                     </a>
                                     </li>
                                     <li class="span4">
-                                    <a href="#">
+                                    <a data-toggle="modal" href="#lessonModal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 1</h3>
@@ -491,6 +510,8 @@
                                     </li>
                                 </ul>
                             </div>
+                            
+                             
                             
                             <div class="row-fluid">
                             	<ul class="thumbnails">
@@ -542,11 +563,13 @@
     </div><!-- end Unit Info -->
 
     </div> <!-- /container -->
+    
+ 
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!-- Bootstrap jQuery plugins compiled and minified -->
-    <script type='text/javascript' src="js/bootstrap.min.js"></script>
+    <script type='text/javascript' src="js/bootstrap.js"></script>
     <script type='text/javascript' src="js/bootstrap-carousel.js"></script>
 	<script type='text/javascript' src="http://lesscss.googlecode.com/files/less-1.3.0.min.js"></script>
     <script>
