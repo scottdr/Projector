@@ -337,9 +337,6 @@ function saveChanges() {
 	loadStepData(goingToStep.projectId, goingToStep.stepNumber, goingToStep.stepId );
 }
 
-function submitForm() {
-	$("#updateForm").submit();
-}
 
 function detachMedia(mediaAttachId)
 {
@@ -492,8 +489,7 @@ function doTemplateChange(combobox) {
                 <tr>
                   <td width="140"><input type="hidden" name="MM_action" id="MM_action" value="<?php echo $action; ?>" /></td>
                   <td>
-                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step"> <a onClick="deleteStep()" class="btn btn-primary btn-danger">Delete</a>
-                  <input type="button" name="button" id="button" value="Button" onClick="submitForm()"></td>
+                  <input name="Save step" type="submit" class="btn btn-primary" id="Save step" title="Save step" value="Save step"> <a onClick="deleteStep()" class="btn btn-primary btn-danger">Delete</a></td>
                 </tr>
               </tbody>
           </table>
@@ -578,7 +574,7 @@ function doTemplateChange(combobox) {
 		
 	$('form :input').change(function(){
    	formChanged = true;
-		console.log("form changed");
+//		console.log("form changed");
 		});
 </script>
 </body>
