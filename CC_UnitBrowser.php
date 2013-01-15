@@ -43,7 +43,7 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 550px;
+			height: 500px;
 			overflow: hidden;
 			background-color: #E3E3E3;
 		}
@@ -62,7 +62,7 @@
 			float: left;
 			padding: 0px;
 			width: 100%;
-			height: 400px;
+			height: 500px;
 			margin:0px;
 		}
 		.carousel-content p {
@@ -111,7 +111,7 @@
 			top: 100px;
 			left: 0px;
 			width: 30px;
-			height:550px;
+			height:500px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;
@@ -221,7 +221,7 @@
       <div class="navbar-inner">
         <div class="container">
            <ul class="nav">
-              <li class="active"><a href="#" class="parent"><i class="icon-home"></i></a></li>
+              <li class="active"><a href="CC_UnitBrowser.php" class="parent"><i class="icon-home"></i></a></li>
               <li><a href="#">Grade II ELA</a></li>
           </ul>
         </div><!-- /.container -->

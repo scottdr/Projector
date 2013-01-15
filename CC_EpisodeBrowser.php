@@ -103,7 +103,7 @@
 			clear: both;
 			padding-left: 30px;
 			padding-right: 30px;
-			height: 400px;
+			height: 550px;
 			margin: 0px;
 		}
 		.carousel-content p {
