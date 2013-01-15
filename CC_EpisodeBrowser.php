@@ -83,7 +83,7 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 550px;
+			height: 600px;
 			overflow: hidden;
 			background-color:#3E3E3E;
 		}
@@ -103,7 +103,7 @@
 			clear: both;
 			padding-left: 30px;
 			padding-right: 30px;
-			height: 550px;
+			height: 600px;
 			margin: 0px;
 		}
 		.carousel-content p {
@@ -154,7 +154,7 @@
 			top: 40px;
 			left: 30%;
 			width: 30px;
-			height:550px;
+			height:600px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;
