@@ -52,8 +52,26 @@ img, object, embed, video {
 	width: 100%;
 	display: block;
 	position: relative;
-	/*top:-550px;*/
 }
+
+.touch #ContentScreens {
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+#ContentScreensHolder {
+	width:100%;
+	position: relative;
+	padding-right:1px;
+	top: 0;
+	left: 0;	
+}
+
+* {
+	-webkit-transform: translate3d(0,0,0));
+}
+
+
 #Footer {
 	clear: both;
 	float: left;
@@ -67,8 +85,11 @@ img, object, embed, video {
 @media only screen and (min-width: 481px) {
 .gridContainer {
 	width: 95%;
-	padding-left: 2.5%;
-	padding-right: 2.5%;
+	padding-left: 0%;
+	padding-right: 0%;
+	margin-left:2.5%;
+	margin-right:2.5%;
+	overflow: hidden;
 /*background-color : lightyellow; */     	/* for debugging display light yellow when using tablet rules */
 }
 
@@ -84,6 +105,7 @@ img, object, embed, video {
 	width: 80%;
 	max-width: 1232px;
 	margin: auto;
+	overflow: hidden;
 /*	background-color : lightblue; *//* for debugging light blue for desktop */
 }
 

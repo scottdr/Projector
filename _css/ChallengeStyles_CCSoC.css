@@ -9,7 +9,6 @@ body {
 	background-image: url(../_images/challenge/challenge_bg.png);
 	background-repeat: repeat-x;
 	-webkit-text-size-adjust: none;
-	line-height: 180%;
 }
 .typekit-badge {
 	display:none !important;
@@ -71,17 +70,17 @@ h6 {
 	font-weight: 500;
 }
 ul {
-	font-size: 15px;
+	font-size: 14px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 ol {
-	font-size: 15px;
+	font-size: 14px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 blockquote {
-	font-size: 15px;
+	font-size: 14px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-weight: 500;
@@ -144,7 +143,6 @@ hr {
 	background-size: contain;
 	padding: 0;
 	padding-top: 5px;
-	line-height: 90%;
 }
 #headerBackButton-CC a {
 	font-size: 12px;
@@ -191,7 +189,7 @@ hr {
 	border-top-style: solid;
 	border-top-width: 1px;
 	z-index: -1;
-	height: 76px;
+	height: 93px;
 	top: -120px;
 	/* Firefox v3.5+ */
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);

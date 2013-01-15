@@ -70,16 +70,16 @@ mysql_free_result($StepQuery);
 
 $totalRows_NotesQuery = 0;
 // if we are in common core then look for TeacherNotes
-if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true) {
-	mysql_select_db($database_projector, $projector);
-	$query_NotesQuery = sprintf("SELECT * FROM TeacherNotes WHERE StepId = %s", $StepId);
-	$NotesQuery = mysql_query($query_NotesQuery, $projector) or die(mysql_error());
-	$row_NotesQuery = mysql_fetch_assoc($NotesQuery);
-	$totalRows_NotesQuery = mysql_num_rows($NotesQuery);
-//	echo "teacher notes: " . $row_NotesQuery['Text']; 
-	mysql_free_result($NotesQuery);
-
-}
+	if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'] == true) {
+		mysql_select_db($database_projector, $projector);
+		$query_NotesQuery = sprintf("SELECT * FROM TeacherNotes WHERE StepId = %s", $StepId);
+		$NotesQuery = mysql_query($query_NotesQuery, $projector) or die(mysql_error());
+		$row_NotesQuery = mysql_fetch_assoc($NotesQuery);
+		$totalRows_NotesQuery = mysql_num_rows($NotesQuery);
+	//	echo "teacher notes: " . $row_NotesQuery['Text']; 
+		mysql_free_result($NotesQuery);
+	
+	}
 ?>
 <?php if ($totalRows_NotesQuery > 0) : ?>
  <!-- TeacherNotes Starts -->

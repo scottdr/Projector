@@ -60,16 +60,18 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lesson :<?php echo $projectName; ?></title>
-<!--<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">-->
+<link href="_css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeLayout_CCSoC.css" rel="stylesheet" type="text/css">
-<link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
-
-<link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
+<link href="_css/ChallengeStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/ChallengeStyles_CCSoC.css" rel="stylesheet" type="text/css">
-
+<link href="_css/RibbonStyles.css" rel="stylesheet" type="text/css">
+<link href="_css/RibbonStyles_CCSoC.css" rel="stylesheet" type="text/css">
+<link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
-
+<!--[if lt IE 10]>
+<link href="_css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -81,10 +83,10 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
 <script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
-<script src="_scripts/challengeVideo_CCSoC.js" type="text/javascript"></script>
+<script src="_scripts/modernizr.custom.42097.js"></script>
+<script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
-
 <script type="text/javascript">
 	$(document).ready(function(){ 
 	
@@ -104,7 +106,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 	
 	});
 </script>
-
 </head>
 <body>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
@@ -129,10 +130,10 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
      
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
-        <div id="leftButton-CC"></div>
-        <div id="rightButton-CC"></div>
+        <div id="leftButton"></div>
+        <div id="rightButton"></div>
         <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+          <div id="ribbonButtons">
             <?php require_once("CC_RibbonDynamicContent.php") ?>
           </div>
         </div>
@@ -142,13 +143,38 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-  	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
+  <div id="ContentScreens">
+    <div id="ContentScreensHolder"> 
+      <!-- Content Gets dynamically placed here --> 
+    </div>
+  </div>
+  <div id="ContentScreensLoader">
+    <div id="floatingCirclesG">
+      <div class="f_circleG" id="frotateG_01"> </div>
+      <div class="f_circleG" id="frotateG_02"> </div>
+      <div class="f_circleG" id="frotateG_03"> </div>
+      <div class="f_circleG" id="frotateG_04"> </div>
+      <div class="f_circleG" id="frotateG_05"> </div>
+      <div class="f_circleG" id="frotateG_06"> </div>
+      <div class="f_circleG" id="frotateG_07"> </div>
+      <div class="f_circleG" id="frotateG_08"> </div>
+    </div>
   </div>
   <div id="Footer">
     <p></p>
   </div>
 </div>
+<script>	
+	var ContentScreens = jQuery("#ContentScreens");
+	ContentScreens.on('touchend', function(e){
+		touchEnd(e);
+	});
+	window.addEventListener("orientationchange", function() {
+		// orientationchange bug fix
+	  	ContentScreens.css("-webkit-overflow-scrolling", "auto");
+		window.setTimeout(function () { ContentScreens.css("-webkit-overflow-scrolling", "touch") }, 1);
+	}, false);
+</script>
 </body>
 </html>
 <?php

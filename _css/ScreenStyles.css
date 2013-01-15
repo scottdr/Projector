@@ -3,7 +3,7 @@
 
 
 body {
-	font-family: Helvetica Neue, Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
+	font-family: "Helvetica Neue", Helvetica, nimbus-sans, Arial, "Lucida Grande", sans-serif;
 	-webkit-text-size-adjust: none;
 	color:rgba(255,255,255,1);
 	border: 0px;
@@ -30,12 +30,13 @@ a:active {
 	width: 96%;
 	padding-left: 2%;
 	padding-right: 2%;
-	min-height: 1000px;
+	min-height: 700px;
 	margin-top: 40px;
 }
 #ZeroBorderWidthWrapper {
 	width:100%;
-	min-height:1000px;
+	min-height:700px;
+	overflow-x:hidden;
 }
 
 
@@ -79,17 +80,17 @@ a:active {
 	width:40%;
 	margin-right: 20px;
 	margin-bottom: 20px;
-	padding: 0;
 }
 #ImageLeft img {
 	background-color:#FFF;
 	padding: 5%;
 	width: 90%;
 	margin: 0px;
-	border:0px;
+	border:none;
 }
-#ImageLeft p, .caption{
+#ImageLeft .caption{
 	color: #333;
+	background-color: #FFF;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
@@ -97,6 +98,7 @@ a:active {
 	width: 90%;
 	margin: 0px;
 	border: 0px;
+	font-size: 12px;
 }
 
 
@@ -478,6 +480,7 @@ a:active {
 }
 #DetailsTwoColumnRight .caption{
 	color: #333;
+	background-color: #FFF;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
@@ -485,6 +488,7 @@ a:active {
 	width: 90%;
 	margin: 0px;
 	border: 0px;
+	font-size: 12px;
 }
 #DetailsTwoColumnRight .objectives{
 	color:#FFF;
@@ -514,6 +518,7 @@ a:active {
 }
 #QuestionsTwoColumnLeft .caption{
 	color: #333;
+	background-color: #FFF;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
@@ -521,6 +526,7 @@ a:active {
 	width: 90%;
 	margin: 0px;
 	border: 0px;
+	font-size: 12px;
 }
 
 #QuestionsTwoColumnRight {
@@ -530,14 +536,14 @@ a:active {
 	margin-top: 5%;
 }
 #QuestionsTwoColumnRight h2 {
-	/*font-size:20px;
-	line-height:100%;*/
+	font-size:20px;
+	line-height:100%;
 	color:rgb(255,255,255);
 	text-align:left;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	/*font-weight:200;*/
+	font-weight:200;
 }
 #QuestionsTwoColumnRight ol{
 	list-style-position:inside;
@@ -545,6 +551,7 @@ a:active {
 }
 #QuestionsTwoColumnRight li{
 	background-image:url(../_images/challenge/blue_square.png);
+	line-height: 28px;
 	background-repeat: no-repeat;
 	line-height: 28px;
 	padding-left: 10px;
@@ -565,6 +572,7 @@ a:active {
 }
 #OpeningTwoColumnLeft .caption{
 	color: #333;
+	background-color: #FFF;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
@@ -572,6 +580,7 @@ a:active {
 	width: 90%;
 	margin: 0px;
 	border: 0px;
+	font-size: 12px;
 }
 
 #OpeningTwoColumnRight {
@@ -582,14 +591,14 @@ a:active {
 }
 
 #OpeningTwoColumnRight h2 {
-	/*font-size:20px;
-	line-height:100%;*/
+	font-size:20px;
+	line-height:100%;
 	color:rgb(255,255,255);
 	text-align:left;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	/*font-weight:200;*/
+	font-weight:200;
 }
 
 /* 04 Media Right */
@@ -600,14 +609,14 @@ a:active {
 	margin-top: 0px;
 }
 #MediaRightColumnLeft h2 {
-	/*font-size:20px;*/
-	/*line-height:100%;*/
+	font-size:20px;
+	line-height:100%;
 	color:rgb(255,255,255);
 	text-align:left;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	/*font-weight:200;*/
+	font-weight:200;
 }
 #MediaRightColumnRight img {
 	background-color:#FFF;
@@ -619,6 +628,7 @@ a:active {
 
 #MediaRightColumnRight .caption{
 	color: #333;
+	background-color: #FFF;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
@@ -626,6 +636,7 @@ a:active {
 	width: 90%;
 	margin: 0px;
 	border: 0px;
+	font-size: 12px;
 }
 
 #MediaRightColumnRight {
@@ -636,14 +647,14 @@ a:active {
 }
 
 #MediaRightColumnRight h2 {
-	/*font-size:20px;
-	line-height:100%;*/
+	font-size:20px;
+	line-height:100%;
 	color:rgb(255,255,255);
 	text-align:left;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	/*font-weight:200;*/
+	font-weight:200;
 }
 
 
@@ -672,12 +683,12 @@ a:active {
 	margin-top: 0px;
 }
 #PCRPTwoColumnRight h2 {
-	/*font-size:20px;
-	line-height:100%;*/
+	font-size:20px;
+	line-height:100%;
 	color:rgb(255,255,255);
 	text-align:left;
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	/*font-weight:200;*/
+	font-weight:200;
 }

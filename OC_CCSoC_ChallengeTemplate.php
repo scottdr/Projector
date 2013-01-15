@@ -68,6 +68,12 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <link href="_css/ScreenStyles.css" rel="stylesheet" type="text/css">
 <link href="_css/lessonTemplate_splash.css" rel="stylesheet" type="text/css">
 <link href="_css/NavBar.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 10]>
+<link href="_css/ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 <style type="text/css">
 body {
 	background-image: url(_images/challenge/OC_challenge_bg.png);
@@ -78,11 +84,31 @@ body {
 <script src="jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
 <script src="_scripts/jquery.pause.min.js" type="text/javascript"></script>
 <script src="_scripts/jQuery.jPlayer.2.2.0/jquery.jplayer.min.js" type="text/javascript"></script>
-<script src="_scripts/challengeVideo_CCSoC.js" type="text/javascript"></script>
+<script src="_scripts/modernizr.custom.42097.js"></script>
+<script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){ 
+	
+		jQuery("#TeacherNotes-Info-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+			$('#TeacherNotes-Info-CC').css({'display':'none'});
+			$('#TeacherNotes-Close-CC').css({'display':'block'});
+			return false;
+		});
+	
+		jQuery("#TeacherNotes-Close-CC").click(function(){
+			$('#TeacherNotes-Text-CC').css({'visibility':'hidden'});
+			$('#TeacherNotes-Info-CC').css({'display':'block'});
+			$('#TeacherNotes-Close-CC').css({'display':'none'});
+			return false;
+		});
+	
+	});
+</script>
 </head>
-<body>
+<body style="overflow-x:hidden">
 <?php include("Globals.php") ?>
 <?php if ($PROJECTOR['editMode']) include("NavBar.php") ?>
 <div class="gridContainer clearfix">
@@ -94,12 +120,13 @@ body {
   </div>
   <div id="RibbonNavigation">
     <div id="NavRibbonDiv"> 
-     
       <!-- NavRibbon Starts -->
       <div id="ribbonContainer">
+      <div id="leftButton"></div>
+        <div id="rightButton"></div>
         <div id="ribbonStrip">
-          <div id="ribbonButtons" ontouchstart="touchStart(event,'ribbonButtons');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-            <?php require_once("RibbonDynamicContent.php") ?>
+          <div id="ribbonButtons">
+            <?php require_once("CC_RibbonDynamicContent.php") ?>
           </div>
         </div>
         <!-- NavRibbon Ends --> 
@@ -108,13 +135,38 @@ body {
     <div id="NavShadowDiv"></div>
   </div>
   <input id="numberSteps" type="hidden" value="<?php echo $totalRows_stepsRecordset; ?>" />
-  <div id="ContentScreens" ontouchstart="touchStart(event,'ContentScreens');" ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
-  	<!-- Content Gets dynamically placed here by calling the LoadStep function which uses LoadStep.php -->
+  <div id="ContentScreens">
+    <div id="ContentScreensHolder"> 
+      <!-- Content Gets dynamically placed here --> 
+    </div>
+  </div>
+  <div id="ContentScreensLoader">
+    <div id="floatingCirclesG">
+      <div class="f_circleG" id="frotateG_01"> </div>
+      <div class="f_circleG" id="frotateG_02"> </div>
+      <div class="f_circleG" id="frotateG_03"> </div>
+      <div class="f_circleG" id="frotateG_04"> </div>
+      <div class="f_circleG" id="frotateG_05"> </div>
+      <div class="f_circleG" id="frotateG_06"> </div>
+      <div class="f_circleG" id="frotateG_07"> </div>
+      <div class="f_circleG" id="frotateG_08"> </div>
+    </div>
   </div>
   <div id="Footer">
     <p></p>
   </div>
 </div>
+<script>	
+	var ContentScreens = jQuery("#ContentScreens");
+	ContentScreens.on('touchend', function(e){
+		touchEnd(e);
+	});
+	window.addEventListener("orientationchange", function() {
+		// orientationchange bug fix
+	  	ContentScreens.css("-webkit-overflow-scrolling", "auto");
+		window.setTimeout(function () { ContentScreens.css("-webkit-overflow-scrolling", "touch") }, 1);
+	}, false);
+</script>
 </body>
 </html>
 <?php
