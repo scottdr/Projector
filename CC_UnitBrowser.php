@@ -43,7 +43,7 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 500px;
+			height: 550px;
 			overflow: hidden;
 			background-color: #E3E3E3;
 		}
@@ -111,7 +111,7 @@
 			top: 100px;
 			left: 0px;
 			width: 30px;
-			height:500px;
+			height:550px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;

@@ -83,7 +83,7 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 500px;
+			height: 550px;
 			overflow: hidden;
 			background-color:#3E3E3E;
 		}
@@ -100,11 +100,11 @@
 		.carousel-content {
 			position: relative;
 			float: left;
-			clear:both;
-			padding: 0px;
-			width: auto;
+			clear: both;
+			padding-left: 30px;
+			padding-right: 30px;
 			height: 400px;
-			margin:30px;
+			margin: 0px;
 		}
 		.carousel-content p {
 			margin-left: 30px;
@@ -154,7 +154,7 @@
 			top: 40px;
 			left: 40%;
 			width: 30px;
-			height:500px;
+			height:550px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;
@@ -189,6 +189,40 @@
 			font-weight:100;
 			line-height:32px;
 			padding-bottom:0px;
+		}
+		.thumbnails {
+			
+		}
+		.thumbnail {
+			background-color: #333333;
+			display: block;
+			padding: 0px;
+			line-height: 15px;
+			border: 0px;
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0px;
+			border-radius: 0px;
+			-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+			-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+			-webkit-transition: all 0.2s ease-in-out;
+			-moz-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+		}
+		.thumbnail a {
+		}
+		.thumbnail a:hover {
+			text-decoration: none;
+			background-color:#999;
+		}
+		.thumbnail h3 {
+			color:#FFF;
+			font-size:14px;
+			font-weight:200;
+			line-height: 22px;
+			padding: 5px;
+			margin: 5px;
 		}
 				
 		@black:                 #000;
@@ -303,8 +337,56 @@
                     </div>
                     <div class="carousel-content">
 						<hr/>
-
-                        ...
+                        <div class="row-fluid">
+                        
+                            <ul class="thumbnails">
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Unit Accomplishments</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 1</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 2</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="row-fluid">
+                            	<ul class="thumbnails">
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 3</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 4</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                            </ul>
+                          </div>  
                     </div>
               	</div>
               </div>
@@ -315,12 +397,60 @@
                         <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
                         <p class="browserEpisodeDescription">In this episode</p> 
                     </div>
-                    <div class="carousel-content">
+<div class="carousel-content">
 						<hr/>
-
-                        ...
+                        <div class="row-fluid">
+                        
+                            <ul class="thumbnails">
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Unit Accomplishments</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 1</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 2</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="row-fluid">
+                            	<ul class="thumbnails">
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 3</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 4</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                            </ul>
+                          </div>  
                     </div>
-                </div>
+				</div>
               </div>
               <div class="item">
               	<div class="item-inner">
@@ -331,8 +461,56 @@
                     </div>
                     <div class="carousel-content">
 						<hr/>
-
-                        ...
+                        <div class="row-fluid">
+                        
+                            <ul class="thumbnails">
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Unit Accomplishments</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 1</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 2</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="row-fluid">
+                            	<ul class="thumbnails">
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 3</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <h3>Lesson 4</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                            </ul>
+                          </div>  
                     </div>
                 </div>
               </div>
