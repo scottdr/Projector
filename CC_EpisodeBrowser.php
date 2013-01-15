@@ -83,7 +83,7 @@
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
-			height: 600px;
+			height: 560px;
 			overflow: hidden;
 			background-color:#3E3E3E;
 		}
@@ -103,7 +103,7 @@
 			clear: both;
 			padding-left: 30px;
 			padding-right: 30px;
-			height: 600px;
+			height: 560px;
 			margin: 0px;
 		}
 		.carousel-content p {
@@ -154,7 +154,7 @@
 			top: 40px;
 			left: 30%;
 			width: 30px;
-			height:600px;
+			height:560px;
 			margin-top: 0px;
 			font-size: 60px;
 			font-weight: 100;
@@ -344,7 +344,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Unit Accomplishments</h3>
                                         </div>
                                     </a>
@@ -352,7 +352,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 1</h3>
                                         </div>
                                     </a>
@@ -360,7 +360,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 2</h3>
                                         </div>
                                     </a>
@@ -373,7 +373,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 3</h3>
                                         </div>
                                     </a>
@@ -381,7 +381,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 4</h3>
                                         </div>
                                     </a>
@@ -398,15 +398,15 @@
                         <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
                         <p class="browserEpisodeDescription">In this episode</p> 
                     </div>
-<div class="carousel-content">
+					<div class="carousel-content">
 						<hr/>
-                        <div class="row-fluid">
                         
+                        <div class="row-fluid">
                             <ul class="thumbnails">
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Unit Accomplishments</h3>
                                         </div>
                                     </a>
@@ -414,7 +414,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 1</h3>
                                         </div>
                                     </a>
@@ -422,7 +422,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 2</h3>
                                         </div>
                                     </a>
@@ -435,7 +435,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 3</h3>
                                         </div>
                                     </a>
@@ -443,7 +443,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 4</h3>
                                         </div>
                                     </a>
@@ -468,7 +468,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Unit Accomplishments</h3>
                                         </div>
                                     </a>
@@ -476,7 +476,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 1</h3>
                                         </div>
                                     </a>
@@ -484,7 +484,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 2</h3>
                                         </div>
                                     </a>
@@ -497,7 +497,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 3</h3>
                                         </div>
                                     </a>
@@ -505,7 +505,7 @@
                                     <li class="span4">
                                     <a href="#">
                                         <div class="thumbnail">
-                                          <img src="img/cc_mockups/285.jpg" alt="">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 4</h3>
                                         </div>
                                     </a>
