@@ -23,18 +23,18 @@
 			background-size:contain;
 		}
 		.unitInfo {
-			position: fixed;
-			top: 40px;
-			left: 0px;
-			bottom: 0px;
-			width: 40%;
-			margin: 0px;
-			border: 0px;
-			background-color:#E3E3E3;
-			/* Firefox v3.5+ */
-			-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-			/* Safari v3.0+ and by Chrome v0.2+ */
-			-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	position: fixed;
+	top: 40px;
+	left: 0px;
+	bottom: 0px;
+	width: 30%;
+	margin: 0px;
+	border: 0px;
+	background-color: #E3E3E3;
+	/* Firefox v3.5+ */
+	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 		}
 		.unitHeader {
 			margin:0px;
@@ -73,12 +73,12 @@
 			position: fixed;
 			top: 40px;
 			right: 0px;
-			width: 60%;
+			width: 70%;
 			margin-top: 0px;
 			margin-bottom: 30px;
-			margin-left:0px;
-			margin-right:0px;
-			border: 0px;	
+			margin-left: 0px;
+			margin-right: 0px;
+			border: 0px;
 		}
 		.item-inner {
 			margin-left: 60px;
@@ -152,7 +152,7 @@
 		.carousel-control {
 			position:fixed;
 			top: 40px;
-			left: 40%;
+			left: 30%;
 			width: 30px;
 			height:550px;
 			margin-top: 0px;
@@ -191,7 +191,8 @@
 			padding-bottom:0px;
 		}
 		.thumbnails {
-			
+			margin:0px;
+			padding:0px;
 		}
 		.thumbnail {
 			background-color: #333333;
@@ -314,8 +315,8 @@
       <div class="navbar-inner">
         <div class="container">
            <ul class="nav">
-              <li class="active"><a href="#" class="parent"><i class="icon-home"></i></a></li>
-              <li><a href="#" class="parent">Grade II ELA</a></li>
+              <li class="active"><a href="CC_UnitBrowser.php" class="parent"><i class="icon-home"></i></a></li>
+              <li><a href="CC_UnitBrowser.php" class="parent">Grade II ELA</a></li>
               <li><a href="#">Unit 1</a></li>
           </ul>
         </div><!-- /.container -->
