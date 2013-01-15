@@ -11,8 +11,6 @@
 			font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 			font-weight: 300;
 			background-color: #242424;
-			padding-top: 60px;
-			padding-bottom: 40px;
 		}
 		.navbar .nav > li > a {
 			float: none;
@@ -24,28 +22,70 @@
 			background-repeat:no-repeat;
 			background-size:contain;
 		}
+		.unitInfo {
+			position: fixed;
+			top: 40px;
+			left: 0px;
+			bottom: 0px;
+			width: 40%;
+			margin: 0px;
+			border: 0px;
+			background-color:#E3E3E3;
+			/* Firefox v3.5+ */
+			-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+			/* Safari v3.0+ and by Chrome v0.2+ */
+			-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+		}
+		.unitHeader {
+			margin:0px;
+			padding-right:30px;
+			padding-top:30px;
+			padding-left:60px;
+			padding-bottom:25px;
+			background-color:#FFF;
+		}
+		.unitHeader h1 {
+			font-size:26px;
+			font-weight:200;
+			line-height:30px;
+			margin:0px;
+			padding:0px;
+		}
+		.unitHeader p {
+			font-size:16px;
+			font-weight:200;
+			line-height:20px;
+			margin:0px;
+			padding:0px;
+		}
+		.unitBody {
+			margin: 0px;
+			padding-right: 30px;
+			padding-top: 30px;
+			padding-left: 60px;
+		}
+		.unitBody p {
+			font-size:18px;
+			font-weight:200;
+			line-height:24px;
+		}
 		.carousel {
 			position: fixed;
-			top: 100px;
-			left: 0px;
-			width: auto;
+			top: 40px;
+			right: 0px;
+			width: 60%;
 			margin-top: 0px;
 			margin-bottom: 30px;
 			margin-left:0px;
 			margin-right:0px;
-			border-left:#CCC;
-			border-left-width: 30px;
-			border-left-style:solid;
-			border-right:#CCC;
-			border-right-width: 30px;
-			border-right-style:solid;	
+			border: 0px;	
 		}
 		.item-inner {
 			margin-left: 60px;
 			margin-right: 60px;
 			height: 500px;
 			overflow: hidden;
-			background-color: #E3E3E3;
+			background-color:#3E3E3E;
 		}
 		.carousel img {
 			width: 100%;
@@ -60,10 +100,11 @@
 		.carousel-content {
 			position: relative;
 			float: left;
+			clear:both;
 			padding: 0px;
-			width: 100%;
+			width: auto;
 			height: 400px;
-			margin:0px;
+			margin:30px;
 		}
 		.carousel-content p {
 			margin-left: 30px;
@@ -81,10 +122,10 @@
 			border-style:solid;
 			border-width: 3px;
 			font-size:14px;
-			font-weight:400;
+			font-weight:600;
 			letter-spacing: 2px;
 			width: 200px;
-			height: 22px;
+			height: 55px;
 			-webkit-border-radius: 15px;
 			-moz-border-radius: 15px;
 			border-radius: 15px;
@@ -92,14 +133,16 @@
 		.carousel-caption {
 			position: relative;
 			float:left;
-			width:100%;
+			width: auto;
 			height: 60px;
 			padding:30px;
-			background-color:#FFFFFF;
+			background-color: transparent;
 			margin: 0px;
+			overflow:hidden;
 		}
 		.carousel-caption p {
-			color: #000;
+			color:#FFF;
+			background:transparent;
 		}
 		.browserUnitTitle {
 			font-size:40px;
@@ -108,8 +151,8 @@
 		}
 		.carousel-control {
 			position:fixed;
-			top: 100px;
-			left: 0px;
+			top: 40px;
+			left: 40%;
 			width: 30px;
 			height:500px;
 			margin-top: 0px;
@@ -130,6 +173,22 @@
 		.carousel-control.right {
 		  right: 0px;
 		  left: auto;
+		}
+		.browserEpisode {
+			font-size:16px;
+			font-weight:100;
+			padding-bottom:10px;
+		}
+		.browserEpisodeTitle {
+			font-size:28px;
+			font-weight:100;
+			padding-bottom:20px;
+		}
+		.browserEpisodeDescription{
+			font-size:20px;
+			font-weight:100;
+			line-height:32px;
+			padding-bottom:0px;
 		}
 				
 		@black:                 #000;
@@ -222,7 +281,8 @@
         <div class="container">
            <ul class="nav">
               <li class="active"><a href="#" class="parent"><i class="icon-home"></i></a></li>
-              <li><a href="#">Grade II ELA</a></li>
+              <li><a href="#" class="parent">Grade II ELA</a></li>
+              <li><a href="#">Unit 1</a></li>
           </ul>
         </div><!-- /.container -->
       </div><!-- /.navbar-inner -->
@@ -232,57 +292,75 @@
 
       <!--  Carousel -->
       <!--  consult Bootstrap docs at http://twitter.github.com/bootstrap/javascript.html#carousel -->
-      <div id="unit-carousel-id" class="carousel slide">
+      <div id="episode-carousel-id" class="carousel slide">
         <div class="carousel-inner">
               <div class="item active">
               	<div class="item-inner">
                     <div class="carousel-caption">
-                        <p>UNIT 1:</p>
-                        <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
+                        <p class="browserEpisode">EPISODE 1:</p>
+                        <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
+                        <p class="browserEpisodeDescription">In this episode</p> 
                     </div>
                     <div class="carousel-content">
-                        <p>One way to understand America is to read its literature. In this unit, you will read many stories and begin to see their connection to American life, experience, and history. In Episode 1, you will recall what you know about the genre of short stories. After reading “Orange” by Neil Gaiman, a story that uses an unusual format, you will continue to explore and define short stories. Steven Millhauser’s essay, “The Ambition of the Short Story,” makes some interesting claims about short stories as the writer compares them to novels. First and foremost, you will read the essay to comprehend Millhauser’s ideas, but you will also examine his writing style and organization in preparation for writing a comparison/contrast essay later in the unit.</p>
-                    	<div class=" pagination-centered">
-                        <a href="CC_EpisodeBrowser.php" class="btn btn-large btn-primary cc-start-btn" >START</a>
-                        </div>
+						<hr/>
+
+                        ...
                     </div>
               	</div>
               </div>
               <div class="item">
               	<div class="item-inner">
                     <div class="carousel-caption">
-                      <p>UNIT 2:</p>
-                      <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
+                        <p class="browserEpisode">EPISODE 2:</p>
+                        <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
+                        <p class="browserEpisodeDescription">In this episode</p> 
                     </div>
-					<div class="carousel-content">
-                    <a href="http://pearsonfoundation.org">
-                        <img src="img/cc_mockups/285.jpg" alt="" />
-                    </a>
+                    <div class="carousel-content">
+						<hr/>
+
+                        ...
                     </div>
                 </div>
               </div>
               <div class="item">
               	<div class="item-inner">
                     <div class="carousel-caption">
-                      <p>UNIT 3:</p>
-                      <p class="browserUnitTitle">Lorem Ipsum Dolor</p>
+                        <p class="browserEpisode">EPISODE 3:</p>
+                        <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
+                        <p class="browserEpisodeDescription">In this episode</p> 
                     </div>
-					<div class="carousel-content">
-                    <a href="http://pearsonfoundation.org">
-                        <img src="img/cc_mockups/285.jpg" alt="" />
-                    </a>
+                    <div class="carousel-content">
+						<hr/>
+
+                        ...
                     </div>
                 </div>
               </div>
               
         </div><!-- .carousel-inner -->
         <!--  next and previous controls here href values must reference the id for this carousel -->
-          <a class="carousel-control left" href="#unit-carousel-id" data-slide="prev">&nbsp;</a>
-          <a class="carousel-control right" href="#unit-carousel-id" data-slide="next">&nbsp;</a>
+          <a class="carousel-control left" href="#episode-carousel-id" data-slide="prev">&nbsp;</a>
+          <a class="carousel-control right" href="#episode-carousel-id" data-slide="next">&nbsp;</a>
       </div>
      
       <!-- .carousel -->
       <!-- end carousel -->
+	<div class="unitInfo">
+    
+		<div class="unitHeader">
+            <p>UNIT 1</p>
+            <H1>Title of the Unit</H1>
+        </div>
+        <div class="unitBody">
+        	<p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. </p>
+        	<p>Donec id ante lacinia velit viverra ullamcorper. </p>
+        	<ul>
+        	  <li>Nunc nec consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; </li>
+        	  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+   	      </ul>
+        </div>
+        
+    </div><!-- end Unit Info -->
 
     </div> <!-- /container -->
 
@@ -303,7 +381,7 @@
 		/* Add LESS support to the browser */
 		(function(){ $('head style[type="text/css"]').attr('type', 'text/less');less.refreshStyles(); })();
 			
-		$('#unit-carousel-id').carousel();
+		$('#episode-carousel-id').carousel();
 		});
     </script>
 
