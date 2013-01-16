@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Browse Units</title>
+    <title>Browse Episodes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="_css/bootstrap.css" rel="stylesheet">
@@ -11,6 +11,14 @@
 			font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 			font-weight: 300;
 			background-color: #242424;
+		}
+		h1, h2, h3 {
+			font-weight:200;
+		}
+		p {
+			font-weight:200;
+			font-size:18px;
+			line-height:24px;
 		}
 		.navbar .nav > li > a {
 			float: none;
@@ -23,18 +31,18 @@
 			background-size:contain;
 		}
 		.unitInfo {
-	position: fixed;
-	top: 40px;
-	left: 0px;
-	bottom: 0px;
-	width: 30%;
-	margin: 0px;
-	border: 0px;
-	background-color: #E3E3E3;
-	/* Firefox v3.5+ */
-	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
-	/* Safari v3.0+ and by Chrome v0.2+ */
-	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+			position: fixed;
+			top: 40px;
+			left: 0px;
+			bottom: 0px;
+			width: 30%;
+			margin: 0px;
+			border: 0px;
+			background-color: #E3E3E3;
+			/* Firefox v3.5+ */
+			-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+			/* Safari v3.0+ and by Chrome v0.2+ */
+			-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
 		}
 		.unitHeader {
 			margin:0px;
@@ -124,8 +132,7 @@
 			font-size:14px;
 			font-weight:600;
 			letter-spacing: 2px;
-			width: 200px;
-			height: 55px;
+			width: 150px;
 			-webkit-border-radius: 15px;
 			-moz-border-radius: 15px;
 			border-radius: 15px;
@@ -224,6 +231,13 @@
 			line-height: 22px;
 			padding: 5px;
 			margin: 5px;
+		}
+		
+		.lessonHeader {
+			font-size:16px;
+			line-height: 20px;
+			font-weight:100;
+			padding-bottom:0px;
 		}
 				
 		@black:                 #000;
@@ -343,15 +357,6 @@
                             <ul class="thumbnails">
                                     <li class="span4">
                                     
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Unit Accomplishments</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    
                                     <a href="#lessonModal" role="button" data-toggle="modal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
@@ -360,10 +365,19 @@
                                     </a>
                                     </li>
                                     <li class="span4">
-                                    <a href="#">
+                                    
+                                    <a href="#lessonModal" role="button" data-toggle="modal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
                                           <h3>Lesson 2</h3>
+                                        </div>
+                                    </a>
+                                    </li>
+                                    <li class="span4">
+                                    <a href="#lessonModal" role="button" data-toggle="modal">
+                                        <div class="thumbnail">
+                                          <img src="img/cc_mockups/thumbnail.png" alt="">
+                                          <h3>Lesson 3</h3>
                                         </div>
                                     </a>
                                     </li>
@@ -373,18 +387,18 @@
                             <div class="row-fluid">
                             	<ul class="thumbnails">
                                     <li class="span4">
-                                    <a href="#">
+                                    <a href="#lessonModal" role="button" data-toggle="modal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 3</h3>
+                                          <h3>Lesson 4</h3>
                                         </div>
                                     </a>
                                     </li>
                                     <li class="span4">
-                                    <a href="#">
+                                    <a href="#lessonModal" role="button" data-toggle="modal">
                                         <div class="thumbnail">
                                           <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 4</h3>
+                                          <h3>Lesson 5</h3>
                                         </div>
                                     </a>
                                     </li>
@@ -550,15 +564,17 @@
 
 
 <!-- Modals -->
-        <div id="lessonModal" class="modal hide fade" tabindex="10" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="lessonModal" class="modal hide fade" tabindex="10" role="dialog" aria-labelledby="lessonModalLabel" aria-hidden="true">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <p>Episode 1: Title</p>
-            <h3 id="myModalLabel">Lesson 1</h3>
+            <p class="lessonHeader">EPISODE 1: TITLE</p>
+            <h2 id="lessonModalLabel">Lesson 1</h2>
           </div>
           <div class="modal-body">
             <p>Lesson Description</p>
-            <button class="btn btn-primary">START</button>
+            <div class="pagination-centered">
+            	<a href="CC_LessonBrowser.php" class="btn btn-large btn-primary cc-start-btn" >START</a>
+            </div>
           </div>
         </div>
     </div> <!-- /container -->
@@ -572,11 +588,11 @@
     <script type='text/javascript' src="js/bootstrap-carousel.js"></script>
 	<script type='text/javascript' src="http://lesscss.googlecode.com/files/less-1.3.0.min.js"></script>
     <script>
-		$(document).ready(function(){
+		/*$(document).ready(function(){
 			$('.carousel').carousel({
 			  interval: 50000
 			});
-		});
+		});*/
 		
 		$(window).load(function(){
 		/* Add LESS support to the browser */

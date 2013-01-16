@@ -83,7 +83,7 @@
 			font-size:14px;
 			font-weight:400;
 			letter-spacing: 2px;
-			width: 200px;
+			width: 150px;
 			height: 22px;
 			-webkit-border-radius: 15px;
 			-moz-border-radius: 15px;
@@ -293,11 +293,11 @@
     <script type='text/javascript' src="js/bootstrap-carousel.js"></script>
 	<script type='text/javascript' src="http://lesscss.googlecode.com/files/less-1.3.0.min.js"></script>
     <script>
-		$(document).ready(function(){
+		/*$(document).ready(function(){
 			$('.carousel').carousel({
 			  interval: 50000
 			});
-		});
+		});*/
 		
 		$(window).load(function(){
 		/* Add LESS support to the browser */
