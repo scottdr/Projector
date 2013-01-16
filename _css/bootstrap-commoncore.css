@@ -37,7 +37,7 @@ p {
 	padding: 12px 15px 10px;
 }
 .navbar .nav > li > a.parent {
-	background-image:url(_images/CC_UI/breadcrumbDivider.png);
+	background-image:url(../_images/CC_UI/breadcrumbDivider.png);
 	background-position:right;
 	background-repeat:no-repeat;
 	background-size:contain;
@@ -214,9 +214,8 @@ p {
   -moz-border-radius-bottomright: 0px;
 }
 .popover {
-  max-height:400px;
+  height:400px;
   width: 600px;
-  overflow:hidden;
   color: #999999;
   text-align:left;
   position: absolute;
@@ -260,7 +259,7 @@ p {
 
 .popover-content {
   padding: 0px;
-  overflow:scroll;
+  overflow: hidden;
 }
 
 .popover-content p,
@@ -476,13 +475,19 @@ p {
 	line-height:32px;
 	padding-bottom:0px;
 }
+.ribbon {
+	height:366px;
+  	width: 590px;
+	overflow: scroll;
+}
 .ribbon-item {
+	width: 590px;
 	height: 70px;
+	padding: 15px;
 	border-bottom-style:solid;
 	border-bottom-color:#999;
 	border-bottom-width:1px;
 	overflow: hidden;
-	padding: 15px;
 	background: #ffffff; /* Old browsers */
 	background: -moz-linear-gradient(top,  #ffffff 0%, #eaeaea 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eaeaea)); /* Chrome,Safari4+ */
@@ -519,9 +524,6 @@ p {
 	color:#FFF;
 }
 .ribbon-item-title {
-	display:block;
-	width: 220px;
-	float:left;
 	color:#000;
 	font-size:16px;
 	font-weight:500;
@@ -529,14 +531,12 @@ p {
 	text-align:left;
 	padding-right:15px;
 	padding-bottom:5px;
+	width:300px;
 }
 .ribbon-item-title:hover {
 	color:#FFF;
 }
 .ribbon-item-description {
-	display:block;
-	width: 220px;
-	float:left;
 	color:#666;
 	font-size:14px;
 	font-weight:500;
@@ -544,12 +544,16 @@ p {
 	text-align:left;
 	padding-right:15px;
 	font-weight:100;
+	width:300px;
 }
 .ribbon-item-description:hover {
 	color:#FFF;
 }
 .ribbon-item-image {
-	height: 50px;
-	width: 80px;
-	
+	float:right;
+	clear:none;
+	height: 20px;
+	width: 20px;
+	border:none;
+	margin:0px;
 }

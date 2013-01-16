@@ -59,42 +59,45 @@
                 <li>
 					<a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:">1</a>
                     <div id="popover-content" style="display: none">
-                      <div class="ribbon-item">
-                        	<p class="ribbon-item-number">1</p>
-                        	<p class="ribbon-item-title">Title</p>
-                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
-                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
-                      </div>
-                      <div class="ribbon-item">
-                        	<p class="ribbon-item-number">2</p>
-                        	<p class="ribbon-item-title">Title</p>
-                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
-                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
-                      </div>
-                      <div class="ribbon-item">
-                        	<p class="ribbon-item-number">3</p>
-                        	<p class="ribbon-item-title">Title</p>
-                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
-                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
-                      </div>
-                      <div class="ribbon-item">
-                        	<p class="ribbon-item-number">4</p>
-                        	<p class="ribbon-item-title">Title</p>
-                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
-                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
-                      </div>
-                      <div class="ribbon-item">
-                        	<p class="ribbon-item-number">5</p>
-                        	<p class="ribbon-item-title">Title</p>
-                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
-                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
-                      </div>
-                      <div class="ribbon-item">
-                        	<p class="ribbon-item-number">6</p>
-                        	<p class="ribbon-item-title">Title</p>
-                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
-                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
-                      </div>
+                        <div class="ribbon">
+                          <div class="ribbon-item">
+                                <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                                <p class="ribbon-item-number">1</p>
+                                <p class="ribbon-item-title">Title</p>
+                                <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                
+                          </div>
+                          <div class="ribbon-item">
+                                <p class="ribbon-item-number">2</p>
+                                <p class="ribbon-item-title">Title</p>
+                                <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                          </div>
+                          <div class="ribbon-item">
+                                <p class="ribbon-item-number">3</p>
+                                <p class="ribbon-item-title">Title</p>
+                                <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                          </div>
+                          <div class="ribbon-item">
+                                <p class="ribbon-item-number">4</p>
+                                <p class="ribbon-item-title">Title</p>
+                                <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                          </div>
+                          <div class="ribbon-item">
+                                <p class="ribbon-item-number">5</p>
+                                <p class="ribbon-item-title">Title</p>
+                                <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                          </div>
+                          <div class="ribbon-item">
+                                <p class="ribbon-item-number">6</p>
+                                <p class="ribbon-item-title">Title</p>
+                                <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                          </div>
+                      </div><!-- end of ribbon -->
                     </div>
                 </li>
                 <li><a href="#">&gt;</a></li>
