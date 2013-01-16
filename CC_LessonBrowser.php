@@ -57,7 +57,45 @@
             <ul>
                 <li><a href="#">&lt;</a></li>
                 <li>
-					<a href="#" id="example" data-placement="top" rel="popover" data-content="html ribbon content here. number. title. description. thumbnail." data-original-title="In Lesson 1:">1</a>
+					<a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:">1</a>
+                    <div id="popover-content" style="display: none">
+                      <div class="ribbon-item">
+                        	<p class="ribbon-item-number">1</p>
+                        	<p class="ribbon-item-title">Title</p>
+                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                      </div>
+                      <div class="ribbon-item">
+                        	<p class="ribbon-item-number">2</p>
+                        	<p class="ribbon-item-title">Title</p>
+                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                      </div>
+                      <div class="ribbon-item">
+                        	<p class="ribbon-item-number">3</p>
+                        	<p class="ribbon-item-title">Title</p>
+                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                      </div>
+                      <div class="ribbon-item">
+                        	<p class="ribbon-item-number">4</p>
+                        	<p class="ribbon-item-title">Title</p>
+                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                      </div>
+                      <div class="ribbon-item">
+                        	<p class="ribbon-item-number">5</p>
+                        	<p class="ribbon-item-title">Title</p>
+                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                      </div>
+                      <div class="ribbon-item">
+                        	<p class="ribbon-item-number">6</p>
+                        	<p class="ribbon-item-title">Title</p>
+                            <p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <img class="ribbon-item-image" src="_images/placeholder_img.gif">
+                      </div>
+                    </div>
                 </li>
                 <li><a href="#">&gt;</a></li>
             </ul>
@@ -71,9 +109,14 @@
     <script type='text/javascript' src="js/bootstrap-popover.js"></script>
     
     <script>  
-		$(function ()  
-		{ $("#example").popover();  
-		});  
+		$(document).ready(function(){
+		  $('#lesson-ribbon').popover({ 
+			html : true,
+			content: function() {
+			  return $('#popover-content').html();
+			}
+		  });
+		});
 	</script>  
 
   </body>
