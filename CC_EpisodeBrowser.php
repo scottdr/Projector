@@ -226,8 +226,8 @@
               
         </div><!-- .carousel-inner -->
         <!--  next and previous controls here href values must reference the id for this carousel -->
-          <a class="carousel-control left" href="#episode-carousel-id" data-slide="prev">&nbsp;</a>
-          <a class="carousel-control right" href="#episode-carousel-id" data-slide="next">&nbsp;</a>
+          <a class="carousel-control episode-carousel-control left" href="#episode-carousel-id" data-slide="prev">&nbsp;</a>
+          <a class="carousel-control episode-carousel-control right" href="#episode-carousel-id" data-slide="next">&nbsp;</a>
       </div>
      
       <!-- .carousel -->

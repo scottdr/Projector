@@ -72,8 +72,8 @@
               
         </div><!-- .carousel-inner -->
 
-          <a class="carousel-control left" href="#unit-carousel-id" data-slide="prev">&nbsp;</a>
-          <a class="carousel-control right" href="#unit-carousel-id" data-slide="next">&nbsp;</a>
+          <a class="carousel-control unit-carousel-control left" href="#unit-carousel-id" data-slide="prev">&nbsp;</a>
+          <a class="carousel-control unit-carousel-control right" href="#unit-carousel-id" data-slide="next">&nbsp;</a>
       </div><!-- .carousel -->
       
       <!-- end carousel -->
