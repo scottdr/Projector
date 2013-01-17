@@ -11,6 +11,10 @@
   </head>
 
   <body>
+  
+  <div class="img-background">
+  	<img src="_images/CC_UI/dkgray-background.png">
+  </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
@@ -82,7 +86,7 @@
 
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
+  <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
     
 	<script type='text/javascript' src="js/bootstrap.js"></script>
 	<script type='text/javascript' src="js/bootstrap-carousel.js"></script>
