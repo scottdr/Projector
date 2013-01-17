@@ -1,4 +1,5 @@
 <?php
+require_once('../../Globals.php');
 require_once('../../Connections/projector.php');
 require_once '../../_AWSSDKforPHP/sdk.class.php';
 
