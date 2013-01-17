@@ -8,6 +8,7 @@
 @gray:                  #555;
 @grayLight:             #999;
 @grayLighter:           #eee; CC Spec - ELA & Math
+@grayLightest:          #ccc; psd
 @white:                 #fff; CC Spec - ELA & Math
 @blueLight:             #4470FF; CC Spec - ELA 
 @blueDark:              #0032C3; CC Spec - ELA 
@@ -32,15 +33,46 @@ p {
 	font-size:18px;
 	line-height:24px;
 }
+.navbar-inverse .navbar-inner {
+	background-color: #1b1b1b;
+	background-image: -moz-linear-gradient(top, #333333, #000000);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#000000));
+	background-image: -webkit-linear-gradient(top, #333333, #000000);
+	background-image: -o-linear-gradient(top, #333333, #000000);
+	background-image: linear-gradient(to bottom, #333333, #000000);
+	background-repeat: repeat-x;
+	border-color: #252525;
+	border-width: 1px;
+	height: 45px;
+	overflow: hidden;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff333333', endColorstr='#ff000000', GradientType=0);
+}
+
 .navbar .nav > li > a {
+	background-color: transparent !important;
+	color: #CCC;
 	float: none;
-	padding: 12px 15px 10px;
+	padding-left: 10px;
+	padding-right: 15px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	font-weight:500;
+	margin: 0;
+	border: none;
 }
 .navbar .nav > li > a.parent {
-	background-image:url(../_images/CC_UI/breadcrumbDivider.png);
+	background-color: transparent !important;
+	background-image: url(../_images/CC_UI/navBreadcrumbDivider.gif);
 	background-position:right;
 	background-repeat:no-repeat;
 	background-size:contain;
+	margin-bottom: 1px;
+	border: none;
+}
+.navbar .nav > li > a > img {
+	background-color:transparent !important;
+	margin-bottom: 1px;
+	border: none;
 }
 .carousel {
 	position: fixed;
