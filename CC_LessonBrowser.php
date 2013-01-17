@@ -106,7 +106,9 @@
     </div> 
 
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type='text/javascript' src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    
     <script type='text/javascript' src="js/bootstrap.js"></script>
     <script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
     <script type='text/javascript' src="js/bootstrap-popover.js"></script>
