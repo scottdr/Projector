@@ -21,8 +21,8 @@
       <div class="navbar-inner">
         <div class="container">
            <ul class="nav">
-              <li class="active"><a href="CC_UnitBrowser.php" class="parent"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
-              <li><a href="CC_UnitBrowser.php" class="parent">Grade II ELA</a></li>
+              <li class="active"><a href="CC_UnitBrowser.php" class="parent transition"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
+              <li><a href="CC_UnitBrowser.php" class="parent transition">Grade II ELA</a></li>
               <li><a href="CC_EpisodeBrowser.php" class="parent">Unit 1</a></li>
               <li><a href="#">Episode 1: Title, Lesson 1</a></li>
           </ul>
@@ -113,6 +113,18 @@
     
     <script>  
 		$(document).ready(function(){
+		
+			$('body').css('display', 'none');
+			$('body').fadeIn(2000);
+			$("a.transition").click(function(event){
+				event.preventDefault();
+				linkLocation = this.href;
+				$("body").fadeOut(1000, redirectPage);      
+			});
+			function redirectPage() {
+				window.location = linkLocation;
+			}	
+		
 		  $('#lesson-ribbon').popover({ 
 			html : true,
 			content: function() {

@@ -38,7 +38,7 @@
                     <div class="unit-carousel-content">
                         <p>One way to understand America is to read its literature. In this unit, you will read many stories and begin to see their connection to American life, experience, and history. In Episode 1, you will recall what you know about the genre of short stories. After reading “Orange” by Neil Gaiman, a story that uses an unusual format, you will continue to explore and define short stories. Steven Millhauser’s essay, “The Ambition of the Short Story,” makes some interesting claims about short stories as the writer compares them to novels. First and foremost, you will read the essay to comprehend Millhauser’s ideas, but you will also examine his writing style and organization in preparation for writing a comparison/contrast essay later in the unit.</p>
                     	<div class="pagination-centered">
-                        <a href="CC_EpisodeBrowser.php" class="btn btn-large btn-primary cc-start-btn" >START</a>
+                        <a href="CC_EpisodeBrowser.php" class="btn btn-large btn-primary cc-start-btn transition" >START</a>
                         </div>
                     </div>
               	</div>
@@ -87,6 +87,19 @@
 
     <script>
 		$(document).ready(function(){
+			
+			$('body').css('display', 'none');
+			$('body').fadeIn(2000);
+			$("a.transition").click(function(event){
+				event.preventDefault();
+				linkLocation = this.href;
+				$("body").fadeOut(1000, redirectPage);      
+			});
+			function redirectPage() {
+				window.location = linkLocation;
+			}
+			
+			
 			$('.carousel').carousel({
 			  interval: false,
 			  pause: true

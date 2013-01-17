@@ -16,8 +16,8 @@
       <div class="navbar-inner">
         <div class="container">
            <ul class="nav">
-              <li class="active"><a href="CC_UnitBrowser.php" class="parent"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
-              <li><a href="CC_UnitBrowser.php" class="parent">Grade II ELA</a></li>
+              <li class="active"><a href="CC_UnitBrowser.php" class="parent transition"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
+              <li><a href="CC_UnitBrowser.php" class="parent transition">Grade II ELA</a></li>
               <li><a href="#">Unit 1</a></li>
           </ul>
         </div><!-- /.container -->
@@ -260,7 +260,7 @@
           <div class="modal-body">
             <p>Lesson Description</p>
             <div class="pagination-centered">
-            	<a href="CC_LessonBrowser.php" class="btn btn-large btn-primary cc-start-btn" >START</a>
+            	<a href="CC_LessonBrowser.php" class="btn btn-large btn-primary cc-start-btn transition" >START</a>
             </div>
           </div>
         </div>
@@ -275,6 +275,19 @@
     <script type='text/javascript' src="js/bootstrap-carousel.js"></script>
     <script>
         $(document).ready(function(){
+			
+			$('body').css('display', 'none');
+			$('body').fadeIn(2000);
+			$("a.transition").click(function(event){
+				event.preventDefault();
+				linkLocation = this.href;
+				$("body").fadeOut(1000, redirectPage);      
+			});
+			function redirectPage() {
+				window.location = linkLocation;
+			}
+
+			
             $('.carousel').carousel({
               interval: false,
               pause: true
