@@ -112,7 +112,8 @@
 			});  
 		    $(".carousel").swipeleft(function() {  
 			  $(".carousel").carousel('next');  
-		   });  
+		    }); 
+			 
 		});
     </script>
 
