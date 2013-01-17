@@ -82,6 +82,7 @@
 
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
     
 	<script type='text/javascript' src="js/bootstrap.js"></script>
 	<script type='text/javascript' src="js/bootstrap-carousel.js"></script>
@@ -105,6 +106,13 @@
 			  interval: false,
 			  pause: true
 			});
+			
+			$(".carousel").swiperight(function() {  
+			  $(".carousel").carousel('prev');  
+			});  
+		    $(".carousel").swipeleft(function() {  
+			  $(".carousel").carousel('next');  
+		   });  
 		});
     </script>
 
