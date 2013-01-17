@@ -20,13 +20,12 @@
 */
 
 /* BOOTSTRAP CUSTOMIZED*/
-html {
-    background-color: #242424;
-}
+/*html {
+    background-color: #222222;
+}*/
 body {
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-	font-weight: 300;
-	background-color: #242424;
+	background: #222222;
 }
 h1, h2, h3 {
 	font-weight:200;
@@ -35,6 +34,9 @@ p {
 	font-weight:200;
 	font-size:18px;
 	line-height:24px;
+}
+.navbar .container {
+  width: 100%;
 }
 .navbar-inverse .navbar-inner {
 	background-color: #1b1b1b;
@@ -76,6 +78,8 @@ p {
 	background-color:transparent !important;
 	margin-bottom: 1px;
 	border: none;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 .carousel {
 	position: fixed;
@@ -97,8 +101,6 @@ p {
 	-o-transition: 0.9s ease-in-out left;
 	transition: 0.9s ease-in-out left;
 }
-
-
 .carousel-pills {
   position: absolute;
   bottom: -50px;
