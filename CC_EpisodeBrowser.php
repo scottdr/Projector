@@ -5,8 +5,8 @@
     <title>Browse Episodes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="_css/bootstrap.css" rel="stylesheet">
-    <link href="_css/bootstrap-commoncore.css" rel="stylesheet">
+    <link href="_css/bootstrap.css" rel="stylesheet"/>
+    <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
 
   </head>
 
@@ -269,8 +269,7 @@
  
 
 
-	<script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type='text/javascript' src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
 
     <script type='text/javascript' src="js/bootstrap.js"></script>
     <script type='text/javascript' src="js/bootstrap-carousel.js"></script>

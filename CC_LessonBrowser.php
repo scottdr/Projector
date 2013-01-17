@@ -5,8 +5,8 @@
     <title>Browse Lessons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="_css/bootstrap.css" rel="stylesheet">
-    <link href="_css/bootstrap-commoncore.css" rel="stylesheet">
+    <link href="_css/bootstrap.css" rel="stylesheet"/>
+    <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -107,7 +107,6 @@
 
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type='text/javascript' src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     
     <script type='text/javascript' src="js/bootstrap.js"></script>
     <script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
