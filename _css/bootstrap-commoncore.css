@@ -20,6 +20,9 @@
 */
 
 /* BOOTSTRAP CUSTOMIZED*/
+html {
+    background-color: #242424;
+}
 body {
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 	font-weight: 300;
@@ -588,4 +591,12 @@ p {
 	width: 20px;
 	border:none;
 	margin:0px;
+}
+
+/* JQUERY CUSTOMIZED*/
+.ui-page {
+    background-color: #242424;
+	backface-visibility:hidden; 
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
 }
