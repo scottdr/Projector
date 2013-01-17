@@ -11,6 +11,10 @@
   </head>
 
   <body>
+  
+  <div class="img-background">
+  	<img src="_images/CC_UI/dkgray-background.png">
+  </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
@@ -26,7 +30,6 @@
     <div class="container">
 
       <!--  Carousel -->
-      <!--  consult Bootstrap docs at http://twitter.github.com/bootstrap/javascript.html#carousel -->
       <div id="unit-carousel-id" class="carousel slide unit-carousel">
         <div class="carousel-inner">
               <div class="item active">
@@ -91,7 +94,7 @@
 		$(document).ready(function(){
 			
 			$('body').css('display', 'none');
-			$('body').fadeIn(2000);
+			$('body').fadeIn(1000);
 			$("a.transition").click(function(event){
 				event.preventDefault();
 				linkLocation = this.href;

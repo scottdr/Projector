@@ -34,7 +34,7 @@
     
     	<div class="row-fluid">
             <div class="span12" style="color:#FFF;">
-                <img src="_images/CC_UI/cc_ela_groupworktime.png" style="float:left; padding-right:10px;"/>
+                <img src="_images/CC_UI/cc_math_groupwork.png" style="float:left; padding-right:10px;"/>
                 <p class="lessonTypeHeading">GROUP PROJECT</p>
                 <H1>WorkTime</H1>
 			</div><!-- /.span -->
@@ -116,7 +116,7 @@
 		$(document).ready(function(){
 		
 			$('body').css('display', 'none');
-			$('body').fadeIn(2000);
+			$('body').fadeIn(1000);
 			$("a.transition").click(function(event){
 				event.preventDefault();
 				linkLocation = this.href;
