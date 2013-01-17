@@ -27,7 +27,6 @@
     <div class="container">
     
       <!--  Carousel -->
-      <!--  consult Bootstrap docs at http://twitter.github.com/bootstrap/javascript.html#carousel -->
       <div id="episode-carousel-id" class="carousel slide episode-carousel">
         <div class="carousel-inner">
               <div class="item active">
@@ -278,7 +277,7 @@
         $(document).ready(function(){
 			
 			$('body').css('display', 'none');
-			$('body').fadeIn(2000);
+			$('body').fadeIn(1000);
 			$("a.transition").click(function(event){
 				event.preventDefault();
 				linkLocation = this.href;

@@ -30,7 +30,6 @@
     <div class="container">
 
       <!--  Carousel -->
-      <!--  consult Bootstrap docs at http://twitter.github.com/bootstrap/javascript.html#carousel -->
       <div id="unit-carousel-id" class="carousel slide unit-carousel">
         <div class="carousel-inner">
               <div class="item active">
@@ -86,7 +85,7 @@
 
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
-  <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
+    <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
     
 	<script type='text/javascript' src="js/bootstrap.js"></script>
 	<script type='text/javascript' src="js/bootstrap-carousel.js"></script>
@@ -95,7 +94,7 @@
 		$(document).ready(function(){
 			
 			$('body').css('display', 'none');
-			$('body').fadeIn(2000);
+			$('body').fadeIn(1000);
 			$("a.transition").click(function(event){
 				event.preventDefault();
 				linkLocation = this.href;
