@@ -30,7 +30,7 @@
       <div id="episode-carousel-id" class="carousel slide episode-carousel">
         <div class="carousel-inner">
               <div class="item active">
-              	<div class="item-inner">
+              	<div class="item-inner episode-carousel-item-inner">
                     <div class="episode-carousel-caption">
                         <p class="browserEpisode">EPISODE 1:</p>
                         <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>

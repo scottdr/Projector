@@ -383,6 +383,11 @@ p {
 	margin-left: 0px;
 	margin-right: 0px;
 }
+.episode-carousel-item-inner {
+	margin-left: 40px;
+	margin-right: 40px;
+	overflow: hidden;
+}
 .episode-carousel-caption {
 	position: relative;
 	float:left;
@@ -505,7 +510,7 @@ p {
 	width: auto;
 	overflow:hidden;
 }
- .lesson-carousel .carousel-pills {
+.lesson-carousel .carousel-pills {
   display:none;
 }
 .unitInfo {
