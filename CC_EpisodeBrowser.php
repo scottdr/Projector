@@ -29,201 +29,147 @@
       <!--  Carousel -->
       <div id="episode-carousel-id" class="carousel slide episode-carousel">
         <div class="carousel-inner">
-              <div class="item active">
-              	<div class="item-inner episode-carousel-item-inner">
-                    <div class="episode-carousel-caption">
-                        <p class="browserEpisode">EPISODE 1:</p>
-                        <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
-                        <p class="browserEpisodeDescription">In this episode</p> 
-                    </div>
-                    <div class="episode-carousel-content">
-						<hr/>
-                        <div class="row-fluid">
+        
+              	<div class="item active">
+                	<div class="episode-carousel-item-inner">
+                
+                        <div class="episode-carousel-caption">
+                            <p class="browserEpisode">EPISODE 1:</p>
+                            <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
+                            <p class="browserEpisodeDescription">In this episode</p> 
+                        </div>
                         
-                            <ul class="thumbnails">
-                                    <li class="span4">
-                                    
-                                    <a href="#lessonModal" role="button" data-toggle="modal">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 1</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    
-                                    <a href="#lessonModal" role="button" data-toggle="modal">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 2</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#lessonModal" role="button" data-toggle="modal">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 3</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            
+                        <div class="episode-carousel-content">
+                            <hr/>
                             <div class="row-fluid">
-                            	<ul class="thumbnails">
-                                    <li class="span4">
-                                    <a href="#lessonModal" role="button" data-toggle="modal">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 4</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#lessonModal" role="button" data-toggle="modal">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 5</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                            </ul>
-                          </div>  
-                    </div>
-              	</div>
-              </div>
-              <div class="item">
-              	<div class="item-inner">
-                    <div class="episode-carousel-caption">
-                        <p class="browserEpisode">EPISODE 2:</p>
-                        <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
-                        <p class="browserEpisodeDescription">In this episode</p> 
-                    </div>
-					<div class="episode-carousel-content">
-						<hr/>
-                        
-                        <div class="row-fluid">
-                            <ul class="thumbnails">
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Unit Accomplishments</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 1</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 2</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                </ul>
-                            </div>
                             
+                                <ul class="thumbnails">
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 1</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 2</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 3</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                    </ul>
+                                </div><!-- end row fluid -->
+                                
+                                <div class="row-fluid">
+                                    <ul class="thumbnails">
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 4</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 5</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                     </ul>
+                                </div><!--  end row fluid -->
+                                
+                            </div><!--  end episode-carousel-content -->
+                                
+                        </div><!-- end item inner -->
+
+					</div><!-- end item -->
+
+              	<div class="item">
+                	<div class="episode-carousel-item-inner">
+                
+                        <div class="episode-carousel-caption">
+                            <p class="browserEpisode">EPISODE 2:</p>
+                            <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
+                            <p class="browserEpisodeDescription">In this episode</p> 
+                        </div>
+                        
+                        <div class="episode-carousel-content">
+                            <hr/>
                             <div class="row-fluid">
-                            	<ul class="thumbnails">
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 3</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 4</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                            </ul>
-                          </div>  
-                    </div>
-				</div>
-              </div>
-              <div class="item">
-              	<div class="item-inner">
-                    <div class="episode-carousel-caption">
-                        <p class="browserEpisode">EPISODE 3:</p>
-                        <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
-                        <p class="browserEpisodeDescription">In this episode</p> 
-                    </div>
-                    <div class="episode-carousel-content">
-						<hr/>
-                        
-                        
-                        
-                        <div class="row-fluid">
-                        
-                            <ul class="thumbnails">
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Unit Accomplishments</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a data-toggle="modal" href="#lessonModal">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 1</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 2</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                </ul>
-                            </div>
                             
-                             
-                            
-                            <div class="row-fluid">
-                            	<ul class="thumbnails">
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 3</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                                    <li class="span4">
-                                    <a href="#">
-                                        <div class="thumbnail">
-                                          <img src="img/cc_mockups/thumbnail.png" alt="">
-                                          <h3>Lesson 4</h3>
-                                        </div>
-                                    </a>
-                                    </li>
-                            </ul>
-                          </div>  
-                    </div>
-                </div>
-              </div>
+                                <ul class="thumbnails">
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 1</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 2</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 3</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                    </ul>
+                                </div><!-- end row fluid -->
+                                
+                                <div class="row-fluid">
+                                    <ul class="thumbnails">
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 4</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                        <li class="span4">
+                                        <a href="#lessonModal" role="button" data-toggle="modal">
+                                            <div class="thumbnail">
+                                              <img src="img/cc_mockups/thumbnail.png" alt="">
+                                              <h3>Lesson 5</h3>
+                                            </div>
+                                        </a>
+                                        </li>
+                                     </ul>
+                                </div><!--  end row fluid -->
+                                
+                            </div><!--  end episode-carousel-content -->
+                                
+                        </div><!-- end item inner -->
+
+					</div><!-- end item -->
+
+              </div><!-- end Carousel inner -->           
               
         </div><!-- .carousel-inner -->
+        
         <!--  next and previous controls here href values must reference the id for this carousel -->
           <a class="carousel-control episode-carousel-control left" href="#episode-carousel-id" data-slide="prev">&nbsp;</a>
           <a class="carousel-control episode-carousel-control right" href="#episode-carousel-id" data-slide="next">&nbsp;</a>

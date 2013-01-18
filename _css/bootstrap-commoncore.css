@@ -85,11 +85,11 @@ p {
 	position: fixed;
 	top: 40px;
 }
-.item-inner {
+/*.item-inner {
 	margin-left: 120px;
 	margin-right: 120px;
 	overflow: hidden;
-}
+}*/
 .carousel img {
 	width: 100%;
 	overflow:hidden;
@@ -147,7 +147,6 @@ p {
 	opacity: 0.2;
 	filter: alpha(opacity=20);
 }
-
 .carousel-control.right {
   right: 0px;
   left: auto;
@@ -220,7 +219,6 @@ p {
   color: #999999;
   cursor: default;
 }
-
 .pagination ul > .disabled > span,
 .pagination ul > .disabled > a,
 .pagination ul > .disabled > a:hover {
@@ -228,7 +226,6 @@ p {
   cursor: default;
   background-color: transparent;
 }
-
 .pagination ul > li:first-child > a,
 .pagination ul > li:first-child > span {
   border-left-width: 1px;
@@ -239,7 +236,6 @@ p {
   -moz-border-radius-bottomleft: 0px;
   -moz-border-radius-topleft: 0px;
 }
-
 .pagination ul > li:last-child > a,
 .pagination ul > li:last-child > span {
   -webkit-border-top-right-radius: 0px;
@@ -274,11 +270,9 @@ p {
 	 -moz-background-clip: padding;
 		  background-clip: padding-box;
 }
-
 .popover.top {
   margin-top: -10px;
 }
-
 .popover-title {
 	padding: 8px 14px;
 	margin: 0;
@@ -292,12 +286,10 @@ p {
 	-moz-border-radius: 0px 0px 0 0;
 	border-radius: 0px 0px 0 0;
 }
-
 .popover-content {
   padding: 0px;
   overflow: hidden;
 }
-
 .popover-content p,
 .popover-content ul,
 .popover-content ol {
@@ -326,7 +318,12 @@ p {
 	margin-bottom: 30px;
 	margin-left:0px;
 	margin-right:0px;
- }
+}
+.unit-carousel-item-inner {
+	margin-left: 110px;
+	margin-right: 110px;
+	overflow: scroll;
+}
 .unit-carousel-caption {
 	position: relative;
 	float:left;
@@ -386,7 +383,7 @@ p {
 .episode-carousel-item-inner {
 	margin-left: 40px;
 	margin-right: 40px;
-	overflow: hidden;
+	overflow: scroll;
 }
 .episode-carousel-caption {
 	position: relative;
@@ -459,7 +456,12 @@ p {
 	margin-bottom: 30px;
 	margin-left:0px;
 	margin-right:0px;
- }
+}
+.lesson-carousel-item-inner {
+	margin-left: 0px;
+	margin-right: 0px;
+	overflow: scroll;
+}
 .lesson-carousel-caption {
 	position: relative;
 	float:left;
@@ -501,11 +503,7 @@ p {
 	width: 0px;
 	margin-top: 0px;
 }
-.lesson-carousel-item-inner {
-	margin-left: 0px;
-	margin-right: 0px;
-	overflow: hidden;
-}
+
 .lesson-carousel img {
 	width: auto;
 	overflow:hidden;
