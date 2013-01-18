@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Browse Lessons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="_css/bootstrap.css" rel="stylesheet"/>
     <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
+    
+    <style type="text/css">
+	
+	   .lesson-carousel .carousel-pills {
+		  display:block;
+		}
+		
+		.lessonNavigation {
+			display:none;
+		}
+
+    </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -31,19 +43,21 @@
     </div><!-- /.navbar -->
     
     
-    <div class="container" style="padding-top:80px;">
+  <div class="container" style="padding-top:80px;">
     
     <!--  Carousel -->
-      <div id="lesson-carousel-id" class="carousel slide lesson-carousel">
+    <div id="lesson-carousel-id" class="carousel slide lesson-carousel">
         <div class="carousel-inner">
-              <div class="item active">
-              	<div class="item-inner lesson-carousel-item-inner">
+        
+        
+          <div class="item active">
+              	<div class="lesson-carousel-item-inner">
                     <div class="lesson-carousel-caption">
                         <div class="row-fluid">
                             <div class="span12" style="color:#FFF;">
-                                <img src="_images/CC_UI/cc_math_groupwork.png" style="float:left; padding-right:10px;"/>
-                                <p class="lessonTypeHeading">GROUP PROJECT</p>
-                                <H1>WorkTime</H1>
+                                <img src="_images/CC_UI/cc_ela_worktime.png" style="float:left; padding-right:10px;"/>
+                                <p class="lessonTypeHeading">OPENING</p>
+                                <H1>Common Writing</H1>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div>
@@ -53,20 +67,42 @@
                                 <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                                 <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                                 <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
-                                <p>Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
-                                <p>Aaugue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div><!-- /.lesson-carousel-content-->
               	</div><!-- /.item-inner -->
               </div><!-- /.item -->
-        </div><!-- .carousel-inner -->
+              
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                    <div class="lesson-carousel-caption">
+                        <div class="row-fluid">
+                            <div class="span12" style="color:#FFF;">
+                                <img src="_images/CC_UI/cc_wholegroupshare.png" style="float:left; padding-right:10px;"/>
+                                <p class="lessonTypeHeading">IDENTIFYING KEY IDEAS AND DETAILS</p>
+                                <H1>Whole Class Share</H1>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                            <div class="span8 offset2 lessonContent">
+                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
+              
+              
+		</div><!-- .carousel-inner -->
 
           <a class="carousel-control lesson-carousel-control left" href="#lesson-carousel-id" data-slide="prev">&nbsp;</a>
           <a class="carousel-control lesson-carousel-control right" href="#lesson-carousel-id" data-slide="next">&nbsp;</a>
       </div><!-- .carousel -->
      
-    </div> <!-- /container -->
+  </div> <!-- /container -->
     
 	
     <div class="navbar-fixed-bottom lessonNavigation">
@@ -74,7 +110,7 @@
             <ul>
                 <li><a href="#">&lt;</a></li>
                 <li>
-                    <a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:">1</a>
+                  <a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:">1</a>
                     <div id="popover-content" style="display: none">
                         <div class="ribbon">
                           <div class="ribbon-item">
@@ -119,19 +155,19 @@
                 </li>
                 <li><a href="#">&gt;</a></li>
             </ul>
-          </div><!-- end pagination centered -->
+      </div><!-- end pagination centered -->
     </div><!-- end bottom navbar -->
     
     
-    <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
+  <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
 
-	<script type='text/javascript' src="js/bootstrap.js"></script>
-	<script type='text/javascript' src="js/bootstrap-carousel.js"></script> 
-	<script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
-    <script type='text/javascript' src="js/bootstrap-popover.js"></script>
+  <script type='text/javascript' src="js/bootstrap.js"></script>
+  <script type='text/javascript' src="js/bootstrap-carousel.js"></script> 
+  <script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
+  <script type='text/javascript' src="js/bootstrap-popover.js"></script>
     
-    <script>
+  <script>
 		$(document).ready(function(){
 			
 			$('body').css('display', 'none');
@@ -156,17 +192,15 @@
 		    $(".carousel").swipeleft(function() {  
 			  $(".carousel").carousel('next');  
 		    });
-			
-			//line below not working
-			//$('.carousel-pills').css('display', 'none');
-			 
+						 
 		
-		  $('#lesson-ribbon').popover({ 
+			$('#lesson-ribbon').popover({ 
 			html : true,
 			content: function() {
 			  return $('#popover-content').html();
 			}
-		  });
+			});
+			
 		});
 	</script>  
 

@@ -52,7 +52,6 @@ p {
 	overflow: hidden;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff333333', endColorstr='#ff000000', GradientType=0);
 }
-
 .navbar .nav > li > a {
 	background-color: transparent !important;
 	color: #CCC;
@@ -85,11 +84,6 @@ p {
 	position: fixed;
 	top: 40px;
 }
-/*.item-inner {
-	margin-left: 120px;
-	margin-right: 120px;
-	overflow: hidden;
-}*/
 .carousel img {
 	width: 100%;
 	overflow:hidden;
@@ -108,7 +102,6 @@ p {
   display: block;
   text-align: center;
 }
-
 .carousel-pills span {
 	display: inline-block;
 	margin: 0px 10px;
@@ -322,24 +315,29 @@ p {
 .unit-carousel-item-inner {
 	margin-left: 110px;
 	margin-right: 110px;
-	overflow: scroll;
 }
 .unit-carousel-caption {
 	position: relative;
-	float:left;
-	width:100%;
-	height: 70px;
-	padding:30px;
-	background-color:#FFFFFF;
+	float: left;
+	width: 100%;
+	height: 130px;
+	padding: 0px;
+	background-color: #FFFFFF;
 	margin: 0px;
 	overflow: hidden;
 }
 .unit-carousel-caption p {
 	color: #000;
+	padding-left:30px;
+	padding-top:30px;
+	padding-bottom:5px;
+	margin:0px;
+	line-height: 12px;
+	width: 100%;
 }
 .unit-carousel-title {
+	margin:0px;
 	font-size:40px;
-	padding-top:10px;
 	font-weight:100;
 	width: 100%;
 }
@@ -351,7 +349,10 @@ p {
 	height: 380px;
 	margin:0px;
 	background-color: #E3E3E3;
-	overflow: scroll;
+	overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-style-y:scrollbar;
 }
 .unit-carousel-content p {
 	margin-left: 30px;
@@ -370,6 +371,52 @@ p {
 	height:510px;
 	margin-top: 0px;
 }
+.unitInfo {
+	position: fixed;
+	top: 40px;
+	left: 0px;
+	bottom: 0px;
+	width: 30%;
+	margin: 0px;
+	border: 0px;
+	background-color: #E3E3E3;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+}
+.unitHeader {
+	margin:0px;
+	padding-right:30px;
+	padding-top:30px;
+	padding-left:60px;
+	padding-bottom:25px;
+	background-color:#FFF;
+}
+.unitHeader h1 {
+	font-size:26px;
+	font-weight:200;
+	line-height:30px;
+	margin:0px;
+	padding:0px;
+}
+.unitHeader p {
+	font-size:16px;
+	font-weight:200;
+	line-height:20px;
+	margin:0px;
+	padding:0px;
+}
+.unitBody {
+	margin: 0px;
+	padding-right: 30px;
+	padding-top: 30px;
+	padding-left: 60px;
+}
+.unitBody p {
+	font-size:18px;
+	font-weight:200;
+	line-height:24px;
+}
 .episode-carousel {
 	position: fixed;
 	top: 40px;
@@ -383,7 +430,6 @@ p {
 .episode-carousel-item-inner {
 	margin-left: 40px;
 	margin-right: 40px;
-	overflow: scroll;
 }
 .episode-carousel-caption {
 	position: relative;
@@ -408,6 +454,10 @@ p {
 	padding-right: 30px;
 	height: 440px;
 	margin: 0px;
+	overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-style-y:scrollbar;
 }
 .episode-carousel-control {
 	top: 40px;
@@ -460,7 +510,6 @@ p {
 .lesson-carousel-item-inner {
 	margin-left: 0px;
 	margin-right: 0px;
-	overflow: scroll;
 }
 .lesson-carousel-caption {
 	position: relative;
@@ -485,7 +534,10 @@ p {
 	padding: 0px;
 	width: 100%;
 	margin:0px;
-	overflow: scroll;
+	overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-style-y:scrollbar;
 }
 .lesson-carousel-content p {
 	margin-left: 30px;
@@ -511,72 +563,14 @@ p {
 .lesson-carousel .carousel-pills {
   display:none;
 }
-.unitInfo {
-	position: fixed;
-	top: 40px;
-	left: 0px;
-	bottom: 0px;
-	width: 30%;
-	margin: 0px;
-	border: 0px;
-	background-color: #E3E3E3;
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-}
-.unitHeader {
-	margin:0px;
-	padding-right:30px;
-	padding-top:30px;
-	padding-left:60px;
-	padding-bottom:25px;
-	background-color:#FFF;
-}
-.unitHeader h1 {
-	font-size:26px;
-	font-weight:200;
-	line-height:30px;
-	margin:0px;
-	padding:0px;
-}
-.unitHeader p {
-	font-size:16px;
-	font-weight:200;
-	line-height:20px;
-	margin:0px;
-	padding:0px;
-}
-.unitBody {
-	margin: 0px;
-	padding-right: 30px;
-	padding-top: 30px;
-	padding-left: 60px;
-}
-.unitBody p {
-	font-size:18px;
-	font-weight:200;
-	line-height:24px;
-}
-/*.browserEpisode {
-	font-size:16px;
-	font-weight:100;
-	padding-bottom:10px;
-}
-.browserEpisodeTitle {
-	font-size:28px;
-	font-weight:100;
-	padding-bottom:20px;
-}
-.browserEpisodeDescription{
-	font-size:20px;
-	font-weight:100;
-	line-height:32px;
-	padding-bottom:0px;
-}*/
+
 .ribbon {
 	height:366px;
   	width: 590px;
-	overflow: scroll;
+	overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-style-y:scrollbar;
 }
 .ribbon-item {
 	width: 590px;
