@@ -31,6 +31,20 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+$colname_CourseList = "-1";
+if (isset($_GET['Grade'])) {
+  $colname_CourseList = $_GET['Grade'];
+}
+mysql_select_db($database_projector, $projector);
+if ($colname_CourseList > -1)
+	$query_CourseList = sprintf("SELECT * FROM Courses WHERE Grade = %s ORDER BY Grade ASC", GetSQLValueString($colname_CourseList, "int"));
+else
+ 	$query_CourseList = "SELECT * FROM Courses ORDER BY Grade ASC";
+
+$CourseList = mysql_query($query_CourseList, $projector) or die(mysql_error());
+$row_CourseList = mysql_fetch_assoc($CourseList);
+$totalRows_CourseList = mysql_num_rows($CourseList);
+
 function getGrade($row_foundRecord)
 {
 	if ($row_foundRecord['GradeMin'] == $row_foundRecord['GradeMax']) {
@@ -39,12 +53,6 @@ function getGrade($row_foundRecord)
 		return $row_foundRecord['GradeMin'] . ' - ' . $row_foundRecord['GradeMax'];
 	}
 }
-
-mysql_select_db($database_projector, $projector);
-$query_projectList = "SELECT * FROM Projects";
-$projectList = mysql_query($query_projectList, $projector) or die(mysql_error());
-$row_projectList = mysql_fetch_assoc($projectList);
-$totalRows_projectList = mysql_num_rows($projectList);
 ?>
 <!doctype html>
 <html>
@@ -70,10 +78,10 @@ $totalRows_projectList = mysql_num_rows($projectList);
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid" style="margin-top: 44px;">
-        <h3 class="span11 offset1"> <?php if ($PROJECTOR['cc']) echo "Lessons:"; else echo "Projects:"; ?></h3>
+        <h3 class="span11 offset1"> Courses:</h3>
 	</section>
     <section class="row-fluid">
-        <p class="span11 offset1">Select a <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?> to edit or <a href="Projector_EditChallenge.php">add a new <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?></a></p>
+        <p class="span11 offset1">Select a course to edit or <a href="#">add a new course</a></p>
     </section>
     <section class="row-fluid">
     <div class="span10 offset1" style="background-color: #EDEDED;">
@@ -83,9 +91,6 @@ $totalRows_projectList = mysql_num_rows($projectList);
         </select>
         <select class="dropdown">
           <option>Select Subject</option>
-        </select>
-        <select class="dropdown">
-          <option>Select Status</option>
         </select>
     </p>
     </div>
@@ -97,25 +102,21 @@ $totalRows_projectList = mysql_num_rows($projectList);
                     <tr>
                         <th width="10%">&nbsp;</th>
                         <th width="5%">ID</th>
-                        <th width="15%">Thumbnail</th>
-                        <th width="40%">Title</th>
+                        <th width="40%">Name</th>
                         <th width="10%">Grade</th>
                         <th width="10%">Subject</th>
-						<th width="10%">Status</th>
-                    </tr>
+						</tr>
                 </thead>
                 <tbody>
                 	<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $row_projectList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
-                        <td><?php echo $row_projectList['Id']; ?></td>
-                        <td><a href="/ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
-                        <td><a href="/ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></td>
-                        <td><?php echo getGrade($row_projectList); ?></td>
-                        <td><?php echo $row_projectList['Subject']; ?></td>
-                        <td><?php echo $row_projectList['Status']; ?></td>
+                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "CC_EditCourse.php"; echo "?Id=" . $row_CourseList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
+                        <td><?php echo $row_CourseList['Id']; ?></td>
+                        <td><a href="../CC_UnitBrowserLive.php?CourseId=<?php echo $row_CourseList['Id']; ?>"><?php echo $row_CourseList['Name']; ?></a></td>
+                        <td><?php echo $row_CourseList['Grade']; ?></td>
+                        <td><?php echo $row_CourseList['Subject']; ?></td>
                     </tr>
-                  <?php } while ($row_projectList = mysql_fetch_assoc($projectList)); ?>
+                  <?php } while ($row_CourseList = mysql_fetch_assoc($CourseList)); ?>
                 </tbody>
             </table>
       </div>
@@ -134,5 +135,5 @@ $totalRows_projectList = mysql_num_rows($projectList);
 </body>
 </html>
 <?php
-mysql_free_result($projectList);
+mysql_free_result($CourseList);
 ?>

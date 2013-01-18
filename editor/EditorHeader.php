@@ -25,11 +25,11 @@
     <p class="span6">
       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="<?php if ($PROJECTOR['cc']) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?action=Add"; ?> ">
           <i class="icon-plus icon-white"></i> 
-          Add project
+          Add <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?>
       </a>
       <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="ViewAll.php">
           <i class="icon-eye-open icon-white"></i> 
-          View projects
+          View <?php if ($PROJECTOR['cc']) echo "lessons"; else echo "projects"; ?>
       </a>
       <?php if ($PROJECTOR['cc']) : ?>
        <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="CCSoC_ViewRoutines.php">

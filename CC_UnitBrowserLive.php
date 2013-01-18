@@ -63,7 +63,7 @@ $totalRows_CourseInfo = mysql_num_rows($CourseInfo);
       <div class="navbar-inner">
         <div class="container">
            <ul class="nav">
-              <li class="active"><a href="CC_UnitBrowser.php" class="parent"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
+              <li class="active"><a href="/editor/CC_CourseBrowser.php" class="parent"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
               <li><a href="#"><?php echo $row_CourseInfo['Name']; ?></a></li>
           </ul>
         </div><!-- /.container -->
