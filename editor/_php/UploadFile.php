@@ -7,11 +7,14 @@ define("MAX_FILE_SIZE",  1024*1024);
 
 $s3 = new AmazonS3();
 
-if ($PROJECTOR['cc'])
-	$bucket = 'CommonCoreAssets';
-else
-	$bucket = 'ProjectorAssets';
- 
+if (isset($GLOBALS['instance']) && $GLOBALS['instance'] == "ccsoc") {
+	$bucket = $GLOBALS['s3Bucket'];
+} else {	// SCOTT TO DO always map to the $GLOBALS['s3Bucket'] when I get a chance to update this in all Globals instances
+	if ($PROJECTOR['cc'])
+		$bucket = 'CommonCoreAssets';
+	else
+		$bucket = 'ProjectorAssets';
+}
 //Here you can add valid file extensions. 
 $valid_formats = array("jpg", "png", "gif","jpeg","PNG","JPG","JPEG","GIF");
 
