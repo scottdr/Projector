@@ -55,7 +55,7 @@ if ($totalRows_UnitList > 0) {
    echo '<div class="unit-carousel-content">' . "\n";
 	 echo "<p>" .  $row_UnitList['Description'] . "</p>\n";
 	 echo '<div class="pagination-centered">' . "\n";
-   echo '<a href="CC_EpisodeBrowser.php" class="btn btn-large btn-primary cc-start-btn transition" >START</a>' . "\n";                     
+   echo '<a href="CC_EpisodeBrowserLive.php?CourseId=' . $colname_UnitList . "&UnitId=" . $row_UnitList['Id'] . '" class="btn btn-large btn-primary cc-start-btn transition" >START</a>' . "\n";                     
    echo "</div>\n"; 
 	 echo "</div>\n"; 
 	 echo "</div>\n";

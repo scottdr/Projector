@@ -51,16 +51,6 @@ $query_UnitInfo = sprintf("SELECT * FROM Units WHERE Id = %s", GetSQLValueString
 $UnitInfo = mysql_query($query_UnitInfo, $projector) or die(mysql_error());
 $row_UnitInfo = mysql_fetch_assoc($UnitInfo);
 $totalRows_UnitInfo = mysql_num_rows($UnitInfo);
-
-$colname_EpisodeList = "-1";
-if (isset($_GET['UnitId'])) {
-  $colname_EpisodeList = $_GET['UnitId'];
-}
-mysql_select_db($database_projector, $projector);
-$query_EpisodeList = sprintf("SELECT * FROM Episodes WHERE UnitId = %s ORDER BY SortOrder ASC", GetSQLValueString($colname_EpisodeList, "int"));
-$EpisodeList = mysql_query($query_EpisodeList, $projector) or die(mysql_error());
-$row_EpisodeList = mysql_fetch_assoc($EpisodeList);
-$totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,85 +81,7 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 <div class="container"> 
   
   <!--  Carousel -->
-  <div id="episode-carousel-id" class="carousel slide episode-carousel">
-    <div class="carousel-inner">
-    	<?php if ($totalRows_EpisodeList > 0): ?>
-			<?php 
-				$itemNum = 0;
-				do { ?>
-      <div class="item <?php if ($itemNum == 0) echo "active";?>">
-        <div class="episode-carousel-item-inner">
-          <div class="episode-carousel-caption">
-            <p class="browserEpisode"><?php echo $row_EpisodeList['Name']; ?>:</p>
-            <p class="browserEpisodeTitle"><?php echo $row_EpisodeList['Title']; ?></p>
-            <p class="browserEpisodeDescription"><?php echo $row_EpisodeList['Description']; ?></p>
-          </div>
-          <div class="episode-carousel-content">
-                            <hr/>
-                            <div class="row-fluid">
-                            
-                                <ul class="thumbnails">
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 1</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 2</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 3</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div><!-- end row fluid -->
-                                
-                                <div class="row-fluid">
-                                    <ul class="thumbnails">
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 4</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 5</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                     </ul>
-                                </div><!--  end row fluid -->
-                                
-                            </div><!--  end episode-carousel-content --> 
-        </div>
-        <!-- end item inner --> 
-      </div>
-      <!-- end item --> 
-      <?php 	$itemNum++;
-						} while ($row_EpisodeList = mysql_fetch_assoc($EpisodeList)); ?>
-			<?php endif; ?>
-    </div>
-    <!-- end Carousel inner --> 
-    
-  </div>
-  <!-- .carousel-inner --> 
+	<?php require_once('_php/CC_EpisodeBrowserContent.php'); ?>
   
   <!--  next and previous controls here href values must reference the id for this carousel --> 
   <a class="carousel-control episode-carousel-control left" href="#episode-carousel-id" data-slide="prev">&nbsp;</a> <a class="carousel-control episode-carousel-control right" href="#episode-carousel-id" data-slide="next">&nbsp;</a> </div>
@@ -240,4 +152,5 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 mysql_free_result($CourseInfo);
 mysql_free_result($UnitInfo);
 mysql_free_result($EpisodeList);
+mysql_free_result($ProjectList);
 ?>
