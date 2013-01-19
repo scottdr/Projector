@@ -101,7 +101,7 @@ function getGrade($row_foundRecord)
                 <thead>
                     <tr>
                         <th width="10%">&nbsp;</th>
-                        <th width="5%">ID</th>
+                        <th width="5%">&nbsp;</th>
                         <th width="40%">Name</th>
                         <th width="10%">Grade</th>
                         <th width="10%">Subject</th>
@@ -111,8 +111,8 @@ function getGrade($row_foundRecord)
                 	<?php do { ?>
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "CC_EditCourse.php"; echo "?Id=" . $row_CourseList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
-                        <td><?php echo $row_CourseList['Id']; ?></td>
-                        <td><a href="../CC_UnitBrowserLive.php?CourseId=<?php echo $row_CourseList['Id']; ?>"><?php echo $row_CourseList['Name']; ?></a></td>
+                        <td><a class="btn btn-mini btn-primary" href="../CC_UnitBrowserLive.php?CourseId=<?php echo $row_CourseList['Id']; ?>"><i class="icon-eye-open icon-white"></i> Preview</a></td>
+                        <td><a href="CC_ViewUnits.php?CourseId=<?php echo $row_CourseList['Id']; ?>"><?php echo $row_CourseList['Name']; ?></a></td>
                         <td><?php echo $row_CourseList['Grade']; ?></td>
                         <td><?php echo $row_CourseList['Subject']; ?></td>
                     </tr>

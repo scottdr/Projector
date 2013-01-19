@@ -51,12 +51,11 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 						echo '</div>' . "\n";
 						echo '</a>' . "\n";
 						echo '</li>' . "\n";                       
-		
+						$projectNum++;
 						if ($projectNum % 3 == 0) {
 							echo '</ul>' . "\n\t";
 							echo '</div>' . "\n";
 						}
-						$projectNum++;
 					} while ($row_ProjectList = mysql_fetch_assoc($ProjectList)); 
 	        
 					
