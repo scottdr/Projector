@@ -40,8 +40,15 @@ function getGrade($row_foundRecord)
 	}
 }
 
+$colname_projectList = "-1";
+if (isset($_GET['UnitId'])) {
+  $colname_projectList = $_GET['UnitId'];
+}
 mysql_select_db($database_projector, $projector);
-$query_projectList = "SELECT * FROM Projects";
+if ($colname_projectList > -1)
+	$query_projectList = sprintf("SELECT * FROM Projects WHERE UnitId = %s ORDER BY `Number` ASC", GetSQLValueString($colname_projectList, "int"));
+else
+	$query_projectList = sprintf("SELECT * FROM Projects ORDER BY `Number` ASC");
 $projectList = mysql_query($query_projectList, $projector) or die(mysql_error());
 $row_projectList = mysql_fetch_assoc($projectList);
 $totalRows_projectList = mysql_num_rows($projectList);
@@ -65,7 +72,7 @@ $totalRows_projectList = mysql_num_rows($projectList);
 
 <div class="container-fluid">
 	
-    <?php include("EditorHeader.php"); ?>
+    <?php include("CC_EditorHeader.php"); ?>
     
     <!-- CONTENT STARTS -->
     

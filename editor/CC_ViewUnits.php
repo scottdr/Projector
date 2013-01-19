@@ -78,7 +78,7 @@ if ($courseId > -1) {
 
 <div class="container-fluid">
 	
-    <?php include("EditorHeader.php"); ?>
+    <?php include("CC_EditorHeader.php"); ?>
     
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
@@ -113,7 +113,7 @@ if ($courseId > -1) {
                         <th width="10%">&nbsp;</th>
                       	<!--<th width="5%">ID</th> -->
                         <th width="20%">Thumbnail</th>
-                        <th width="70%">Caption</th>
+                        <th width="70%">Unit</th>
                         <!--<th width="10%">Project ID</th>-->
                     </tr>
                 </thead>
@@ -124,7 +124,7 @@ if ($courseId > -1) {
                   			</td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
                         <td width="140"><img src="<?php echo $row_MediaQuery['SmallImage']; ?>" class="img-polaroid" width="100"></td>
-                        <td><?php echo $row_MediaQuery['Name']; ?></td>
+                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>"><?php echo $row_MediaQuery['Name']; ?></a></td>
                         <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
                     </tr>
                   	<?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>

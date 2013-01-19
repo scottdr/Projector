@@ -73,7 +73,7 @@ function getGrade($row_foundRecord)
 
 <div class="container-fluid">
 	
-    <?php include("EditorHeader.php"); ?>
+    <?php include("CC_EditorHeader.php"); ?>
     
     <!-- CONTENT STARTS -->
     
