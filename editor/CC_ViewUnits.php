@@ -57,6 +57,11 @@ if ($courseId > -1) {
 		$courseName = $row_ProjectQuery['Name'];
 }
 
+// get URL parameter's already on the url and pass them on to next page.
+if (isset($_SERVER['QUERY_STRING'])) {
+    $addToUrl = "?";
+		$addToUrl .= $_SERVER['QUERY_STRING'];
+} 
 
 ?>
 <!doctype html>
@@ -124,7 +129,7 @@ if ($courseId > -1) {
                   			</td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
                         <td width="140"><img src="<?php echo $row_MediaQuery['SmallImage']; ?>" class="img-polaroid" width="100"></td>
-                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>"><?php echo $row_MediaQuery['Name']; ?></a></td>
+                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>&CourseId=<?php echo $courseId; ?>"><?php echo $row_MediaQuery['Name']; ?></a></td>
                         <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
                     </tr>
                   	<?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>

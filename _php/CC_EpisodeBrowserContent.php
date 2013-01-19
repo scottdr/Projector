@@ -44,7 +44,10 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 							echo '<ul class="thumbnails">' . "\n";
 						}
 						echo '<li class="span4">' . "\n";
-						echo '<a href="#lessonModal" role="button" data-toggle="modal">' . "\n";
+//						echo '<a href="#lessonModal" role="button" data-toggle="modal">' . "\n";
+// 				SCOTT Taking out the modal dialog for now going directly to the Lesson Browser (that page does not add a lot of value imho)
+
+						echo '<a href="CC_LessonBrowserLive.php' . $addToUrl . "&Id=" . $row_ProjectList['Id'] . '" role="button" data-toggle="modal">' . "\n";
 						echo '<div class="thumbnail">' . "\n";
 						echo '<img src="' . $row_ProjectList['ImgSmall'] . '" >' . "\n";
 						echo '<h3>' . $row_ProjectList['Name'] . '</h3>' . "\n";

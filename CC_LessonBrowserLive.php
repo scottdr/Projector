@@ -129,8 +129,20 @@ if (isset($_SERVER['QUERY_STRING'])) {
       
     </div> <!-- /container -->
     
-		<?php require_once("_php/LessonNavigatorStaticContent.php"); ?> 
-
+    <div class="navbar-fixed-bottom lessonNavigation">
+      <div class="pagination pagination-centered">
+        <ul>
+            <li><a href="#">&lt;</a></li>
+            <li>
+                <a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:">1</a>
+                <div id="popover-content" style="display: none">
+                  <?php require_once("_php/LessonNavigatorContent.php"); ?> 
+                </div>
+            </li>
+            <li><a href="#">&gt;</a></li>
+        </ul>
+      </div>
+    </div>
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
     
