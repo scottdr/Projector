@@ -109,12 +109,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th width="10%">&nbsp;</th>
+                        <th width="15%">&nbsp;</th>
                         <th width="15%">Thumbnail</th>
-                        <th width="40%">Title</th>
+                        <th width="30%">Title</th>
                         <th width="10%">Grade</th>
-                        <th width="10%">Subject</th>
-						<th width="10%">Status</th>
+                        <th width="20%">Subject</th>
+												<th width="10%">Status</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -100,11 +100,11 @@ function getGrade($row_foundRecord)
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th width="5%">&nbsp;</th>
-                        <th width="5%">&nbsp;</th>
+                        <th width="10%">&nbsp;</th>
+                        <th width="10%">&nbsp;</th>
                         <th width="40%">Name</th>
                         <th width="10%">Grade</th>
-                        <th width="10%">Subject</th>
+                        <th width="30%">Subject</th>
 						</tr>
                 </thead>
                 <tbody>
