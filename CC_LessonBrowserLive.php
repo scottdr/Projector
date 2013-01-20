@@ -132,14 +132,14 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <div class="navbar-fixed-bottom lessonNavigation">
       <div class="pagination pagination-centered">
         <ul>
-            <li><a href="#">&lt;</a></li>
+            <li><a id="PreviousButton" href="#">&lt;</a></li>
             <li>
-                <a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:">1</a>
+                <a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:" data-number="1">1</a>
                 <div id="popover-content" style="display: none">
                   <?php require_once("_php/LessonNavigatorContent.php"); ?> 
                 </div>
             </li>
-            <li><a href="#">&gt;</a></li>
+            <li><a id="NextButton" href="#">&gt;</a></li>
         </ul>
       </div>
     </div>
@@ -149,10 +149,15 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <script type='text/javascript' src="js/bootstrap.js"></script>
     <script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
     <script type='text/javascript' src="js/bootstrap-popover.js"></script>
+    <script type='text/javascript' src="js/utility.js"></script>
+    <script type='text/javascript' src="_scripts/LessonBrowser.js"></script>
     
     <script>  
-		$(document).ready(function(){
+
 		
+		$(document).ready(function(){
+			// load in the info for the first step
+			loadStep(ProjectId,-1,1);
 			$('body').css('display', 'none');
 			$('body').fadeIn(1000);
 			$("a.transition").click(function(event){
@@ -164,6 +169,22 @@ if (isset($_SERVER['QUERY_STRING'])) {
 				window.location = linkLocation;
 			}	
 		
+			$("#NextButton").click(function() {
+				var newStepNumber = parseInt($("#lesson-ribbon").attr("data-number")) + 1;
+				loadStep(ProjectId,-1,newStepNumber);
+				$('#lesson-ribbon').html(String(newStepNumber));
+				$("#lesson-ribbon").attr("data-number",String(newStepNumber));
+			});
+			
+			$("#PreviousButton").click(function() {
+				var newStepNumber = parseInt($("#lesson-ribbon").attr("data-number")) - 1;
+				if (newStepNumber >= 1) {
+					loadStep(ProjectId,-1,newStepNumber);
+					$('#lesson-ribbon').html(String(newStepNumber));
+					$("#lesson-ribbon").attr("data-number",String(newStepNumber));
+				}
+			});
+			
 		  $('#lesson-ribbon').popover({ 
 			html : true,
 			content: function() {
