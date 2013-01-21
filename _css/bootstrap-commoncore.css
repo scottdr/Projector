@@ -417,6 +417,18 @@ p {
 	font-weight:200;
 	line-height:24px;
 }
+.unit-browser-modal-lesson-header {
+	font-size:16px;
+	line-height: 20px;
+	font-weight:100;
+	padding-bottom:0px;
+}
+.unit-browser-modal-lesson-title {
+	font-size:40px;
+	line-height: 40px;
+	font-weight:100;
+	padding-bottom:0px;
+}
 .episode-carousel {
 	position: fixed;
 	top: 40px;
@@ -426,16 +438,18 @@ p {
 	margin-bottom: 30px;
 	margin-left: 0px;
 	margin-right: 0px;
+	background-color: #333;
+	height:560px;
 }
 .episode-carousel-item-inner {
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 30px;
+	margin-right: 30px;
+	background-color:transparent;
 }
 .episode-carousel-caption {
 	position: relative;
 	float:left;
 	width: auto;
-	height: 60px;
 	padding:30px;
 	background-color:transparent;
 	margin: 0px;
@@ -443,13 +457,24 @@ p {
 }
 .episode-carousel-caption p {
 	color:#FFF;
-	background:transparent;
+}
+.episode-carousel-caption-number {
+	font-size:12px;
+}
+.episode-carousel-caption-title {
+	font-size: 30px;
+	font-weight:100;
+	padding-bottom:10px;
+}
+.episode-carousel-caption-description {
+	
 }
 .episode-carousel-content {
 	position: relative;
 	float: left;
 	clear: both;
 	width: auto;
+	height:auto;
 	padding-left: 30px;
 	padding-right: 30px;
 	height: 440px;
@@ -481,17 +506,22 @@ p {
 	font-size:14px;
 	line-height:16px;
 }
-
-.lessonHeader {
-	font-size:16px;
-	line-height: 20px;
-	font-weight:100;
-	padding-bottom:0px;
+.lessonbody {
+	background: #FFF;
+	color:#000;
 }
 .lessonContent {
 	background-color: #FFF;
-	padding: 30px;
+	background-color: rgba(255, 255, 255, 0.8);
+	width:100%;
+	padding:30px;
 	color:#333;
+	margin-bottom:60px;
+	height: 200%;
+	overflow:auto;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-style-y:scrollbar;
 }
 .lessonNavigation a {
 	color:#FFF;
@@ -499,7 +529,7 @@ p {
 }
 .lesson-carousel {
 	position: fixed;
-	top: 80px;
+	top: 60px;
 	left: 0px;
 	width: auto;
 	margin-top: 0px;
@@ -513,36 +543,62 @@ p {
 }
 .lesson-carousel-caption {
 	position: relative;
-	float:left;
-	width:100%;
-	height: 90px;
-	margin: 20px;
+	float: left;
+	width: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 0px;
+	margin-top: 0px;
 	overflow: hidden;
 }
-.lesson-carousel-caption p {
-	color: #FFF;
+.lesson-carousel-caption-img {
+	display:block;
+	float:left;
+	margin:0px;
+	border:0px;
+	width: 80px;
+	height: 80px;
+	padding-top:15px;
+	padding-right:15px;
 }
-.lesson-carousel-title {
-	font-size:40px;
+.lesson-carousel-caption-title {
+	color:#000;
+	font-size:16px;
+	line-height:16px;
+	width: 80%;
+	text-transform:capitalize;
+	margin:0;
+	padding-top:15px;
+}
+.lesson-carousel-caption-activity {
+	font-size:46px;
 	padding-top:10px;
 	font-weight:100;
-	width: 100%;
+	width: 80%;
+	color: #000;
+	margin:0;
+	padding-top:17px;
+	padding-bottom:30px;
+
+}
+.lesson-carousel-caption-right {
+	float:right;
+	text-align:right;
+	clear:none;
 }
 .lesson-carousel-content {
 	position: relative;
 	float: left;
 	padding: 0px;
 	width: 100%;
+	height: 200%;
 	margin:0px;
-	overflow:scroll;
-	overflow-x:hidden;
-	overflow-y:scroll;
-	overflow-style-y:scrollbar;
 }
 .lesson-carousel-content p {
-	margin-left: 30px;
-	margin-right: 30px;
-	margin-top: 20px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 0px;
+	margin-bottom:10px;
 	padding: 0px;
 	font-size:20px;
 	line-height:26px;
@@ -563,7 +619,46 @@ p {
 .lesson-carousel .carousel-pills {
   display:none;
 }
+.lesson-carousel-content-math-mission-img {
+	height:100px;
+	width:100px;
+}
+.lesson-carousel-content-math-mission-title {
+	font-size:50px;
+	line-height:160px;
+	color:#008513;
+	font-weight:100;
+}
+.lesson-media-right-textbox {
+	display:block;
+	float:left;
+	width:50%;	
+}
+.lesson-media-right-mediabox {
+	position: fixed;
+	top: 260px;
+	right: 5%;
+	width: 42%;
+	margin: 0px;
+	height: 360px;
+	text-align:right;
+}
+.lesson-media-right-mediabox img {
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
 
+.lesson-media-right-mediabox-two {
+	margin-top: 450px;
+	display:block;
+	float:right;
+	width: 40%;
+	text-align:right;
+}
+.lesson-media-right-mediabox-two img {
+	float:right;
+}
 .ribbon {
 	height:366px;
   	width: 590px;
