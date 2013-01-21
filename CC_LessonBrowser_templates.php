@@ -64,7 +64,7 @@
                                 <div class="lesson-carousel-caption-activity">Whole Class Share</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
-                    </div>
+                    </div><!-- /.lesson-carousel-caption-->
                     <!-- TEXT ONLY -->
                     <div class="lesson-carousel-content">
                          <div class="row-fluid">
@@ -87,7 +87,7 @@
                                 <div class="lesson-carousel-caption-activity">Unit Accomplishments</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
-                    </div>
+                    </div><!-- /.lesson-carousel-caption-->
                     <!-- TEXT ONLY WIDE -->
                     <div class="lesson-carousel-content">
                          <div class="row-fluid">
@@ -110,13 +110,13 @@
                                 <div class="lesson-carousel-caption-activity">Math Mission</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
-                    </div>
-                     <!-- MATH MISSION -->
+                    </div><!-- /.lesson-carousel-caption-->
+               		<!-- MATH MISSION -->
                     <div class="lesson-carousel-content">
                          <div class="row-fluid">
                             <div class="span10 offset1 lessonContent">
-                            	<p>Math Mission icons</p>
-                            	<p>Explore beats per minute.</p>
+                            	<img src="_images/CC_UI/content/A-1-1-3.png" class="lesson-carousel-content-math-mission-img">
+                            	<div class="lesson-carousel-content-math-mission-title">Explore beats per minute.</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div><!-- /.lesson-carousel-content-->
@@ -132,7 +132,7 @@
                                 <div class="lesson-carousel-caption-activity">Mixing Music</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
-                    </div>
+                    </div><!-- /.lesson-carousel-caption-->
                      <!-- LARGE MEDIA -->
                     <div class="lesson-carousel-content">
                          <div class="row-fluid">
