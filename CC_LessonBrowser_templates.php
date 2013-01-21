@@ -30,7 +30,7 @@
   <body class="lessonbody">
   
   <div class="img-background">
-  	<img src="_images/CC_UI/content/9-2-10-background.jpg">
+  	<img src="_images/CC_UI/content/9-2-10-background-1024.jpg">
   </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
@@ -59,16 +59,17 @@
                     <div class="lesson-carousel-caption">
                         <div class="row-fluid">
                             <div class="span12">
-                                <img src="_images/CC_UI/cc_ela_worktime.png" style="float:left; padding-right:10px;"/>
-                                <p>OPENING</p>
-                                <p class="lesson-carousel-title">Common Writing</p>
+                                <img src="_images/CC_UI/cc_wholegroupshare.png" class="lesson-carousel-caption-img"/>
+                                <div class="lesson-carousel-caption-title">AMERICAN SHORT STORY</div>
+                                <div class="lesson-carousel-caption-activity">Whole Class Share</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div>
+                    <!-- TEXT ONLY -->
                     <div class="lesson-carousel-content">
                          <div class="row-fluid">
-                            <div class="span8 offset2 lessonContent">
-                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                            <div class="span6 offset3 lessonContent">
+                                <p>Template: Text only. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                                 <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                                 <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
                             </div><!-- /.span -->
@@ -81,26 +82,194 @@
               	<div class="lesson-carousel-item-inner">
                     <div class="lesson-carousel-caption">
                         <div class="row-fluid">
-                            <div class="span12" style="color:#FFF;">
-                                <img src="_images/CC_UI/cc_wholegroupshare.png" style="float:left; padding-right:10px;"/>
-                                <p>IDENTIFYING KEY IDEAS AND DETAILS</p>
-                                <p class="lesson-carousel-title">Whole Class Share</p>
+                            <div class="span12">
+                                <div class="lesson-carousel-caption-title">OPENING</div>
+                                <div class="lesson-carousel-caption-activity">Unit Accomplishments</div>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div>
+                    <!-- TEXT ONLY WIDE -->
                     <div class="lesson-carousel-content">
                          <div class="row-fluid">
                             <div class="span8 offset2 lessonContent">
-                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Template: Text only wide. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                                 <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
+
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                  <div class="lesson-carousel-caption">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="lesson-carousel-caption-title">OPENING</div>
+                                <div class="lesson-carousel-caption-activity">Math Mission</div>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                     <!-- MATH MISSION -->
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                            <div class="span10 offset1 lessonContent">
+                            	<p>Math Mission icons</p>
+                            	<p>Explore beats per minute.</p>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div><!-- /.lesson-carousel-content-->
               	</div><!-- /.item-inner -->
               </div><!-- /.item -->
               
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                  <div class="lesson-carousel-caption">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="lesson-carousel-caption-title">OPENING</div>
+                                <div class="lesson-carousel-caption-activity">Mixing Music</div>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                     <!-- LARGE MEDIA -->
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                            <div class="span10 offset1 lessonContent">
+                            	<p>Template: Large Media</p>
+                            	<img src="_images/CC_UI/content/A-1-1-2.jpg" style="width:100%;">
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
               
-		</div><!-- .carousel-inner -->
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                  <div class="lesson-carousel-caption">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <img src="_images/CC_UI/cc_commonread.png" class="lesson-carousel-caption-img"/>
+                                <div class="lesson-carousel-caption-title">READ FOR THE BASICS</div>
+                                <div class="lesson-carousel-caption-activity">Common Read</div>
+                          </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                     <!-- MEDIA LEFT -->
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                         	<div class="span6 offset1">
+                       	    <img src="_images/CC_UI/content/7-4-14-2.png"  style="width:100%; padding-top:30px;">
+                            </div>
+                           	<div class="span4 lessonContent">
+                                <p>Template: Media Left. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                                <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
+              
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                  <div class="lesson-carousel-caption">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <img src="_images/CC_UI/cc_commonread.png" class="lesson-carousel-caption-img"/>
+                                <div class="lesson-carousel-caption-title">READ FOR THE BASICS</div>
+                                <div class="lesson-carousel-caption-activity">Common Read</div>
+                          </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                     <!-- MEDIA LEFT STACKED -->
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                         	<div class="span6 offset1">
+                       	    	<img src="_images/CC_UI/content/7-4-14-2.png"  style="width:100%; padding-top:30px;">
+                                <img src="_images/CC_UI/content/7-4-14-2.png"  style="width:100%; padding-top:30px;">
+                           	</div>
+                           	<div class="span4 lessonContent">
+                                <p>Template: Media Left Stacked. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                                <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
+              
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                  <div class="lesson-carousel-caption lesson-carousel-caption-right">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <img src="_images/CC_UI/cc_commonread.png" class="lesson-carousel-caption-img lesson-carousel-caption-right" style="padding-left:15px;"/>
+                                <div class="lesson-carousel-caption-title lesson-carousel-caption-right">WORKTIME</div>
+                                <div class="lesson-carousel-caption-activity lesson-carousel-caption-right">Tap the Beats</div>
+                          </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                     <!-- MEDIA RIGHT -->
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                           	<div class="span10 offset1">
+                           	  <div class="lessonContent lesson-media-right-textbox">
+                                    <p>Template: Media Right. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                    <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                    <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                                    <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                    <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                                </div>
+                                <div class="lesson-media-right-mediabox">
+                           	    	<img src="_images/CC_UI/content/A-1-2-2.jpg" style="height:100%">
+                                </div>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
+              
+              <div class="item">
+              	<div class="lesson-carousel-item-inner">
+                  <div class="lesson-carousel-caption lesson-carousel-caption-right">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <img src="_images/CC_UI/cc_ela_worktime.png" class="lesson-carousel-caption-img lesson-carousel-caption-right" style="padding-left:15px;"/>
+                                <div class="lesson-carousel-caption-title lesson-carousel-caption-right">AMERICAN SHORT STORY</div>
+                                <div class="lesson-carousel-caption-activity lesson-carousel-caption-right">Independent Work</div>
+                          </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div>
+                     <!-- MEDIA RIGHT STACKED -->
+                    <div class="lesson-carousel-content">
+                         <div class="row-fluid">
+                           	<div class="span10 offset1">
+                           	  <div class="lessonContent lesson-media-right-textbox">
+                                    <p>Template: Media Right Stacked. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                    <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                    <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                                    <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                    <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
+                                </div>
+                                <div class="lesson-media-right-mediabox">
+                           	    	<img src="_images/CC_UI/content/A-1-2-2.jpg" style="height:100%;">
+                                </div>
+                                <div class="lesson-media-right-mediabox-two">
+                           	    	<img src="_images/CC_UI/content/A-1-2-2.jpg">
+                                </div>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
+                    </div><!-- /.lesson-carousel-content-->
+              	</div><!-- /.item-inner -->
+              </div><!-- /.item -->
+              
+	  </div><!-- .carousel-inner -->
 
           <a class="carousel-control lesson-carousel-control left" href="#lesson-carousel-id" data-slide="prev">&nbsp;</a>
           <a class="carousel-control lesson-carousel-control right" href="#lesson-carousel-id" data-slide="next">&nbsp;</a>
