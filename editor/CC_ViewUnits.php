@@ -128,7 +128,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="CC_EditUnit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($courseId)) echo "&ProjectId=" . $courseId;?>"><i class="icon-edit icon-white"></i> Edit</a>
                   			</td>
-                        <td width="140"><a class="btn btn-mini btn-primary" href="../CC_EpisodeBrowserLive.php?CourseId=<?php echo $row_CourseList['Id'] . "&UnitId" . $row_MediaQuery['Id']; ?>"><i class="icon-eye-open icon-white"></i> View</a></td>
+                        <td width="140"><a class="btn btn-mini btn-primary" href="../CC_EpisodeBrowserLive.php?CourseId=<?php echo $row_MediaQuery['Id'] . "&UnitId=" . $row_MediaQuery['Id']; ?>"><i class="icon-eye-open icon-white"></i> View</a></td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
                         <td width="140"><img src="<?php echo $row_MediaQuery['SmallImage']; ?>" class="img-polaroid" width="100"></td>
                         <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>&CourseId=<?php echo $courseId; ?>"><?php echo $row_MediaQuery['Name']; ?></a></td>
