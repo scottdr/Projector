@@ -27,7 +27,11 @@
 
   </head>
 
-  <body>
+  <body class="lessonbody">
+  
+  <div class="img-background">
+  	<img src="_images/CC_UI/content/9-2-10-background.jpg">
+  </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
@@ -54,10 +58,10 @@
               	<div class="lesson-carousel-item-inner">
                     <div class="lesson-carousel-caption">
                         <div class="row-fluid">
-                            <div class="span12" style="color:#FFF;">
+                            <div class="span12">
                                 <img src="_images/CC_UI/cc_ela_worktime.png" style="float:left; padding-right:10px;"/>
-                                <p class="lessonTypeHeading">OPENING</p>
-                                <H1>Common Writing</H1>
+                                <p>OPENING</p>
+                                <p class="lesson-carousel-title">Common Writing</p>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div>
@@ -79,8 +83,8 @@
                         <div class="row-fluid">
                             <div class="span12" style="color:#FFF;">
                                 <img src="_images/CC_UI/cc_wholegroupshare.png" style="float:left; padding-right:10px;"/>
-                                <p class="lessonTypeHeading">IDENTIFYING KEY IDEAS AND DETAILS</p>
-                                <H1>Whole Class Share</H1>
+                                <p>IDENTIFYING KEY IDEAS AND DETAILS</p>
+                                <p class="lesson-carousel-title">Whole Class Share</p>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->
                     </div>
@@ -105,7 +109,7 @@
   </div> <!-- /container -->
     
 	
-    <div class="navbar-fixed-bottom lessonNavigation">
+  <div class="navbar-fixed-bottom lessonNavigation">
         <div class="pagination pagination-centered">
             <ul>
                 <li><a href="#">&lt;</a></li>

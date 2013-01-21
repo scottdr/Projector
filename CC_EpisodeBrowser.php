@@ -34,9 +34,9 @@
                 	<div class="episode-carousel-item-inner">
                 
                         <div class="episode-carousel-caption">
-                            <p class="browserEpisode">EPISODE 1:</p>
-                            <p class="browserEpisodeTitle">Lorem Ipsum Dolor</p>
-                            <p class="browserEpisodeDescription">In this episode</p> 
+                            <p class="episode-carousel-caption-number">EPISODE 1:</p>
+                            <p class="episode-carousel-caption-title">Lorem Ipsum Dolor</p>
+                            <p class="episode-carousel-caption-description">In this episode</p> 
                         </div>
                         
                         <div class="episode-carousel-content">
@@ -199,8 +199,8 @@
         <div id="lessonModal" class="modal hide fade" tabindex="10" role="dialog" aria-labelledby="lessonModalLabel" aria-hidden="true">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <p class="lessonHeader">EPISODE 1: TITLE</p>
-            <h2 id="lessonModalLabel">Lesson 1</h2>
+            <p class="unit-browser-modal-lesson-header">EPISODE 1: TITLE</p>
+            <h2 id="unit-browser-modal-lesson-title ">Lesson 1</h2>
           </div>
           <div class="modal-body">
             <p>Lesson Description</p>
