@@ -27,7 +27,7 @@
           <i class="icon-plus icon-white"></i> 
           Add <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?>
       </a>
-      <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="ViewAll.php">
+      <a class="btn btn-small btn-inverse" style="height:20px; padding:5px; line-height:20px;" href="<?php if ($PROJECTOR['cc']) echo "CC_ViewLessons.php"; else echo "ViewAll.php" ?>">
           <i class="icon-eye-open icon-white"></i> 
           View <?php if ($PROJECTOR['cc']) echo "lessons"; else echo "projects"; ?>
       </a>
