@@ -68,6 +68,7 @@ $UnitInfo = mysql_query($query_UnitInfo, $projector) or die(mysql_error());
 $row_UnitInfo = mysql_fetch_assoc($UnitInfo);
 $totalRows_UnitInfo = mysql_num_rows($UnitInfo);
 
+$addToUrl = "";
 // get URL parameter's already on the url and pass them on to next page.
 if (isset($_SERVER['QUERY_STRING'])) {
     $addToUrl = "?";
@@ -156,8 +157,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 		
 		$(document).ready(function(){
+			loadLessonSteps();	// load json encoded array of all the step info
 			// load in the info for the first step
 			loadStep(ProjectId,-1,1);
+			
 			$('body').css('display', 'none');
 			$('body').fadeIn(1000);
 			$("a.transition").click(function(event){
@@ -171,18 +174,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
 		
 			$("#NextButton").click(function() {
 				var newStepNumber = parseInt($("#lesson-ribbon").attr("data-number")) + 1;
-				loadStep(ProjectId,-1,newStepNumber);
-				$('#lesson-ribbon').html(String(newStepNumber));
-				$("#lesson-ribbon").attr("data-number",String(newStepNumber));
+				selectStep(newStepNumber);
 			});
 			
 			$("#PreviousButton").click(function() {
 				var newStepNumber = parseInt($("#lesson-ribbon").attr("data-number")) - 1;
-				if (newStepNumber >= 1) {
-					loadStep(ProjectId,-1,newStepNumber);
-					$('#lesson-ribbon').html(String(newStepNumber));
-					$("#lesson-ribbon").attr("data-number",String(newStepNumber));
-				}
+				selectStep(newStepNumber);
 			});
 			
 		  $('#lesson-ribbon').popover({ 
