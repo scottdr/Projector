@@ -54,7 +54,7 @@ if ($totalRows_routinesRecordset > 0) {
 	do {
 		if (isset($row_routinesRecordset)) {
 			// this Query needs to be UPDATED for COMMON CORE projects look for the TaskId instead of RoutineId
-			$query_stepsRecordset = sprintf("SELECT Steps.Id, Steps.Title, ProjectId, SortOrder, TemplateName, Name, RoutineId FROM Steps WHERE ProjectId = %s AND Steps.RoutineId = %s ORDER BY SortOrder",$ProjectId, $row_routinesRecordset['RoutineId']);
+			$query_stepsRecordset = sprintf("SELECT Steps.Id, Steps.Title,  Steps.Description, ProjectId, SortOrder, TemplateName, Name, RoutineId FROM Steps WHERE ProjectId = %s AND Steps.RoutineId = %s ORDER BY SortOrder",$ProjectId, $row_routinesRecordset['RoutineId']);
 	//	print "query = $query_stepsRecordset\n<br />";
 			$stepsRecordset = mysql_query($query_stepsRecordset, $projector) or die(mysql_error());
 			$row_stepsRecordset = mysql_fetch_assoc($stepsRecordset);
@@ -63,7 +63,7 @@ if ($totalRows_routinesRecordset > 0) {
 				echo '<div class="ribbon-item" data-number="' . $rowStepNumber . '">' . "\n\t";
 				echo '<p class="ribbon-item-number">' . $rowStepNumber . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Title'] . '</p>' . "\n\t";
-				echo '<p class="ribbon-item-description">Discription fusce mollis augue at nunc blandit accumsan. Donec id ante lacinia velit viverra ullamcorper. </p>' . "\n\t";
+				echo '<p class="ribbon-item-description">' . $row_stepsRecordset['Description'] . '</p>' . "\n\t";
         echo '<img class="ribbon-item-image" src="_images/placeholder_img.gif">' . "\n";
 				echo '</div>' . "\n";
 				$rowStepNumber++;			
