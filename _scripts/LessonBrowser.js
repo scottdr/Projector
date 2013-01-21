@@ -34,6 +34,7 @@ function loadLessonSteps()
 		cache: false
 	}).done(function( json ) {
 			lessonSteps = jQuery.parseJSON( json );
+			selectStep(1);
 	});
 }
 
@@ -49,6 +50,7 @@ function selectStep(stepNumber) {
 	
 	$('#RoutineName').html(lessonSteps[newStepNumber-1].RoutineName);	
 	$('#StepTitle').html(lessonSteps[newStepNumber-1].StepTitle);
+	$('#RoutineIcon').attr("src",lessonSteps[newStepNumber-1].RoutineIcon);
 	loadStep(ProjectId,lessonSteps[newStepNumber-1].StepId);
 	$('#lesson-ribbon').html(String(newStepNumber));
 	$("#lesson-ribbon").attr("data-number",String(newStepNumber));	

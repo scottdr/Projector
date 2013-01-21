@@ -100,8 +100,8 @@ $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
                 <thead>
                     <tr>
                         <th width="10%">&nbsp;</th>
-                      	<!--<th width="5%">ID</th> -->
-                        <th width="70%">Routine</th>
+                      	<th width="10%">Icon</th>
+                        <th width="80%">Routine</th>
                         <!--<th width="10%">Project ID</th>-->
                     </tr>
                 </thead>
@@ -110,7 +110,7 @@ $totalRows_MediaQuery = mysql_num_rows($MediaQuery);
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="CCSoC_EditRoutine.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($projectId)) echo "&ProjectId=" . $projectId;?>"><i class="icon-edit icon-white"></i> Edit</a>
                   			</td>
-                        <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
+                        <td><img name="Icon" src="<?php echo $row_MediaQuery['Icon']; ?>" width="32" height="32" alt=""></td>
                         <td><?php echo $row_MediaQuery['RoutineName']; ?></td>
                         
                     </tr>

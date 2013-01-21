@@ -111,22 +111,17 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <div class="container" style="padding-top:80px;">
     
     	<div class="row-fluid">
-            <div class="span12" style="color:#FFF;">
-                <img src="_images/CC_UI/cc_math_groupwork.png" style="float:left; padding-right:10px;"/>
+      	<div class="span12" style="color:#FFF;">
+                <img id="RoutineIcon" src="_images/CC_UI/cc_math_groupwork.png" style="float:left; padding-right:10px;"/>
                 <p id="RoutineName" class="lessonTypeHeading">GROUP PROJECT</p>
                 <H1 id="StepTitle">WorkTime</H1>
-			</div><!-- /.span -->
-        </div><!-- /.row fluid -->
+				</div><!-- /.span -->
+      </div><!-- /.row fluid -->
         
-        <div class="row-fluid">
-            <div id="LessonContent" class="span8 offset2 lessonContent">
-            	<p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
-            	<p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
-            	<p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
-            	<p>Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
-            	<p>Aaugue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
-			</div><!-- /.span -->
-        </div><!-- /.row fluid -->
+      <div class="row-fluid">
+          <div id="LessonContent" class="span8 offset2 lessonContent">	
+          </div><!-- /.span -->
+      </div><!-- /.row fluid -->
       
     </div> <!-- /container -->
     
@@ -159,7 +154,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
 		$(document).ready(function(){
 			loadLessonSteps();	// load json encoded array of all the step info
 			// load in the info for the first step
-			loadStep(ProjectId,-1,1);
+			//loadStep(ProjectId,-1,1);
+			//selectStep(1);	// select the first step
 			
 			$('body').css('display', 'none');
 			$('body').fadeIn(1000);
