@@ -63,7 +63,7 @@ if ($totalRows_routinesRecordset > 0) {
 			do {
 				echo '<div class="ribbon-item" data-number="' . $rowStepNumber . '">' . "\n\t";
 				echo '<p class="ribbon-item-number">' . $rowStepNumber . '</p>' . "\n\t";
-				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Title'] . '</p>' . "\n\t";
+				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Name'] . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-description">' . $row_stepsRecordset['Description'] . '</p>' . "\n\t";
         echo '<img class="ribbon-item-image" src="_images/placeholder_img.gif">' . "\n";
 				echo '</div>' . "\n";
