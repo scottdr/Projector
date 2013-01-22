@@ -55,3 +55,12 @@ function selectStep(stepNumber) {
 	$('#lesson-ribbon').html(String(newStepNumber));
 	$("#lesson-ribbon").attr("data-number",String(newStepNumber));	
 }
+
+/* selec the step then hide the lesson navigator
+*/
+function selectStepAndHide(stepNumber)
+{ 
+	selectStep(stepNumber);
+	// Tanya can you figure out how to hide the lesson navigator popup?
+	$(".popover-content").hide();
+}
