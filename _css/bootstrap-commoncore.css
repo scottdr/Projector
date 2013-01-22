@@ -719,7 +719,7 @@ p {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */
 	cursor:pointer;
 }
-.ribbon-item:hover {
+.no-touch .ribbon-item:hover, .ribbon-item.selected {
 	color:#FFF;
 	background: #4470ff; /* Old browsers */
 	background: -moz-linear-gradient(top,  #4470ff 0%, #0032c3 100%); /* FF3.6+ */
@@ -741,7 +741,7 @@ p {
 	text-align:center;
 	padding-right:15px;
 }
-.ribbon-item-number:hover {
+.no-touch .ribbon-item-number:hover, .selected .ribbon-item-number {
 	color:#FFF;
 }
 .ribbon-item-title {
@@ -754,7 +754,7 @@ p {
 	padding-bottom:5px;
 	width:300px;
 }
-.ribbon-item-title:hover {
+.no-touch .ribbon-item-title:hover, .selected .ribbon-item-title {
 	color:#FFF;
 }
 .ribbon-item-description {
@@ -767,7 +767,7 @@ p {
 	font-weight:100;
 	width:300px;
 }
-.ribbon-item-description:hover {
+.no-touch .ribbon-item-description:hover, .selected .ribbon-item-description {
 	color:#FFF;
 }
 .ribbon-item-image {
