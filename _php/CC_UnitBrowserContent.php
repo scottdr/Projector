@@ -47,7 +47,7 @@ if ($totalRows_UnitList > 0) {
 	 echo "<div ";
 	 if ($itemNum == 0) echo 'class="item active"'; else echo 'class="item"'; 
 	 echo ">\n";
-	 echo '<div class="item-inner">' . "\n\t";
+	 echo '<div class="unit-carousel-item-inner">' . "\n\t";
    echo '<div class="unit-carousel-caption">' . "\n\t";
 	 echo '<p>' . $row_UnitList['Name'] . "</p>\n\t\t";
    echo '<p class="unit-carousel-title">' . $row_UnitList['Title'] . "</p>\n\t";                 
