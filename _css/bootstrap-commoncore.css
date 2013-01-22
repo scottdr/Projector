@@ -622,10 +622,11 @@ p {
 .lesson-carousel-content-math-mission-img {
 	height:100px;
 	width:100px;
+	margin:15px;
 }
 .lesson-carousel-content-math-mission-title {
 	font-size:50px;
-	line-height:160px;
+	line-height:130px;
 	color:#008513;
 	font-weight:100;
 }

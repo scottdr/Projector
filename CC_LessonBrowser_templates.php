@@ -10,6 +10,10 @@
     
     <style type="text/css">
 	
+		body {
+			background-color:#FFF;
+		}
+	
 	   .lesson-carousel .carousel-pills {
 		  display:block;
 		}
