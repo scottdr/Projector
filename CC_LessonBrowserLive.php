@@ -85,6 +85,14 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
     <link href="_css/bootstrap.css" rel="stylesheet"/>
     <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
+    
+    <style type="text/css">
+	
+		body {
+			background-color:#FFF;
+		}
+
+    </style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -93,7 +101,11 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
   </head>
 
-  <body>
+  <body class="lessonbody">
+  
+  <div class="img-background">
+  	<img src="_images/CC_UI/content/9-2-10-background-1024.jpg">
+  </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
@@ -108,21 +120,40 @@ if (isset($_SERVER['QUERY_STRING'])) {
       </div><!-- /.navbar-inner -->
     </div><!-- /.navbar -->
 
-    <div class="container" style="padding-top:80px;">
+	<div class="container" style="padding-top:80px;">
     
-    	<div class="row-fluid">
-      	<div class="span12" style="color:#FFF;">
-                <img id="RoutineIcon" src="_images/CC_UI/cc_math_groupwork.png" style="float:left; padding-right:10px;"/>
-                <p id="RoutineName" class="lessonTypeHeading">GROUP PROJECT</p>
-                <H1 id="StepTitle">WorkTime</H1>
-				</div><!-- /.span -->
-      </div><!-- /.row fluid -->
-        
-      <div class="row-fluid">
-          <div id="LessonContent" class="span8 offset2 lessonContent">	
-          </div><!-- /.span -->
-      </div><!-- /.row fluid -->
-      
+    <!--  Carousel -->
+        <div id="lesson-carousel-id" class="carousel slide lesson-carousel">
+            <div class="carousel-inner">
+                <div class="item active">        
+                	<div class="lesson-carousel-item-inner">
+                    
+                		<!-- Carousel Caption -->
+                        <div class="lesson-carousel-caption">
+                           <div class="row-fluid">
+                              <div class="span12">
+                                    <img id="RoutineIcon" src="_images/CC_UI/cc_math_groupwork.png" class="lesson-carousel-caption-img"/>
+                                    <div id="RoutineName" class="lesson-carousel-caption-title">GROUP PROJECT</div>
+                                    <div id="StepTitle" class="lesson-carousel-caption-activity">WorkTime</div>
+                                </div><!-- /.span -->
+                            </div><!-- /.row fluid -->
+                        </div><!-- /.lesson-carousel-caption-->
+                        
+                        <!-- Carousel Content -->
+                    	<div class="lesson-carousel-content">
+                             <div class="row-fluid">
+                             	<!-- NEED TO SWAP OUT TEMPLATE LAYOUTS HERE -->
+                                <div id="LessonContent" class="span6 offset3 lessonContent">
+                                     
+                                </div><!-- /.span -->
+                            </div><!-- /.row fluid -->
+                        </div><!-- /.lesson-carousel-content-->      
+                                          
+					</div><!-- /item-inner -->
+                </div><!-- /.inner -->
+                
+      	</div><!-- /carousel-inner-->
+      </div><!-- /lesson-carousel-->
     </div> <!-- /container -->
     
     <div class="navbar-fixed-bottom lessonNavigation">
@@ -141,10 +172,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
     </div>
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
-    
+    <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
+
     <script type='text/javascript' src="js/bootstrap.js"></script>
     <script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
     <script type='text/javascript' src="js/bootstrap-popover.js"></script>
+    <script type='text/javascript' src="js/bootstrap-carousel.js"></script> 
     <script type='text/javascript' src="js/utility.js"></script>
     <script type='text/javascript' src="_scripts/LessonBrowser.js"></script>
     
