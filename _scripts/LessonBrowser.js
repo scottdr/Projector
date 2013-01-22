@@ -84,21 +84,15 @@ $(document).on('click', '.ribbon-item', function (e) {
 });
 
 $(document).on('click', function (e) {
-	if (popover.hasClass('show')) {
-		return;
-	} else {
-		if ($(e.target).closest('.pag').length === 0 ) {
-			pag.toggleClass('showing');
-		};
+	if ($(e.target).closest('.pag').length === 0 ) {
+		pag.toggleClass('showing');
 	};
 });
 
 $(document).on('click touchstart', function (e) {
-    if (pag.hasClass('showing')) {
-        if ($(e.target).closest('.pag').length === 0) {
-            popover.removeClass('show');
-        };
-    };
+	if ($(e.target).closest('.pag').length === 0) {
+		popover.removeClass('show');
+	};
 });
 
 $(document).on('snap', function () {
