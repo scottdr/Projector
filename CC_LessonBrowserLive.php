@@ -1,3 +1,4 @@
+<?php require_once('Globals.php'); ?>
 <?php require_once('Connections/projector.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
@@ -105,6 +106,9 @@ if (isset($_SERVER['QUERY_STRING'])) {
               <li><a href="CC_EpisodeBrowserLive.php<?php echo $addToUrl; ?>" class="parent"><?php echo $row_UnitInfo["Name"]; ?></a></li>
               <li><a href="#"><?php echo $row_EpisodeInfo["Name"]; ?>: <?php echo $row_EpisodeInfo["Title"]; ?>, <?php echo $row_LessonInfo["Name"]; ?></a></li>
           </ul>
+          <div style="float:right">
+          <a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "/editor/CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $colname_LessonInfo ?>"><i class="icon-edit icon-white"></i> Edit</a>
+          </div>
         </div><!-- /.container -->
       </div><!-- /.navbar-inner -->
     </div><!-- /.navbar -->
