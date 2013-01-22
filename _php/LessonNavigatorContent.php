@@ -1,3 +1,4 @@
+<!-- This php files generate the contents of the Lesson Navigator -->
 <?php require_once('Connections/projector.php'); ?>
 <?php require_once('Globals.php'); ?>
 <?php
@@ -60,7 +61,7 @@ if ($totalRows_routinesRecordset > 0) {
 			$row_stepsRecordset = mysql_fetch_assoc($stepsRecordset);
 			
 			do {
-				echo '<div class="ribbon-item" data-number="' . $rowStepNumber . '">' . "\n\t";
+				echo '<div class="ribbon-item" data-number="' . $rowStepNumber . '" onclick="selectStep(' . $rowStepNumber . ')">' . "\n\t";
 				echo '<p class="ribbon-item-number">' . $rowStepNumber . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Title'] . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-description">' . $row_stepsRecordset['Description'] . '</p>' . "\n\t";
