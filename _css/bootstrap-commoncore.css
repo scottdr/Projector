@@ -154,8 +154,15 @@ p {
 	margin:0px;
 	padding:0px;
 }
+.thumbnails a {
+	text-decoration: none;
+}
+.thumbnails a:hover {
+	text-decoration: none;
+	background-color:#999;
+}
 .thumbnail {
-	background-color: #333;
+	background-color: #222;
 	display: block;
 	padding: 0px;
 	line-height: 15px;
@@ -171,11 +178,9 @@ p {
 	-o-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.thumbnail a {
-}
-.thumbnail a:hover {
-	text-decoration: none;
-	background-color:#999;
+
+.thumbnail:hover {
+	background-color: #3A3A3A;
 }
 .thumbnail h3 {
 	color:#FFF;
@@ -499,12 +504,18 @@ p {
 	position: relative;
 	float: left;
 	clear: both;
-	width: auto;
+	width: 100%;
 	height:auto;
 	padding-left: 30px;
 	padding-right: 30px;
 	height: 440px;
 	margin: 0px;
+}
+.episode-carousel-content-padding {
+	padding-right: 60px;
+}
+.episode-carousel-content hr {
+	margin-right: 60px;
 }
 .episode-carousel-control {
 	top: 40px;

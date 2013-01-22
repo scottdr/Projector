@@ -76,12 +76,12 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 					$projectNum = 0;
 					do { 
 						if ($projectNum % 3 == 0) {
-							echo '<div class="row-fluid">' . "\n\t";
+							echo '<div class="episode-carousel-content-padding"><div class="row-fluid">' . "\n\t";
 							echo '<ul class="thumbnails">' . "\n";
 						}
 						echo '<li class="span4">' . "\n";
 //						echo '<a href="#lessonModal" role="button" data-toggle="modal">' . "\n";
-// 				SCOTT Taking out the modal dialog for now going directly to the Lesson Browser (that page does not add a lot of value imho)
+// 						SCOTT Taking out the modal dialog for now going directly to the Lesson Browser (that page does not add a lot of value imho)
 
 						echo '<a href="CC_LessonBrowserLive.php' . $addToUrl . "&Id=" . $row_ProjectList['Id'] . '" role="button" data-toggle="modal">' . "\n";
 						echo '<div class="thumbnail">' . "\n";
@@ -93,7 +93,7 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 						$projectNum++;
 						if ($projectNum % 3 == 0) {
 							echo '</ul>' . "\n\t";
-							echo '</div>' . "\n";
+							echo '</div></div> <!-- end row fluid and padding -->' . "\n";
 						}
 					} while ($row_ProjectList = mysql_fetch_assoc($ProjectList)); 
 	        

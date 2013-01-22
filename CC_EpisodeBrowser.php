@@ -41,6 +41,8 @@
                         
                         <div class="episode-carousel-content">
                             <hr/>
+                            
+                            <div class="episode-carousel-content-padding">
                             <div class="row-fluid">
                             
                                 <ul class="thumbnails">
@@ -70,7 +72,9 @@
                                         </li>
                                     </ul>
                                 </div><!-- end row fluid -->
+                                </div><!--  end padding-->
                                 
+                                <div class="episode-carousel-content-padding"> 
                                 <div class="row-fluid">
                                     <ul class="thumbnails">
                                         <li class="span4">
@@ -91,6 +95,7 @@
                                         </li>
                                      </ul>
                                 </div><!--  end row fluid -->
+                                </div><!--  end padding-->
                                 
                             </div><!--  end episode-carousel-content -->
                                 
@@ -109,56 +114,61 @@
                         
                         <div class="episode-carousel-content">
                             <hr/>
-                            <div class="row-fluid">
                             
-                                <ul class="thumbnails">
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 1</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 2</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 3</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                    </ul>
-                                </div><!-- end row fluid -->
-                                
                                 <div class="row-fluid">
+                                
                                     <ul class="thumbnails">
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 4</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                        <li class="span4">
-                                        <a href="#lessonModal" role="button" data-toggle="modal">
-                                            <div class="thumbnail">
-                                              <img src="img/cc_mockups/thumbnail.png" alt="">
-                                              <h3>Lesson 5</h3>
-                                            </div>
-                                        </a>
-                                        </li>
-                                     </ul>
-                                </div><!--  end row fluid -->
+                                            <li class="span4">
+                                            <a href="#lessonModal" role="button" data-toggle="modal">
+                                                <div class="thumbnail">
+                                                  <img src="img/cc_mockups/thumbnail.png" alt="">
+                                                  <h3>Lesson 1</h3>
+                                                </div>
+                                            </a>
+                                            </li>
+                                            <li class="span4">
+                                            <a href="#lessonModal" role="button" data-toggle="modal">
+                                                <div class="thumbnail">
+                                                  <img src="img/cc_mockups/thumbnail.png" alt="">
+                                                  <h3>Lesson 2</h3>
+                                                </div>
+                                            </a>
+                                            </li>
+                                            <li class="span4">
+                                            <a href="#lessonModal" role="button" data-toggle="modal">
+                                                <div class="thumbnail">
+                                                  <img src="img/cc_mockups/thumbnail.png" alt="">
+                                                  <h3>Lesson 3</h3>
+                                                </div>
+                                            </a>
+                                            </li>
+                                        </ul>
+                                        
+                                    </div><!-- end row fluid -->
+                               
+                                
+                                    <div class="row-fluid">
+                                        <ul class="thumbnails">
+                                            <li class="span4">
+                                            <a href="#lessonModal" role="button" data-toggle="modal">
+                                                <div class="thumbnail">
+                                                  <img src="img/cc_mockups/thumbnail.png" alt="">
+                                                  <h3>Lesson 4</h3>
+                                                </div>
+                                            </a>
+                                            </li>
+                                            <li class="span4">
+                                            <a href="#lessonModal" role="button" data-toggle="modal">
+                                                <div class="thumbnail">
+                                                  <img src="img/cc_mockups/thumbnail.png" alt="">
+                                                  <h3>Lesson 5</h3>
+                                                </div>
+                                            </a>
+                                            </li>
+                                         </ul>
+                                    </div><!--  end row fluid -->
+                                    
+                                
                                 
                             </div><!--  end episode-carousel-content -->
                                 
