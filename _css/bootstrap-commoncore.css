@@ -387,7 +387,7 @@ p {
 .unitHeader {
 	margin:0px;
 	padding-right:30px;
-	padding-top:30px;
+	padding-top:35px;
 	padding-left:60px;
 	padding-bottom:25px;
 	background-color:#FFF;
@@ -405,12 +405,16 @@ p {
 	line-height:20px;
 	margin:0px;
 	padding:0px;
+	text-transform:capitalize;
 }
 .unitBody {
 	margin: 0px;
 	padding-right: 30px;
 	padding-top: 30px;
 	padding-left: 60px;
+	font-size:18px;
+	font-weight:200;
+	line-height:24px;
 }
 .unitBody p {
 	font-size:18px;

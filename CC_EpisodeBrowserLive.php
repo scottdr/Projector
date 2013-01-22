@@ -105,6 +105,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 </div>
 <!-- end Unit Info --> 
 
+
 <!-- Modals -->
 <div id="lessonModal" class="modal hide fade" tabindex="10" role="dialog" aria-labelledby="lessonModalLabel" aria-hidden="true">
   <div class="modal-header">
