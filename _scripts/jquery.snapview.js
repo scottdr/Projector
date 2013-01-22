@@ -204,7 +204,7 @@
 
     };
 
-    Plugin.prototype.position = getset(
+    Plugin.prototype.position = getset(		
         function () { return this._page || (this._page = 0); },
         function (page) {
 
