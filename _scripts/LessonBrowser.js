@@ -125,24 +125,3 @@ $('#content-id-0').imagesLoaded(function ($images, $proper, $broken) {
 	});
 });
 };
-
-// request animation timer for form's errors
-var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-                            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-window.requestAnimationFrame = requestAnimationFrame;
-
-function timerrr(form) {
-    var start = Date.now();
-    var req = $j('input[data-req="true"]', form);
-
-    function startTheTimer(timestamp) {
-        var st = Date.now();
-        var progress = st - start;
-        if (progress < 4000) {
-            requestAnimationFrame(startTheTimer);
-        } else {
-            req.parent().removeClass('error');
-        };
-    }
-    requestAnimationFrame(startTheTimer);
-}
