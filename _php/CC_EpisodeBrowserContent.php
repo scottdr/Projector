@@ -35,6 +35,9 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
+if (!isset($addToUrl))
+	$addToUrl = "";
+
 $colname_EpisodeList = "-1";
 if (isset($_GET['UnitId'])) {
   $colname_EpisodeList = $_GET['UnitId'];
@@ -51,6 +54,7 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 	<?php 
 		if ($totalRows_EpisodeList > 0) {
       $itemNum = 0;
+			
       do { 
         echo '<div class="item ' ;
         if ($itemNum == 0) echo "active"; 
@@ -71,9 +75,8 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
         $ProjectList = mysql_query($query_ProjectList, $projector) or die(mysql_error());
         $row_ProjectList = mysql_fetch_assoc($ProjectList);
         $totalRows_ProjectList = mysql_num_rows($ProjectList);
-			
+				$projectNum = 0;
 				if ($totalRows_ProjectList > 0) {
-					$projectNum = 0;
 					do { 
 						if ($projectNum % 3 == 0) {
 							echo '<div class="episode-carousel-content-padding"><div class="row-fluid">' . "\n\t";
@@ -93,19 +96,25 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 						$projectNum++;
 						if ($projectNum % 3 == 0) {
 							echo '</ul>' . "\n\t";
-							echo '</div></div> <!-- end row fluid and padding -->' . "\n";
+							echo '</div><!-- end row fluid and padding -->' . "\n" . '</div><!-- end episode-carousel-content-padding --> ' . "\n";
 						}
 					} while ($row_ProjectList = mysql_fetch_assoc($ProjectList)); 
 	        
-					
+					if ($projectNum % 3 != 0) {	// add closing div tags
+							echo '</ul>' . "\n\t";
+							echo '</div></div> <!-- end row fluid and padding -->' . "\n";
+					}
 					                        
  					echo '</div> <!--  end episode-carousel-content -->' . "\n"; 
         	echo '</div> <!-- end item inner -->' . "\n"; 
       		echo '</div> <!-- end item -->' . "\n"; 
        		$itemNum++;
 				}
+				
 			} while ($row_EpisodeList = mysql_fetch_assoc($EpisodeList)); 
 		}
+/*		if (isset($EpisodeList))
+			mysql_free_result($EpisodeList);*/
 	?>
   </div>
   <!-- end Carousel inner --> 
