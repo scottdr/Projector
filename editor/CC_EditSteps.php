@@ -152,7 +152,7 @@ var projectId;
 var formChanged = false;  // set to true to indicate a form element has changed
 var goingToStep;
 
-thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'TextOnly.php' : '3-TextOnly.png', 'CC_MediaLeft.php' : '4-MediaLeft.png','CC_MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
+thumbnailMap ={'Intro.php': '1-Intro.png','Splash.php':'2-Splash.png', 'CC_TextOnly.php' : '3-TextOnly.png', 'CC_MediaLeft.php' : '4-MediaLeft.png','CC_MediaRight.php' : '5-MediaRight.png', 'IconLeft.php' : '6-IconLeft.png', 'Research.php' : '7-Research.png','Plan.php' : '8-Plan.png','Create.php' : '9-Create.png','Revise.php' : '10-Revise.png', 'Present.php' : '11-Present.png',};
 
 
 function populateOrderMenu(numItems,selectedItem) {
@@ -448,7 +448,7 @@ function doTemplateChange(combobox) {
                   <td><select name="Template" size="1" id="Template" onChange="doTemplateChange(this)">
                     <option value="Intro.php" selected="SELECTED">Intro</option>
                     <option value="Splash.php">Splash</option>
-                    <option value="TextOnly.php">Text only</option>
+                    <option value="CC_TextOnly.php">Text only</option>
                     <option value="CC_MediaLeft.php">Media left</option>
                     <option value="CC_MediaRight.php">Media right</option>
                     <option value="IconLeft.php">Icon left</option>
