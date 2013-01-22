@@ -88,6 +88,14 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <link href="_css/bootstrap.css" rel="stylesheet"/>
     <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
 
+	 <style type="text/css">
+	
+		body {
+			background-color:#FFF;
+		}
+
+    </style>
+    
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -96,6 +104,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
   </head>
 
   <body class="lesson-body be-invisible">
+  
+  <div class="img-background">
+  	<img src="_images/CC_UI/content/9-2-10-background-1024.jpg">
+  </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
@@ -106,10 +118,11 @@ if (isset($_SERVER['QUERY_STRING'])) {
               <li><a href="CC_EpisodeBrowserLive.php<?php echo $addToUrl; ?>" class="parent"><?php echo $row_UnitInfo["Name"]; ?></a></li>
               <li><a href="#"><?php echo $row_EpisodeInfo["Name"]; ?>: <?php echo $row_EpisodeInfo["Title"]; ?>, <?php echo $row_LessonInfo["Name"]; ?></a></li>
           </ul>
-          <div style="float:right">
-          <a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "/editor/CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $colname_LessonInfo ?>"><i class="icon-edit icon-white"></i> Edit</a>
+          <div style=" position:fixed; right:10px; top:8px;">
+          	<a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "/editor/CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $colname_LessonInfo ?>"><i class="icon-edit icon-white"></i> Edit</a>
           </div>
         </div><!-- /.container -->
+        
       </div><!-- /.navbar-inner -->
     </div><!-- /.navbar -->
 
