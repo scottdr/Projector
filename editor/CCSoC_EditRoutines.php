@@ -84,7 +84,7 @@ if (isset($_POST['SaveRoutines'])) {
 			// if we are adding for the first time then insert steps 
 			if ($totalRows_lessonRoutinesQuery == 0) { 
 				$sqlCommand = sprintf("INSERT INTO Steps (ProjectId, RoutineId, SortOrder, Name, TemplateName) VALUES (%s, %s, %s, %s, %s)",
-														 GetSQLValueString($projectId, "int"), $value, 1, GetSQLValueString("Step", "text"), GetSQLValueString("MediaLeft.php", "text"));
+														 GetSQLValueString($projectId, "int"), $value, 1, GetSQLValueString("Step", "text"), GetSQLValueString("CC_MediaLeft.php", "text"));
 //				echo "$sqlCommand\n<br />";
 				$Result1 = mysql_query($sqlCommand, $projector) or die(mysql_error());
 			}
