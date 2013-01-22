@@ -209,12 +209,15 @@
         function (page) {
 
             var root = $(this._element);
-            var children = root.children();
+            var children = root.children(),
+			p = this._page;
 
             // clamp the page position so it isn't out of range
             page = this._page = Math.min(Math.max(page, 0), children.length - 1);
-
-            root.trigger('snap');
+			
+			if(page != p){
+				root.trigger('snap');
+			};
 
             var offset = this._activePosition = page / children.length;
 
