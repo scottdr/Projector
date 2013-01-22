@@ -50,7 +50,7 @@ if ($totalRows_UnitList > 0) {
 	 echo '<div class="item-inner">' . "\n\t";
    echo '<div class="unit-carousel-caption">' . "\n\t";
 	 echo '<p>' . $row_UnitList['Name'] . "</p>\n\t\t";
-   echo '<p class="browserUnitTitle">' . $row_UnitList['Title'] . "</p>\n\t";                 
+   echo '<p class="unit-carousel-title">' . $row_UnitList['Title'] . "</p>\n\t";                 
    echo "</div>\n";                    
    echo '<div class="unit-carousel-content">' . "\n";
 	 echo "<p>" .  $row_UnitList['Description'] . "</p>\n";
