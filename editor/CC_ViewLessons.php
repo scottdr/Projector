@@ -120,9 +120,9 @@ if (isset($_SERVER['QUERY_STRING'])) {
                 <tbody>
                 	<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $row_projectList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
+                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $row_projectList['Id']   ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
                         <td><a href="/ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
-                        <td><a href="/CC_LessonBrowserLive.php<?php echo $addToUrl . "&Id=" . $row_projectList['Id'] ?>"><?php echo $row_projectList['Name']; ?></a></td>
+                        <td><a href="/CC_LessonBrowserLive.php<?php echo $addToUrl . "&Id=" . $row_projectList['Id'] . "&UnitId=" . $row_projectList['UnitId']; ?>"><?php echo $row_projectList['Name']; ?></a></td>
                         <td><?php echo getGrade($row_projectList); ?></td>
                         <td><?php echo $row_projectList['Subject']; ?></td>
                         <td><?php echo $row_projectList['Status']; ?></td>
