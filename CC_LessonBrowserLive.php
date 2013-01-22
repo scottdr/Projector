@@ -106,7 +106,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
   <body class="lesson-body be-invisible">
   
   <div class="img-background">
-  	<img src="_images/CC_UI/content/9-2-10-background-1024.jpg">
+  	<img src="<?php if (isset($row_LessonInfo["ImgLarge"])) echo $row_LessonInfo["ImgLarge"]; else echo ""; ?>">
   </div>
 
     <div class="navbar navbar-fixed-top navbar-inverse">
