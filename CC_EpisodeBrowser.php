@@ -177,13 +177,13 @@
      
       <!-- .carousel -->
       <!-- end carousel -->
-	<div class="unitInfo">
+	<div class="unit-info">
     
-		<div class="unitHeader">
-            <p>UNIT 1</p>
-            <H1>Title of the Unit</H1>
+		<div class="unit-header">
+            <div class="unit-header-unit-number">UNIT 1</div>
+            <div class="unit-header-unit-title">Title of the Unit</div>
         </div>
-        <div class="unitBody">
+        <div class="unit-header-unit-body">
         	<p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. </p>
         	<p>Donec id ante lacinia velit viverra ullamcorper. </p>
         	<ul>

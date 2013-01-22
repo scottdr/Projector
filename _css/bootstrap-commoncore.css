@@ -371,7 +371,7 @@ p {
 	height:510px;
 	margin-top: 0px;
 }
-.unitInfo {
+.unit-info {
 	position: fixed;
 	top: 40px;
 	left: 0px;
@@ -384,22 +384,25 @@ p {
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 }
-.unitHeader {
+.unit-header {
 	margin:0px;
 	padding-right:30px;
 	padding-top:35px;
 	padding-left:60px;
 	padding-bottom:25px;
 	background-color:#FFF;
+	font-size:16px;
+	font-weight:200;
+	line-height:20px;
 }
-.unitHeader h1 {
+.unit-header-unit-title {
 	font-size:26px;
 	font-weight:200;
 	line-height:30px;
 	margin:0px;
 	padding:0px;
 }
-.unitHeader p {
+.unit-header-unit-number {
 	font-size:16px;
 	font-weight:200;
 	line-height:20px;
@@ -407,7 +410,15 @@ p {
 	padding:0px;
 	text-transform:capitalize;
 }
-.unitBody {
+.unit-header-unit-number p {
+	font-size:16px;
+	font-weight:200;
+	line-height:20px;
+	margin:0px;
+	padding:0px;
+	text-transform:capitalize;
+}
+.unit-header-unit-body {
 	margin: 0px;
 	padding-right: 30px;
 	padding-top: 30px;
@@ -416,10 +427,16 @@ p {
 	font-weight:200;
 	line-height:24px;
 }
-.unitBody p {
+.unit-header-unit-body p {
 	font-size:18px;
 	font-weight:200;
 	line-height:24px;
+}
+.unit-header-unit-body li {
+	font-size:18px;
+	font-weight:200;
+	line-height:24px;
+	padding-bottom:15px;
 }
 .unit-browser-modal-lesson-header {
 	font-size:16px;
@@ -444,6 +461,10 @@ p {
 	margin-right: 0px;
 	background-color: #333;
 	height:560px;
+	/*overflow:scroll;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	overflow-style-y:scrollbar;*/
 }
 .episode-carousel-item-inner {
 	margin-left: 30px;
@@ -471,7 +492,8 @@ p {
 	padding-bottom:10px;
 }
 .episode-carousel-caption-description {
-	
+	padding: 0px;
+	margin:0px;
 }
 .episode-carousel-content {
 	position: relative;
@@ -483,10 +505,6 @@ p {
 	padding-right: 30px;
 	height: 440px;
 	margin: 0px;
-	overflow:scroll;
-	overflow-x:hidden;
-	overflow-y:scroll;
-	overflow-style-y:scrollbar;
 }
 .episode-carousel-control {
 	top: 40px;

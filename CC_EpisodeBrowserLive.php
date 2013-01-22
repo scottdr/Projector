@@ -95,12 +95,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 <!-- .carousel --> 
 <!-- end carousel -->
-<div class="unitInfo">
-  <div class="unitHeader">
-    <p><?php echo $row_UnitInfo['Name']; ?></p>
-    <H1><?php echo $row_UnitInfo['Title']; ?></H1>
+<div class="unit-info">
+  <div class="unit-header">
+    <div class="unit-header-unit-number"><?php echo $row_UnitInfo['Name']; ?></div>
+    <div class="unit-header-unit-title"><?php echo $row_UnitInfo['Title']; ?></div>
   </div>
-  <div class="unitBody"> <?php echo $row_UnitInfo['Description']; ?> </div>
+  <div class="unit-header-unit-body"> <?php echo $row_UnitInfo['Description']; ?> </div>
   <div> </div>
 </div>
 <!-- end Unit Info --> 
@@ -121,11 +121,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
 </div>
 <!-- /container --> 
 
-<script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script> 
-<script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script> 
-<script type='text/javascript' src="js/bootstrap.js"></script> 
-<script type='text/javascript' src="js/bootstrap-carousel.js"></script> 
-<script>
+    <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type='text/javascript' src="js/jquery.mobile.custom.min.js"></script>
+
+    <script type='text/javascript' src="js/bootstrap.js"></script>
+    <script type='text/javascript' src="js/bootstrap-carousel.js"></script>
+    <script>
         $(document).ready(function(){
 			
 			$('body').css('display', 'none');
