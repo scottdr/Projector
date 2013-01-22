@@ -805,8 +805,8 @@ body.lesson-body { opacity: 0; -webkit-transition: opacity 1.0s 0 ease-in-out; t
 body.lesson-body.fading-in { opacity: 1; overflow: auto; }
 	.container { width: 100%; max-width: 940px; }
 	.main-container { overflow: hidden; -ms-user-select: none; -ms-touch-action: none; }  
-	.be-invisible .main-container, .be-invisible .pag { display: none !important; }
-	.its-visible .main-container, .its-visible .pag { display: block; }
+	.be-invisible .main-container, .be-invisible .pag { opacity: 0; }
+	.its-visible .main-container, .its-visible .pag { opacity: 1; }
 		.headerr { color: #fff; }
 			.headerr img { float: left; padding-right: 10px; }
 		.pages { -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }
