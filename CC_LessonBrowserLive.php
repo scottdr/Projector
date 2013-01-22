@@ -81,7 +81,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
   <head>
     <meta charset="utf-8">
     <title>Browse Lessons</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 
     <link href="_css/bootstrap.css" rel="stylesheet"/>
     <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
@@ -93,7 +94,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
   </head>
 
-  <body>
+  <body class="lesson-body be-invisible">
 
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
@@ -108,82 +109,51 @@ if (isset($_SERVER['QUERY_STRING'])) {
       </div><!-- /.navbar-inner -->
     </div><!-- /.navbar -->
 
-    <div class="container" style="padding-top:80px;">
+    <div class="container main-container" style="padding-top:80px;">
     
-    	<div class="row-fluid">
-      	<div class="span12" style="color:#FFF;">
-                <img id="RoutineIcon" src="_images/CC_UI/cc_math_groupwork.png" style="float:left; padding-right:10px;"/>
-                <p id="RoutineName" class="lessonTypeHeading">GROUP PROJECT</p>
-                <H1 id="StepTitle">WorkTime</H1>
-				</div><!-- /.span -->
-      </div><!-- /.row fluid -->
+    	<div id="LessonContent" class="pages">
         
-      <div class="row-fluid">
-          <div id="LessonContent" class="span8 offset2 lessonContent">	
-          </div><!-- /.span -->
-      </div><!-- /.row fluid -->
+        </div>
       
     </div> <!-- /container -->
     
     <div class="navbar-fixed-bottom lessonNavigation">
       <div class="pagination pagination-centered">
-        <ul>
-            <li><a id="PreviousButton" href="#">&lt;</a></li>
+        <ul class="relative pag" id="pag">
+            <li><a class="previous" href="#">&lt;</a></li>
             <li>
-                <a href="#" id="lesson-ribbon" data-placement="top" rel="popover" data-original-title="In Lesson 1:" data-number="1">1</a>
-                <div id="popover-content" style="display: none">
-                  <?php require_once("_php/LessonNavigatorContent.php"); ?> 
+                <a href="#" id="lesson-ribbon">1</a>
+                <div id="popover" class="popover fade top in">
+                	<div class="arrow"></div>
+                    <div class="popover-inner">
+                    	<h3 class="popover-title"><?php echo $row_EpisodeInfo["Title"]; ?>, <?php echo $row_LessonInfo["Name"]; ?>:</h3>
+                        <div class="popover-content">
+                  			<?php require_once("_php/LessonNavigatorContent.php"); ?> 
+                        </div>
+                    </div>
                 </div>
             </li>
-            <li><a id="NextButton" href="#">&gt;</a></li>
+            <li><a class="next" href="#">&gt;</a></li>
         </ul>
       </div>
     </div>
+    
+    <span class="loaderr"></span>
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
     
-    <script type='text/javascript' src="js/bootstrap.js"></script>
-    <script type='text/javascript' src="js/bootstrap-tooltip.js"></script>
-    <script type='text/javascript' src="js/bootstrap-popover.js"></script>
     <script type='text/javascript' src="js/utility.js"></script>
+    <script type='text/javascript' src="_scripts/modernizr.custom.42097.js"></script>
+    <script type='text/javascript' src="_scripts/imagesLoaded.js"></script>
+    <script type='text/javascript' src="_scripts/jquery.snapview.js"></script>
     <script type='text/javascript' src="_scripts/LessonBrowser.js"></script>
     
     <script>  
 
 		
 		$(document).ready(function(){
-			loadLessonSteps();	// load json encoded array of all the step info
-			// load in the info for the first step
-			//loadStep(ProjectId,-1,1);
-			//selectStep(1);	// select the first step
-			
-			$('body').css('display', 'none');
-			$('body').fadeIn(1000);
-			$("a.transition").click(function(event){
-				event.preventDefault();
-				linkLocation = this.href;
-				$("body").fadeOut(1000, redirectPage);      
-			});
-			function redirectPage() {
-				window.location = linkLocation;
-			}	
-		
-			$("#NextButton").click(function() {
-				var newStepNumber = parseInt($("#lesson-ribbon").attr("data-number")) + 1;
-				selectStep(newStepNumber);
-			});
-			
-			$("#PreviousButton").click(function() {
-				var newStepNumber = parseInt($("#lesson-ribbon").attr("data-number")) - 1;
-				selectStep(newStepNumber);
-			});
-			
-		  $('#lesson-ribbon').popover({ 
-			html : true,
-			content: function() {
-			  return $('#popover-content').html();
-			}
-		  });
+			loadLessonSteps();	
+			$('body').addClass('fading-in');		
 		});
 	</script>  
 
