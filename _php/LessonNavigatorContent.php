@@ -65,7 +65,7 @@ if ($totalRows_routinesRecordset > 0) {
 				echo '<p class="ribbon-item-number">' . $rowStepNumber . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Name'] . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-description">' . $row_stepsRecordset['Description'] . '</p>' . "\n\t";
-        echo '<img class="ribbon-item-image" src="_images/placeholder_img.gif">' . "\n";
+        echo '<img class="ribbon-item-image" src="_images/CC_UI/step_thumbnail.jpg">' . "\n";
 				echo '</div>' . "\n";
 				$rowStepNumber++;			
 			}  while ($row_stepsRecordset = mysql_fetch_assoc($stepsRecordset));
