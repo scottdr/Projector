@@ -40,7 +40,7 @@ function loadLessonSteps()
 				$('<div>', {
 					'class': 'content-div',
 					id: 'content-id-' + index
-				}).html('<div class="row-fluid headerr"><div class="span12"><img src="' + data.RoutineIcon + '"/><div class="lesson-carousel-caption-title">' + data.RoutineName +'</div><div class="lesson-carousel-caption-activity">' + data.StepTitle + '</div></div></div><div class="row-fluid"><div class="span8 offset2 lessonContent"></div></div>').appendTo('#LessonContent');
+				}).html('<div class="row-fluid headerr"><div class="span12"><img src="' + data.RoutineIcon + '"/><div class="lesson-carousel-caption-title">' + data.RoutineName +'</div><div class="lesson-carousel-caption-activity">' + data.StepTitle + '</div></div></div><div class="row-fluid"><div class="span12 lessonContent" style="background-color:transparent;"></div></div>').appendTo('#LessonContent');
 				count++;
 				loadStep(ProjectId,data.StepId, 'content-id-' + index);
 				if(count === len){
