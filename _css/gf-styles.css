@@ -8,9 +8,9 @@ body.lesson-body.fading-in { opacity: 1; overflow: auto; }
 	.its-visible .main-container, .its-visible .pag { opacity: 1; }
 		.headerr { /*color: #fff;*/ }
 			.headerr img { float: left; padding-left:20px; padding-right: 10px; }
-		.pages { display: -webkit-box; -webkit-box-orient: horizontal; display: box; box-orient: horizontal; display: -moz-box; -moz-box-orient: horizontal; -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }
+		.pages { -webkit-transform: translate3d(0,0,0); -moz-transform: translate3d(0,0,0); -ms-transform: translate3d(0,0,0); transform: translate3d(0,0,0); }
 		.pages:not(.dragging) { -webkit-transition: -webkit-transform .3s ease-out; -moz-transition: -moz-transform .3s ease-out; transition: transform .3s ease-out; }
-			.pages > div { }
+			.pages > div { float: left; min-height: 650px; }
 		.pagination { margin: 0; }
 			.pagination ul { position: absolute; bottom: 20px; left: 50%; margin-left: -75px; }
 				.touch .pag { opacity: 0; }
