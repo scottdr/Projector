@@ -18,7 +18,7 @@ body.lesson-body.fading-in { opacity: 1; overflow: auto; }
 				.popover { top: -420px; margin-left: -205px; opacity: 0; left: -9999px; display: block; }
 				.popover.show { top: -420px; left: 50%; opacity: 1; }
 	
-				.popover-content .ribbon { width: 100%; box-sizing: border-box; overflow: auto; -webkit-overflow-scrolling: touch; }
+				.popover-content .ribbon { width: 100%; box-sizing: border-box; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 					.popover-content .ribbon .ribbon-item { width: 100%; box-sizing: border-box; height: 100px; }
 					.touch .pagination ul > li > a:hover { background-color: rgba(102,102,102,0.8); }
 					
