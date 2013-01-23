@@ -160,7 +160,6 @@ if (isset($_SERVER['QUERY_STRING'])) {
     
     <script type='text/javascript' src="js/utility.js"></script>
     <script type='text/javascript' src="_scripts/modernizr.custom.42097.js"></script>
-    <script type='text/javascript' src="_scripts/imagesLoaded.js"></script>
     <script type='text/javascript' src="_scripts/jquery.snapview.js"></script>
     <script type='text/javascript' src="_scripts/LessonBrowser.js"></script>
     

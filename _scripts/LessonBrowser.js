@@ -5,7 +5,8 @@ var ProjectId = getQueryVariable("Id", -1);
 var StepId = getQueryVariable("StepId", -1);
 var StepNumber = getQueryVariable("StepNumber", 1),
 	len,
-	count = 0;
+	count = 0,
+	showContent = false;
 
 var lessonSteps = null;
 
@@ -21,7 +22,11 @@ function loadStep(ProjectId,StepId,id)
 			url: urlLoadStep,
 			cache: false
 		}).done(function( html ) {	
-				$('#' + id + ' .lessonContent').html(html);				
+				$('#' + id + ' .lessonContent').html(html);	
+				if(showContent){
+					global();	
+					showContent = false;
+				};
 		});
 }
 
@@ -44,7 +49,7 @@ function loadLessonSteps()
 				count++;
 				loadStep(ProjectId,data.StepId, 'content-id-' + index);
 				if(count === len){
-					global();
+					showContent = true;					
 				};
 			});
 	});
@@ -109,13 +114,11 @@ $(document).on('snap', function () {
 
 });
 
-$('#content-id-0').imagesLoaded(function ($images, $proper, $broken) {    
-	firstPip.addClass('selected');	
-	body.removeClass('be-invisible').addClass('its-visible');
+firstPip.addClass('selected');	
+body.removeClass('be-invisible').addClass('its-visible');
 
-	pagHandler.click(function (e) {
-		e.preventDefault();
-		$(this).next().toggleClass('show');
-	});
+pagHandler.click(function (e) {
+	e.preventDefault();
+	$(this).next().toggleClass('show');
 });
 };
