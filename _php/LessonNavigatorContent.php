@@ -50,12 +50,17 @@ $totalRows_routinesRecordset = mysql_num_rows($routinesRecordset);
 ?>
 <div class="ribbon" id="pips">
 <?php
+$loremIpsumArray = array(	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at pulvinar tellus.",
+													"Suspendisse sem dui, pellentesque non condimentum sit amet, vehicula a ante.",
+													"Aliquam ante metus, laoreet eu euismod vel, eleifend id sapien.",
+													"Ut dapibus molestie arcu, nec accumsan felis suscipit in.", 
+													"Nunc pretium placerat nulla sit amet porta. Nunc eleifend lorem vitae sapien lobortis eget pellentesque augue convallis.");
 if ($totalRows_routinesRecordset > 0) {
 	$rowStepNumber = 1;
 	do {
 		if (isset($row_routinesRecordset)) {
 			// this Query needs to be UPDATED for COMMON CORE projects look for the TaskId instead of RoutineId
-			$query_stepsRecordset = sprintf("SELECT Steps.Id, Steps.Title,  Steps.Description, ProjectId, SortOrder, TemplateName, Name, RoutineId FROM Steps WHERE ProjectId = %s AND Steps.RoutineId = %s ORDER BY SortOrder",$ProjectId, $row_routinesRecordset['RoutineId']);
+			$query_stepsRecordset = sprintf("SELECT Steps.Id, Steps.Title, Steps.SmallImage, Steps.Description, ProjectId, SortOrder, TemplateName, Name, RoutineId FROM Steps WHERE ProjectId = %s AND Steps.RoutineId = %s ORDER BY SortOrder",$ProjectId, $row_routinesRecordset['RoutineId']);
 	//	print "query = $query_stepsRecordset\n<br />";
 			$stepsRecordset = mysql_query($query_stepsRecordset, $projector) or die(mysql_error());
 			$row_stepsRecordset = mysql_fetch_assoc($stepsRecordset);
@@ -64,8 +69,15 @@ if ($totalRows_routinesRecordset > 0) {
 				echo '<div class="ribbon-item" data-number="' . $rowStepNumber . '">' . "\n\t";
 				echo '<p class="ribbon-item-number">' . $rowStepNumber . '</p>' . "\n\t";
 				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Name'] . '</p>' . "\n\t";
-				echo '<p class="ribbon-item-description">' . $row_stepsRecordset['Description'] . '</p>' . "\n\t";
-        echo '<img class="ribbon-item-image" src="_images/CC_UI/step_thumbnail.jpg">' . "\n";
+				if (isset($row_stepsRecordset['Description']) && $row_stepsRecordset['Description'] != "")
+					$stepDescription = $row_stepsRecordset['Description'];
+				else
+					$stepDescription = $loremIpsumArray[$rowStepNumber % 5];
+				echo '<p class="ribbon-item-description">' . $stepDescription . '</p>' . "\n\t";
+				$imageThumbnail = "_images/CC_UI/step_thumbnail.jpg";
+				if (isset($row_stepsRecordset['SmallImage']) && $row_stepsRecordset['SmallImage'] != "")
+					$imageThumbnail = $row_stepsRecordset['SmallImage'];
+        echo '<img class="ribbon-item-image" src="' . $imageThumbnail . '">' . "\n";
 				echo '</div>' . "\n";
 				$rowStepNumber++;			
 			}  while ($row_stepsRecordset = mysql_fetch_assoc($stepsRecordset));
