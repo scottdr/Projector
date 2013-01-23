@@ -1,13 +1,11 @@
-                         <!-- MEDIA RIGHT -->
-                         <div class="row-fluid">
-                           	<div class="span10 offset1">
-                           	   <div class=" lesson-media-right-textbox lessonContent ">
-                             		<div class="lesson-carousel-content">
-										<?php echo $row_StepQuery['Text']; ?>
-                                    </div>
+                        <!-- MEDIA RIGHT -->
+                        <div class="row-fluid">
+                         	<div class="span4 offset1 lessonContent">
+                            	<div class="lesson-carousel-content">
+									<?php echo $row_StepQuery['Text']; ?>
                                 </div>
-                                <div class="lesson-media-right-mediabox">
-                           	    	 <?php GenerateImageTag(0); ?>
-                                </div>
+                            </div>
+                           	<div class="span6 ">
+                            	<?php GenerateImageTag(0); ?>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->

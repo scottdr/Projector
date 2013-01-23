@@ -678,6 +678,7 @@ p {
 	margin: 0px;
 	height: 360px;
 	text-align:right;
+	z-index: 100;
 }
 .lesson-media-right-mediabox img {
 	height:100%;
