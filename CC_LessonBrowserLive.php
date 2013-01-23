@@ -63,6 +63,13 @@ $colname_UnitInfo = "-1";
 if (isset($_GET['UnitId'])) {
   $colname_UnitInfo = $_GET['UnitId'];
 }
+
+$editable = true;
+$GLOBALS['demoMode'] = false;
+if ($GLOBALS['demoMode']) {
+	if (!isset($_GET['Action']) || $_GET['Action'] != 'Edit')
+  	$editable = false;
+}
 mysql_select_db($database_projector, $projector);
 $query_UnitInfo = sprintf("SELECT * FROM Units WHERE Id = %s", GetSQLValueString($colname_UnitInfo, "int"));
 $UnitInfo = mysql_query($query_UnitInfo, $projector) or die(mysql_error());
@@ -120,7 +127,9 @@ if (isset($_SERVER['QUERY_STRING'])) {
               <li><a href="#"><?php echo $row_EpisodeInfo["Name"]; ?>: <?php echo $row_EpisodeInfo["Title"]; ?>, <?php echo $row_LessonInfo["Name"]; ?></a></li>
           </ul>
           <div style=" position:fixed; right:10px; top:8px;">
-          	<a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "/editor/CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $colname_LessonInfo ?>"><i class="icon-edit icon-white"></i> Edit</a>
+          	<?php if ($editable) : ?>
+          	<a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "/editor/CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $colname_LessonInfo ."&Action=Edit" ?>"><i class="icon-edit icon-white"></i> Edit</a>
+           	<?php endif; ?>
           </div>
         </div><!-- /.container -->
         
