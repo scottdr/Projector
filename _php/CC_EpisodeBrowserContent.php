@@ -47,6 +47,19 @@ $query_EpisodeList = sprintf("SELECT * FROM Episodes WHERE UnitId = %s ORDER BY 
 $EpisodeList = mysql_query($query_EpisodeList, $projector) or die(mysql_error());
 $row_EpisodeList = mysql_fetch_assoc($EpisodeList);
 $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
+
+function outputAddNewLesson() {
+	global $colname_CourseInfo, $colname_UnitInfo, $row_ProjectList;
+	
+	echo '<li class="span4">' . "\n";
+	echo '<a href="/editor/CCSoC_EditLesson.php?action=Add' . "&CourseId=" . $colname_CourseInfo. "&UnitId=". $colname_UnitInfo . '" role="button" data-toggle="modal">' . "\n";
+	echo '<div class="thumbnail">' . "\n";
+	echo '<img src="/_images/CC_UI/addnewlesson.jpg" >' . "\n";
+	echo '<h3>Add New Lesson</h3>' . "\n";
+	echo '</div>' . "\n";
+	echo '</a>' . "\n";
+	echo '</li>' . "\n"; 
+}
 ?>
 
 <div id="episode-carousel-id" class="carousel slide episode-carousel">
@@ -76,23 +89,25 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
         $row_ProjectList = mysql_fetch_assoc($ProjectList);
         $totalRows_ProjectList = mysql_num_rows($ProjectList);
 				$projectNum = 0;
-				if ($totalRows_ProjectList > 0) {
+				if ($totalRows_ProjectList > 0 || $row_EpisodeList['Type'] == "1") {
 					do { 
 						if ($projectNum % 3 == 0) {
 							echo '<div class="episode-carousel-content-padding"><div class="row-fluid">' . "\n\t";
 							echo '<ul class="thumbnails">' . "\n";
 						}
-						echo '<li class="span4">' . "\n";
-//						echo '<a href="#lessonModal" role="button" data-toggle="modal">' . "\n";
-// 						SCOTT Taking out the modal dialog for now going directly to the Lesson Browser (that page does not add a lot of value imho)
-
-						echo '<a href="CC_LessonBrowserLive.php' . "?CourseId=" . $colname_CourseInfo. "&UnitId=". $colname_UnitInfo . "&Id=" . $row_ProjectList['Id'] . '" role="button" data-toggle="modal">' . "\n";
-						echo '<div class="thumbnail">' . "\n";
-						echo '<img src="' . $row_ProjectList['ImgSmall'] . '" >' . "\n";
-						echo '<h3>' . $row_ProjectList['Name'] . '</h3>' . "\n";
-						echo '</div>' . "\n";
-						echo '</a>' . "\n";
-						echo '</li>' . "\n";                       
+						if ($totalRows_ProjectList > 0) {		// don't output a thumbnail if we don't have any lessons (need to handle case where we are adding Add New Lesson)
+							echo '<li class="span4">' . "\n";
+	//						echo '<a href="#lessonModal" role="button" data-toggle="modal">' . "\n";
+	// 						SCOTT Taking out the modal dialog for now going directly to the Lesson Browser (that page does not add a lot of value imho)
+	
+							echo '<a href="CC_LessonBrowserLive.php' . "?CourseId=" . $colname_CourseInfo. "&UnitId=". $colname_UnitInfo . "&Id=" . $row_ProjectList['Id'] . '" role="button" data-toggle="modal">' . "\n";
+							echo '<div class="thumbnail">' . "\n";
+							echo '<img src="' . $row_ProjectList['ImgSmall'] . '" >' . "\n";
+							echo '<h3>' . $row_ProjectList['Name'] . '</h3>' . "\n";
+							echo '</div>' . "\n";
+							echo '</a>' . "\n";
+							echo '</li>' . "\n";
+						}
 						$projectNum++;
 						if ($projectNum % 3 == 0) {
 							echo '</ul>' . "\n\t";
@@ -100,6 +115,19 @@ $totalRows_EpisodeList = mysql_num_rows($EpisodeList);
 						}
 					} while ($row_ProjectList = mysql_fetch_assoc($ProjectList)); 
 	        
+					// if we are in myLessons we need to add a add new episode tile
+					if ($row_EpisodeList['Type'] == "1") {
+						if ($projectNum % 3 == 0) {
+							echo '<div class="episode-carousel-content-padding"><div class="row-fluid">' . "\n\t";
+							echo '<ul class="thumbnails">' . "\n";
+						}
+						outputAddNewLesson();
+						if ($projectNum % 3 == 0) {
+							echo '</ul>' . "\n\t";
+							echo '</div><!-- end row fluid and padding -->' . "\n" . '</div><!-- end episode-carousel-content-padding --> ' . "\n";
+						}
+					}
+					
 					if ($projectNum % 3 != 0) {	// add closing div tags
 							echo '</ul>' . "\n\t";
 							echo '</div></div> <!-- end row fluid and padding -->' . "\n";
