@@ -1,8 +1,11 @@
-<div id="FullWidthWrapper">
-  <div id="MediaRightColumnLeft">
-  	<div id="Text"><?php echo $row_StepQuery['Text']; ?></div>
-  </div>
-  <div id="MediaRightColumnRight">
-	  <?php GenerateImageTag(0); ?>
-  </div>
-</div>
+                         <!-- MEDIA RIGHT -->
+                         <div class="row-fluid">
+                           	<div class="span10 offset1 lessonContent">
+                           	  <div class="lessonContent lesson-media-right-textbox">
+									<?php echo $row_StepQuery['Text']; ?>
+                                </div>
+                                <div class="lesson-media-right-mediabox">
+                           	    	 <?php GenerateImageTag(0); ?>
+                                </div>
+                            </div><!-- /.span -->
+                        </div><!-- /.row fluid -->
