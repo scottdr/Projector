@@ -448,9 +448,9 @@ function doTemplateChange(combobox) {
                   <td><select name="Template" size="1" id="Template" onChange="doTemplateChange(this)">
                     <option value="Intro.php" selected="SELECTED">Intro</option>
                     <option value="Splash.php">Splash</option>
-                    <option value="CC_TextOnly.php">Text only</option>
-                    <option value="CC_MediaLeft.php">Media left</option>
-                    <option value="CC_MediaRight.php">Media right</option>
+                    <option value="CC_TextOnly.php">CC Text only</option>
+                    <option value="CC_MediaLeft.php">CC Media left</option>
+                    <option value="CC_MediaRight.php">CC Media right</option>
                     <option value="IconLeft.php">Icon left</option>
                     <option value="Plan.php">Plan</option>
                     <option value="Research.php">Research</option>
