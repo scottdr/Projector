@@ -554,9 +554,7 @@ p {
 	margin-bottom:60px;
 	height: 200%;
 	overflow:auto;
-	overflow-x:hidden;
-	overflow-y:scroll;
-	overflow-style-y:scrollbar;
+	-webkit-overflow-scrolling: touch;
 }
 .lessonNavigation a {
 	color:#FFF;
