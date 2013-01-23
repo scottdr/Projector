@@ -54,7 +54,7 @@ function outputAddNewLesson() {
 	echo '<li class="span4">' . "\n";
 	echo '<a href="/editor/CCSoC_EditLesson.php?action=Add' . "&CourseId=" . $colname_CourseInfo. "&UnitId=". $colname_UnitInfo . '" role="button" data-toggle="modal">' . "\n";
 	echo '<div class="thumbnail">' . "\n";
-	echo '<img src="/_images/CC_UI/addnewlesson.jpg" >' . "\n";
+	echo '<img src="/_images/CC_UI/addnewlesson300x200.jpg" >' . "\n";
 	echo '<h3>Add New Lesson</h3>' . "\n";
 	echo '</div>' . "\n";
 	echo '</a>' . "\n";
@@ -65,11 +65,19 @@ function outputAddNewLesson() {
 <div id="episode-carousel-id" class="carousel slide episode-carousel">
 	<div class="carousel-inner">
 	<?php 
+
 		if ($totalRows_EpisodeList > 0) {
       $itemNum = 0;
 			
+				
+					
       do { 
-        echo '<div class="item ' ;
+				if ($row_EpisodeList['Type'] == "1")
+					$editableEpisode = true;
+        else
+					$editableEpisode = false;
+					
+				echo '<div class="item ' ;
         if ($itemNum == 0) echo "active"; 
         echo '">' . "\n";
         echo '<div class="episode-carousel-item-inner">' . "\n";
@@ -100,7 +108,9 @@ function outputAddNewLesson() {
 	//						echo '<a href="#lessonModal" role="button" data-toggle="modal">' . "\n";
 	// 						SCOTT Taking out the modal dialog for now going directly to the Lesson Browser (that page does not add a lot of value imho)
 	
-							echo '<a href="CC_LessonBrowserLive.php' . "?CourseId=" . $colname_CourseInfo. "&UnitId=". $colname_UnitInfo . "&Id=" . $row_ProjectList['Id'] . '" role="button" data-toggle="modal">' . "\n";
+							echo '<a href="CC_LessonBrowserLive.php' . "?CourseId=" . $colname_CourseInfo. "&UnitId=". $colname_UnitInfo . "&Id=" . $row_ProjectList['Id']; 			
+							if ($editableEpisode) echo '&Action=Edit';
+							echo '" role="button" data-toggle="modal">' . "\n";
 							echo '<div class="thumbnail">' . "\n";
 							echo '<img src="' . $row_ProjectList['ImgSmall'] . '" >' . "\n";
 							echo '<h3>' . $row_ProjectList['Name'] . '</h3>' . "\n";
