@@ -111,7 +111,7 @@ $(document).on('snap', function () {
 
 $('#content-id-0').imagesLoaded(function ($images, $proper, $broken) {    
 	firstPip.addClass('selected');	
-	body.removeClass('be-invisible').addClass('its-visible')
+	body.removeClass('be-invisible').addClass('its-visible');
 
 	pagHandler.click(function (e) {
 		e.preventDefault();

@@ -87,6 +87,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
     <link href="_css/bootstrap.css" rel="stylesheet"/>
     <link href="_css/bootstrap-commoncore.css" rel="stylesheet"/>
+    <link href="_css/gf-styles.css" rel="stylesheet"/>
 
 	 <style type="text/css">
 	
@@ -154,8 +155,6 @@ if (isset($_SERVER['QUERY_STRING'])) {
         </ul>
       </div>
     </div>
-    
-    <span class="loaderr"></span>
 
     <script type='text/javascript' src="http://code.jquery.com/jquery-latest.js"></script>
     
@@ -166,12 +165,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <script type='text/javascript' src="_scripts/LessonBrowser.js"></script>
     
     <script>  
-
-		
-		$(document).ready(function(){
-			loadLessonSteps();	
-			$('body').addClass('fading-in');		
-		});
+		loadLessonSteps();	
+		$('body').addClass('fading-in');
 	</script>  
 
   </body>
