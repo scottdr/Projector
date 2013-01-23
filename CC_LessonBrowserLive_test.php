@@ -51,52 +51,32 @@ Projector_EditChallenge.php?Id=17"><i class="icon-edit icon-white"></i> Edit</a>
     
     	<div id="LessonContent" class="pages" style="-webkit-transform: translate3d(0%, 0px, 0px); width: 600%; ">
         
-        <div class="content-div" id="content-id-0" style="width: 16.666666666666668%; ">
-        	<div class="row-fluid headerr">
-            	<div class="span12">
-                	<img src="/_images/CC_UI/cc_icons.fw.png">
-                    <div class="lesson-carousel-caption-title">OPENING</div>
-                    <div class="lesson-carousel-caption-activity">Common Writing</div>
+            <div class="content-div" id="content-id-0" style="width: 16.666666666666668%; ">
+                <div class="row-fluid headerr">
+                    <div class="span12">
+                        <img src="/_images/CC_UI/cc_icons.fw.png">
+                        <div class="lesson-carousel-caption-title">OPENING</div>
+                        <div class="lesson-carousel-caption-activity">Common Writing</div>
+                     </div>
                  </div>
-             </div>
-             <div class="row-fluid">
-             	<div class="span12 lessonContent" style="background-color:transparent;">
-                <!-- MEDIA LEFT -->
-                        <div class="row-fluid">
-                         	<div class="span6 offset1">
-							<img name="Id=95" src="https://s3.amazonaws.com/CCSoC_Assets/_images/projects/17/9-2-10-2.jpg" title="" alt=""><p class="caption"></p>                            </div>
-                           	<div class="span4 lessonContent">
-								Respond to the following questions in writing and submit them to your teacher.<br><ul><li>What plans is Capulet, Juliet’s father, making with Paris?</li><li>Why does Romeo agree to go to a party at the home of his enemy, Capulet?</li><li>What is Juliet’s response to the news about Paris?</li></ul>                            </div><!-- /.span -->
-                        </div><!-- /.row fluid --></div></div></div><div class="content-div" id="content-id-1" style="width: 16.666666666666668%; "><div class="row-fluid headerr"><div class="span12"><img src="/_images/CC_UI/cc_ela_worktime.png"><div class="lesson-carousel-caption-title">IDENTIFYING KEY IDEAS AND DETAILS</div><div class="lesson-carousel-caption-activity">Whole Class Share</div></div></div><div class="row-fluid"><div class="span8 offset2 lessonContent"><div id="FullWidthWrapper">
-  <div id="MediaRightColumnLeft">
-  	<div id="Text">Share your responses to the writing questions, and then address additional questions your teacher poses.<br><ul><li>What plans is Capulet, Juliet’s father, making with Paris?</li><li>Why does Romeo agree to go to a party at the home of his enemy, Capulet?</li><li>What is Juliet’s response to the news about Paris?</li></ul></div>
-  </div>
-  <div id="MediaRightColumnRight">
-	  <img name="Id=96" src="https://s3.amazonaws.com/CCSoC_Assets/_images/projects/17/9-2-10-3.jpg" title="" alt=""><p class="caption"></p>  </div>
-</div></div></div></div><div class="content-div" id="content-id-2" style="width: 16.666666666666668%; "><div class="row-fluid headerr"><div class="span12"><img src="/_images/CC_UI/cc_ela_worktime.png"><div class="lesson-carousel-caption-title">IDENTIFYING KEY IDEAS AND DETAILS</div><div class="lesson-carousel-caption-activity">Partner Work</div></div></div><div class="row-fluid"><div class="span8 offset2 lessonContent"><div id="FullWidthWrapper">
-  <div id="MediaRightColumnLeft">
-  	<div id="Text">Work with a partner to do the following:<br><ul><li>Create avatars for characters in Romeo and Juliet. (Even though you may not know enough about some characters to create the avatars, track additional information you learn as you continue reading. You’ll be able to look back to see your first impressions.)</li><li>Discuss how creating avatars of the characters can enable you to see important relationships and issues emerging from the play.<br></li></ul><br></div>
-  </div>
-  <div id="MediaRightColumnRight">
-	  <img name="Id=97" src="https://s3.amazonaws.com/CCSoC_Assets/_images/projects/17/9-2-10-4.jpg" title="" alt=""><p class="caption"></p>  </div>
-</div></div></div></div><div class="content-div" id="content-id-3" style="width: 16.666666666666668%; "><div class="row-fluid headerr"><div class="span12"><img src="/_images/CC_UI/cc_ela_worktime.png"><div class="lesson-carousel-caption-title">IDENTIFYING KEY IDEAS AND DETAILS</div><div class="lesson-carousel-caption-activity">Vocabulary</div></div></div><div class="row-fluid"><div class="span8 offset2 lessonContent"><div id="FullWidthWrapper">
-  <div id="MediaRightColumnLeft">
-  	<div id="Text">With a partner, find definitions and examples of the following words or terms:<br><ul><li>Dramatic irony</li></ul><ul><li>Situational irony</li></ul><ul><li>Verbal irony</li></ul><ul><li>Hamartia</li></ul><ul><li>Pathos</li></ul><ul><li>Soliloquy</li></ul><ul><li>Aside</li></ul><ul><li>Paradox</li></ul><div>Record your work for future reference.</div></div>
-  </div>
-  <div id="MediaRightColumnRight">
-	  <img name="Id=98" src="https://s3.amazonaws.com/CCSoC_Assets/_images/projects/17/9-2-10-5.jpg" title="" alt=""><p class="caption"></p>  </div>
-</div></div></div></div><div class="content-div" id="content-id-4" style="width: 16.666666666666668%; "><div class="row-fluid headerr"><div class="span12"><img src="/_images/CC_UI/cc_reflection.png"><div class="lesson-carousel-caption-title">CLOSING</div><div class="lesson-carousel-caption-activity">Independent Writing</div></div></div><div class="row-fluid"><div class="span8 offset2 lessonContent">						<!-- TEXT ONLY -->
-                        <div class="row-fluid">
-                            <div class="span6 offset3 lessonContent">
-								Create an initial journal entry in the mindset of your avatar.<br><ul><li>Explain what's going on up to the point where you finished reading.</li></ul>                            </div><!-- /.span -->
-                        </div><!-- /.row fluid --></div></div></div><div class="content-div" id="content-id-5" style="width: 16.666666666666668%; "><div class="row-fluid headerr"><div class="span12"><img src="/_images/CC_UI/cc_homework.png"><div class="lesson-carousel-caption-title">HOMEWORK</div><div class="lesson-carousel-caption-activity">Common Read</div></div></div><div class="row-fluid"><div class="span8 offset2 lessonContent"><div id="FullWidthWrapper">
-  <div id="MediaRightColumnLeft">
-  	<div id="Text">Do the following for homework:<br><ul><li>Finish reading act I</li><li>Create a visual representation of Queen Mab (see Mercutio's speech beginning act I, scene iv, line 53)</li><li>Include at least two interesting quotations from act I, scene iv</li></ul></div>
-  </div>
-  <div id="MediaRightColumnRight">
-	  <img name="Id=98" src="https://s3.amazonaws.com/CCSoC_Assets/_images/projects/17/9-2-10-5.jpg" title="" alt=""><p class="caption"></p>  </div>
-</div></div></div></div></div>
-      
+                 <div class="row-fluid">
+                    <div class="span12 lessonContent" style="background-color:transparent;">
+                    <!-- MEDIA LEFT -->
+                    <div class="row-fluid">
+                        <div class="span10 offset1">
+                           <div class=" lesson-media-right-textbox lessonContent ">
+                                <div class="lesson-carousel-content">
+                                    Share your responses to the writing questions, and then address additional questions your teacher poses.<br><ul><li>What plans is Capulet, Juliet’s father, making with Paris?</li><li>Why does Romeo agree to go to a party at the home of his enemy, Capulet?</li><li>What is Juliet’s response to the news about Paris?</li></ul>
+                                </div>
+                            </div>
+                            <div class="lesson-media-right-mediabox">
+                                 <img name="Id=96" src="https://s3.amazonaws.com/CCSoC_Assets/_images/projects/17/9-2-10-3.jpg" title="" alt="">
+                            </div>
+                        </div><!-- /.span -->
+                    </div>
+               </div>
+            </div>     
+         </div> 
     </div> <!-- /container -->
     
     <div class="navbar-fixed-bottom lessonNavigation">
