@@ -640,6 +640,9 @@ p {
 	margin:10px;
 	line-height:26px;
 }
+.lesson-carousel-content img {
+	width:100%;
+}
 .lesson-carousel-control {
 	top: 80px;
 	left: 0;

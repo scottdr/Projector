@@ -445,7 +445,8 @@ function doTemplateChange(combobox) {
                 </tr> -->
                 <tr>
                   <td width="140">Template</td>
-                  <td><select name="Template" size="1" id="Template" onChange="doTemplateChange(this)">
+                  <td>
+                  <select name="Template" size="1" id="Template" onChange="doTemplateChange(this)">
                     <option value="Intro.php" selected="SELECTED">Intro</option>
                     <option value="Splash.php">Splash</option>
                     <option value="TextOnly.php">Text only</option>
@@ -458,8 +459,13 @@ function doTemplateChange(combobox) {
                     <option value="Revise.php">Revise</option>
                     <option value="Present.php">Present</option>
                     <option value="CC_TextOnly.php">CC Text only</option>
+					<option value="CC_TextOnlyWide.php">CC Text only wide</option>
                     <option value="CC_MediaLeft.php">CC Media left</option>
-                    <option value="CC_MediaRight.php">CC Media right</option>                    </select>
+                    <option value="CC_MediaRight.php">CC Media right</option>
+                    <option value="CC_MediaLeftStacked.php">CC Media left stacked</option>
+					<option value="CC_MediaRightStacked.php">CC Media right stacked</option>
+                    <option value="CC_LargeMedia.php">CC Large Media</option>
+                    </select>
                     <div id="TemplateThumbnail"><img src="../lessonTemplates/images/thumbnails/1-Intro.png" name="thumbnailImage" id="thumbnailImage"></div>
                   </td>
                 </tr>
