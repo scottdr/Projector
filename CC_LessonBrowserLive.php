@@ -49,19 +49,13 @@ $EpisodeInfo = mysql_query($query_EpisodeInfo, $projector) or die(mysql_error())
 $row_EpisodeInfo = mysql_fetch_assoc($EpisodeInfo);
 $totalRows_EpisodeInfo = mysql_num_rows($EpisodeInfo);
 
-$colname_CourseInfo = "-1";
-if (isset($_GET['CourseId'])) {
-  $colname_CourseInfo = $_GET['CourseId'];
-}
-mysql_select_db($database_projector, $projector);
-$query_CourseInfo = sprintf("SELECT * FROM Courses WHERE Id = %s", GetSQLValueString($colname_CourseInfo, "int"));
-$CourseInfo = mysql_query($query_CourseInfo, $projector) or die(mysql_error());
-$row_CourseInfo = mysql_fetch_assoc($CourseInfo);
-$totalRows_CourseInfo = mysql_num_rows($CourseInfo);
+
 
 $colname_UnitInfo = "-1";
 if (isset($_GET['UnitId'])) {
   $colname_UnitInfo = $_GET['UnitId'];
+} else {
+	$colname_UnitInfo = $row_LessonInfo['UnitId'];
 }
 
 $editable = true;
@@ -75,6 +69,19 @@ $query_UnitInfo = sprintf("SELECT * FROM Units WHERE Id = %s", GetSQLValueString
 $UnitInfo = mysql_query($query_UnitInfo, $projector) or die(mysql_error());
 $row_UnitInfo = mysql_fetch_assoc($UnitInfo);
 $totalRows_UnitInfo = mysql_num_rows($UnitInfo);
+
+$colname_CourseInfo = "-1";
+if (isset($_GET['CourseId'])) {
+  $colname_CourseInfo = $_GET['CourseId'];
+} else {		// if course id is not provided look it up from the Units table
+	$colname_CourseInfo = $row_UnitInfo['CourseId'];
+}
+	
+mysql_select_db($database_projector, $projector);
+$query_CourseInfo = sprintf("SELECT * FROM Courses WHERE Id = %s", GetSQLValueString($colname_CourseInfo, "int"));
+$CourseInfo = mysql_query($query_CourseInfo, $projector) or die(mysql_error());
+$row_CourseInfo = mysql_fetch_assoc($CourseInfo);
+$totalRows_CourseInfo = mysql_num_rows($CourseInfo);
 
 $addToUrl = "";
 // get URL parameter's already on the url and pass them on to next page.
