@@ -53,11 +53,37 @@ $projectList = mysql_query($query_projectList, $projector) or die(mysql_error())
 $row_projectList = mysql_fetch_assoc($projectList);
 $totalRows_projectList = mysql_num_rows($projectList);
 
-// get URL parameter's already on the url and pass them on to next page.
-if (isset($_SERVER['QUERY_STRING'])) {
-    $addToUrl = "?";
-		$addToUrl .= $_SERVER['QUERY_STRING'];
-} 
+
+$courseId = "-1";
+if (isset($_GET['CourseId'])) {
+  $courseId = $_GET['CourseId'];
+}
+
+$unitId = "-1";
+if (isset($_GET['UnitId'])) {
+  $unitId = $_GET['UnitId'];
+}
+
+$breadCrumbTrail = "";
+if ($courseId > 0 && $unitId > 0)
+{
+	$query_CourseQuery = sprintf("SELECT Name FROM Courses WHERE Id = %s", GetSQLValueString($courseId, "int"));
+	$CourseQuery = mysql_query($query_CourseQuery, $projector) or die(mysql_error());
+	$row_CourseQuery = mysql_fetch_assoc($CourseQuery);
+	$totalRows_CourseQuery = mysql_num_rows($CourseQuery);
+	if ($totalRows_CourseQuery > 0 )	
+		$courseName = $row_CourseQuery['Name'];
+
+	$query_UnitQuery = sprintf("SELECT Name FROM Units WHERE Id = %s", GetSQLValueString($unitId, "int"));
+	$UnitQuery = mysql_query($query_UnitQuery, $projector) or die(mysql_error());
+	$row_UnitQuery = mysql_fetch_assoc($UnitQuery);
+	$totalRows_UnitQuery = mysql_num_rows($UnitQuery);
+	if ($totalRows_UnitQuery > 0 )	
+		$unitName = $row_UnitQuery['Name'];
+
+	$courseLink = '<a href="CC_ViewUnits.php?CourseId=' . $courseId . '">' . $courseName . '</a>';
+	$breadCrumbTrail = $courseLink . "&nbsp;&gt;&nbsp;" . $unitName;
+}
 
 ?>
 <!doctype html>
@@ -80,7 +106,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
 <div class="container-fluid">
 	
     <?php include("CC_EditorHeader.php"); ?>
-    
+  
+    <div class="navbar">
+      <div class="navbar-inner">
+      	<h2 class="brand"><?php echo $breadCrumbTrail; ?></h2>
+      </div>
+    </div>  
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid" style="margin-top: 44px;">
@@ -89,21 +120,23 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <section class="row-fluid">
         <p class="span11 offset1">Select a <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?> to edit or <a href="Projector_EditChallenge.php">add a new <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?></a></p>
     </section>
-    <section class="row-fluid">
-    <div class="span10 offset1" style="background-color: #EDEDED;">
-    <p style="padding:10px; margin:0;">Filter: &nbsp;
-        <select class="dropdown">
-          <option>Select Grade</option>
-        </select>
-        <select class="dropdown">
-          <option>Select Subject</option>
-        </select>
-        <select class="dropdown">
-          <option>Select Status</option>
-        </select>
-    </p>
-    </div>
-    </section>
+    <?php if ($breadCrumbTrail == "") : ?>
+      <section class="row-fluid">
+      <div class="span10 offset1" style="background-color: #EDEDED;">
+      <p style="padding:10px; margin:0;">Filter: &nbsp;
+          <select class="dropdown">
+            <option>Select Grade</option>
+          </select>
+          <select class="dropdown">
+            <option>Select Subject</option>
+          </select>
+          <select class="dropdown">
+            <option>Select Status</option>
+          </select>
+      </p>
+      </div>
+      </section>
+    <?php endif; ?>
     <section class="row-fluid">
     	<div class="span10 offset1">
             <table class="table table-striped table-hover">
@@ -121,8 +154,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
                 	<?php do { ?>
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $row_projectList['Id']   ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
-                        <td><a href="/ProjectDetails.php<?php echo "?Id=" . $row_projectList['Id'] ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
-                        <td><a href="/CC_LessonBrowserLive.php<?php echo $addToUrl . "&Id=" . $row_projectList['Id'] . "&UnitId=" . $row_projectList['UnitId']; ?>"><?php echo $row_projectList['Name']; ?></a></td>
+                        <td><a href="/CC_LessonBrowserLive.php<?php echo "?Id=" . $row_projectList['Id'] . "&UnitId=" . $row_projectList['UnitId'] . "&CourseId=" . $courseId; ?>"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
+                        <td><a href="/CC_LessonBrowserLive.php<?php echo "?Id=" . $row_projectList['Id'] . "&UnitId=" . $row_projectList['UnitId'] . "&CourseId=" . $courseId; ?>"><?php echo $row_projectList['Name']; ?></a></td>
                         <td><?php echo getGrade($row_projectList); ?></td>
                         <td><?php echo $row_projectList['Subject']; ?></td>
                         <td><?php echo $row_projectList['Status']; ?></td>
