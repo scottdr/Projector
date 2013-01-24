@@ -74,6 +74,8 @@
                          <div class="row-fluid">
                             <div class="span6 offset3 lessonContent">
                                 <p>Template: Text only. Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
+                                <a class="btn btn-mini btn-primary" href="" style="float:right; display:block;"><i class="icon-edit icon-white"></i></a>
+
                                 <p>Ised nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. Fusce mollis augue at nunc blandit accumsan. Proin pulvinar purus in orci facilisis vestibulum. Donec id ante lacinia velit viverra ullamcorper. </p>
                                 <p>Integer sed nisi a metus tempor blandit. Praesent pretium auctor dui, non faucibus arcu sollicitudin ac. </p>
                             </div><!-- /.span -->

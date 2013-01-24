@@ -67,17 +67,22 @@ if ($totalRows_routinesRecordset > 0) {
 			
 			do {
 				echo '<div class="ribbon-item" data-number="' . $rowStepNumber . '">' . "\n\t";
+				//image
+				$imageThumbnail = "_images/CC_UI/step_thumbnail.jpg";
+				if (isset($row_stepsRecordset['SmallImage']) && $row_stepsRecordset['SmallImage'] != "")
+					$imageThumbnail = $row_stepsRecordset['SmallImage'];
+        		echo '<img class="ribbon-item-image" src="' . $imageThumbnail . '">' . "\n";
+				//number
 				echo '<p class="ribbon-item-number">' . $rowStepNumber . '</p>' . "\n\t";
+				//title
 				echo '<p class="ribbon-item-title">' . $row_stepsRecordset['Name'] . '</p>' . "\n\t";
+				//description
 				if (isset($row_stepsRecordset['Description']) && $row_stepsRecordset['Description'] != "")
 					$stepDescription = $row_stepsRecordset['Description'];
 				else
 					$stepDescription = $loremIpsumArray[$rowStepNumber % 5];
 				echo '<p class="ribbon-item-description">' . $stepDescription . '</p>' . "\n\t";
-				$imageThumbnail = "_images/CC_UI/step_thumbnail.jpg";
-				if (isset($row_stepsRecordset['SmallImage']) && $row_stepsRecordset['SmallImage'] != "")
-					$imageThumbnail = $row_stepsRecordset['SmallImage'];
-        echo '<img class="ribbon-item-image" src="' . $imageThumbnail . '">' . "\n";
+				
 				echo '</div>' . "\n";
 				$rowStepNumber++;			
 			}  while ($row_stepsRecordset = mysql_fetch_assoc($stepsRecordset));

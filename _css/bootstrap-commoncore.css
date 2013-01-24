@@ -757,7 +757,7 @@ p {
 	text-align:left;
 	padding-right:15px;
 	padding-bottom:5px;
-	width:300px;
+	width:255px;
 }
 .no-touch .ribbon-item-title:hover, .selected .ribbon-item-title {
 	color:#FFF;
@@ -770,7 +770,7 @@ p {
 	text-align:left;
 	padding-right:15px;
 	font-weight:100;
-	width:300px;
+	width:270px;
 }
 .no-touch .ribbon-item-description:hover, .selected .ribbon-item-description {
 	color:#FFF;
@@ -778,8 +778,8 @@ p {
 .ribbon-item-image {
 	float:right;
 	clear:none;
-	height: 20px;
-	width: 20px;
+	height: 48px;
+	width: 75px;
 	border:none;
 	margin:0px;
 }
