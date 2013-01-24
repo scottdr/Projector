@@ -79,27 +79,31 @@ $totalRows_lessonRoutinesQuery = mysql_num_rows($lessonRoutinesQuery);
 
 if (isset($_POST["MM_action"])) {
 	if ($_POST["MM_action"] == "Add") {
-			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, Name = %s, Title = %s, TemplateName = %s, Text=%s",
+			$sqlCommand = sprintf("INSERT INTO Steps SET ProjectId = %s, SortOrder = %s, RoutineId = %s, Name = %s, Title = %s, TemplateName = %s, Text=%s, Description=%s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['SortOrder'], "int"),
 											 GetSQLValueString($_POST['RoutineId'], "int"),
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Template'], "text"),
-											 GetSQLValueString($_POST['Text'], "text") );
+											 GetSQLValueString($_POST['Text'], "text"),
+											 GetSQLValueString($_POST['Description'], "text"),
+											 GetSQLValueString($_POST['SmallImage'], "text")  );
 //		print "sqlCommand: " . $sqlCommand;									 
 /* To Do get the id of the record we just added											 
 		$sqlComamand .= ";SELECT last_insert_id( );"; 									 
 */
 	} else
-  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, Name=%s, Title=%s, TemplateName=%s, Text=%s WHERE Id=%s",
+  	$sqlCommand = sprintf("UPDATE Steps SET ProjectId=%s, SortOrder=%s, RoutineId = %s, Name=%s, Title=%s, TemplateName=%s, Text=%s, Description=%s, SmallImage=%s WHERE Id=%s",
                        GetSQLValueString($_POST['ProjectId'], "int"),
                        GetSQLValueString($_POST['SortOrder'], "int"),
 											 GetSQLValueString($_POST['RoutineId'], "int"),
                        GetSQLValueString($_POST['Name'], "text"),
                        GetSQLValueString($_POST['Title'], "text"),
                        GetSQLValueString($_POST['Template'], "text"),
-											 GetSQLValueString($_POST['Text'], "text"), 
+											 GetSQLValueString($_POST['Text'], "text"),
+											 GetSQLValueString($_POST['Description'], "text"),
+											 GetSQLValueString($_POST['SmallImage'], "text"), 
                        GetSQLValueString($_POST['Id'], "int"));
 
 //	print "sqlCommand: " . $sqlCommand . "<br />\n";
@@ -224,6 +228,9 @@ function updateData(jsonStepData) {
 	document.getElementById('OriginalSortOrder').value = stepData.SortOrder;
 	document.getElementById('RoutineId').value = stepData.RoutineId;
 	document.getElementById('Template').value = stepData.TemplateName;
+	document.getElementById('Description').value = stepData.Description;
+	document.getElementById('SmallImage').value= stepData.SmallImage;
+	document.getElementById('StepThumbnailImage').src = stepData.SmallImage;
 	updateThumbnailImage(stepData.TemplateName);
 	document.getElementById('Id').value = stepData.Id;
 	displayAttachedMedia(stepData.Id);		// update the display of attached media
@@ -362,7 +369,10 @@ function doTemplateChange(combobox) {
 	var newThumbnailSrc = "/lessonTemplates/images/thumbnails/" + thumbnailMap[combobox.value];
 	document.getElementById('thumbnailImage').src = newThumbnailSrc;
 }
-						
+
+function smallImageURLUpdate(inputField) {
+	document.getElementById('StepThumbnailImage').src = inputField.value;
+}
 </script>
 </head>
 
@@ -470,6 +480,15 @@ function doTemplateChange(combobox) {
                     </select>
                     <div id="TemplateThumbnail"><img src="../lessonTemplates/images/thumbnails/1-Intro.png" name="thumbnailImage" id="thumbnailImage"></div>
                   </td>
+                </tr>
+                <tr>
+                  <td>Thumbnail</td>
+                  <td><input name="SmallImage" type="text" id="SmallImage" style="min-width:320px" onChange="smallImageURLUpdate(this)">&nbsp;<img id="StepThumbnailImage" name="StepThumbnailImage" src="<?php echo $row_lessonRoutinesQuery['SmallImage']; ?>" width="75" height="50" alt="">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Description</td>
+                  <td><textarea style="min-width:400px" name="Description" id="Description"></textarea></td>
                 </tr>
                 <tr>
                   <td width="140">Content</td>
