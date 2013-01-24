@@ -56,7 +56,7 @@ if ($totalRows_ProjectInfo > 0) {
 	$unitId = $row_ProjectInfo['UnitId'];
 }
 
-$projectId = 1;
+$projectId = -1;
 if (isset($_GET['Id']))
 	$projectId = $_GET['Id'];
 
