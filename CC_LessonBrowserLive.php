@@ -83,12 +83,6 @@ $CourseInfo = mysql_query($query_CourseInfo, $projector) or die(mysql_error());
 $row_CourseInfo = mysql_fetch_assoc($CourseInfo);
 $totalRows_CourseInfo = mysql_num_rows($CourseInfo);
 
-$addToUrl = "";
-// get URL parameter's already on the url and pass them on to next page.
-if (isset($_SERVER['QUERY_STRING'])) {
-    $addToUrl = "?";
-		$addToUrl .= $_SERVER['QUERY_STRING'];
-} 
 
 ?>
 <!DOCTYPE html>
@@ -129,8 +123,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
         <div class="container">
            <ul class="nav">
               <li class="active"><a href="/editor/CC_CourseBrowser.php" class="parent transition"><img src="_images/CC_UI/home_icon.png" width="20" height="20"></a></li>
-              <li><a href="CC_UnitBrowserLive.php<?php echo $addToUrl; ?>" class="parent transition"><?php echo $row_CourseInfo["Name"]; ?></a></li>
-              <li><a href="CC_EpisodeBrowserLive.php<?php echo $addToUrl; ?>" class="parent"><?php echo $row_UnitInfo["Name"]; ?></a></li>
+              <li><a href="CC_UnitBrowserLive.php?CourseId=<?php echo $colname_CourseInfo; ?>" class="parent transition"><?php echo $row_CourseInfo["Name"]; ?></a></li>
+              <li><a href="CC_EpisodeBrowserLive.php?CourseId=<?php echo $colname_CourseInfo; ?>&UnitId=<?php echo $colname_UnitInfo; ?>" class="parent"><?php echo $row_UnitInfo["Name"]; ?></a></li>
               <li><a href="#"><?php echo $row_EpisodeInfo["Name"]; ?>: <?php echo $row_EpisodeInfo["Title"]; ?>, <?php echo $row_LessonInfo["Name"]; ?></a></li>
           </ul>
           <div style=" position:fixed; right:10px; top:8px;">

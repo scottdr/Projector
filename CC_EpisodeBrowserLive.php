@@ -52,12 +52,6 @@ $UnitInfo = mysql_query($query_UnitInfo, $projector) or die(mysql_error());
 $row_UnitInfo = mysql_fetch_assoc($UnitInfo);
 $totalRows_UnitInfo = mysql_num_rows($UnitInfo);
 
-// get URL parameter's already on the url and pass them on to next page.
-if (isset($_SERVER['QUERY_STRING'])) {
-    $addToUrl = "?";
-		$addToUrl .= $_SERVER['QUERY_STRING'];
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
