@@ -156,7 +156,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">      
-        <h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
+        <h2 class="brand"><?php echo $row_foundRecord['Name']; ?></h2>
         <?php require("SubNav.php"); ?>
       </div>
     </div>

@@ -82,7 +82,7 @@ function getGrade($row_foundRecord)
 	</section>
     <section class="row-fluid">
         <p class="span11 offset1">
-        <a class="btn" href="#">
+        <a class="btn btn-small" href="#">
             <i class="icon-plus"></i> 
             Add new Course
         </a>
