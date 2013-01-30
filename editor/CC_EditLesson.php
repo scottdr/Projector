@@ -111,12 +111,43 @@ $_SESSION['ProjectName'] = $row_foundRecord['Name'];
 $_SESSION['ProjectImage'] = $row_foundRecord['ImgSmall'];
 $_SESSION['ActiveNav'] = "details";
 
-// Query for the Topics Menu
-mysql_select_db($database_projector, $projector);
-$query_TopicsMenu = "SELECT Id, Name FROM Topics";
-$TopicsMenu = mysql_query($query_TopicsMenu, $projector) or die(mysql_error());
-$row_TopicsMenu = mysql_fetch_assoc($TopicsMenu);
-$totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
+$courseId = "-1";
+if (isset($_GET['CourseId'])) {
+  $courseId = $_GET['CourseId'];
+}
+
+$unitId = "-1";
+if (isset($_GET['UnitId'])) {
+  $unitId = $_GET['UnitId'];
+}	else
+	$unitId = $row_foundRecord['UnitId'];
+
+$breadCrumbTrail = "";
+if ($unitId > 0)
+{
+	$query_UnitQuery = sprintf("SELECT * FROM Units WHERE Id = %s", GetSQLValueString($unitId, "int"));
+	$UnitQuery = mysql_query($query_UnitQuery, $projector) or die(mysql_error());
+	$row_UnitQuery = mysql_fetch_assoc($UnitQuery);
+	$totalRows_UnitQuery = mysql_num_rows($UnitQuery);
+	if ($totalRows_UnitQuery > 0 ) {	
+		$unitName = $row_UnitQuery['Name'];
+		$courseId = $row_UnitQuery['CourseId'];
+	}
+	
+	$query_CourseQuery = sprintf("SELECT Name FROM Courses WHERE Id = %s", GetSQLValueString($courseId, "int"));
+	$CourseQuery = mysql_query($query_CourseQuery, $projector) or die(mysql_error());
+	$row_CourseQuery = mysql_fetch_assoc($CourseQuery);
+	$totalRows_CourseQuery = mysql_num_rows($CourseQuery);
+	if ($totalRows_CourseQuery > 0 )	{
+		$courseName = $row_CourseQuery['Name'];
+	}
+
+	
+
+	$courseLink = '<a href="CC_ViewUnits.php?CourseId=' . $courseId . '">' . $courseName . '</a>';
+	$breadCrumbTrail = '<a href="CC_CourseBrowser.php">Courses</a>&nbsp;&#47;&nbsp;' . $courseLink . "&nbsp;&#47;&nbsp;" . $unitName;
+}
+
 ?>
 <!doctype html>
 <html>
@@ -146,7 +177,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">      
-        <h2 class="brand" ><?php echo $row_foundRecord['Name']; ?></h2>
+        <h2 class="brand" ><?php echo $breadCrumbTrail; ?></h2>
         <?php require("SubNav.php"); ?>
       </div>
     </div>
@@ -255,5 +286,4 @@ function updateThumbnailImage(object,previewId)
 </html>
 <?php
 mysql_free_result($foundRecord);
-mysql_free_result($TopicsMenu);
 ?>

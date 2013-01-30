@@ -62,7 +62,8 @@ if (isset($_GET['CourseId'])) {
 $unitId = "-1";
 if (isset($_GET['UnitId'])) {
   $unitId = $_GET['UnitId'];
-}
+} else
+	$unitId = $row_projectList['UnitId'];
 
 $breadCrumbTrail = "";
 if ($courseId > 0 && $unitId > 0)
@@ -161,7 +162,7 @@ if ($courseId > 0 && $unitId > 0)
                 <tbody>
                 	<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $row_projectList['Id']   ?>"  rel="tooltip" data-placement="top" title="Edit this <?php if ($PROJECTOR['cc']) echo "Lesson"; else echo "Project"; ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
+                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CC_EditLesson.php"; else echo "Projector_EditChallenge.php"; echo "?Id=" . $row_projectList['Id'] . "&UnitId=" . $row_projectList['UnitId'];   ?>"  rel="tooltip" data-placement="top" title="Edit this <?php if ($PROJECTOR['cc']) echo "Lesson"; else echo "Project"; ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
                         <td><a href="<?php if ($PROJECTOR["cc"]) echo "Projector_EditImages.php"; else echo "Projector_EditImages.php"; echo "?Id=" . $row_projectList['Id']   ?>" rel="tooltip" data-placement="top" title="Edit the thumbnail image"><img src="<?php echo $row_projectList['ImgSmall']; ?>" alt="" name="" width="96" height="63" /></a></td>
                         <td><strong><?php echo $row_projectList['Name']; ?></strong></td>
                         <td><?php echo getGrade($row_projectList); ?></td>
