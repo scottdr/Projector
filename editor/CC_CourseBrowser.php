@@ -115,7 +115,7 @@ function getGrade($row_foundRecord)
                 	<?php do { ?>
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "CC_EditCourse.php"; echo "?Id=" . $row_CourseList['Id'] ?>" rel="tooltip" data-placement="top" title="Edit the Course information"><i class="icon-edit icon-white"></i> Edit</a></td>
-                        <td><a href="CC_ViewUnits.php?CourseId=<?php echo $row_CourseList['Id']; ?>" rel="tooltip" data-placement="top" title="View the Units within this Course"><?php echo $row_CourseList['Name']; ?></a></td>
+                        <td><a href="CC_ViewUnits.php?CourseId=<?php echo $row_CourseList['Id']; ?>" rel="tooltip" data-placement="top" title="See Units within this Course"><?php echo $row_CourseList['Name']; ?></a></td>
                         <td><?php echo $row_CourseList['Grade']; ?></td>
                         <td><?php echo $row_CourseList['Subject']; ?></td>
                         <td><a class="btn btn-mini btn-success btn-right" href="../CC_UnitBrowserLive.php?CourseId=<?php echo $row_CourseList['Id']; ?>"  rel="tooltip" data-placement="top" title="See the live view of this Course"><i class="icon-eye-open icon-white"></i> View</a></td>

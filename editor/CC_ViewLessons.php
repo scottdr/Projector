@@ -82,7 +82,7 @@ if ($courseId > 0 && $unitId > 0)
 		$unitName = $row_UnitQuery['Name'];
 
 	$courseLink = '<a href="CC_ViewUnits.php?CourseId=' . $courseId . '">' . $courseName . '</a>';
-	$breadCrumbTrail = $courseLink . "&nbsp;&#47;&nbsp;" . $unitName;
+	$breadCrumbTrail = '<a href="CC_CourseBrowser.php">Courses</a>&nbsp;&#47;&nbsp;' . $courseLink . "&nbsp;&#47;&nbsp;" . $unitName;
 }
 
 ?>

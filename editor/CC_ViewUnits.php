@@ -88,7 +88,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      	<h2 class="brand"><?php echo $courseName; ?></h2>
+      	<h2 class="brand"><a href="CC_CourseBrowser.php">Courses</a>&nbsp;&#47;&nbsp;<?php echo $courseName; ?></h2>
       </div>
     </div>
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->
@@ -126,7 +126,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
                     <tr>
                         <td><a class="btn btn-mini btn-primary" href="CC_EditUnit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($courseId)) echo "&ProjectId=" . $courseId;?>" rel="tooltip" data-placement="top" title="Edit the Unit information"><i class="icon-edit icon-white"></i> Edit</a></td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
-                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>&CourseId=<?php echo $courseId; ?>"  rel="tooltip" data-placement="top" title="View the Lessons within this Unit"><?php echo $row_MediaQuery['Name']; ?></a></td>
+                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>&CourseId=<?php echo $courseId; ?>"  rel="tooltip" data-placement="top" title="See Lessons within this Unit"><?php echo $row_MediaQuery['Name']; ?></a></td>
                         <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
                         <td><a href="../CC_EpisodeBrowserLive.php?CourseId=<?php echo $courseId . "&UnitId=" . $row_MediaQuery['Id']; ?>" class="btn btn-mini btn-success btn-right" rel="tooltip" data-placement="top" title="See the live view of this Unit"><i class="icon-eye-open icon-white"></i> View</a></td>
                     </tr>

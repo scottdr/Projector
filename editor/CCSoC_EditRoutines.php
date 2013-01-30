@@ -159,8 +159,8 @@ $_SESSION['ActiveNav'] = "routines";
         </p>
     </div>
     <form method="post" enctype="multipart/form-data" id="UpdateRoutines">
+    <input name="ProjectId" type="hidden" value="<?php echo $colname_foundRecord; ?>">
     <section class="row-fluid">
-    		<input name="ProjectId" type="hidden" value="<?php echo $colname_foundRecord; ?>">
         <div class="span3 offset1">
             <SELECT size="15" id="routineSelection" name="routineSelection"  multiple="multiple" style="width:100%;">
               <?php
