@@ -17,6 +17,7 @@ h6 {
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px;
+  margin-bottom: 40px;
   *zoom: 1;
 }
 

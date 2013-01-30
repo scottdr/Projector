@@ -177,29 +177,29 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   <td colspan="2">26</td>
                 </tr>-->
                 <tr>
-                  <td width="154">Unit</td>
-                  <td><input name="Unit" type="text" id="Unit" value="<?php echo $row_foundRecord['Unit']; ?>"></td>
+                  <td class="span2">Unit</td>
+                  <td class="span8"><input name="Unit" type="text" id="Unit" value="<?php echo $row_foundRecord['Unit']; ?>" rel="tooltip" data-placement="right" title="Edit the Unit where this Lesson appears."></td>
                 </tr>
                 <tr>
-                  <td width="154">Lesson Number</td>
-                  <td><input name="Number" type="text" id="Number" value="<?php echo $row_foundRecord['Number']; ?>"></td>
+                  <td>Lesson Number</td>
+                  <td><input name="Number" type="text" id="Number" value="<?php echo $row_foundRecord['Number']; ?>" rel="tooltip" data-placement="right" title="Enter the Lesson number. This determines the Lesson order."></td>
                 </tr>
                 <tr>
-                  <td width="154">Name</td>
-                  <td><input name="Name" type="text" id="Name" value="<?php echo $row_foundRecord['Name']; ?>"></td>
+                  <td>Name</td>
+                  <td><input name="Name" type="text" id="Name" value="<?php echo $row_foundRecord['Name']; ?>" rel="tooltip" data-placement="right" title="Edit the Lesson Name"></td>
                 </tr>
                 <tr>
-                  <td width="154">Author</td>
-                  <td><input name="Author" type="text" id="author" value="<?php echo $row_foundRecord['Author']; ?>"></td>
+                  <td>Author</td>
+                  <td><input name="Author" type="text" id="author" value="<?php echo $row_foundRecord['Author']; ?>" rel="tooltip" data-placement="right" title="Edit the names of the Lesson Authors"></td>
                 </tr>
                 <tr>
-                  <td width="154">Subject</td>
-                  <td><input name="Subject" type="text" id="subject" value="<?php echo $row_foundRecord['Subject']; ?>"></td>
+                  <td>Subject</td>
+                  <td><input name="Subject" type="text" id="subject" value="<?php echo $row_foundRecord['Subject']; ?>" rel="tooltip" data-placement="right" title="Edit the subject area for the Lesson"></td>
                 </tr>
                 <tr>
                   <td>Grade level</td>
                   <td>Min.
-                    <select name="MinGrade" id="MinGrade" class="span2">
+                    <select name="MinGrade" id="MinGrade" class="span2" rel="tooltip" data-placement="right" title="Select the minimum Grade level for this lesson.">
                       <option value="K" <?php if (!(strcmp("K", $row_foundRecord['GradeMin']))) {echo "selected=\"selected\"";} ?>>K</option>
                       <option value="1" <?php if (!(strcmp(1, $row_foundRecord['GradeMin']))) {echo "selected=\"selected\"";} ?>>1</option>
                       <option value="2" <?php if (!(strcmp(2, $row_foundRecord['GradeMin']))) {echo "selected=\"selected\"";} ?>>2</option>
@@ -215,7 +215,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                       <option value="12" <?php if (!(strcmp(12, $row_foundRecord['GradeMin']))) {echo "selected=\"selected\"";} ?>>12</option>
                     </select>
 &nbsp;&nbsp;&nbsp;Max.
-                   <select name="MaxGrade" class="span2" id="MaxGrade">
+                   <select name="MaxGrade" class="span2" id="MaxGrade" rel="tooltip" data-placement="right" title="Select the maximum Grade level for this lesson.">
                      <option value="K" <?php if (!(strcmp("K", $row_foundRecord['GradeMax']))) {echo "selected=\"selected\"";} ?>>K</option>
                      <option value="1" <?php if (!(strcmp(1, $row_foundRecord['GradeMax']))) {echo "selected=\"selected\"";} ?>>1</option>
                      <option value="2" <?php if (!(strcmp(2, $row_foundRecord['GradeMax']))) {echo "selected=\"selected\"";} ?>>2</option>
@@ -234,7 +234,7 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                 <tr>
                   <td>Duration<span class="muted"> (days)</span></td>
                   <td>
-                  <select name="Duration" class="span2" id="Duration">
+                  <select name="Duration" class="span2" id="Duration"  rel="tooltip" data-placement="right" title="Indicate the number of days this lesson will take to complete.">
                     <option value="1" <?php if (!(strcmp(1, $row_foundRecord['Duration']))) {echo "selected=\"selected\"";} ?>>1</option>
                     <option value="2" <?php if (!(strcmp(2, $row_foundRecord['Duration']))) {echo "selected=\"selected\"";} ?>>2</option>
                     <option value="3" <?php if (!(strcmp(3, $row_foundRecord['Duration']))) {echo "selected=\"selected\"";} ?>>3</option>
@@ -250,14 +250,14 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   </select></td>
                 </tr>
                 <tr>
-                  <td width="154">Description</td>
+                  <td>Description</td>
                   <td>
-                  <textarea name="Description" placeholder="Enter description ..." rows="10" id="Description" class="wysiwyg-editor width-auto"><?php echo $row_foundRecord['Description']; ?></textarea>
+                  <textarea name="Description" placeholder="Enter description ..." rows="10" id="Description" class="wysiwyg-editor width-auto"  rel="tooltip" data-placement="right" title="Provide a short description for this lesson."><?php echo $row_foundRecord['Description']; ?></textarea>
                   </td>
                 </tr>
                 <tr>
-                  <td width="154">Status</td>
-                  <td><select name="Status" id="Status">
+                  <td>Status</td>
+                  <td><select name="Status" id="Status" rel="tooltip" data-placement="right" title="Indicate the production status for this Lesson.">
                     <option value="Edit" <?php if (!(strcmp("Edit", $row_foundRecord['Status']))) {echo "selected=\"selected\"";} ?>>Edit</option>
                     <option value="Review" <?php if (!(strcmp("Review", $row_foundRecord['Status']))) {echo "selected=\"selected\"";} ?>>Review</option>
                     <option value="Pilot" <?php if (!(strcmp("Pilot", $row_foundRecord['Status']))) {echo "selected=\"selected\"";} ?>>Pilot</option>
@@ -265,11 +265,11 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
                   </select></td>
                 </tr>
                 <tr>
-                  <td width="154">Topic</td>
+                  <td>Topic</td>
                   <td><input name="Topic" type="text" id="Topic" value="<?php echo $row_foundRecord['Topic']; ?>"></td>
                 </tr>
                 <tr>
-                  <td width="154"></td>
+                  <td></td>
                   <td>
                   <input class="btn btn-primary" type="submit" name="button" id="button" value="Save" />
                   <a href="_php/DeleteProject.php?Id=<?php echo $projectId; ?>" class="btn btn-primary btn-danger">Delete</a>
@@ -292,6 +292,13 @@ $totalRows_TopicsMenu = mysql_num_rows($TopicsMenu);
 <script src="js/wysihtml5-0.3.0.js"></script>
 <script src="js/prettify.js"></script>
 <script src="js/bootstrap-wysihtml5.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+    });
+</script>
 
 <script>
 	$('.wysiwyg-editor').wysihtml5();
