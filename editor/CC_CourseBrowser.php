@@ -78,7 +78,7 @@ function getGrade($row_foundRecord)
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid" style="margin-top: 44px;">
-        <div class="span11 offset1">Courses:</h3>
+        <h3 class="span11 offset1">Courses:</h3>
 	</section>
     <section class="row-fluid">
         <p class="span11 offset1">
