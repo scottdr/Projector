@@ -100,8 +100,8 @@ if (isset($_SERVER['QUERY_STRING'])) {
         <h3 class="span11 offset1">
         	Units:
             <br/><br/>
-            
-            <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="Projector_MediaEdit.php?action=Add<?php if ($courseId > 0) echo "&CourseId=" . $courseId; if (isset($projectName)) echo "&ProjectName=" . $courseName; ?>">
+            <!-- This was the link in the Add new Unit button below - Projector_MediaEdit.php?action=Add<?php if ($courseId > 0) echo "&CourseId=" . $courseId; if (isset($projectName)) echo "&ProjectName=" . $courseName; ?>-->
+            <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="#">
             <i class="icon-plus"></i> 
             Add new Unit
             </a>
