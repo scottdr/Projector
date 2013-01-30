@@ -78,14 +78,18 @@ function getGrade($row_foundRecord)
     <!-- CONTENT STARTS -->
     
 	<section class="row-fluid" style="margin-top: 44px;">
-        <h3 class="span11 offset1"> Courses:</h3>
+        <h3 class="span11 offset1">Courses:</h3>
 	</section>
     <section class="row-fluid">
-        <p class="span11 offset1">Select a course to edit or <a href="#">add a new course</a></p>
+        <p class="span11 offset1">
+        <a class="btn" href="#">
+            <i class="icon-plus"></i> 
+            Add new Course
+        </a>
     </section>
     <section class="row-fluid">
-    <div class="span10 offset1" style="background-color: #EDEDED;">
-    <p style="padding:10px; margin:0;">Filter: &nbsp;
+    <div class="span10 offset1" style="background-color: #F9F9F9; padding: 10px;">
+    <p style="margin:0; padding-top:10px; line-height:12px;">Filter: &nbsp;
         <select class="dropdown">
           <option>Select Grade</option>
         </select>
@@ -101,20 +105,20 @@ function getGrade($row_foundRecord)
                 <thead>
                     <tr>
                         <th width="10%">&nbsp;</th>
-                        <th width="10%">&nbsp;</th>
                         <th width="40%">Name</th>
                         <th width="10%">Grade</th>
                         <th width="30%">Subject</th>
+                        <th width="10%">&nbsp;</th>
 						</tr>
                 </thead>
                 <tbody>
                 	<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "CC_EditCourse.php"; echo "?Id=" . $row_CourseList['Id'] ?>"><i class="icon-edit icon-white"></i> Edit</a></td>
-                        <td><a class="btn btn-mini btn-primary" href="../CC_UnitBrowserLive.php?CourseId=<?php echo $row_CourseList['Id']; ?>"><i class="icon-eye-open icon-white"></i> View</a></td>
-                        <td><a href="CC_ViewUnits.php?CourseId=<?php echo $row_CourseList['Id']; ?>"><?php echo $row_CourseList['Name']; ?></a></td>
+                        <td><a class="btn btn-mini btn-primary" href="<?php if ($PROJECTOR["cc"]) echo "CCSoC_EditLesson.php"; else echo "CC_EditCourse.php"; echo "?Id=" . $row_CourseList['Id'] ?>" rel="tooltip" data-placement="top" title="Edit the Course information"><i class="icon-edit icon-white"></i> Edit</a></td>
+                        <td><a href="CC_ViewUnits.php?CourseId=<?php echo $row_CourseList['Id']; ?>" rel="tooltip" data-placement="top" title="View the Units within this Course"><?php echo $row_CourseList['Name']; ?></a></td>
                         <td><?php echo $row_CourseList['Grade']; ?></td>
                         <td><?php echo $row_CourseList['Subject']; ?></td>
+                        <td><a class="btn btn-mini btn-success btn-right" href="../CC_UnitBrowserLive.php?CourseId=<?php echo $row_CourseList['Id']; ?>"  rel="tooltip" data-placement="top" title="See the live view of this Course"><i class="icon-eye-open icon-white"></i> View</a></td>
                     </tr>
                   <?php } while ($row_CourseList = mysql_fetch_assoc($CourseList)); ?>
                 </tbody>
@@ -132,6 +136,12 @@ function getGrade($row_foundRecord)
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+    });
+</script>
 </body>
 </html>
 <?php

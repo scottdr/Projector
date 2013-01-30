@@ -115,21 +115,20 @@ if (isset($_SERVER['QUERY_STRING'])) {
                 <thead>
                     <tr>
                         <th width="10%">&nbsp;</th>
-                        <th width="10%">&nbsp;</th>
                       	<!--<th width="5%">ID</th> -->
                         <th width="80%">Unit</th>
                         <!--<th width="10%">Project ID</th>-->
+                        <th width="10%">&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
                 		<?php do { ?>
                     <tr>
-                        <td><a class="btn btn-mini btn-primary" href="CC_EditUnit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($courseId)) echo "&ProjectId=" . $courseId;?>"><i class="icon-edit icon-white"></i> Edit</a>
-                  			</td>
-                        <td width="140"><a class="btn btn-mini btn-primary" href="../CC_EpisodeBrowserLive.php?CourseId=<?php echo $courseId . "&UnitId=" . $row_MediaQuery['Id']; ?>"><i class="icon-eye-open icon-white"></i> View</a></td>
+                        <td><a class="btn btn-mini btn-primary" href="CC_EditUnit.php?Id=<?php echo $row_MediaQuery['Id']; if (isset($projectName)) echo "&ProjectName=" . $projectName; if (isset($courseId)) echo "&ProjectId=" . $courseId;?>" rel="tooltip" data-placement="top" title="Edit the Unit information"><i class="icon-edit icon-white"></i> Edit</a></td>
                         <!-- <td><?php echo $row_MediaQuery['Id']; ?></td> -->
-                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>&CourseId=<?php echo $courseId; ?>"><?php echo $row_MediaQuery['Name']; ?></a></td>
+                        <td><a href="CC_ViewLessons.php?UnitId=<?php echo $row_MediaQuery['Id']; ?>&CourseId=<?php echo $courseId; ?>"  rel="tooltip" data-placement="top" title="View the Lessons within this Unit"><?php echo $row_MediaQuery['Name']; ?></a></td>
                         <!--<td><?php echo $row_MediaQuery['ProjectId']; ?></td>-->
+                        <td><a href="../CC_EpisodeBrowserLive.php?CourseId=<?php echo $courseId . "&UnitId=" . $row_MediaQuery['Id']; ?>" class="btn btn-mini btn-success btn-right" rel="tooltip" data-placement="top" title="See the live view of this Unit"><i class="icon-eye-open icon-white"></i> View</a></td>
                     </tr>
                   	<?php } while ($row_MediaQuery = mysql_fetch_assoc($MediaQuery)); ?>
                 </tbody>
@@ -144,5 +143,11 @@ if (isset($_SERVER['QUERY_STRING'])) {
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+    });
+</script>
 </body>
 </html>

@@ -123,6 +123,7 @@ caption {
 	margin-left: 40px;
 }
 #footer {
+	position:fixed;
 	margin-top: 100px;
 	background-color: #364395;
 	margin-right: auto;
