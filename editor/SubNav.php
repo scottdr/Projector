@@ -26,5 +26,5 @@ if ($PROJECTOR['cc']) {
           <li <?php if (isset($_SESSION['ActiveNav']) && $_SESSION['ActiveNav'] == 'steps') echo 'class="active" '; ?>><a href="<?php echo $EditStepsURL; if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-edit"></i> Steps</a></li>
           <li <?php if (isset($_SESSION['ActiveNav']) && $_SESSION['ActiveNav'] == 'media') echo 'class="active" '; ?>><a href="Projector_ViewMedia.php<?php if (isset($projectId)) echo "?Id=" . $projectId; ?>"><i class="icon-eye-open"></i> Media</a></li>
           
-          <li><a href="<?php echo $ChallengeURL; ?>?Id=<?php if (isset($projectId)) echo $projectId;  if (isset($unitId)) echo "&UnitId=" . $unitId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
+          <li><a href="<?php echo $ChallengeURL; if (isset($GLOBALS['instance']) && $GLOBALS['instance'] == "ccsoc") echo "?Id="; else echo "?ProjectId="; if (isset($projectId)) echo $projectId;  if (isset($unitId)) echo "&UnitId=" . $unitId; ?>"><i class="icon-eye-open"></i> Preview</a></li>
 </ul>
