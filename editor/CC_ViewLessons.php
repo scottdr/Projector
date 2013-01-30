@@ -110,7 +110,7 @@ if ($courseId > 0 && $unitId > 0)
   
     <div class="navbar">
       <div class="navbar-inner">
-      	<h2 class="brand"><?php echo $breadCrumbTrail; ?></h2>
+      	<h2 class="brand" style="font-size:16px;"><?php echo $breadCrumbTrail; ?></h2>
       </div>
     </div>  
     <!-- CONTENT STARTS -->
@@ -120,7 +120,7 @@ if ($courseId > 0 && $unitId > 0)
 	</section>
     <section class="row-fluid">
         <p class="span11 offset1">
-        <a class="btn" href="Projector_EditChallenge.php">
+        <a class="btn btn-small" href="Projector_EditChallenge.php">
             <i class="icon-plus"></i> 
             Add new <?php if ($PROJECTOR['cc']) echo "lesson"; else echo "project"; ?>
         </a>

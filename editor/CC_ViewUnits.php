@@ -88,7 +88,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS START -->
     <div class="navbar">
       <div class="navbar-inner">
-      	<h2 class="brand"><a href="CC_CourseBrowser.php">Courses</a>&nbsp;&#47;&nbsp;<?php echo $courseName; ?></h2>
+      	<h2 class="brand" style="font-size:16px;"><a href="CC_CourseBrowser.php">Courses</a>&nbsp;&#47;&nbsp;<?php echo $courseName; ?></h2>
       </div>
     </div>
     <!-- PROJECTOR CONTEXT SENSITIVE NAV BUTTONS END -->
@@ -97,16 +97,16 @@ if (isset($_SERVER['QUERY_STRING'])) {
     
 	<section class="row-fluid" style="margin-top: 44px;">
 
-        <h3 class="span11 offset1">
-        	Units:
-            <br/><br/>
+        <div class="span11 offset1">
+        	<h3>Units: </h3>
             <!-- This was the link in the Add new Unit button below - Projector_MediaEdit.php?action=Add<?php if ($courseId > 0) echo "&CourseId=" . $courseId; if (isset($projectName)) echo "&ProjectName=" . $courseName; ?>-->
-            <a class="btn btn-small" style="height:20px; padding:5px; line-height:20px;" href="#">
+            <a class="btn btn-small" href="#">
             <i class="icon-plus"></i> 
             Add new Unit
             </a>
+       </div>
         
-        </h3>
+       
 
   </section>
     <section class="row-fluid">
