@@ -87,6 +87,8 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 <script src="_scripts/challengeVideo.js" type="text/javascript"></script>
 <script src="_scripts/challengeAudioSupportJPlayer.js" type="text/javascript"></script>
 <script src="_scripts/challengeTablet.js"></script>
+<script src="_scripts/math.js"></script>
+<script src="_scripts/video.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){ 
 	
@@ -103,6 +105,22 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 			$('#TeacherNotes-Close-CC').css({'display':'none'});
 			return false;
 		});
+		
+		if (!isVideoCapable()) {
+		  if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
+			if (document.getElementsByTagName("video").length > 0) {
+				var vidCSS = document.createElement("link");
+				  vidCSS.href = "http://vjs.zencdn.net/c/video-js.css";
+				  vidCSS.rel = "stylesheet";
+				  document.getElementsByTagName("head")[0].appendChild(vidCSS);
+				
+				  var vidScript = document.createElement("script");
+				  vidScript.type = "text/javascript";
+				  vidScript.src = "http://vjs.zencdn.net/c/video.js";
+				  document.getElementsByTagName("head")[0].appendChild(vidScript);
+				}
+			}
+		}
 	
 	});
 </script>

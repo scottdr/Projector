@@ -1,9 +1,9 @@
 						<!-- MEDIA LEFT STACKED -->
                         <div class="row-fluid">
                          	<div class="span6 offset1">
-								<?php GenerateImageTag(0); ?>
+								<?php GenerateMediaTag(0); ?>
                                 <br/><br/>
-                                <?php GenerateImageTag(0); ?>
+                                <?php GenerateMediaTag(0); ?>
                             </div>
                            	<div class="span4 lessonContent">
                             	<div class="lesson-carousel-content">

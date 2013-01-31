@@ -6,8 +6,8 @@
                                 </div>
                             </div>
                            	<div class="span6 ">
-								<?php GenerateImageTag(0); ?>
+								<?php GenerateMediaTag(0); ?>
                                 <br/><br/>
-                                <?php GenerateImageTag(0); ?>
+                                <?php GenerateMediaTag(0); ?>
                             </div><!-- /.span -->
                         </div><!-- /.row fluid -->

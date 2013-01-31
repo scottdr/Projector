@@ -7,7 +7,7 @@
         </div>
         
         <div id="FullWidthBgImg">
-            <?php GenerateImageTag(0); ?>
+            <?php GenerateMediaTag(0); ?>
         </div>
         
     </div>

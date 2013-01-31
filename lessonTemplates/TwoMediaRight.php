@@ -4,8 +4,8 @@
   	<div id="Text"><?php echo $row_StepQuery['Text']; ?></div>
   </div>
   <div id="MediaRightColumnRight">
-	  <?php GenerateImageTag(0); ?>
+	  <?php GenerateMediaTag(0); ?>
       <br/> <br/>
-      <?php GenerateImageTag(1); ?>
+      <?php GenerateMediaTag(1); ?>
   </div>
 </div>
