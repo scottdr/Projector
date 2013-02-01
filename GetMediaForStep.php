@@ -8,7 +8,7 @@ function GetMediaForStep($StepId,$mediaType) {
 	mysql_select_db($database_projector, $projector);
 	
 	// Scan for image media.
-	$sqlStatement = "SELECT Media.Id, Media.Caption, Media.Url, MediaAttach.Type FROM Media, MediaAttach WHERE MediaAttach.MediaId = Media.Id AND MediaAttach.Type != 1 AND MediaAttach.StepId = " . $StepId;
+	$sqlStatement = "SELECT Media.Id, Media.Caption, Media.Url, MediaAttach.Type FROM Media, MediaAttach WHERE MediaAttach.MediaId = Media.Id AND (MediaAttach.Type != 1 OR MediaAttach.Type IS NULL) AND MediaAttach.StepId = " . $StepId;
 	$media = mysql_query($sqlStatement, $projector) or die(mysql_error());
 	$media_steps = mysql_fetch_assoc($media);
 	do {
@@ -46,17 +46,21 @@ function GenerateMediaTag($rowNumber) {
 	if ($rowNumber < count($mediaArray))
 		$rowData = $mediaArray[$rowNumber];
 	if (isset($rowData)) {
-		switch ($rowData['Type'])
-		{
-			case 0:
-				GenerateImageTag($rowNumber);
-				break;
-			case 1:
-				GenerateVideoTag($rowNumber);
-				break;
-			default:
-				GenerateImageTag($rowNumber);
-				break;
+		if ($rowData['Type']) {
+		  switch ($rowData['Type'])
+		  {
+			  case 0:
+				  GenerateImageTag($rowNumber);
+				  break;
+			  case 1:
+				  GenerateVideoTag($rowNumber);
+				  break;
+			  default:
+				  GenerateImageTag($rowNumber);
+				  break;
+		  }
+		} else {
+			GenerateImageTag($rowNumber);
 		}
 	}
 }
