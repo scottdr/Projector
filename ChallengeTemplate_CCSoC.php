@@ -106,22 +106,6 @@ $totalRows_projectName = mysql_num_rows($projectNameResults);
 			return false;
 		});
 		
-		if (!isVideoCapable()) {
-		  if ((window.unsafeWindow == null ? window : unsafeWindow).MathJax == null) {
-			if (document.getElementsByTagName("video").length > 0) {
-				var vidCSS = document.createElement("link");
-				  vidCSS.href = "http://vjs.zencdn.net/c/video-js.css";
-				  vidCSS.rel = "stylesheet";
-				  document.getElementsByTagName("head")[0].appendChild(vidCSS);
-				
-				  var vidScript = document.createElement("script");
-				  vidScript.type = "text/javascript";
-				  vidScript.src = "http://vjs.zencdn.net/c/video.js";
-				  document.getElementsByTagName("head")[0].appendChild(vidScript);
-				}
-			}
-		}
-	
 	});
 </script>
 </head>

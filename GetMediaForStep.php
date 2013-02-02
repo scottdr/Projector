@@ -76,9 +76,9 @@ function GenerateVideoTag($rowNumber) {
 		if ($rowData['PosterUrl'])
 			print 'poster="' . $rowData['PosterUrl'] . '"';
 		print ' >';
-		print '\t<source src="' . $rowData['mp4Url'] . '" type=\'video/mp4\'>';
+		print '<source src="' . $rowData['mp4Url'] . '" type=\'video/mp4\'>';
 		print '</video>';
-		//print implode(",", $rowData);
+		print '<script type="text/javascript"> initVideo(); </script>';
 	} else
 		print '<img src="lessonTemplates/images/mountains.jpg" />';
 }
