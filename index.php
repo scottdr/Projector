@@ -33,7 +33,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 
 // redirect to different home page for ccsoc
-if ($GLOBALS['instance'] == "ccsoc") {
+if (isset($GLOBALS['instance']) && $GLOBALS['instance'] == "ccsoc") {
 	header(sprintf("Location: %s", "editor/CC_CourseBrowser.php"));
 	die;
 }
