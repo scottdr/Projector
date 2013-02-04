@@ -79,6 +79,20 @@ $foundRecord = mysql_query($query_foundRecord, $projector) or die(mysql_error())
 $row_foundRecord = mysql_fetch_assoc($foundRecord);
 $totalRows_foundRecord = mysql_num_rows($foundRecord);
 
+/* SCOTT TO DO make Topic really dynamic instead of using hard coded css style names add code below to get Topic info
+$totalRows_FeaturedProject = 0;
+// if this project is part of a featured topic get info for styling it 
+if ($row_foundRecord["Topic"] > 0) {
+	$query_FeaturedProject = "SELECT * FROM Topics WHERE Id = " . $row_foundRecord["Topic"];
+	$FeaturedProject = mysql_query($query_FeaturedProject, $projector) or die(mysql_error());
+	$row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
+	$totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
+	if ($totalRows_FeaturedProject == 1) {
+			$topicName = $row_FeaturedProject["Name"];
+	}
+}
+*/
+
 $colname_ProjectDetails = "-1";
 if (isset($_GET['Id'])) {
   $colname_ProjectDetails = $_GET['Id'];
@@ -156,6 +170,12 @@ else
                   <div class="GalleryDetailsBar"></div>
                   <div class="GalleryDetailsThumbnailIcon"></div>
                 <?php endif; ?>
+                <?php 
+									if ($row_foundRecord['Topic'] > 1) {
+                  	echo '<div class="GalleryDetailsBarTopic' . $row_foundRecord['Topic'] . '"></div>';
+       							echo '<div class="GalleryDetailsThumbnailIconTopic' . $row_foundRecord['Topic'] . '"></div>';
+									}
+                ?>
                 <div class="projectInfo">
                     <div class="projectData">
                       <h2>Challenge Objective:</h2>

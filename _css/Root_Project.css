@@ -735,6 +735,29 @@ a.navDown {
 	overflow: hidden;
 	top: 0px;
 }
+.GalleryDetailsThumbnailIconTopic3 {
+	position: absolute;
+	display: block;
+	z-index: 6;
+	background-image: url(/_images/topics/3/gaming_badge_80x71.png);
+	width: 100px;
+	height: 80px;
+	border: 0;
+	padding: 0px;
+	background-repeat: no-repeat;
+	top: 10px;
+}
+.GalleryDetailsBarTopic3 {
+	background-color: #0FCC10;
+	width: 100%;
+	position: absolute;
+	display: block;
+	z-index: 5;
+	height: 10px;
+	color: #FFF;
+	overflow: hidden;
+	top: 0px;
+}
 .GalleryDetails  h1{
 	margin-bottom: 10px;
 	font-weight: 500;
