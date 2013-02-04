@@ -210,12 +210,23 @@ if ($totalRows_FeaturedProject > 0)		// if we have a featured topic set the feat
 
         <div id="HomeBannerDiv">
         
-            <p><? echo $PROJECTOR['thename'] ?> is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
+        	<p>The Projector project and website are currently on hold indefinitely. 
+            Until further notice, we are unable to implement new features and new 
+            projects, and are unable to support educators in implementing existing 
+            projects in their classrooms. We continue in our belief in project-based 
+            learning and the goals of the Projector, and we invite you to help 
+            yourself to any content you find on this site. For more information and 
+            materials related to project-based learning, we refer you to the Buck 
+            Institute for Education.</p>
+			<p style="text-align:right;">---The Projector Team </p>
+
+        
+            <!--<p><? echo $PROJECTOR['thename'] ?> is a free, community-driven set of high-quality projects for classrooms everywhere. It provides interdisciplinary, authentic experiences that blend informal and formal learning environments.  <br/><a href="About.php">Read more.</a></p>
             <hr />
             <a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><img src="<?php echo $row_FeaturedProject['LargeIcon']; ?>" alt="<?php echo $row_FeaturedProject['Name']; ?>" /></a>
             <p style="font-size:14px; padding-top:5px;">This month ...</p>
             <h1><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>"><?php echo $row_FeaturedProject['Name']; ?></a></h1>
-            <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+            <p><?php echo $row_FeaturedProject['TagLine']; ?></p>-->
             <hr />
             <div id="slides">
                 <div id="HomeBannerRotatorPrevious">
