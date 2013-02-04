@@ -15,7 +15,9 @@ else
 $FeaturedProject = mysql_query($query_FeaturedProject, $projector) or die(mysql_error());
 $row_FeaturedProject = mysql_fetch_assoc($FeaturedProject);
 $totalRows_FeaturedProject = mysql_num_rows($FeaturedProject);
-	
+$topicName = "";
+if ($totalRows_FeaturedProject == 1)
+		$topicName = $row_FeaturedProject["Name"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -78,7 +80,7 @@ $(document).ready(function() {
                 <div>
                     <h1 style="color:#333"><?php echo $row_FeaturedProject['Name']; ?></h1>
                     <p style="color:#333"><?php echo $row_FeaturedProject['TagLine']; ?></p>
-                    <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View Projects</a></p>
+                    <p><a href="Gallery.php?topic=<?php echo $row_FeaturedProject['Id']; ?>">View <?php if ($topicName != "") echo $topicName . " "; ?>Projects</a></p>
                 </div>
             </div>
            
@@ -91,6 +93,7 @@ $(document).ready(function() {
                 <div>
                   <h1><?php echo $row_FeaturedProject['Name']; ?></h1>
                   <p><?php echo $row_FeaturedProject['TagLine']; ?></p>
+                  <p><a href="Gallery.php">View All Projects</a></p>
                 </div>
             </div>
             <div class="horzontalSpacer"></div>
