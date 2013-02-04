@@ -39,8 +39,12 @@ do {
 		print "<div class=\"GalleryBlueBar\">Pilot Project</div>";
 	if ($row_Recordset1['Status'] != "Pilot")
 		print "<div class=\"GalleryBlueBar\" style=\"visibility: hidden;\"></div>";
-	if ($row_Recordset1['Topic'] == "1")
-  	print "<div class=\"GalleryThumbnailIcon\"></div>";
+	if ($row_Recordset1['Topic'] > 0) {
+  	if ($row_Recordset1['Topic'] == 1)
+			print "<div class=\"GalleryThumbnailIcon\"></div>";
+		else
+			print "<div class=\"GalleryThumbnailIconTopic" . $row_Recordset1['Topic'] . "\"></div>";
+	}
 	print "\n\t<div class=\"GalleryMedia\">";
 	print "\n\t\t<a href=\"ProjectDetails.php?Id=" . $row_Recordset1['Id']. "\"><img src=\"" . $row_Recordset1['ImgSmall'] . "\" width=\"300\" height=\"200\" /></a>";
 	print "\n\t</div>";
