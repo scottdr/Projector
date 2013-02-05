@@ -216,8 +216,8 @@ if ($totalRows_FeaturedProject > 0)		// if we have a featured topic set the feat
             projects in their classrooms. We continue in our belief in project-based 
             learning and the goals of the Projector, and we invite you to help 
             yourself to any content you find on this site. For more information and 
-            materials related to project-based learning, we refer you to the Buck 
-            Institute for Education.</p>
+            materials related to project-based learning, we refer you to the <a href="http://www.bie.org">Buck 
+            Institute for Education</a>.</p>
 			<p style="text-align:right;">---The Projector Team </p>
 
         
