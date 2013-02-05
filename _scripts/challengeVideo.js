@@ -296,9 +296,11 @@ function loadStep(StepId,StepOrderNumber, StepPhaseNumber)
 				
 				
 				// if we are on the very first step
+/*			SCOTT we are no longer supporting the slide show so this is not needed anymore
 				if (StepOrderNumber == 1) {
 					requestPresentationData(ProjectId);
 				}
+				*/
 				// Send custom 'HTMLChange' event to inform of update.
 				$('#ContentScreens').trigger('HTMLChange');
 				
