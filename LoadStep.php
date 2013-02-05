@@ -44,9 +44,13 @@ if (isset($_GET['ProjectId'])) {
   $ProjectId = $_GET['ProjectId'];
 }
 mysql_select_db($database_projector, $projector);
-if (isset($ProjectId) && isset($StepNumber))
-	$query_StepQuery = sprintf("SELECT * FROM Steps WHERE ProjectId = %s AND SortOrder = %s", GetSQLValueString($ProjectId, "int"), GetSQLValueString($StepNumber, "int"));
-else 
+if (isset($ProjectId) && isset($StepNumber)) {
+	// SCOTT TO DO following needs to be fixed to take into account the order of the RoutineAttach table
+	if (isset($PROJECTOR['cc']) && $PROJECTOR['cc'])
+		$query_StepQuery = sprintf("SELECT * FROM Steps WHERE ProjectId = %s AND SortOrder = %s", GetSQLValueString($ProjectId, "int"), GetSQLValueString($StepNumber, "int"));
+	else	// This is a temp hack to get PRojector working since RoutineId = 1 is always the first Routine
+		$query_StepQuery = sprintf("SELECT * FROM Steps WHERE ProjectId = %s AND RoutineId = 1 AND SortOrder = %s", GetSQLValueString($ProjectId, "int"), GetSQLValueString($StepNumber, "int"));
+} else 
 	$query_StepQuery = sprintf("SELECT * FROM Steps WHERE Id = %s", GetSQLValueString($colname_StepQuery, "int"));
 // print "sql: " . $query_StepQuery;
 $StepQuery = mysql_query($query_StepQuery, $projector) or die(mysql_error());
